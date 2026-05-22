@@ -1,4 +1,4 @@
-# 💾 VIBELYF NATION — SESSION SAVE STATE
+# 💾 VibeLyf — SESSION SAVE STATE
 > **Created:** May 14, 2026  
 > **Purpose:** Continue development in a new chat session  
 > **Project Status:** ✅ STABLE — 0 JS errors, all 9 modules operational  
@@ -10,7 +10,7 @@
 
 **Paste this into your new chat to resume:**
 
-> I'm continuing work on VIBELYF NATION. Please read `SAVE_STATE.md` and `README.md` to understand the current project state. The main app is `index.html` (~421KB single-page app). The design system is `css/red-glassmorphism.css` (Blue Glassmorphism v2.1 — file is named "red" from legacy, but all colors are deep navy blue). The hover-reveal tab system is `js/vibelyf-tabs.js`.
+> I'm continuing work on VibeLyf. Please read `SAVE_STATE.md` and `README.md` to understand the current project state. The main app is `index.html` (~421KB single-page app). The design system is `css/red-glassmorphism.css` (Blue Glassmorphism v2.1 — file is named "red" from legacy, but all colors are deep navy blue). The hover-reveal tab system is `js/vibelyf-tabs.js`.
 
 ---
 

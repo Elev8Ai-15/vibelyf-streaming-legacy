@@ -11,7 +11,7 @@
 
 ## 🔒 Reporting a Vulnerability
 
-If you discover a security vulnerability in VibeLyf Nation, please **do not** open a public issue. Instead:
+If you discover a security vulnerability in VibeLyf, please **do not** open a public issue. Instead:
 
 1. Email the maintainers (replace with your contact): `security@vibelyf.example.com`
 2. Include:
@@ -67,4 +67,4 @@ If you fork VibeLyf to run your own instance:
 - Critical vulnerabilities will be patched and disclosed within 30 days
 - Researchers acting in good faith will be credited
 
-Thank you for helping keep VibeLyf Nation secure! 🛡️
+Thank you for helping keep VibeLyf secure! 🛡️

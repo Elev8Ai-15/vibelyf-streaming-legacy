@@ -1,4 +1,4 @@
-# Contributing to VibeLyf Nation
+# Contributing to VibeLyf
 
 First off — thanks for considering contributing! VibeLyf is an AI-powered social creation platform built around **linguistic diversity as a bridge to tech literacy**. Contributions of all kinds are welcome.
 

@@ -1,4 +1,4 @@
-# 🌐 VibeLyf Nation
+# 🌐 VibeLyf
 
 > AI-powered social creation platform that **understands slang**, **teaches communication**, and **builds apps from your words**.
 
@@ -221,7 +221,7 @@ Found a vulnerability? See [`SECURITY.md`](SECURITY.md) for responsible disclosu
 
 ## 📜 License
 
-[MIT](LICENSE) © 2026 VibeLyf Nation
+[MIT](LICENSE) © 2026 VibeLyf
 
 ---
 
