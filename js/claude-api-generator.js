@@ -17,7 +17,7 @@ const ClaudeAPIGenerator = {
         claudeModel: 'claude-sonnet-4-6',
         // NOTE: This key was hardcoded in the Genspark export. Phase 1.H moves it
         //       to the Cloudflare Workers proxy. Rotate this key before Phase 1.F (GitHub push).
-        claudeApiKey: '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',
+        claudeApiKey: '' /* TODO Phase 1.H — Worker proxy supplies this; never hardcode again */,
         maxTokens: 4096,
         debug: true
     },

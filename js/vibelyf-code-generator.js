@@ -15,7 +15,7 @@
 const VibeLyfCodeGenerator = {
     // Gemini API Configuration
     config: {
-        apiKey: 'AIzaSyB9jQaRGkfj4Tyq5y5j45RiYAeb_H2e-2g',
+        apiKey: '' /* TODO Phase 1.H — Worker proxy supplies this; never hardcode again */,
         model: 'gemini-3.5-flash',
         endpoint: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent',
         // Fallback chain: try latest first, fall back gracefully
