@@ -1,0 +1,1290 @@
+{
+  "source": "Gemini Language Data PDF - The Socio-Semantic Landscape of Non-Standard English",
+  "documentTitle": "An Exhaustive Analysis of Dialectal Variation, Subcultural Lexicons, and Digital Evolution",
+  "totalTerms": 105,
+  "academicCitations": 50,
+  "categories": {
+    "aave_aal": {
+      "categoryName": "African American Vernacular English / African American Language",
+      "termCount": 13,
+      "terms": [
+        {
+          "term": "ashy",
+          "definition": "Dry skin (visible grayish tone on darker skin)",
+          "context": "Physical description, self-care discourse",
+          "etymology": "Literal description of dry skin appearance",
+          "confidence": 0.99,
+          "category": "AAVE",
+          "sociolinguisticMarker": "Phenotype-specific vocabulary",
+          "covertPrestige": true
+        },
+        {
+          "term": "bae",
+          "definition": "Term of endearment (\"before anyone else\" backronym)",
+          "context": "Romantic relationships, close friendships",
+          "etymology": "Shortened form of 'babe' or 'baby', later given backronym 'before anyone else'",
+          "confidence": 0.98,
+          "category": "AAVE",
+          "sociolinguisticMarker": "Affectionate address term",
+          "covertPrestige": true
+        },
+        {
+          "term": "bet",
+          "definition": "Agreement, affirmation (\"okay\", \"sure\")",
+          "context": "Casual conversation, confirming plans",
+          "etymology": "From gambling terminology indicating confidence in outcome",
+          "confidence": 0.99,
+          "category": "AAVE",
+          "sociolinguisticMarker": "Discourse marker - agreement",
+          "covertPrestige": true
+        },
+        {
+          "term": "black tax",
+          "definition": "Extra emotional labor/representation burden on Black individuals in predominantly white spaces",
+          "context": "Workplace discussions, academic settings, social commentary",
+          "etymology": "Metaphorical extension of economic taxation to cultural burden",
+          "confidence": 0.97,
+          "category": "AAVE",
+          "sociolinguisticMarker": "Critical race theory concept",
+          "covertPrestige": false
+        },
+        {
+          "term": "cap",
+          "definition": "Lie, falsehood",
+          "context": "Calling out dishonesty",
+          "etymology": "Possibly from 'high-capping' (bragging) or 'capping' (joking)",
+          "confidence": 0.98,
+          "category": "AAVE",
+          "sociolinguisticMarker": "Truth-value assessment",
+          "covertPrestige": true
+        },
+        {
+          "term": "no cap",
+          "definition": "No lie, truthfully",
+          "context": "Emphasizing honesty in statements",
+          "etymology": "Negation of 'cap' (lie)",
+          "confidence": 0.99,
+          "category": "AAVE",
+          "sociolinguisticMarker": "Truth-value intensifier",
+          "covertPrestige": true
+        },
+        {
+          "term": "finna",
+          "definition": "Going to, about to (contracted 'fixing to')",
+          "context": "Indicating immediate future action",
+          "etymology": "Phonological reduction: fixing to → fixin' to → finna",
+          "confidence": 0.99,
+          "category": "AAVE",
+          "sociolinguisticMarker": "Aspect marker - immediate future",
+          "covertPrestige": true
+        },
+        {
+          "term": "kitchen",
+          "definition": "Nape of neck where hair is tightest/curliest",
+          "context": "Hair care discussions, Black hair culture",
+          "etymology": "Metaphorical reference to hottest part of house",
+          "confidence": 0.96,
+          "category": "AAVE",
+          "sociolinguisticMarker": "Culturally-specific body terminology",
+          "covertPrestige": true
+        },
+        {
+          "term": "read",
+          "definition": "Witty insult that exposes truth about someone",
+          "context": "Verbal sparring, ballroom culture",
+          "etymology": "From 'reading someone for filth' - analyzing and exposing flaws",
+          "confidence": 0.98,
+          "category": "AAVE",
+          "sociolinguisticMarker": "Performative speech act",
+          "covertPrestige": true
+        },
+        {
+          "term": "reading",
+          "definition": "Act of delivering witty, truth-based insults",
+          "context": "Ballroom culture, drag culture, Black queer spaces",
+          "etymology": "Gerund form of 'read' - analyzing someone critically",
+          "confidence": 0.98,
+          "category": "AAVE",
+          "sociolinguisticMarker": "Verbal art form",
+          "covertPrestige": true
+        },
+        {
+          "term": "sad",
+          "definition": "Describing someone as pathetic or pitiful (not emotionally sad)",
+          "context": "Critiquing behavior, fashion, or actions",
+          "etymology": "Semantic shift from emotional state to value judgment",
+          "confidence": 0.95,
+          "category": "AAVE",
+          "sociolinguisticMarker": "Semantic inversion",
+          "covertPrestige": true
+        },
+        {
+          "term": "sid",
+          "definition": "Variant of 'said' used for emphasis",
+          "context": "Reported speech, emphasizing what was stated",
+          "etymology": "Phonological variant maintaining stress pattern",
+          "confidence": 0.93,
+          "category": "AAVE",
+          "sociolinguisticMarker": "Quotative marker",
+          "covertPrestige": true
+        },
+        {
+          "term": "spill tea",
+          "definition": "Share gossip or secrets",
+          "context": "Social conversations, revealing information",
+          "etymology": "From 'tea' (gossip) + 'spill' (reveal); drag/ballroom culture origin",
+          "confidence": 0.97,
+          "category": "AAVE",
+          "sociolinguisticMarker": "Discourse marker - gossip exchange",
+          "covertPrestige": true
+        },
+        {
+          "term": "stay",
+          "definition": "Habitual aspect marker (always, consistently)",
+          "context": "Describing ongoing characteristic behavior",
+          "etymology": "Grammaticalization from locative verb to aspect marker",
+          "confidence": 0.98,
+          "category": "AAVE",
+          "sociolinguisticMarker": "Habitual aspect marker (like 'be')",
+          "covertPrestige": true
+        },
+        {
+          "term": "thick",
+          "definition": "Curvaceous body type (positive connotation)",
+          "context": "Physical attractiveness, body positivity",
+          "etymology": "Semantic shift from density to body shape appreciation",
+          "confidence": 0.98,
+          "category": "AAVE",
+          "sociolinguisticMarker": "Beauty standard terminology",
+          "covertPrestige": true
+        },
+        {
+          "term": "thicc",
+          "definition": "Deliberately misspelled 'thick' for emphasis",
+          "context": "Internet memes, body positivity discourse",
+          "etymology": "Orthographic variation for emphasis and humor",
+          "confidence": 0.97,
+          "category": "AAVE",
+          "sociolinguisticMarker": "Internet slang orthographic play",
+          "covertPrestige": true
+        }
+      ]
+    },
+    "appalachian": {
+      "categoryName": "Appalachian English",
+      "termCount": 19,
+      "terms": [
+        {
+          "term": "afeared",
+          "definition": "Afraid, frightened",
+          "context": "Expressing fear or concern",
+          "etymology": "Archaic English form preserved in Appalachia",
+          "confidence": 0.96,
+          "category": "Appalachian",
+          "sociolinguisticMarker": "Archaic retention",
+          "covertPrestige": true
+        },
+        {
+          "term": "airish",
+          "definition": "Chilly, breezy",
+          "context": "Weather descriptions",
+          "etymology": "Derived from 'air' + '-ish' suffix",
+          "confidence": 0.94,
+          "category": "Appalachian",
+          "sociolinguisticMarker": "Regional weather terminology",
+          "covertPrestige": true
+        },
+        {
+          "term": "ary",
+          "definition": "Any (negative polarity item)",
+          "context": "\"Haven't seen ary soul today\"",
+          "etymology": "Phonological reduction of 'any'",
+          "confidence": 0.95,
+          "category": "Appalachian",
+          "sociolinguisticMarker": "Negative polarity item",
+          "covertPrestige": true
+        },
+        {
+          "term": "nary",
+          "definition": "Not any, none",
+          "context": "\"There's nary a thing wrong with it\"",
+          "etymology": "Contraction of 'not + any'",
+          "confidence": 0.95,
+          "category": "Appalachian",
+          "sociolinguisticMarker": "Negative intensifier",
+          "covertPrestige": true
+        },
+        {
+          "term": "boogers",
+          "definition": "Small animals, critters",
+          "context": "Referring to children or small creatures",
+          "etymology": "Semantic extension from nasal mucus to small entities",
+          "confidence": 0.92,
+          "category": "Appalachian",
+          "sociolinguisticMarker": "Diminutive term",
+          "covertPrestige": true
+        },
+        {
+          "term": "brickle",
+          "definition": "Brittle, fragile",
+          "context": "Describing breakable objects",
+          "etymology": "Variant pronunciation of 'brittle'",
+          "confidence": 0.93,
+          "category": "Appalachian",
+          "sociolinguisticMarker": "Phonological variant",
+          "covertPrestige": true
+        },
+        {
+          "term": "coke",
+          "definition": "Any soft drink (genericized trademark)",
+          "context": "\"What kind of coke you want?\" (meaning any soda)",
+          "etymology": "Coca-Cola brand name generalized to entire category",
+          "confidence": 0.97,
+          "category": "Appalachian",
+          "sociolinguisticMarker": "Generic trademark",
+          "covertPrestige": true
+        },
+        {
+          "term": "cornpone",
+          "definition": "Unsophisticated person, rural",
+          "context": "Describing simplicity or lack of refinement",
+          "etymology": "From cornpone (simple corn bread) used metaphorically",
+          "confidence": 0.91,
+          "category": "Appalachian",
+          "sociolinguisticMarker": "Social class marker",
+          "covertPrestige": false
+        },
+        {
+          "term": "directly",
+          "definition": "Soon, in a little while",
+          "context": "\"I'll be there directly\"",
+          "etymology": "Semantic shift from spatial to temporal meaning",
+          "confidence": 0.96,
+          "category": "Appalachian",
+          "sociolinguisticMarker": "Temporal adverb",
+          "covertPrestige": true
+        },
+        {
+          "term": "fixin' to",
+          "definition": "About to, preparing to",
+          "context": "Indicating immediate future action",
+          "etymology": "From 'fixing to' - preparing to do something",
+          "confidence": 0.98,
+          "category": "Appalachian",
+          "sociolinguisticMarker": "Immediate future marker",
+          "covertPrestige": true
+        },
+        {
+          "term": "gaum",
+          "definition": "Mess, sticky substance; to handle clumsily",
+          "context": "\"Don't gaum that up\"",
+          "etymology": "Possibly from Scottish 'gaum' (to stare stupidly)",
+          "confidence": 0.89,
+          "category": "Appalachian",
+          "sociolinguisticMarker": "Scots-Irish retention",
+          "covertPrestige": true
+        },
+        {
+          "term": "haint",
+          "definition": "Ghost, spirit",
+          "context": "Supernatural folklore discussions",
+          "etymology": "Contraction of 'haunt' or 'haunted'",
+          "confidence": 0.96,
+          "category": "Appalachian",
+          "sociolinguisticMarker": "Folkloric terminology",
+          "covertPrestige": true
+        },
+        {
+          "term": "holler",
+          "definition": "Small valley, hollow",
+          "context": "Geographic descriptions",
+          "etymology": "Pronunciation of 'hollow'",
+          "confidence": 0.97,
+          "category": "Appalachian",
+          "sociolinguisticMarker": "Topographic term",
+          "covertPrestige": true
+        },
+        {
+          "term": "ill",
+          "definition": "Mean-spirited, ornery",
+          "context": "Describing bad temperament",
+          "etymology": "Semantic shift from physical sickness to bad disposition",
+          "confidence": 0.94,
+          "category": "Appalachian",
+          "sociolinguisticMarker": "Character descriptor",
+          "covertPrestige": true
+        },
+        {
+          "term": "jasper",
+          "definition": "Stranger, outsider",
+          "context": "Referring to unfamiliar person",
+          "etymology": "Possibly from common name used generically",
+          "confidence": 0.88,
+          "category": "Appalachian",
+          "sociolinguisticMarker": "Social boundary marker",
+          "covertPrestige": true
+        },
+        {
+          "term": "kyarn",
+          "definition": "Can't, unable to",
+          "context": "Expressing inability",
+          "etymology": "Phonological contraction of 'can't'",
+          "confidence": 0.91,
+          "category": "Appalachian",
+          "sociolinguisticMarker": "Phonological variant",
+          "covertPrestige": true
+        },
+        {
+          "term": "poke",
+          "definition": "Bag or sack",
+          "context": "\"Put it in a poke\"",
+          "etymology": "Middle English 'poke' (bag), preserved in Appalachia",
+          "confidence": 0.95,
+          "category": "Appalachian",
+          "sociolinguisticMarker": "Archaic retention",
+          "covertPrestige": true
+        },
+        {
+          "term": "sigogglin",
+          "definition": "Crooked, askew, not straight",
+          "context": "Describing misaligned objects",
+          "etymology": "Unknown origin, possibly playful coinage",
+          "confidence": 0.87,
+          "category": "Appalachian",
+          "sociolinguisticMarker": "Descriptive neologism",
+          "covertPrestige": true
+        },
+        {
+          "term": "skift",
+          "definition": "Light dusting of snow",
+          "context": "Weather descriptions",
+          "etymology": "Possibly from 'shift' or Scots dialect",
+          "confidence": 0.90,
+          "category": "Appalachian",
+          "sociolinguisticMarker": "Meteorological term",
+          "covertPrestige": true
+        },
+        {
+          "term": "swan",
+          "definition": "Swear, declare (euphemism)",
+          "context": "\"I swan!\" (expression of surprise)",
+          "etymology": "Euphemistic substitute for 'swear'",
+          "confidence": 0.92,
+          "category": "Appalachian",
+          "sociolinguisticMarker": "Euphemistic exclamation",
+          "covertPrestige": true
+        },
+        {
+          "term": "swanny",
+          "definition": "Variant of 'swan' (swear)",
+          "context": "Exclamation of surprise",
+          "etymology": "Extended form of 'swan'",
+          "confidence": 0.91,
+          "category": "Appalachian",
+          "sociolinguisticMarker": "Euphemistic intensifier",
+          "covertPrestige": true
+        },
+        {
+          "term": "toboggan",
+          "definition": "Winter knit cap (not the sled)",
+          "context": "Cold weather clothing",
+          "etymology": "Semantic shift from sled to winter headwear",
+          "confidence": 0.94,
+          "category": "Appalachian",
+          "sociolinguisticMarker": "Regional semantic variation",
+          "covertPrestige": true
+        },
+        {
+          "term": "you'ns",
+          "definition": "You all, plural you",
+          "context": "Second person plural pronoun",
+          "etymology": "Contraction of 'you ones'",
+          "confidence": 0.93,
+          "category": "Appalachian",
+          "sociolinguisticMarker": "Second person plural pronoun",
+          "covertPrestige": true
+        }
+      ]
+    },
+    "hispanic_latino": {
+      "categoryName": "Hispanic/Latino Contact Varieties",
+      "termCount": 21,
+      "terms": [
+        {
+          "term": "abombada",
+          "definition": "Blown away, amazed (from Spanish 'bomba' - bomb)",
+          "context": "Expressing surprise or being impressed",
+          "etymology": "Spanish 'abombada' (swollen/puffed up) metaphorically extended",
+          "confidence": 0.91,
+          "category": "Spanglish",
+          "sociolinguisticMarker": "Emotional state descriptor",
+          "covertPrestige": true
+        },
+        {
+          "term": "agüítala",
+          "definition": "Command to relax, calm down (from Spanish 'agüitar' - to worry)",
+          "context": "Telling someone to take it easy",
+          "etymology": "From Spanish 'agüitar' (to worry) + imperative form",
+          "confidence": 0.89,
+          "category": "Chicano",
+          "sociolinguisticMarker": "Directive speech act",
+          "covertPrestige": true
+        },
+        {
+          "term": "al rato",
+          "definition": "Later, in a bit (Spanish 'in a while')",
+          "context": "Indicating future time",
+          "etymology": "Direct borrowing from Spanish temporal phrase",
+          "confidence": 0.96,
+          "category": "Spanglish",
+          "sociolinguisticMarker": "Temporal marker",
+          "covertPrestige": true
+        },
+        {
+          "term": "bato",
+          "definition": "Guy, dude (variant of 'vato')",
+          "context": "Informal address or reference to person",
+          "etymology": "Spanish 'vato' with b/v phonological merger",
+          "confidence": 0.97,
+          "category": "Chicano",
+          "sociolinguisticMarker": "Informal address term",
+          "covertPrestige": true
+        },
+        {
+          "term": "vato",
+          "definition": "Guy, dude (Chicano slang)",
+          "context": "Casual reference to male person",
+          "etymology": "Possibly from Spanish 'pato' (duck) or 'vato' dialectal form",
+          "confidence": 0.98,
+          "category": "Chicano",
+          "sociolinguisticMarker": "In-group identifier",
+          "covertPrestige": true
+        },
+        {
+          "term": "boricua",
+          "definition": "Puerto Rican person (from Taíno 'Borikén')",
+          "context": "Ethnic/cultural identity marker",
+          "etymology": "From Taíno indigenous name for Puerto Rico",
+          "confidence": 0.99,
+          "category": "Puerto Rican Spanish",
+          "sociolinguisticMarker": "Ethnic self-designation",
+          "covertPrestige": false
+        },
+        {
+          "term": "broki",
+          "definition": "Broke, without money (from English 'broke')",
+          "context": "Financial status discussions",
+          "etymology": "English 'broke' + Spanish diminutive '-i'",
+          "confidence": 0.93,
+          "category": "Spanglish",
+          "sociolinguisticMarker": "Economic status term",
+          "covertPrestige": true
+        },
+        {
+          "term": "carnal",
+          "definition": "Brother, close friend (from Spanish 'blood relative')",
+          "context": "Term of endearment for close associate",
+          "etymology": "Spanish 'carnal' (related by blood) extended to chosen family",
+          "confidence": 0.97,
+          "category": "Chicano",
+          "sociolinguisticMarker": "Kinship metaphor",
+          "covertPrestige": true
+        },
+        {
+          "term": "chale",
+          "definition": "No way, expression of disagreement",
+          "context": "Rejecting proposal or expressing disbelief",
+          "etymology": "Possibly from Caló (Chicano slang register)",
+          "confidence": 0.92,
+          "category": "Chicano",
+          "sociolinguisticMarker": "Negation marker",
+          "covertPrestige": true
+        },
+        {
+          "term": "chamba",
+          "definition": "Job, work",
+          "context": "Employment discussions",
+          "etymology": "Mexican Spanish colloquialism for work",
+          "confidence": 0.96,
+          "category": "Mexican Spanish",
+          "sociolinguisticMarker": "Labor terminology",
+          "covertPrestige": true
+        },
+        {
+          "term": "chela",
+          "definition": "Beer",
+          "context": "Social drinking contexts",
+          "etymology": "Mexican Spanish slang, possibly from 'cerveza'",
+          "confidence": 0.95,
+          "category": "Mexican Spanish",
+          "sociolinguisticMarker": "Beverage slang",
+          "covertPrestige": true
+        },
+        {
+          "term": "gabacho",
+          "definition": "White American, Anglo (sometimes derogatory)",
+          "context": "Ethnic reference, varies in tone",
+          "etymology": "Spanish term for foreigner, especially French/American",
+          "confidence": 0.94,
+          "category": "Chicano",
+          "sociolinguisticMarker": "Ethnic boundary marker",
+          "covertPrestige": true
+        },
+        {
+          "term": "gufear",
+          "definition": "To goof around, waste time (from English 'goof')",
+          "context": "Describing unproductive behavior",
+          "etymology": "English 'goof' + Spanish infinitive '-ear'",
+          "confidence": 0.90,
+          "category": "Spanglish",
+          "sociolinguisticMarker": "Code-mixed verb",
+          "covertPrestige": true
+        },
+        {
+          "term": "jartera",
+          "definition": "Excess, fed up with something",
+          "context": "Expressing satiation or annoyance",
+          "etymology": "Colombian/Venezuelan Spanish from 'jartarse' (to stuff oneself)",
+          "confidence": 0.88,
+          "category": "Colombian/Venezuelan Spanish",
+          "sociolinguisticMarker": "Emotional saturation term",
+          "covertPrestige": true
+        },
+        {
+          "term": "mamey",
+          "definition": "Easy, simple (Dominican slang)",
+          "context": "Describing effortless tasks",
+          "etymology": "From mamey fruit (soft, easy to eat)",
+          "confidence": 0.91,
+          "category": "Dominican Spanish",
+          "sociolinguisticMarker": "Difficulty assessment",
+          "covertPrestige": true
+        },
+        {
+          "term": "nel",
+          "definition": "No, nope",
+          "context": "Casual negation",
+          "etymology": "Playful reduplication/alteration of Spanish 'no'",
+          "confidence": 0.94,
+          "category": "Mexican Spanish",
+          "sociolinguisticMarker": "Informal negation",
+          "covertPrestige": true
+        },
+        {
+          "term": "órale",
+          "definition": "Right on, okay, let's go (multifunctional)",
+          "context": "Agreement, encouragement, surprise",
+          "etymology": "From Spanish 'ahora' (now) + 'le' (to him/her)",
+          "confidence": 0.98,
+          "category": "Chicano",
+          "sociolinguisticMarker": "Discourse marker - multifunctional",
+          "covertPrestige": true
+        },
+        {
+          "term": "que lo que",
+          "definition": "What's up, greeting (Dominican)",
+          "context": "Casual greeting",
+          "etymology": "Shortened from 'qué es lo que hay' (what is there)",
+          "confidence": 0.96,
+          "category": "Dominican Spanish",
+          "sociolinguisticMarker": "Greeting formula",
+          "covertPrestige": true
+        },
+        {
+          "term": "KLK",
+          "definition": "Abbreviation of 'que lo que'",
+          "context": "Text/online greeting",
+          "etymology": "Digital shorthand for Dominican greeting",
+          "confidence": 0.95,
+          "category": "Dominican Spanish",
+          "sociolinguisticMarker": "Digital greeting abbreviation",
+          "covertPrestige": true
+        },
+        {
+          "term": "simon",
+          "definition": "Yes, that's right (from Spanish 'sí, món')",
+          "context": "Affirmative response",
+          "etymology": "From Spanish 'sí' + emphatic particle 'mon'",
+          "confidence": 0.96,
+          "category": "Chicano",
+          "sociolinguisticMarker": "Affirmation marker",
+          "covertPrestige": true
+        },
+        {
+          "term": "tacuche",
+          "definition": "Suit, formal clothing (zoot suit era term)",
+          "context": "Fashion, formal wear",
+          "etymology": "Caló term from Pachuco culture",
+          "confidence": 0.90,
+          "category": "Chicano Caló",
+          "sociolinguisticMarker": "Fashion terminology - historical",
+          "covertPrestige": true
+        },
+        {
+          "term": "tiguere",
+          "definition": "Streetwise person, hustler (Dominican)",
+          "context": "Describing savvy, resourceful individual",
+          "etymology": "From Spanish 'tigre' (tiger) - metaphor for sharp person",
+          "confidence": 0.93,
+          "category": "Dominican Spanish",
+          "sociolinguisticMarker": "Character archetype",
+          "covertPrestige": true
+        },
+        {
+          "term": "vaina",
+          "definition": "Thing, stuff (catch-all noun)",
+          "context": "Referring to unspecified object or situation",
+          "etymology": "Spanish 'vaina' (pod, sheath) generalized to mean 'thing'",
+          "confidence": 0.97,
+          "category": "Caribbean Spanish",
+          "sociolinguisticMarker": "Generic noun",
+          "covertPrestige": true
+        }
+      ]
+    },
+    "asian_american": {
+      "categoryName": "Asian American & Diasporic English",
+      "termCount": 10,
+      "terms": [
+        {
+          "term": "ABB",
+          "definition": "American-Born British (Asian)",
+          "context": "Identity discussions in UK Asian communities",
+          "etymology": "Parallel formation to ABC (American-Born Chinese)",
+          "confidence": 0.92,
+          "category": "Asian Diaspora",
+          "sociolinguisticMarker": "Identity acronym",
+          "covertPrestige": false
+        },
+        {
+          "term": "ABG",
+          "definition": "Asian Baby Girl/Gangster (stereotype of party-oriented Asian woman)",
+          "context": "Social identity, nightlife culture",
+          "etymology": "Community-created acronym with dual meanings",
+          "confidence": 0.94,
+          "category": "Asian American",
+          "sociolinguisticMarker": "Gendered stereotype term",
+          "covertPrestige": true
+        },
+        {
+          "term": "baizuo",
+          "definition": "Chinese term for 'white left' (naive Western liberals)",
+          "context": "Political criticism from Chinese perspective",
+          "etymology": "Mandarin 白左 (bái zuǒ) - white + left",
+          "confidence": 0.96,
+          "category": "Chinese Diaspora",
+          "sociolinguisticMarker": "Political critique term",
+          "covertPrestige": false
+        },
+        {
+          "term": "boba liberal",
+          "definition": "Asian American perceived as performatively progressive",
+          "context": "Internal community critique of political posturing",
+          "etymology": "'Boba' (bubble tea) + 'liberal' - linking consumption to politics",
+          "confidence": 0.93,
+          "category": "Asian American",
+          "sociolinguisticMarker": "Political identity critique",
+          "covertPrestige": true
+        },
+        {
+          "term": "FOB",
+          "definition": "Fresh Off the Boat (recent immigrant)",
+          "context": "Immigration status reference, often derogatory",
+          "etymology": "Acronym from historical immigration arrival method",
+          "confidence": 0.97,
+          "category": "Asian American",
+          "sociolinguisticMarker": "Acculturation status marker",
+          "covertPrestige": false
+        },
+        {
+          "term": "GG",
+          "definition": "Good game (gaming); also grandfather/grandmother in Chinese contexts",
+          "context": "Gaming conclusion, family terms",
+          "etymology": "Gaming acronym; Mandarin 哥哥/姑姑 (gēge/gūgu) phonetic match",
+          "confidence": 0.98,
+          "category": "Asian American/Gaming",
+          "sociolinguisticMarker": "Polysemous acronym",
+          "covertPrestige": true
+        },
+        {
+          "term": "high-key",
+          "definition": "Obvious, open, not hiding",
+          "context": "Emphasizing explicitness of feelings/actions",
+          "etymology": "Antonym of 'low-key', musical key metaphor",
+          "confidence": 0.96,
+          "category": "Asian American/AAVE",
+          "sociolinguisticMarker": "Intensity marker",
+          "covertPrestige": true
+        },
+        {
+          "term": "low-key",
+          "definition": "Subtle, understated, somewhat",
+          "context": "Downplaying intensity of statement",
+          "etymology": "Musical key metaphor for subdued expression",
+          "confidence": 0.97,
+          "category": "Asian American/AAVE",
+          "sociolinguisticMarker": "Hedging device",
+          "covertPrestige": true
+        },
+        {
+          "term": "kevin nguyen",
+          "definition": "Stereotype of Asian American hypebeast male",
+          "context": "Social commentary on Asian American fashion/culture",
+          "etymology": "Common Vietnamese American name used archetypally",
+          "confidence": 0.91,
+          "category": "Asian American",
+          "sociolinguisticMarker": "Gendered cultural stereotype",
+          "covertPrestige": true
+        },
+        {
+          "term": "rave bae",
+          "definition": "Person known primarily from rave/EDM scene",
+          "context": "Music festival culture",
+          "etymology": "'Rave' + 'bae' (term of endearment)",
+          "confidence": 0.89,
+          "category": "Asian American/EDM",
+          "sociolinguisticMarker": "Scene-specific relationship term",
+          "covertPrestige": true
+        },
+        {
+          "term": "YYDS",
+          "definition": "永远的神 (eternal god) - ultimate praise",
+          "context": "Gaming, celebrity fandom",
+          "etymology": "Pinyin acronym from Mandarin phrase",
+          "confidence": 0.94,
+          "category": "Chinese Diaspora",
+          "sociolinguisticMarker": "Superlative praise term",
+          "covertPrestige": true
+        }
+      ]
+    },
+    "british_urban": {
+      "categoryName": "British Urban & Secret Languages (MLE, Polari)",
+      "termCount": 22,
+      "terms": [
+        {
+          "term": "allow it",
+          "definition": "Leave it alone, forget about it",
+          "context": "Dismissing topic or ending conflict",
+          "etymology": "MLE construction using 'allow' as dismissive",
+          "confidence": 0.96,
+          "category": "MLE",
+          "sociolinguisticMarker": "Discourse marker - dismissal",
+          "covertPrestige": true
+        },
+        {
+          "term": "bare",
+          "definition": "Very, a lot of",
+          "context": "Intensifier in MLE",
+          "etymology": "Semantic shift from 'naked' to 'many/very'",
+          "confidence": 0.97,
+          "category": "MLE",
+          "sociolinguisticMarker": "Degree intensifier",
+          "covertPrestige": true
+        },
+        {
+          "term": "bona",
+          "definition": "Good (from Polari)",
+          "context": "Positive evaluation",
+          "etymology": "From Italian 'buona' via Polari secret language",
+          "confidence": 0.93,
+          "category": "Polari",
+          "sociolinguisticMarker": "Historical LGBTQ+ code word",
+          "covertPrestige": true
+        },
+        {
+          "term": "bruv",
+          "definition": "Brother, mate",
+          "context": "Informal address",
+          "etymology": "Phonological reduction of 'brother'",
+          "confidence": 0.98,
+          "category": "MLE",
+          "sociolinguisticMarker": "Solidarity marker",
+          "covertPrestige": true
+        },
+        {
+          "term": "camp",
+          "definition": "Exaggerated, theatrical (especially queer aesthetics)",
+          "context": "Describing flamboyant style",
+          "etymology": "From Polari, possibly French 'se camper' (to posture)",
+          "confidence": 0.95,
+          "category": "Polari/LGBTQ+",
+          "sociolinguisticMarker": "Aesthetic descriptor",
+          "covertPrestige": true
+        },
+        {
+          "term": "clapped",
+          "definition": "Ugly, unattractive",
+          "context": "Physical appearance critique",
+          "etymology": "Possibly from 'clapped out' (worn out)",
+          "confidence": 0.94,
+          "category": "MLE",
+          "sociolinguisticMarker": "Attractiveness assessment",
+          "covertPrestige": true
+        },
+        {
+          "term": "creps",
+          "definition": "Sneakers, trainers",
+          "context": "Footwear discussions",
+          "etymology": "From 'crepe' sole shoes",
+          "confidence": 0.95,
+          "category": "MLE",
+          "sociolinguisticMarker": "Fashion terminology",
+          "covertPrestige": true
+        },
+        {
+          "term": "dish",
+          "definition": "Buttocks (from Polari)",
+          "context": "Body reference in queer contexts",
+          "etymology": "Polari term for posterior",
+          "confidence": 0.90,
+          "category": "Polari",
+          "sociolinguisticMarker": "Body part euphemism",
+          "covertPrestige": true
+        },
+        {
+          "term": "eek",
+          "definition": "Face (from Polari)",
+          "context": "Facial reference",
+          "etymology": "Polari term, possibly from 'ecaf' (face backwards)",
+          "confidence": 0.89,
+          "category": "Polari",
+          "sociolinguisticMarker": "Body part code word",
+          "covertPrestige": true
+        },
+        {
+          "term": "endz",
+          "definition": "Neighborhood, area",
+          "context": "Territorial reference",
+          "etymology": "From 'ends' (plural of end) meaning local area",
+          "confidence": 0.96,
+          "category": "MLE",
+          "sociolinguisticMarker": "Territorial marker",
+          "covertPrestige": true
+        },
+        {
+          "term": "fantabulosa",
+          "definition": "Fantastic, fabulous (exaggerated positive)",
+          "context": "Enthusiastic praise",
+          "etymology": "Polari blending of 'fantastic' + 'fabulous'",
+          "confidence": 0.91,
+          "category": "Polari",
+          "sociolinguisticMarker": "Superlative praise - camp register",
+          "covertPrestige": true
+        },
+        {
+          "term": "garms",
+          "definition": "Clothes, garments",
+          "context": "Fashion discussions",
+          "etymology": "Shortened from 'garments'",
+          "confidence": 0.97,
+          "category": "MLE",
+          "sociolinguisticMarker": "Fashion slang",
+          "covertPrestige": true
+        },
+        {
+          "term": "innit",
+          "definition": "Isn't it, right? (tag question)",
+          "context": "Seeking agreement or emphasis",
+          "etymology": "Contraction of 'isn't it'",
+          "confidence": 0.99,
+          "category": "MLE",
+          "sociolinguisticMarker": "Invariant tag question",
+          "covertPrestige": true
+        },
+        {
+          "term": "mandem",
+          "definition": "Group of male friends, crew",
+          "context": "Referring to peer group",
+          "etymology": "'Man' + Jamaican English collective suffix '-dem'",
+          "confidence": 0.97,
+          "category": "MLE",
+          "sociolinguisticMarker": "Collective noun - masculine",
+          "covertPrestige": true
+        },
+        {
+          "term": "naff",
+          "definition": "Uncool, tacky (possibly from Polari NAFF - Not Available For F***ing)",
+          "context": "Aesthetic critique",
+          "etymology": "Possibly Polari acronym or independent coinage",
+          "confidence": 0.92,
+          "category": "British/Polari",
+          "sociolinguisticMarker": "Taste judgment",
+          "covertPrestige": true
+        },
+        {
+          "term": "nang",
+          "definition": "Excellent, good",
+          "context": "Positive evaluation",
+          "etymology": "Possibly from 'gnang' (Jamaican Patois)",
+          "confidence": 0.93,
+          "category": "MLE",
+          "sociolinguisticMarker": "Positive intensifier",
+          "covertPrestige": true
+        },
+        {
+          "term": "omi",
+          "definition": "Man (from Polari)",
+          "context": "Male reference in queer contexts",
+          "etymology": "From Italian 'uomo' via Polari",
+          "confidence": 0.91,
+          "category": "Polari",
+          "sociolinguisticMarker": "Gender code word",
+          "covertPrestige": true
+        },
+        {
+          "term": "peak",
+          "definition": "Unfortunate, bad situation",
+          "context": "Expressing sympathy or disappointment",
+          "etymology": "Semantic inversion from 'peak' (top) to mean 'bad'",
+          "confidence": 0.95,
+          "category": "MLE",
+          "sociolinguisticMarker": "Semantic inversion",
+          "covertPrestige": true
+        },
+        {
+          "term": "peng",
+          "definition": "Attractive, good quality",
+          "context": "Appearance or quality assessment",
+          "etymology": "Possibly from Jamaican Patois",
+          "confidence": 0.96,
+          "category": "MLE",
+          "sociolinguisticMarker": "Attractiveness/quality marker",
+          "covertPrestige": true
+        },
+        {
+          "term": "polone",
+          "definition": "Woman (from Polari)",
+          "context": "Female reference in queer contexts",
+          "etymology": "From Italian 'pollona' via Polari",
+          "confidence": 0.90,
+          "category": "Polari",
+          "sociolinguisticMarker": "Gender code word",
+          "covertPrestige": true
+        },
+        {
+          "term": "vada",
+          "definition": "Look at, see (from Polari)",
+          "context": "Directive to observe",
+          "etymology": "From Italian 'guardare' via Polari",
+          "confidence": 0.92,
+          "category": "Polari",
+          "sociolinguisticMarker": "Imperative verb - observation",
+          "covertPrestige": true
+        },
+        {
+          "term": "wagwan",
+          "definition": "What's going on, what's up",
+          "context": "Greeting",
+          "etymology": "Jamaican Patois 'wah gwaan' (what's going on)",
+          "confidence": 0.98,
+          "category": "MLE/Jamaican",
+          "sociolinguisticMarker": "Greeting formula",
+          "covertPrestige": true
+        }
+      ]
+    },
+    "digital_subcultural": {
+      "categoryName": "Digital, Gaming, and Subcultural Lexicons",
+      "termCount": 29,
+      "terms": [
+        {
+          "term": "AFK",
+          "definition": "Away From Keyboard",
+          "context": "Gaming, online chat - indicating temporary absence",
+          "etymology": "Internet acronym from early online gaming",
+          "confidence": 0.99,
+          "category": "Gaming/Internet",
+          "sociolinguisticMarker": "Availability status marker",
+          "covertPrestige": false
+        },
+        {
+          "term": "aggro",
+          "definition": "Aggression, hostile attention (gaming: enemy attention)",
+          "context": "Gaming mechanics, conflict situations",
+          "etymology": "Shortened from 'aggravation' or 'aggression'",
+          "confidence": 0.97,
+          "category": "Gaming/British",
+          "sociolinguisticMarker": "Conflict intensity marker",
+          "covertPrestige": true
+        },
+        {
+          "term": "astroturf",
+          "definition": "Fake grassroots movement (manufactured consensus)",
+          "context": "Political criticism, online manipulation",
+          "etymology": "From AstroTurf brand (fake grass) applied to fake movements",
+          "confidence": 0.96,
+          "category": "Internet/Political",
+          "sociolinguisticMarker": "Authenticity critique",
+          "covertPrestige": false
+        },
+        {
+          "term": "bail",
+          "definition": "Leave, abandon activity",
+          "context": "Exiting situation or commitment",
+          "etymology": "From legal 'bail' (release) extended to general leaving",
+          "confidence": 0.95,
+          "category": "Skate/Surf",
+          "sociolinguisticMarker": "Departure marker",
+          "covertPrestige": true
+        },
+        {
+          "term": "barrel",
+          "definition": "Tube of wave (surfing)",
+          "context": "Surfing maneuvers",
+          "etymology": "Descriptive of cylindrical wave formation",
+          "confidence": 0.98,
+          "category": "Surf",
+          "sociolinguisticMarker": "Technical surf term",
+          "covertPrestige": false
+        },
+        {
+          "term": "based",
+          "definition": "Authentic, not caring about others' opinions",
+          "context": "Praising unfiltered expression",
+          "etymology": "Reclaimed by rapper Lil B from insult to compliment",
+          "confidence": 0.96,
+          "category": "Internet/Hip-Hop",
+          "sociolinguisticMarker": "Authenticity praise",
+          "covertPrestige": true
+        },
+        {
+          "term": "buff",
+          "definition": "Strengthen (gaming); physically fit",
+          "context": "Game balance changes, fitness",
+          "etymology": "From 'buffer' (polish) or 'buff' (muscular)",
+          "confidence": 0.97,
+          "category": "Gaming",
+          "sociolinguisticMarker": "Enhancement marker",
+          "covertPrestige": true
+        },
+        {
+          "term": "delulu",
+          "definition": "Delusional (affectionate or mocking)",
+          "context": "Calling out unrealistic thinking",
+          "etymology": "Baby-talk reduplication of 'delusional'",
+          "confidence": 0.94,
+          "category": "Internet/K-pop",
+          "sociolinguisticMarker": "Reality assessment - playful",
+          "covertPrestige": true
+        },
+        {
+          "term": "fanum tax",
+          "definition": "Taking friend's food (from streamer Fanum)",
+          "context": "Friend group food-stealing joke",
+          "etymology": "Named after Twitch streamer Fanum's food-taking habit",
+          "confidence": 0.92,
+          "category": "Internet/Streaming",
+          "sociolinguisticMarker": "Meme-based behavior term",
+          "covertPrestige": true
+        },
+        {
+          "term": "grok",
+          "definition": "Understand deeply, intuitively (from Heinlein's 'Stranger in Strange Land')",
+          "context": "Hacker culture, deep comprehension",
+          "etymology": "Science fiction neologism from Robert Heinlein novel",
+          "confidence": 0.95,
+          "category": "Hacker/Geek",
+          "sociolinguisticMarker": "Comprehension depth marker",
+          "covertPrestige": true
+        },
+        {
+          "term": "gyatt",
+          "definition": "Exclamation at attractive person (from 'goddamn')",
+          "context": "Physical attraction expression",
+          "etymology": "Phonetic spelling of 'goddamn' exclamation",
+          "confidence": 0.91,
+          "category": "Internet/TikTok",
+          "sociolinguisticMarker": "Attraction exclamation",
+          "covertPrestige": true
+        },
+        {
+          "term": "kappa",
+          "definition": "Sarcasm indicator (from Twitch emote)",
+          "context": "Online chat - marking sarcastic statements",
+          "etymology": "Twitch emote of sarcastic face",
+          "confidence": 0.96,
+          "category": "Twitch/Gaming",
+          "sociolinguisticMarker": "Irony marker",
+          "covertPrestige": true
+        },
+        {
+          "term": "kludge",
+          "definition": "Clumsy but effective solution (programming)",
+          "context": "Technical workarounds",
+          "etymology": "Possibly from German 'klug' (clever) or 'kludge' (botch)",
+          "confidence": 0.94,
+          "category": "Hacker/Programming",
+          "sociolinguisticMarker": "Solution quality assessment",
+          "covertPrestige": true
+        },
+        {
+          "term": "kook",
+          "definition": "Inexperienced, clueless person (especially surfing)",
+          "context": "Surfing, skateboarding - derogatory for beginners",
+          "etymology": "Possibly from 'kooky' (eccentric, crazy)",
+          "confidence": 0.96,
+          "category": "Surf/Skate",
+          "sociolinguisticMarker": "Skill-based insult",
+          "covertPrestige": true
+        },
+        {
+          "term": "mall grab",
+          "definition": "Holding skateboard by trucks (marks as poser)",
+          "context": "Skateboarding authenticity test",
+          "etymology": "Carrying method associated with mall shoppers, not real skaters",
+          "confidence": 0.93,
+          "category": "Skate",
+          "sociolinguisticMarker": "Authenticity marker",
+          "covertPrestige": true
+        },
+        {
+          "term": "nerf",
+          "definition": "Weaken, reduce power (gaming)",
+          "context": "Game balance patches",
+          "etymology": "From Nerf toy brand (soft, harmless versions)",
+          "confidence": 0.98,
+          "category": "Gaming",
+          "sociolinguisticMarker": "Power reduction term",
+          "covertPrestige": false
+        },
+        {
+          "term": "NPC",
+          "definition": "Non-Player Character; person without original thoughts",
+          "context": "Gaming; derogatory for conformists",
+          "etymology": "Gaming term for computer-controlled characters",
+          "confidence": 0.97,
+          "category": "Gaming/Internet",
+          "sociolinguisticMarker": "Agency/originality critique",
+          "covertPrestige": true
+        },
+        {
+          "term": "pog",
+          "definition": "Excitement, hype (from Twitch emote PogChamp)",
+          "context": "Expressing enthusiasm online",
+          "etymology": "From 'Play of the Game' acronym → Twitch emote",
+          "confidence": 0.95,
+          "category": "Twitch/Gaming",
+          "sociolinguisticMarker": "Excitement marker",
+          "covertPrestige": true
+        },
+        {
+          "term": "poggers",
+          "definition": "Extended form of 'pog' (extreme excitement)",
+          "context": "Amplified enthusiasm expression",
+          "etymology": "'Pog' + '-ers' suffix for emphasis",
+          "confidence": 0.94,
+          "category": "Twitch/Gaming",
+          "sociolinguisticMarker": "Excitement intensifier",
+          "covertPrestige": true
+        },
+        {
+          "term": "poser",
+          "definition": "Fake, pretender (especially in subcultures)",
+          "context": "Authenticity gatekeeping",
+          "etymology": "From 'pose' - pretending to be something you're not",
+          "confidence": 0.98,
+          "category": "Skate/Punk/General",
+          "sociolinguisticMarker": "Authenticity challenge",
+          "covertPrestige": false
+        },
+        {
+          "term": "realness",
+          "definition": "Authenticity, passing convincingly (drag/ballroom)",
+          "context": "Drag performance evaluation",
+          "etymology": "Ballroom culture term for convincing presentation",
+          "confidence": 0.96,
+          "category": "Drag/Ballroom",
+          "sociolinguisticMarker": "Authenticity assessment",
+          "covertPrestige": true
+        },
+        {
+          "term": "rizz",
+          "definition": "Charisma, romantic charm",
+          "context": "Dating, flirting ability",
+          "etymology": "Shortened from 'charisma'",
+          "confidence": 0.97,
+          "category": "Internet/Gen Z",
+          "sociolinguisticMarker": "Social skill marker",
+          "covertPrestige": true
+        },
+        {
+          "term": "shade",
+          "definition": "Subtle disrespect, indirect insult",
+          "context": "Drag/ballroom culture, social critique",
+          "etymology": "Ballroom culture: 'throwing shade' like casting shadow",
+          "confidence": 0.98,
+          "category": "Drag/Ballroom/AAVE",
+          "sociolinguisticMarker": "Indirect insult marker",
+          "covertPrestige": true
+        },
+        {
+          "term": "skibidi",
+          "definition": "Nonsense word from viral video series",
+          "context": "Gen Alpha humor, absurdist content",
+          "etymology": "From 'Skibidi Toilet' YouTube series",
+          "confidence": 0.89,
+          "category": "Internet/Gen Alpha",
+          "sociolinguisticMarker": "Absurdist humor marker",
+          "covertPrestige": true
+        },
+        {
+          "term": "smurf",
+          "definition": "Experienced player using new account to play against beginners",
+          "context": "Gaming ethics violation",
+          "etymology": "From original 'smurf' accounts created by pro players",
+          "confidence": 0.96,
+          "category": "Gaming",
+          "sociolinguisticMarker": "Competitive behavior term",
+          "covertPrestige": false
+        },
+        {
+          "term": "stoked",
+          "definition": "Excited, enthusiastic",
+          "context": "Surf/skate culture expression of joy",
+          "etymology": "Possibly from 'stoke' (fuel a fire) → fired up",
+          "confidence": 0.97,
+          "category": "Surf/Skate",
+          "sociolinguisticMarker": "Enthusiasm marker",
+          "covertPrestige": true
+        },
+        {
+          "term": "sus",
+          "definition": "Suspicious, suspect",
+          "context": "Among Us popularization, general distrust",
+          "etymology": "Shortened from 'suspicious' or 'suspect'",
+          "confidence": 0.98,
+          "category": "Gaming/Internet",
+          "sociolinguisticMarker": "Trust assessment",
+          "covertPrestige": true
+        },
+        {
+          "term": "tea",
+          "definition": "Gossip, insider information",
+          "context": "Sharing secrets or rumors",
+          "etymology": "Drag/ballroom culture: 'the T' (truth) → 'tea'",
+          "confidence": 0.97,
+          "category": "Drag/Ballroom/AAVE",
+          "sociolinguisticMarker": "Information exchange marker",
+          "covertPrestige": true
+        }
+      ]
+    }
+  },
+  "academicSources": [
+    "CORAAL (Corpus of Regional African American Language)",
+    "Oxford Dictionary of African American English (ODAAE) - Harvard/Oxford",
+    "Wolfram, Walt & Schilling, Natalie. American English: Dialects and Variation (3rd ed.)",
+    "Green, Lisa J. African American English: A Linguistic Introduction",
+    "Fought, Carmen. Chicano English in Context",
+    "Zentella, Ana Celia. Growing Up Bilingual",
+    "Chun, Elaine W. The Meaning of Ching-Chong",
+    "Kerswill, Paul et al. Multicultural London English studies",
+    "Baker, Paul. Polari: The Lost Language of Gay Men",
+    "Raymond, Eric S. The Jargon File",
+    "And 40+ additional academic citations"
+  ],
+  "extractedBy": "Assistant",
+  "extractionDate": "2025",
+  "notes": "Comprehensive academic linguistic analysis with full etymologies, sociolinguistic markers, and cultural context. Data structured for integration into cultural vocabulary master database."
+}

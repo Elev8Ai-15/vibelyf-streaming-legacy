@@ -1,0 +1,297 @@
+/**
+ * VibeCoder Engine - Global Styles
+ * Culturally-responsive design system with theme support
+ */
+
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    color: #1f2937;
+}
+
+/* Animations */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.animate-fade-in {
+    animation: fade-in 0.6s ease-out;
+}
+
+.animate-slide-in {
+    animation: slide-in 0.3s ease-out;
+}
+
+/* Utility Classes */
+.rotate-180 {
+    transform: rotate(180deg);
+}
+
+.transition-transform {
+    transition: transform 0.3s ease;
+}
+
+/* Cultural Themes */
+:root {
+    /* Modern Vibe (default) */
+    --theme-primary: #9333ea;
+    --theme-secondary: #ec4899;
+    --theme-accent: #8b5cf6;
+    --theme-bg: #faf5ff;
+    --theme-text: #1f2937;
+}
+
+[data-theme="afrocentric"] {
+    /* Pan-African Colors */
+    --theme-primary: #E6B800; /* Gold */
+    --theme-secondary: #228B22; /* Green */
+    --theme-accent: #DC143C; /* Red */
+    --theme-bg: #FFF8DC;
+    --theme-text: #2d1810;
+}
+
+[data-theme="hiphop"] {
+    /* Urban Aesthetic */
+    --theme-primary: #000000; /* Black */
+    --theme-secondary: #FF0000; /* Red */
+    --theme-accent: #00CED1; /* Cyan */
+    --theme-bg: #1a1a1a;
+    --theme-text: #ffffff;
+}
+
+[data-theme="streetart"] {
+    /* Graffiti-inspired */
+    --theme-primary: #FF6347; /* Orange */
+    --theme-secondary: #FFD700; /* Yellow */
+    --theme-accent: #FF8C00; /* Dark Orange */
+    --theme-bg: #2c2c2c;
+    --theme-text: #ffffff;
+}
+
+/* Theme Application */
+.theme-primary {
+    color: var(--theme-primary);
+}
+
+.theme-bg {
+    background-color: var(--theme-bg);
+}
+
+.theme-text {
+    color: var(--theme-text);
+}
+
+/* Component Styles */
+.feature-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(147, 51, 234, 0.2);
+}
+
+.grammar-lesson {
+    margin-bottom: 1.5rem;
+}
+
+.moderation-option label {
+    transition: all 0.3s ease;
+}
+
+.moderation-option input:checked + label {
+    border-color: #9333ea;
+    background-color: #faf5ff;
+}
+
+/* Code Blocks */
+pre {
+    background: #1f2937;
+    color: #10b981;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Quiz Styling */
+.quiz-question input[type="radio"]:checked + span {
+    font-weight: 600;
+}
+
+/* Progress Indicators */
+.progress-bar {
+    height: 8px;
+    background: #e5e7eb;
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #9333ea, #ec4899);
+    transition: width 0.5s ease;
+}
+
+/* Badges & Achievements */
+.achievement-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, #9333ea, #ec4899);
+    color: white;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    box-shadow: 0 4px 12px rgba(147, 51, 234, 0.3);
+}
+
+/* Notification Styles */
+.notification {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    animation: slide-in 0.3s ease;
+}
+
+.notification-success {
+    background: #10b981;
+    color: white;
+}
+
+.notification-error {
+    background: #ef4444;
+    color: white;
+}
+
+.notification-warning {
+    background: #f59e0b;
+    color: white;
+}
+
+.notification-info {
+    background: #3b82f6;
+    color: white;
+}
+
+/* Loading States */
+.spinner {
+    border: 3px solid rgba(147, 51, 234, 0.1);
+    border-top-color: #9333ea;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Accessibility */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Focus Styles */
+*:focus-visible {
+    outline: 2px solid #9333ea;
+    outline-offset: 2px;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Responsive Typography */
+@media (max-width: 640px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1.25rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .no-print {
+        display: none;
+    }
+    
+    * {
+        background: white !important;
+        color: black !important;
+    }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    :root {
+        --theme-primary: #7c3aed;
+        --theme-secondary: #db2777;
+    }
+    
+    * {
+        border-color: currentColor !important;
+    }
+}
+
+/* Dark Mode Support (Future Enhancement) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --theme-bg: #1f2937;
+        --theme-text: #f9fafb;
+    }
+}

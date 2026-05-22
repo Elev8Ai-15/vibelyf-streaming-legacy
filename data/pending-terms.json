@@ -1,0 +1,10 @@
+{
+  "metadata": {
+    "description": "User-contributed vocabulary terms pending review and approval",
+    "purpose": "Storage for terms learned from user explanations via the Learning Loop",
+    "workflow": "User explains unknown term → Stored here → Admin reviews → Approved terms merge into cultural-vocabulary-master.js",
+    "lastUpdated": null,
+    "totalPending": 0
+  },
+  "terms": []
+}

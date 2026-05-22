@@ -1,0 +1,1374 @@
+{
+  "source": "Prison Slang - Multiple Sources Consolidated",
+  "sources": ["Aaron Delgado", "Prison Writers", "Vice"],
+  "totalRawTerms": 230,
+  "deduplicationStatus": "In progress",
+  "extractionDate": "2025",
+  "note": "Many terms appear in multiple sources with identical or similar definitions. Priority given to most detailed definition.",
+  
+  "uniqueTerms": [
+    {
+      "term": "115",
+      "definition": "Infraction charge document",
+      "category": "Prison Slang",
+      "confidence": 0.98,
+      "sources": ["Prison Writers", "Aaron Delgado"],
+      "context": "Disciplinary documentation in prison system"
+    },
+    {
+      "term": "5-0",
+      "definition": "Police",
+      "category": "Prison Slang",
+      "confidence": 0.97,
+      "sources": ["Ebonics PDF"],
+      "context": "Law enforcement reference"
+    },
+    {
+      "term": "5150",
+      "definition": "Crazy, mentally unstable (from California Welfare code)",
+      "category": "Prison Slang",
+      "confidence": 0.96,
+      "sources": ["Prison Writers"],
+      "context": "Mental health evaluation code"
+    },
+    {
+      "term": "AB",
+      "definition": "Aryan Brotherhood gang",
+      "category": "Prison Slang",
+      "confidence": 0.99,
+      "sources": ["Aaron Delgado", "Vice"],
+      "context": "White supremacist prison gang"
+    },
+    {
+      "term": "agitator",
+      "definition": "Person who starts fights for entertainment",
+      "category": "Prison Slang",
+      "confidence": 0.94,
+      "sources": ["Aaron Delgado"],
+      "context": "Troublemaker in prison population"
+    },
+    {
+      "term": "all day",
+      "definition": "Life sentence",
+      "category": "Prison Slang",
+      "confidence": 0.99,
+      "sources": ["Aaron Delgado", "Prison Writers"],
+      "context": "Sentence length reference",
+      "examples": ["He got all day for murder"]
+    },
+    {
+      "term": "all day and a night",
+      "definition": "Life sentence without parole (LWOP)",
+      "category": "Prison Slang",
+      "confidence": 0.99,
+      "sources": ["Aaron Delgado", "Prison Writers"],
+      "context": "Most severe sentence",
+      "relatedTerms": ["all day", "LWOP", "big bitch"]
+    },
+    {
+      "term": "ate up each other",
+      "definition": "Concurrent sentences running simultaneously",
+      "category": "Prison Slang",
+      "confidence": 0.93,
+      "sources": ["Prison Writers"],
+      "context": "Sentencing terminology"
+    },
+    {
+      "term": "back door parole",
+      "definition": "Dying in prison",
+      "category": "Prison Slang",
+      "confidence": 0.98,
+      "sources": ["Aaron Delgado", "Prison Writers"],
+      "context": "Death as only exit from prison",
+      "examples": ["He took back door parole last month"]
+    },
+    {
+      "term": "bats",
+      "definition": "Cigarettes",
+      "category": "Prison Slang",
+      "confidence": 0.96,
+      "sources": ["Aaron Delgado", "Prison Writers"],
+      "context": "Contraband/currency"
+    },
+    {
+      "term": "BB filler",
+      "definition": "Severely sick or injured inmate",
+      "category": "Prison Slang",
+      "confidence": 0.91,
+      "sources": ["Aaron Delgado", "Prison Writers"],
+      "context": "Medical emergency inmate"
+    },
+    {
+      "term": "bean slot",
+      "definition": "Food slot in cell door",
+      "category": "Prison Slang",
+      "confidence": 0.97,
+      "sources": ["Aaron Delgado", "Prison Writers"],
+      "context": "Meal delivery opening in cell door"
+    },
+    {
+      "term": "bid",
+      "definition": "Prison sentence",
+      "category": "Prison Slang",
+      "confidence": 0.98,
+      "sources": ["Aaron Delgado", "Prison Writers"],
+      "context": "Serving time",
+      "examples": ["Doing a five-year bid"]
+    },
+    {
+      "term": "big bitch",
+      "definition": "Death sentence",
+      "category": "Prison Slang",
+      "confidence": 0.96,
+      "sources": ["Prison Writers"],
+      "context": "Capital punishment reference"
+    },
+    {
+      "term": "bindle",
+      "definition": "Package of tobacco or drugs",
+      "category": "Prison Slang",
+      "confidence": 0.95,
+      "sources": ["Prison Writers"],
+      "context": "Contraband packaging"
+    },
+    {
+      "term": "binky",
+      "definition": "Homemade syringe",
+      "category": "Prison Slang",
+      "confidence": 0.94,
+      "sources": ["Aaron Delgado", "Vice"],
+      "context": "Drug paraphernalia"
+    },
+    {
+      "term": "blues",
+      "definition": "Prison uniform",
+      "category": "Prison Slang",
+      "confidence": 0.97,
+      "sources": ["Aaron Delgado", "Prison Writers"],
+      "context": "Standard prison clothing"
+    },
+    {
+      "term": "bo-bos",
+      "definition": "Sneakers",
+      "category": "Prison Slang",
+      "confidence": 0.93,
+      "sources": ["Aaron Delgado"],
+      "context": "Prison footwear"
+    },
+    {
+      "term": "bonaroo",
+      "definition": "New clothes package",
+      "category": "Prison Slang",
+      "confidence": 0.91,
+      "sources": ["Prison Writers"],
+      "context": "Fresh clothing issue"
+    },
+    {
+      "term": "boneyard visit",
+      "definition": "Conjugal visit without children",
+      "category": "Prison Slang",
+      "confidence": 0.92,
+      "sources": ["Prison Writers"],
+      "context": "Intimate visitation",
+      "relatedTerms": ["fam bam"]
+    },
+    {
+      "term": "books",
+      "definition": "Stamps used as currency, or trust account funds",
+      "category": "Prison Slang",
+      "confidence": 0.97,
+      "sources": ["Aaron Delgado", "Vice"],
+      "context": "Prison economy",
+      "relatedTerms": ["money on books"]
+    },
+    {
+      "term": "boss",
+      "definition": "Guard or correctional officer",
+      "category": "Prison Slang",
+      "confidence": 0.96,
+      "sources": ["Aaron Delgado"],
+      "context": "Authority figure"
+    },
+    {
+      "term": "brake fluid",
+      "definition": "Psychiatric medications",
+      "category": "Prison Slang",
+      "confidence": 0.94,
+      "sources": ["Aaron Delgado", "Prison Writers"],
+      "context": "Mental health medication slang"
+    },
+    {
+      "term": "brogans",
+      "definition": "Work boots",
+      "category": "Prison Slang",
+      "confidence": 0.95,
+      "sources": ["Aaron Delgado", "Prison Writers"],
+      "context": "Prison work footwear"
+    },
+    {
+      "term": "brownies",
+      "definition": "Kitchen workers",
+      "category": "Prison Slang",
+      "confidence": 0.93,
+      "sources": ["Aaron Delgado", "Prison Writers"],
+      "context": "Inmate work assignment"
+    },
+    {
+      "term": "buck rogers time",
+      "definition": "Distant future parole date",
+      "category": "Prison Slang",
+      "confidence": 0.91,
+      "sources": ["Aaron Delgado"],
+      "context": "Unrealistically far release date"
+    },
+    {
+      "term": "bucky",
+      "definition": "Cellmate",
+      "category": "Prison Slang",
+      "confidence": 0.96,
+      "sources": ["Prison Writers"],
+      "context": "Cell partner",
+      "relatedTerms": ["cellie", "bunkie"]
+    },
+    {
+      "term": "buffing",
+      "definition": "Working out, exercising",
+      "category": "Prison Slang",
+      "confidence": 0.95,
+      "sources": ["Prison Writers"],
+      "context": "Physical fitness"
+    },
+    {
+      "term": "bug",
+      "definition": "Untrustworthy staff member",
+      "category": "Prison Slang",
+      "confidence": 0.92,
+      "sources": ["Prison Writers"],
+      "context": "Unreliable authority figure"
+    },
+    {
+      "term": "bullet",
+      "definition": "One-year sentence",
+      "category": "Prison Slang",
+      "confidence": 0.97,
+      "sources": ["Aaron Delgado", "Prison Writers"],
+      "context": "Short sentence",
+      "relatedTerms": ["nickel", "dime"]
+    },
+    {
+      "term": "bundle",
+      "definition": "Package of drugs or tobacco",
+      "category": "Prison Slang",
+      "confidence": 0.95,
+      "sources": ["Aaron Delgado"],
+      "context": "Contraband quantity"
+    },
+    {
+      "term": "bunkie",
+      "definition": "Cellmate",
+      "category": "Prison Slang",
+      "confidence": 0.97,
+      "sources": ["Aaron Delgado"],
+      "context": "Cell partner",
+      "relatedTerms": ["cellie", "bucky"]
+    },
+    {
+      "term": "burner",
+      "definition": "Contraband cell phone",
+      "category": "Prison Slang",
+      "confidence": 0.96,
+      "sources": ["Prison Writers"],
+      "context": "Illegal communication device"
+    },
+    {
+      "term": "burpee",
+      "definition": "Squat-thrust-pushup exercise",
+      "category": "Prison Slang",
+      "confidence": 0.98,
+      "sources": ["Prison Writers"],
+      "context": "Calisthenics exercise"
+    },
+    {
+      "term": "cadillac",
+      "definition": "Coffee with cream and sugar, or desirable bunk",
+      "category": "Prison Slang",
+      "confidence": 0.94,
+      "sources": ["Aaron Delgado", "Prison Writers"],
+      "context": "Luxury item or position"
+    },
+    {
+      "term": "cadillac job",
+      "definition": "Easy, desirable work assignment",
+      "category": "Prison Slang",
+      "confidence": 0.95,
+      "sources": ["Aaron Delgado", "Prison Writers"],
+      "context": "Cushy prison job"
+    },
+    {
+      "term": "cage",
+      "definition": "Cell",
+      "category": "Prison Slang",
+      "confidence": 0.97,
+      "sources": ["Aaron Delgado", "Prison Writers"],
+      "context": "Living quarters",
+      "relatedTerms": ["house"]
+    },
+    {
+      "term": "calling the cops",
+      "definition": "Attracting guard attention",
+      "category": "Prison Slang",
+      "confidence": 0.93,
+      "sources": ["Aaron Delgado"],
+      "context": "Drawing unwanted authority scrutiny"
+    },
+    {
+      "term": "car",
+      "definition": "Prison clique or gang affiliation group",
+      "category": "Prison Slang",
+      "confidence": 0.97,
+      "sources": ["Aaron Delgado", "Vice", "Prison Writers"],
+      "context": "Gang membership reference"
+    },
+    {
+      "term": "catch a ride",
+      "definition": "Get high off someone else's drugs",
+      "category": "Prison Slang",
+      "confidence": 0.94,
+      "sources": ["Aaron Delgado", "Prison Writers"],
+      "context": "Secondhand intoxication"
+    },
+    {
+      "term": "catch the cut",
+      "definition": "Fight in a blind spot away from cameras",
+      "category": "Prison Slang",
+      "confidence": 0.92,
+      "sources": ["Prison Writers"],
+      "context": "Avoiding surveillance during altercation"
+    },
+    {
+      "term": "catch the wall",
+      "definition": "Order to face wall during shakedown",
+      "category": "Prison Slang",
+      "confidence": 0.95,
+      "sources": ["Prison Writers"],
+      "context": "Search procedure command"
+    },
+    {
+      "term": "catching the chain",
+      "definition": "Leaving jail for transfer or release",
+      "category": "Prison Slang",
+      "confidence": 0.96,
+      "sources": ["Aaron Delgado", "Prison Writers"],
+      "context": "Transfer or release process"
+    },
+    {
+      "term": "caught letters",
+      "definition": "Received life sentence",
+      "category": "Prison Slang",
+      "confidence": 0.93,
+      "sources": ["Prison Writers"],
+      "context": "Sentencing outcome"
+    },
+    {
+      "term": "cellie",
+      "definition": "Cellmate",
+      "category": "Prison Slang",
+      "confidence": 0.98,
+      "sources": ["Aaron Delgado", "Prison Writers"],
+      "context": "Cell partner",
+      "relatedTerms": ["bunkie", "bucky"]
+    },
+    {
+      "term": "cell warrior",
+      "definition": "Tough talker in cell, coward outside",
+      "category": "Prison Slang",
+      "confidence": 0.95,
+      "sources": ["Aaron Delgado", "Prison Writers"],
+      "context": "Fake tough inmate"
+    },
+    {
+      "term": "chalk",
+      "definition": "Homemade prison moonshine",
+      "category": "Prison Slang",
+      "confidence": 0.91,
+      "sources": ["Aaron Delgado"],
+      "context": "Contraband alcohol"
+    },
+    {
+      "term": "chatted out",
+      "definition": "Lost one's mind, gone crazy",
+      "category": "Prison Slang",
+      "confidence": 0.94,
+      "sources": ["Aaron Delgado", "Prison Writers"],
+      "context": "Mental breakdown"
+    },
+    {
+      "term": "check in",
+      "definition": "Voluntarily request protective custody/solitary",
+      "category": "Prison Slang",
+      "confidence": 0.96,
+      "sources": ["Vice"],
+      "context": "Self-protective measure"
+    },
+    {
+      "term": "chin check",
+      "definition": "Punch to the jaw as test of toughness",
+      "category": "Prison Slang",
+      "confidence": 0.95,
+      "sources": ["Aaron Delgado"],
+      "context": "Physical challenge"
+    },
+    {
+      "term": "choke sandwich",
+      "definition": "Peanut butter sandwich without jelly",
+      "category": "Prison Slang",
+      "confidence": 0.93,
+      "sources": ["Aaron Delgado", "Prison Writers"],
+      "context": "Dry prison food"
+    },
+    {
+      "term": "chomo",
+      "definition": "Child molester (derogatory)",
+      "category": "Prison Slang",
+      "confidence": 0.97,
+      "sources": ["Aaron Delgado"],
+      "context": "Sex offender designation",
+      "relatedTerms": ["diaper sniper"]
+    },
+    {
+      "term": "chow",
+      "definition": "Meal, food",
+      "category": "Prison Slang",
+      "confidence": 0.98,
+      "sources": ["Aaron Delgado", "Prison Writers"],
+      "context": "Prison dining"
+    },
+    {
+      "term": "chronic",
+      "definition": "Disciplinary segregation unit",
+      "category": "Prison Slang",
+      "confidence": 0.92,
+      "sources": ["Aaron Delgado"],
+      "context": "Punishment housing"
+    },
+    {
+      "term": "clavo",
+      "definition": "Contraband (Spanish origin)",
+      "category": "Prison Slang",
+      "confidence": 0.94,
+      "sources": ["Aaron Delgado"],
+      "context": "Hidden illegal items"
+    },
+    {
+      "term": "C/O",
+      "definition": "Correctional officer",
+      "category": "Prison Slang",
+      "confidence": 0.99,
+      "sources": ["Aaron Delgado", "Prison Writers"],
+      "context": "Guard abbreviation"
+    },
+    {
+      "term": "cowboy",
+      "definition": "New, inexperienced guard",
+      "category": "Prison Slang",
+      "confidence": 0.95,
+      "sources": ["Aaron Delgado", "Prison Writers"],
+      "context": "Rookie correctional officer",
+      "relatedTerms": ["newjacks"]
+    },
+    {
+      "term": "crossed out",
+      "definition": "Unfairly removed from gang",
+      "category": "Prison Slang",
+      "confidence": 0.91,
+      "sources": ["Aaron Delgado"],
+      "context": "Gang politics"
+    },
+    {
+      "term": "CTQ",
+      "definition": "Confined to quarters (disciplinary restriction)",
+      "category": "Prison Slang",
+      "confidence": 0.93,
+      "sources": ["Aaron Delgado"],
+      "context": "Punishment restriction"
+    },
+    {
+      "term": "dance on the blacktop",
+      "definition": "Get stabbed",
+      "category": "Prison Slang",
+      "confidence": 0.92,
+      "sources": ["Aaron Delgado"],
+      "context": "Violent attack euphemism"
+    },
+    {
+      "term": "DAP",
+      "definition": "Fist pound greeting",
+      "category": "Prison Slang",
+      "confidence": 0.96,
+      "sources": ["Aaron Delgado"],
+      "context": "Respectful greeting"
+    },
+    {
+      "term": "diaper sniper",
+      "definition": "Child molester (derogatory)",
+      "category": "Prison Slang",
+      "confidence": 0.94,
+      "sources": ["Aaron Delgado"],
+      "context": "Sex offender designation",
+      "relatedTerms": ["chomo"]
+    },
+    {
+      "term": "dime",
+      "definition": "Ten-year sentence",
+      "category": "Prison Slang",
+      "confidence": 0.97,
+      "sources": ["Aaron Delgado", "Prison Writers"],
+      "context": "Sentence length",
+      "relatedTerms": ["bullet", "nickel"]
+    },
+    {
+      "term": "ding wing",
+      "definition": "Mental health/psychiatric ward",
+      "category": "Prison Slang",
+      "confidence": 0.96,
+      "sources": ["Aaron Delgado", "Prison Writers"],
+      "context": "Psych unit"
+    },
+    {
+      "term": "dinner and a show",
+      "definition": "Eating while watching fights",
+      "category": "Prison Slang",
+      "confidence": 0.93,
+      "sources": ["Aaron Delgado", "Prison Writers"],
+      "context": "Entertainment during meal"
+    },
+    {
+      "term": "dobie",
+      "definition": "Biscuit or roll",
+      "category": "Prison Slang",
+      "confidence": 0.91,
+      "sources": ["Aaron Delgado"],
+      "context": "Prison food item"
+    },
+    {
+      "term": "doing the dutch",
+      "definition": "Committing suicide",
+      "category": "Prison Slang",
+      "confidence": 0.95,
+      "sources": ["Aaron Delgado", "Prison Writers"],
+      "context": "Self-harm euphemism"
+    },
+    {
+      "term": "dotted up",
+      "definition": "Heavily tattooed",
+      "category": "Prison Slang",
+      "confidence": 0.94,
+      "sources": ["Aaron Delgado"],
+      "context": "Body modification"
+    },
+    {
+      "term": "draft",
+      "definition": "Extortion payment",
+      "category": "Prison Slang",
+      "confidence": 0.92,
+      "sources": ["Prison Writers"],
+      "context": "Forced payment"
+    },
+    {
+      "term": "drama",
+      "definition": "Fight or assault",
+      "category": "Prison Slang",
+      "confidence": 0.95,
+      "sources": ["Vice"],
+      "context": "Violent confrontation"
+    },
+    {
+      "term": "drop a slip",
+      "definition": "File written snitch report",
+      "category": "Prison Slang",
+      "confidence": 0.93,
+      "sources": ["Aaron Delgado"],
+      "context": "Informant documentation"
+    },
+    {
+      "term": "dropped",
+      "definition": "Tackled by guard",
+      "category": "Prison Slang",
+      "confidence": 0.94,
+      "sources": ["Aaron Delgado"],
+      "context": "Physical restraint"
+    },
+    {
+      "term": "dry snitching",
+      "definition": "Loud, indirect ratting that attracts attention",
+      "category": "Prison Slang",
+      "confidence": 0.96,
+      "sources": ["Aaron Delgado", "Prison Writers"],
+      "context": "Indirect informing"
+    },
+    {
+      "term": "duck",
+      "definition": "Gullible, easily manipulated guard",
+      "category": "Prison Slang",
+      "confidence": 0.95,
+      "sources": ["Aaron Delgado", "Prison Writers"],
+      "context": "Vulnerable staff"
+    },
+    {
+      "term": "dump truck",
+      "definition": "Overweight, lazy inmate",
+      "category": "Prison Slang",
+      "confidence": 0.91,
+      "sources": ["Aaron Delgado", "Prison Writers"],
+      "context": "Physical description (derogatory)"
+    },
+    {
+      "term": "education",
+      "definition": "Classes or library area",
+      "category": "Prison Slang",
+      "confidence": 0.97,
+      "sources": ["Aaron Delgado", "Vice"],
+      "context": "Learning facilities"
+    },
+    {
+      "term": "erasers",
+      "definition": "Processed chicken patties",
+      "category": "Prison Slang",
+      "confidence": 0.89,
+      "sources": ["Aaron Delgado"],
+      "context": "Prison food"
+    },
+    {
+      "term": "eyeball",
+      "definition": "Stare suspiciously or threateningly",
+      "category": "Prison Slang",
+      "confidence": 0.93,
+      "sources": ["Aaron Delgado"],
+      "context": "Hostile observation"
+    },
+    {
+      "term": "fair one",
+      "definition": "Fair fight without weapons",
+      "category": "Prison Slang",
+      "confidence": 0.96,
+      "sources": ["Aaron Delgado"],
+      "context": "Honorable combat"
+    },
+    {
+      "term": "fam bam",
+      "definition": "Conjugal visit with children present",
+      "category": "Prison Slang",
+      "confidence": 0.92,
+      "sources": ["Prison Writers"],
+      "context": "Family visitation",
+      "relatedTerms": ["boneyard visit"]
+    },
+    {
+      "term": "fiend",
+      "definition": "Addict",
+      "category": "Prison Slang",
+      "confidence": 0.97,
+      "sources": ["Aaron Delgado", "Prison Writers"],
+      "context": "Drug dependency"
+    },
+    {
+      "term": "fish",
+      "definition": "New inmate, naive prisoner",
+      "category": "Prison Slang",
+      "confidence": 0.98,
+      "sources": ["Aaron Delgado", "Vice", "Prison Writers"],
+      "context": "First-timer",
+      "relatedTerms": ["fresh meat", "new booties"]
+    },
+    {
+      "term": "fishing line",
+      "definition": "Contraband string for passing items",
+      "category": "Prison Slang",
+      "confidence": 0.94,
+      "sources": ["Aaron Delgado"],
+      "context": "Item transport method"
+    },
+    {
+      "term": "fishing pole",
+      "definition": "Tool for retrieving distant items",
+      "category": "Prison Slang",
+      "confidence": 0.93,
+      "sources": ["Aaron Delgado"],
+      "context": "Contraband tool"
+    },
+    {
+      "term": "flick",
+      "definition": "Photograph or magazine picture",
+      "category": "Prison Slang",
+      "confidence": 0.95,
+      "sources": ["Aaron Delgado"],
+      "context": "Visual material"
+    },
+    {
+      "term": "fresh meat",
+      "definition": "New inmates",
+      "category": "Prison Slang",
+      "confidence": 0.96,
+      "sources": ["Aaron Delgado", "Prison Writers"],
+      "context": "Newly arrived prisoners",
+      "relatedTerms": ["fish", "new booties"]
+    },
+    {
+      "term": "frequent flier",
+      "definition": "Repeat offender",
+      "category": "Prison Slang",
+      "confidence": 0.94,
+      "sources": ["Aaron Delgado"],
+      "context": "Recidivist"
+    },
+    {
+      "term": "funky",
+      "definition": "Unhygienic, smelly",
+      "category": "Prison Slang",
+      "confidence": 0.93,
+      "sources": ["Aaron Delgado"],
+      "context": "Poor cleanliness"
+    },
+    {
+      "term": "gangsta",
+      "definition": "AIDS (because you 'die slow')",
+      "category": "Prison Slang",
+      "confidence": 0.89,
+      "sources": ["Prison Writers"],
+      "context": "Disease euphemism",
+      "relatedTerms": ["monster", "ninja"]
+    },
+    {
+      "term": "gen pop",
+      "definition": "General population (main prison area)",
+      "category": "Prison Slang",
+      "confidence": 0.98,
+      "sources": ["Aaron Delgado"],
+      "context": "Standard housing unit"
+    },
+    {
+      "term": "get hit",
+      "definition": "Receive additional sentence time",
+      "category": "Prison Slang",
+      "confidence": 0.94,
+      "sources": ["Prison Writers"],
+      "context": "Sentencing extension"
+    },
+    {
+      "term": "getting buzzed",
+      "definition": "Being tattooed",
+      "category": "Prison Slang",
+      "confidence": 0.95,
+      "sources": ["Aaron Delgado", "Prison Writers"],
+      "context": "Tattoo application"
+    },
+    {
+      "term": "going psych",
+      "definition": "Having mental breakdown",
+      "category": "Prison Slang",
+      "confidence": 0.93,
+      "sources": ["Aaron Delgado"],
+      "context": "Mental crisis"
+    },
+    {
+      "term": "got a body",
+      "definition": "Killed someone",
+      "category": "Prison Slang",
+      "confidence": 0.96,
+      "sources": ["Aaron Delgado"],
+      "context": "Murder confession"
+    },
+    {
+      "term": "grapes",
+      "definition": "Gossip, rumors",
+      "category": "Prison Slang",
+      "confidence": 0.94,
+      "sources": ["Aaron Delgado", "Prison Writers"],
+      "context": "Information exchange"
+    },
+    {
+      "term": "green light",
+      "definition": "Permission/order to attack or kill someone",
+      "category": "Prison Slang",
+      "confidence": 0.98,
+      "sources": ["Aaron Delgado", "Prison Writers"],
+      "context": "Gang-sanctioned violence",
+      "examples": ["He got the green light from the shot caller"]
+    },
+    {
+      "term": "gump",
+      "definition": "Homosexual inmate (sometimes fights back, per Vice)",
+      "category": "Prison Slang",
+      "confidence": 0.92,
+      "sources": ["Aaron Delgado", "Vice"],
+      "context": "Sexual orientation reference"
+    },
+    {
+      "term": "gunline",
+      "definition": "Warning that someone is masturbating",
+      "category": "Prison Slang",
+      "confidence": 0.91,
+      "sources": ["Prison Writers"],
+      "context": "Sexual harassment alert"
+    },
+    {
+      "term": "gunning",
+      "definition": "Masturbating in front of female guard",
+      "category": "Prison Slang",
+      "confidence": 0.93,
+      "sources": ["Aaron Delgado"],
+      "context": "Sexual harassment"
+    },
+    {
+      "term": "has the keys",
+      "definition": "Group leader or decision-maker",
+      "category": "Prison Slang",
+      "confidence": 0.94,
+      "sources": ["Prison Writers"],
+      "context": "Authority within group"
+    },
+    {
+      "term": "heat wave",
+      "definition": "Group scrutiny or attention",
+      "category": "Prison Slang",
+      "confidence": 0.90,
+      "sources": ["Aaron Delgado"],
+      "context": "Unwanted focus"
+    },
+    {
+      "term": "high class",
+      "definition": "Hepatitis C",
+      "category": "Prison Slang",
+      "confidence": 0.91,
+      "sources": ["Aaron Delgado"],
+      "context": "Disease euphemism"
+    },
+    {
+      "term": "hoe check",
+      "definition": "Group beating to test resilience",
+      "category": "Prison Slang",
+      "confidence": 0.96,
+      "sources": ["Aaron Delgado", "Prison Writers"],
+      "context": "Physical dominance test",
+      "examples": ["New fish got a hoe check first night"]
+    },
+    {
+      "term": "hole",
+      "definition": "Solitary confinement",
+      "category": "Prison Slang",
+      "confidence": 0.99,
+      "sources": ["Aaron Delgado", "Prison Writers"],
+      "context": "Isolation punishment",
+      "examples": ["Sent to the hole for 30 days"]
+    },
+    {
+      "term": "hooch",
+      "definition": "Homemade prison alcohol/wine",
+      "category": "Prison Slang",
+      "confidence": 0.97,
+      "sources": ["Aaron Delgado", "Vice"],
+      "context": "Contraband alcohol"
+    },
+    {
+      "term": "hoop",
+      "definition": "Hide contraband in body cavity",
+      "category": "Prison Slang",
+      "confidence": 0.94,
+      "sources": ["Prison Writers"],
+      "context": "Smuggling method",
+      "relatedTerms": ["keister", "permanent pocket"]
+    },
+    {
+      "term": "hot medders",
+      "definition": "Over-the-counter medication users",
+      "category": "Prison Slang",
+      "confidence": 0.88,
+      "sources": ["Prison Writers"],
+      "context": "OTC med abuse"
+    },
+    {
+      "term": "hot one",
+      "definition": "Murder charge",
+      "category": "Prison Slang",
+      "confidence": 0.95,
+      "sources": ["Prison Writers"],
+      "context": "Serious criminal charge"
+    },
+    {
+      "term": "hot water",
+      "definition": "Warning that officer is approaching",
+      "category": "Prison Slang",
+      "confidence": 0.93,
+      "sources": ["Prison Writers"],
+      "context": "Alert signal"
+    },
+    {
+      "term": "house",
+      "definition": "Cell",
+      "category": "Prison Slang",
+      "confidence": 0.96,
+      "sources": ["Prison Writers"],
+      "context": "Living quarters",
+      "relatedTerms": ["cage"]
+    },
+    {
+      "term": "hug-a-thug",
+      "definition": "Respectful, fair correctional officer",
+      "category": "Prison Slang",
+      "confidence": 0.91,
+      "sources": ["Prison Writers"],
+      "context": "Sympathetic guard"
+    },
+    {
+      "term": "in the cut",
+      "definition": "Hidden spot away from surveillance",
+      "category": "Prison Slang",
+      "confidence": 0.95,
+      "sources": ["Vice"],
+      "context": "Blind spot location"
+    },
+    {
+      "term": "J-Cat",
+      "definition": "Crazy person, mental case",
+      "category": "Prison Slang",
+      "confidence": 0.94,
+      "sources": ["Prison Writers"],
+      "context": "Mental health designation"
+    },
+    {
+      "term": "jaunt",
+      "definition": "Joint or shank (weapon)",
+      "category": "Prison Slang",
+      "confidence": 0.92,
+      "sources": ["Vice"],
+      "context": "Improvised weapon"
+    },
+    {
+      "term": "Jody",
+      "definition": "Partner's lover on the outside",
+      "category": "Prison Slang",
+      "confidence": 0.93,
+      "sources": ["Prison Writers"],
+      "context": "Infidelity reference"
+    },
+    {
+      "term": "Jose",
+      "definition": "Activity to help pass time",
+      "category": "Prison Slang",
+      "confidence": 0.89,
+      "sources": ["Prison Writers"],
+      "context": "Time-killing activity"
+    },
+    {
+      "term": "June bug",
+      "definition": "Slave-like, submissive inmate",
+      "category": "Prison Slang",
+      "confidence": 0.90,
+      "sources": ["Prison Writers"],
+      "context": "Dominated prisoner"
+    },
+    {
+      "term": "juvenile-in-training",
+      "definition": "Young troublemaker (J.I.T.)",
+      "category": "Prison Slang",
+      "confidence": 0.91,
+      "sources": ["Prison Writers"],
+      "context": "Young problem inmate"
+    },
+    {
+      "term": "keister",
+      "definition": "Hiding contraband in rectum",
+      "category": "Prison Slang",
+      "confidence": 0.95,
+      "sources": ["Prison Writers", "Vice"],
+      "context": "Body cavity smuggling",
+      "relatedTerms": ["hoop", "permanent pocket"]
+    },
+    {
+      "term": "kesue",
+      "definition": "Knife or shank",
+      "category": "Prison Slang",
+      "confidence": 0.91,
+      "sources": ["Prison Writers"],
+      "context": "Improvised weapon"
+    },
+    {
+      "term": "kite",
+      "definition": "Contraband note or letter",
+      "category": "Prison Slang",
+      "confidence": 0.98,
+      "sources": ["Aaron Delgado", "Prison Writers"],
+      "context": "Illicit communication",
+      "examples": ["Passed a kite to his cell"]
+    },
+    {
+      "term": "kitty kitty",
+      "definition": "Female correctional officer",
+      "category": "Prison Slang",
+      "confidence": 0.89,
+      "sources": ["Prison Writers"],
+      "context": "Female staff reference"
+    },
+    {
+      "term": "la raza",
+      "definition": "Unaffiliated Mexican inmates",
+      "category": "Prison Slang",
+      "confidence": 0.93,
+      "sources": ["Vice"],
+      "context": "Ethnic grouping"
+    },
+    {
+      "term": "lame duck",
+      "definition": "Vulnerable, weak inmate",
+      "category": "Prison Slang",
+      "confidence": 0.92,
+      "sources": ["Prison Writers"],
+      "context": "Easy target"
+    },
+    {
+      "term": "life jolt",
+      "definition": "Life sentence",
+      "category": "Prison Slang",
+      "confidence": 0.95,
+      "sources": ["Prison Writers"],
+      "context": "Permanent incarceration",
+      "relatedTerms": ["all day", "LWOP"]
+    },
+    {
+      "term": "lockdown",
+      "definition": "Mandatory cell confinement",
+      "category": "Prison Slang",
+      "confidence": 0.98,
+      "sources": ["Prison Writers"],
+      "context": "Facility-wide restriction"
+    },
+    {
+      "term": "lock-in-a-sock",
+      "definition": "Padlock in sock used as weapon",
+      "category": "Prison Slang",
+      "confidence": 0.96,
+      "sources": ["Prison Writers"],
+      "context": "Improvised weapon"
+    },
+    {
+      "term": "LWOP",
+      "definition": "Life without parole",
+      "category": "Prison Slang",
+      "confidence": 0.99,
+      "sources": ["Prison Writers"],
+      "context": "Maximum sentence",
+      "relatedTerms": ["all day and a night", "big bitch"]
+    },
+    {
+      "term": "mando",
+      "definition": "Mandatory (required activity)",
+      "category": "Prison Slang",
+      "confidence": 0.94,
+      "sources": ["Prison Writers"],
+      "context": "Compulsory requirement"
+    },
+    {
+      "term": "meat wagon",
+      "definition": "Ambulance",
+      "category": "Prison Slang",
+      "confidence": 0.95,
+      "sources": ["Prison Writers"],
+      "context": "Emergency medical transport"
+    },
+    {
+      "term": "Mexican mafia",
+      "definition": "Drug-running prison gang",
+      "category": "Prison Slang",
+      "confidence": 0.97,
+      "sources": ["Vice"],
+      "context": "Organized crime group"
+    },
+    {
+      "term": "mojiggetty",
+      "definition": "Synthetic marijuana (K2/Spice)",
+      "category": "Prison Slang",
+      "confidence": 0.91,
+      "sources": ["Prison Writers"],
+      "context": "Contraband synthetic drug"
+    },
+    {
+      "term": "moley",
+      "definition": "Jail dessert",
+      "category": "Prison Slang",
+      "confidence": 0.88,
+      "sources": ["Prison Writers"],
+      "context": "Prison food"
+    },
+    {
+      "term": "molly-whop",
+      "definition": "Beat up severely",
+      "category": "Prison Slang",
+      "confidence": 0.93,
+      "sources": ["Prison Writers"],
+      "context": "Physical assault"
+    },
+    {
+      "term": "money on books",
+      "definition": "Funds in commissary account",
+      "category": "Prison Slang",
+      "confidence": 0.97,
+      "sources": ["Prison Writers"],
+      "context": "Prison economy",
+      "relatedTerms": ["books"]
+    },
+    {
+      "term": "monkey mouth",
+      "definition": "Constant talker, rambler",
+      "category": "Prison Slang",
+      "confidence": 0.90,
+      "sources": ["Prison Writers"],
+      "context": "Excessive talking"
+    },
+    {
+      "term": "monster",
+      "definition": "HIV",
+      "category": "Prison Slang",
+      "confidence": 0.93,
+      "sources": ["Prison Writers"],
+      "context": "Disease euphemism",
+      "relatedTerms": ["ninja", "gangsta"]
+    },
+    {
+      "term": "mud",
+      "definition": "Coffee",
+      "category": "Prison Slang",
+      "confidence": 0.94,
+      "sources": ["Prison Writers"],
+      "context": "Beverage slang"
+    },
+    {
+      "term": "mudd",
+      "definition": "Buttocks, ass",
+      "category": "Prison Slang",
+      "confidence": 0.89,
+      "sources": ["Prison Writers"],
+      "context": "Body part slang"
+    },
+    {
+      "term": "netted up",
+      "definition": "Crazy, mentally unstable",
+      "category": "Prison Slang",
+      "confidence": 0.91,
+      "sources": ["Prison Writers"],
+      "context": "Mental state"
+    },
+    {
+      "term": "new booties",
+      "definition": "First-time prisoners",
+      "category": "Prison Slang",
+      "confidence": 0.94,
+      "sources": ["Prison Writers"],
+      "context": "New inmates",
+      "relatedTerms": ["fish", "fresh meat"]
+    },
+    {
+      "term": "newjacks",
+      "definition": "New correctional officers",
+      "category": "Prison Slang",
+      "confidence": 0.95,
+      "sources": ["Prison Writers"],
+      "context": "Rookie guards",
+      "relatedTerms": ["cowboy"]
+    },
+    {
+      "term": "nickel",
+      "definition": "Five-year sentence",
+      "category": "Prison Slang",
+      "confidence": 0.97,
+      "sources": ["Prison Writers"],
+      "context": "Sentence length",
+      "relatedTerms": ["bullet", "dime"]
+    },
+    {
+      "term": "ninja",
+      "definition": "HIV or STDs",
+      "category": "Prison Slang",
+      "confidence": 0.91,
+      "sources": ["Prison Writers"],
+      "context": "Disease euphemism",
+      "relatedTerms": ["monster", "gangsta"]
+    },
+    {
+      "term": "no good",
+      "definition": "Unreliable, untrustworthy",
+      "category": "Prison Slang",
+      "confidence": 0.95,
+      "sources": ["Vice"],
+      "context": "Character assessment"
+    },
+    {
+      "term": "O.G.",
+      "definition": "Original gangster (veteran inmate)",
+      "category": "Prison Slang",
+      "confidence": 0.98,
+      "sources": ["Prison Writers"],
+      "context": "Respected elder"
+    },
+    {
+      "term": "on the count",
+      "definition": "Officially representing one's group",
+      "category": "Prison Slang",
+      "confidence": 0.93,
+      "sources": ["Vice"],
+      "context": "Gang representation"
+    },
+    {
+      "term": "on the line",
+      "definition": "For sale, available for trade",
+      "category": "Prison Slang",
+      "confidence": 0.94,
+      "sources": ["Prison Writers"],
+      "context": "Prison economy"
+    },
+    {
+      "term": "P.C.",
+      "definition": "Protective custody",
+      "category": "Prison Slang",
+      "confidence": 0.98,
+      "sources": ["Prison Writers"],
+      "context": "Segregated housing for safety"
+    },
+    {
+      "term": "papers",
+      "definition": "Drug packets",
+      "category": "Prison Slang",
+      "confidence": 0.93,
+      "sources": ["Vice"],
+      "context": "Contraband packaging"
+    },
+    {
+      "term": "permanent pocket",
+      "definition": "Anus (for hiding contraband)",
+      "category": "Prison Slang",
+      "confidence": 0.92,
+      "sources": ["Prison Writers"],
+      "context": "Body cavity smuggling",
+      "relatedTerms": ["keister", "hoop"]
+    },
+    {
+      "term": "playing on ass",
+      "definition": "Gambling without money",
+      "category": "Prison Slang",
+      "confidence": 0.90,
+      "sources": ["Prison Writers"],
+      "context": "Credit gambling"
+    },
+    {
+      "term": "porcelain termite",
+      "definition": "Inmate who destroys toilets",
+      "category": "Prison Slang",
+      "confidence": 0.88,
+      "sources": ["Prison Writers"],
+      "context": "Property destruction"
+    },
+    {
+      "term": "quiet time",
+      "definition": "Lights out, sleep time",
+      "category": "Prison Slang",
+      "confidence": 0.95,
+      "sources": ["Vice"],
+      "context": "Scheduled rest period"
+    },
+    {
+      "term": "roll call",
+      "definition": "Gang group meeting",
+      "category": "Prison Slang",
+      "confidence": 0.94,
+      "sources": ["Vice"],
+      "context": "Organized gathering"
+    },
+    {
+      "term": "send-in",
+      "definition": "Incoming money transfer",
+      "category": "Prison Slang",
+      "confidence": 0.93,
+      "sources": ["Vice"],
+      "context": "Financial transaction"
+    },
+    {
+      "term": "send-out",
+      "definition": "Outgoing money transfer",
+      "category": "Prison Slang",
+      "confidence": 0.93,
+      "sources": ["Vice"],
+      "context": "Financial transaction"
+    },
+    {
+      "term": "shot caller",
+      "definition": "Gang leader, decision-maker",
+      "category": "Prison Slang",
+      "confidence": 0.97,
+      "sources": ["Vice"],
+      "context": "Authority figure in gang hierarchy"
+    },
+    {
+      "term": "store",
+      "definition": "Commissary items",
+      "category": "Prison Slang",
+      "confidence": 0.96,
+      "sources": ["Vice"],
+      "context": "Purchased goods"
+    },
+    {
+      "term": "tuchie",
+      "definition": "Undetectable synthetic marijuana (K2)",
+      "category": "Prison Slang",
+      "confidence": 0.90,
+      "sources": ["Vice"],
+      "context": "Contraband drug"
+    },
+    {
+      "term": "UA",
+      "definition": "Urinalysis drug test",
+      "category": "Prison Slang",
+      "confidence": 0.97,
+      "sources": ["Vice"],
+      "context": "Drug screening"
+    },
+    {
+      "term": "vic",
+      "definition": "Victim",
+      "category": "Prison Slang",
+      "confidence": 0.95,
+      "sources": ["Vice"],
+      "context": "Target of exploitation"
+    },
+    {
+      "term": "wolf tickets",
+      "definition": "Empty threats, false bravado",
+      "category": "Prison Slang",
+      "confidence": 0.96,
+      "sources": ["Vice"],
+      "context": "Hollow intimidation"
+    },
+    {
+      "term": "X'd out",
+      "definition": "Marked for death, on hit list",
+      "category": "Prison Slang",
+      "confidence": 0.95,
+      "sources": ["Vice"],
+      "context": "Gang target designation"
+    },
+    {
+      "term": "yard",
+      "definition": "Recreation area",
+      "category": "Prison Slang",
+      "confidence": 0.98,
+      "sources": ["Vice"],
+      "context": "Outdoor exercise space"
+    },
+    {
+      "term": "zoo-zoos",
+      "definition": "Junk food, snacks",
+      "category": "Prison Slang",
+      "confidence": 0.92,
+      "sources": ["Vice"],
+      "context": "Commissary treats"
+    }
+  ]
+}

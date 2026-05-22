@@ -1,0 +1,105 @@
+{
+  "extractionSummary": {
+    "totalTermsReceived": "400+ terms",
+    "newCategories": ["Prison Slang", "Gang Terminology", "Redneck Dialect (expanded)"],
+    "sources": [
+      "SJSU PDF (AAVE)",
+      "Wolfram PDF (Urban AAVE Grammar)",
+      "Ebonics PDF (Extended)",
+      "Aaron Delgado (Prison Slang)",
+      "Prison Writers (Prison Slang)",
+      "Vice (Prison Slang)",
+      "Gang Enforcement (Asian Gang)",
+      "ThoughtCo (Redneck)",
+      "1027KORD (Redneck)",
+      "Southern Living (Southern/Redneck)"
+    ],
+    "processingStatus": "Initial extraction - deduplication analysis needed",
+    "extractionDate": "2025"
+  },
+  "categoryBreakdown": {
+    "prisonSlang": {
+      "termCount": "200+",
+      "sources": ["Aaron Delgado", "Prison Writers", "Vice"],
+      "note": "Extensive overlap between sources - many duplicate terms with slight definition variations",
+      "sampleTerms": ["All Day", "Back Door Parole", "Fish", "Green Light", "Hole", "115", "Bean Slot", "Hoe Check", "Kite"]
+    },
+    "gangTerminology": {
+      "termCount": "4",
+      "sources": ["Gang Enforcement"],
+      "terms": ["Tongs", "Triads", "Underworld Brotherhood", "Wings Yellow"]
+    },
+    "aaveExtended": {
+      "termCount": "80+",
+      "sources": ["SJSU PDF", "Wolfram PDF", "Ebonics PDF"],
+      "note": "Many duplicates with existing AAVE database, but includes valuable grammatical concepts",
+      "grammarConcepts": [
+        "Copula absence",
+        "Invariant be",
+        "Completive done",
+        "Sequential be done",
+        "Remote béen",
+        "Simple past had + verb",
+        "Indignant come",
+        "Steady",
+        "3rd sg. -s absence",
+        "Be leveling",
+        "Negative concord",
+        "Preverbal indefinite negative",
+        "Negative inversion",
+        "Ain't for didn't",
+        "Possessive -s absence",
+        "Generalized plural -s absence",
+        "Regularized irregular plurals",
+        "Possessive they",
+        "Regularized mines",
+        "Regularized hisself",
+        "Demonstrative them",
+        "Subject relative pro deletion",
+        "Non-inverted simple questions",
+        "Inverted embedded questions"
+      ]
+    },
+    "redneckSouthernExpanded": {
+      "termCount": "100+",
+      "sources": ["ThoughtCo", "1027KORD", "Southern Living"],
+      "note": "Significant overlap with existing Appalachian/Southern database, but includes many new idioms and phrases"
+    }
+  },
+  "criticalObservations": {
+    "prisonSlangDuplication": "Heavy duplication within prison slang sources - same terms appear 3-4 times with identical or near-identical definitions",
+    "aaveGrammarValue": "Wolfram PDF provides extensive grammatical concepts that are META-LINGUISTIC and highly valuable for explaining AAVE systematics",
+    "categoryExpansion": "This data adds 2 entirely new categories (Prison Slang, Gang Terminology) not previously in database",
+    "sourceQuality": "Multiple academic sources (SJSU PDF, Wolfram PDF) provide high-confidence scholarly backing"
+  },
+  "deduplicationNeeds": {
+    "withinNewData": {
+      "prisonSlang": "Estimate 200+ raw terms → ~100 unique after internal deduplication",
+      "aave": "Estimate 80+ raw terms → ~40 unique new (many duplicates with existing AAVE database)",
+      "redneck": "Estimate 100+ raw terms → ~60 unique new (many duplicates with existing Appalachian/Southern)"
+    },
+    "withExistingDatabase": {
+      "aaveDuplicates": "Expect 30-40 duplicates (finna, slay, hella, bae, woke, cap, slaps, etc.)",
+      "redneckDuplicates": "Expect 20-30 duplicates (fixin' to, reckon, y'all, bless your heart, etc.)",
+      "prisonSlang": "Entirely new category - zero duplicates expected with existing database"
+    }
+  },
+  "estimatedFinalAddition": {
+    "prisonSlangUnique": "~100 terms",
+    "gangTerminologyUnique": "~4 terms",
+    "aaveNewUnique": "~40 terms",
+    "redneckNewUnique": "~60 terms",
+    "totalNewUnique": "~204 terms",
+    "previousTotal": 201,
+    "projectedFinalTotal": "~405 unique terms"
+  },
+  "nextStepsRequired": [
+    "1. Deduplicate prison slang internally (Aaron Delgado vs Prison Writers vs Vice)",
+    "2. Cross-reference AAVE terms with existing AAVE database (201 terms)",
+    "3. Cross-reference Redneck/Southern with existing Appalachian/Southern database",
+    "4. Extract all unique terms from each category",
+    "5. Build comprehensive master database with ~405 unique terms",
+    "6. Add all source citations properly"
+  ],
+  "dataQualityNote": "This dataset is RAW and requires significant deduplication work. Many terms appear 2-4 times across different sources with slight variations in wording. Priority should be given to academic sources (Wolfram, SJSU) over informal sources (Vice, blogs) when definitions conflict."
+}

@@ -1,0 +1,304 @@
+<!-- CultrVibe Profile Selector Component -->
+<!-- This component provides a full-screen overlay for selecting cultural profiles -->
+<!-- Designed to show on first launch or when explicitly triggered -->
+
+<div id="cultrvibeProfileSelector" class="cultrvibe-overlay" style="display: none;">
+    <div class="cultrvibe-container">
+        <!-- Header Section -->
+        <div class="cultrvibe-header">
+            <div class="cultrvibe-logo">
+                <span class="logo-icon">🌍</span>
+                <h1 class="logo-text">CultrVibe</h1>
+            </div>
+            <p class="cultrvibe-subtitle">Choose Your Cultural Voice</p>
+            <p class="cultrvibe-description">
+                Select a profile that resonates with your cultural identity. This personalizes your VibeCoder 
+                experience with language, voice, and music that reflects your vibe.
+            </p>
+        </div>
+
+        <!-- Profile Grid -->
+        <div class="cultrvibe-profile-grid">
+            <!-- African American Profile -->
+            <div class="cultrvibe-profile" 
+                 data-profile="african_american"
+                 data-voice="street"
+                 data-music="hiphop">
+                <div class="profile-header">
+                    <span class="profile-emoji">🎤</span>
+                    <h3 class="profile-name">African American</h3>
+                    <span class="profile-checkmark">✓</span>
+                </div>
+                <p class="profile-context">AAVE/Ebonics</p>
+                <p class="profile-description">
+                    African American Vernacular English - Urban, expressive, grammatically rich
+                </p>
+                <div class="profile-keywords">
+                    <span class="keyword">yo</span>
+                    <span class="keyword">finna</span>
+                    <span class="keyword">lit</span>
+                    <span class="keyword">cap</span>
+                    <span class="keyword">bussin</span>
+                </div>
+            </div>
+
+            <!-- Latin American Profile -->
+            <div class="cultrvibe-profile" 
+                 data-profile="latin_american"
+                 data-voice="friendly"
+                 data-music="reggaeton">
+                <div class="profile-header">
+                    <span class="profile-emoji">🌶️</span>
+                    <h3 class="profile-name">Latin American</h3>
+                    <span class="profile-checkmark">✓</span>
+                </div>
+                <p class="profile-context">Chicano/Latino Slang</p>
+                <p class="profile-description">
+                    Chicano English and Latino vernacular - Bilingual code-switching, familia-centered
+                </p>
+                <div class="profile-keywords">
+                    <span class="keyword">orale</span>
+                    <span class="keyword">esa</span>
+                    <span class="keyword">chido</span>
+                    <span class="keyword">vato</span>
+                    <span class="keyword">carnale</span>
+                </div>
+            </div>
+
+            <!-- Asian American Profile -->
+            <div class="cultrvibe-profile" 
+                 data-profile="asian_american"
+                 data-voice="calm"
+                 data-music="kpop">
+                <div class="profile-header">
+                    <span class="profile-emoji">🍜</span>
+                    <h3 class="profile-name">Asian American</h3>
+                    <span class="profile-checkmark">✓</span>
+                </div>
+                <p class="profile-context">Asian American Vernacular</p>
+                <p class="profile-description">
+                    Asian American youth culture - Blends pan-Asian influences with American expressions
+                </p>
+                <div class="profile-keywords">
+                    <span class="keyword">ABG</span>
+                    <span class="keyword">boba</span>
+                    <span class="keyword">fob</span>
+                    <span class="keyword">flex</span>
+                    <span class="keyword">vibes</span>
+                </div>
+            </div>
+
+            <!-- Southern Profile -->
+            <div class="cultrvibe-profile" 
+                 data-profile="southern"
+                 data-voice="professional"
+                 data-music="country">
+                <div class="profile-header">
+                    <span class="profile-emoji">🤠</span>
+                    <h3 class="profile-name">Southern</h3>
+                    <span class="profile-checkmark">✓</span>
+                </div>
+                <p class="profile-context">Southern US Dialect</p>
+                <p class="profile-description">
+                    Southern American English - Warm, hospitable, rich regional expressions
+                </p>
+                <div class="profile-keywords">
+                    <span class="keyword">y'all</span>
+                    <span class="keyword">fixinta</span>
+                    <span class="keyword">bless</span>
+                    <span class="keyword">reckon</span>
+                    <span class="keyword">yonder</span>
+                </div>
+            </div>
+
+            <!-- Internet Culture Profile -->
+            <div class="cultrvibe-profile" 
+                 data-profile="internet"
+                 data-voice="energetic"
+                 data-music="electronic">
+                <div class="profile-header">
+                    <span class="profile-emoji">💻</span>
+                    <h3 class="profile-name">Internet Culture</h3>
+                    <span class="profile-checkmark">✓</span>
+                </div>
+                <p class="profile-context">Digital Native Slang</p>
+                <p class="profile-description">
+                    Online vernacular and meme culture - Fast-paced, ironic, constantly evolving
+                </p>
+                <div class="profile-keywords">
+                    <span class="keyword">sus</span>
+                    <span class="keyword">ratio</span>
+                    <span class="keyword">based</span>
+                    <span class="keyword">mid</span>
+                    <span class="keyword">goated</span>
+                </div>
+            </div>
+
+            <!-- Universal Profile -->
+            <div class="cultrvibe-profile" 
+                 data-profile="universal"
+                 data-voice="professional"
+                 data-music="lofi">
+                <div class="profile-header">
+                    <span class="profile-emoji">🌐</span>
+                    <h3 class="profile-name">Universal</h3>
+                    <span class="profile-checkmark">✓</span>
+                </div>
+                <p class="profile-context">All Cultures Combined</p>
+                <p class="profile-description">
+                    Balanced access to all cultural databases - Perfect for diverse environments
+                </p>
+                <div class="profile-keywords">
+                    <span class="keyword">all</span>
+                    <span class="keyword">languages</span>
+                    <span class="keyword">included</span>
+                    <span class="keyword">diverse</span>
+                    <span class="keyword">global</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="cultrvibe-actions">
+            <button id="cultrvibeSkipBtn" class="cultrvibe-btn cultrvibe-btn-secondary">
+                Skip for Now
+            </button>
+            <button id="cultrvibeContinueBtn" class="cultrvibe-btn cultrvibe-btn-primary" disabled>
+                <span>Continue with</span>
+                <span id="selectedProfileName">Profile</span>
+            </button>
+        </div>
+
+        <!-- Footer -->
+        <div class="cultrvibe-footer">
+            <p>You can change your profile anytime by clicking the CultrVibe button in the header</p>
+        </div>
+    </div>
+</div>
+
+<!-- Profile Selector Script -->
+<script>
+(function() {
+    'use strict';
+
+    // Wait for DOM and CultrVibeProfileSystem to be ready
+    function initializeProfileSelector() {
+        if (typeof window.CultrVibeProfileSystem === 'undefined') {
+            console.warn('⚠️ CultrVibeProfileSystem not loaded, retrying...');
+            setTimeout(initializeProfileSelector, 100);
+            return;
+        }
+
+        const overlay = document.getElementById('cultrvibeProfileSelector');
+        const continueBtn = document.getElementById('cultrvibeContinueBtn');
+        const skipBtn = document.getElementById('cultrvibeSkipBtn');
+        const selectedProfileNameSpan = document.getElementById('selectedProfileName');
+        const profileCards = document.querySelectorAll('.cultrvibe-profile');
+
+        let selectedProfile = null;
+
+        // Profile selection handler
+        profileCards.forEach(card => {
+            card.addEventListener('click', function() {
+                // Remove selection from all cards
+                profileCards.forEach(c => c.classList.remove('selected'));
+                
+                // Add selection to clicked card
+                this.classList.add('selected');
+                
+                // Update selected profile
+                selectedProfile = this.dataset.profile;
+                
+                // Enable continue button and update text
+                continueBtn.disabled = false;
+                const profileName = this.querySelector('.profile-name').textContent;
+                selectedProfileNameSpan.textContent = profileName;
+                
+                console.log(`✅ Profile selected: ${selectedProfile}`);
+            });
+        });
+
+        // Continue button handler
+        continueBtn.addEventListener('click', function() {
+            if (!selectedProfile) return;
+            
+            // Apply the selected profile
+            if (window.cultrVibeSystem) {
+                window.cultrVibeSystem.setProfile(selectedProfile);
+                console.log(`✅ Applied profile: ${selectedProfile}`);
+            }
+            
+            // Mark as configured
+            localStorage.setItem('cultrvibe_configured', 'true');
+            
+            // Hide overlay with animation
+            overlay.style.opacity = '0';
+            setTimeout(() => {
+                overlay.style.display = 'none';
+                overlay.style.opacity = '1';
+                
+                // Dispatch profile selected event
+                window.dispatchEvent(new CustomEvent('cultrvibeProfileSelected', {
+                    detail: { profile: selectedProfile }
+                }));
+            }, 300);
+        });
+
+        // Skip button handler
+        skipBtn.addEventListener('click', function() {
+            // Set default universal profile
+            if (window.cultrVibeSystem) {
+                window.cultrVibeSystem.setProfile('universal');
+            }
+            
+            // Mark as configured
+            localStorage.setItem('cultrvibe_configured', 'true');
+            
+            // Hide overlay
+            overlay.style.opacity = '0';
+            setTimeout(() => {
+                overlay.style.display = 'none';
+                overlay.style.opacity = '1';
+                
+                // Dispatch profile selected event
+                window.dispatchEvent(new CustomEvent('cultrvibeProfileSelected', {
+                    detail: { profile: 'universal', skipped: true }
+                }));
+            }, 300);
+            
+            console.log('⏭️ Profile selection skipped, using Universal profile');
+        });
+
+        // Show selector if not configured
+        const isConfigured = localStorage.getItem('cultrvibe_configured');
+        if (!isConfigured) {
+            setTimeout(() => {
+                overlay.style.display = 'flex';
+                console.log('🌍 Showing CultrVibe profile selector');
+            }, 500); // Small delay for smooth appearance
+        }
+
+        // Expose show/hide methods globally
+        window.showCultrVibeSelector = function() {
+            overlay.style.display = 'flex';
+        };
+
+        window.hideCultrVibeSelector = function() {
+            overlay.style.opacity = '0';
+            setTimeout(() => {
+                overlay.style.display = 'none';
+                overlay.style.opacity = '1';
+            }, 300);
+        };
+
+        console.log('✅ CultrVibe Profile Selector initialized');
+    }
+
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeProfileSelector);
+    } else {
+        initializeProfileSelector();
+    }
+})();
+</script>

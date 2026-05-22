@@ -1,0 +1,1040 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   VIBENICITY — BLUE GLASSMORPHISM DESIGN SYSTEM v2.1
+   ═══════════════════════════════════════════════════════════════════════
+   25% deeper navy glass on white. Rich dark-navy accents on frosted
+   white panels with true glassmorphism translucency.
+   
+   Primary: Dark Navy #0F2D5A | Glass: blur(28px) saturate(200%)
+   Light Source: 135deg top-left | Borders: rgba(30,52,98,0.28-0.35)
+   White glass content: 8-12% | Highlight: inset top-left white edge
+   
+   FILE: css/red-glassmorphism.css | DATE: March 2026
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* 1. CUSTOM PROPERTIES — deep blue glass palette */
+:root {
+    --primary-glow: 15, 45, 90;          /* deep navy-royal blue */
+    --primary-glow-alt: 11, 60, 105;      /* 25% deeper ocean */
+    --secondary-glow: 30, 22, 82;        /* indigo-violet */
+    --secondary-glow-deep: 8, 19, 52;      /* 25% deeper midnight */
+    --bg-dark-1: #f0f3f7;
+    --bg-dark-2: #f5f7fa;
+    --bg-dark-3: #f8faff;
+    --glass-white: rgba(255, 255, 255, 0.55);
+    --glass-highlight: rgba(90, 112, 150, 0.25);
+    --text-primary: #0a0f1a;
+    --text-secondary: #1a2540;
+    --text-muted: #3a4f70;
+}
+
+/* 2. BACKGROUND — white with soft blue ambient glow */
+body {
+    background: #f4f6f9 !important;
+    color: #0a0f1a !important;
+}
+.background {
+    background:
+        radial-gradient(ellipse at 20% 15%, rgba(15,45,90,0.18) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 80%, rgba(30,22,82,0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 40%, rgba(11,34,71,0.20) 0%, transparent 70%),
+        radial-gradient(ellipse at 50% 0%, rgba(126,78,87,0.25) 0%, transparent 50%),
+        linear-gradient(135deg, #f4f6f9 0%, #eef2f8 40%, #f8faff 100%) !important;
+}
+
+/* 3. GLASS PANEL — frosted white-blue translucent glass on light bg */
+.glass-panel {
+    background:
+        radial-gradient(ellipse at 20% 30%, rgba(15,45,90,0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 70%, rgba(30,22,82,0.08) 0%, transparent 50%),
+        linear-gradient(135deg, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0.40) 100%) !important;
+    backdrop-filter: blur(28px) saturate(200%) !important;
+    -webkit-backdrop-filter: blur(28px) saturate(200%) !important;
+    border: 1px solid rgba(30,52,98,0.35) !important;
+    box-shadow:
+        0 4px 30px rgba(15,45,90,0.12),
+        0 8px 32px rgba(0,0,0,0.06),
+        inset 0 1px 0 rgba(255,255,255,0.80),
+        inset -1px 0 0 rgba(255,255,255,0.40) !important;
+    color: #0a0f1a !important;
+}
+.glass-panel::before {
+    background: linear-gradient(135deg, rgba(255,255,255,0.30), transparent 60%, rgba(15,45,90,0.03)) !important;
+}
+
+/* 4. BANNER SECTIONS — white-blue frosted glass on light bg */
+.banner-section {
+    backdrop-filter: blur(24px) saturate(190%) !important;
+    -webkit-backdrop-filter: blur(24px) saturate(190%) !important;
+    border: 1px solid rgba(30,52,98,0.32) !important;
+}
+.banner-section.social {
+    border-left: 4px solid rgba(15,45,90,0.85) !important;
+    background: radial-gradient(circle at top left, rgba(15,45,90,0.15) 0%, rgba(15,45,90,0.05) 40%, transparent 70%), linear-gradient(135deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.30) 100%) !important;
+    box-shadow: 0 4px 20px rgba(15,45,90,0.10), inset 0 1px 0 rgba(255,255,255,0.70) !important;
+}
+.banner-section.music {
+    border-left: 4px solid rgba(30,22,82,0.85) !important;
+    background: radial-gradient(circle at top left, rgba(30,22,82,0.15) 0%, rgba(30,22,82,0.05) 40%, transparent 70%), linear-gradient(135deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.30) 100%) !important;
+    box-shadow: 0 4px 20px rgba(30,22,82,0.10), inset 0 1px 0 rgba(255,255,255,0.70) !important;
+}
+.banner-section.shopping {
+    border-left: 4px solid rgba(11,60,105,0.85) !important;
+    background: radial-gradient(circle at top left, rgba(11,60,105,0.15) 0%, rgba(11,60,105,0.05) 40%, transparent 70%), linear-gradient(135deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.30) 100%) !important;
+    box-shadow: 0 4px 20px rgba(11,60,105,0.10), inset 0 1px 0 rgba(255,255,255,0.70) !important;
+}
+.banner-label.social { color: rgba(11,34,75,0.95) !important; }
+.banner-label.music { color: rgba(22,19,71,0.95) !important; }
+.banner-label.shopping { color: rgba(8,41,86,0.95) !important; }
+
+/* 5. WIDGETS — SVG Brand Logos, white glass on light bg */
+.social-widget, .shopping-widget {
+    background: rgba(255,255,255,0.45) !important;
+    backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(30,52,98,0.28) !important;
+}
+.social-widget:hover, .shopping-widget:hover {
+    border-color: rgba(19,41,90,0.45) !important;
+}
+.social-widget .widget-icon, .shopping-widget .widget-icon {
+    font-size: 0 !important; width: 22px; height: 22px; display: block; position: relative; z-index: 1;
+    filter: brightness(0.2) !important;
+}
+
+/* Social SVGs — dark on light bg */
+.social-widget.facebook .widget-icon { background: url('../images/icons/facebook.svg') center/contain no-repeat; }
+.social-widget.youtube .widget-icon { background: url('../images/icons/youtube.svg') center/contain no-repeat; }
+.social-widget.instagram .widget-icon { background: url('../images/icons/instagram.svg') center/contain no-repeat; }
+.social-widget.tiktok .widget-icon { background: url('../images/icons/tiktok.svg') center/contain no-repeat; }
+.social-widget.twitter .widget-icon { background: url('../images/icons/x.svg') center/contain no-repeat; }
+.social-widget.snapchat .widget-icon { background: url('../images/icons/snapchat.svg') center/contain no-repeat; }
+.social-widget.linkedin .widget-icon { background: url('../images/icons/linkedin.svg') center/contain no-repeat; }
+.social-widget.reddit .widget-icon { background: url('../images/icons/reddit.svg') center/contain no-repeat; }
+.social-widget.pinterest .widget-icon { background: url('../images/icons/pinterest.svg') center/contain no-repeat; }
+.social-widget.discord .widget-icon { background: url('../images/icons/discord.svg') center/contain no-repeat; }
+
+/* Music SVGs */
+.social-widget.spotify .widget-icon { background: url('../images/icons/spotify.svg') center/contain no-repeat; }
+.social-widget.apple-music .widget-icon { background: url('../images/icons/applemusic.svg') center/contain no-repeat; }
+.social-widget.pandora .widget-icon { background: url('../images/icons/pandora.svg') center/contain no-repeat; }
+.social-widget.soundcloud .widget-icon { background: url('../images/icons/soundcloud.svg') center/contain no-repeat; }
+.social-widget.youtube-music .widget-icon { background: url('../images/icons/youtubemusic.svg') center/contain no-repeat; }
+
+/* Shopping SVGs */
+.shopping-widget.amazon .widget-icon { background: url('../images/icons/amazon.svg') center/contain no-repeat; }
+.shopping-widget.ebay .widget-icon { background: url('../images/icons/ebay.svg') center/contain no-repeat; }
+.shopping-widget.aliexpress .widget-icon { background: url('../images/icons/aliexpress.svg') center/contain no-repeat; }
+.shopping-widget.walmart .widget-icon { background: url('../images/icons/walmart.svg') center/contain no-repeat; }
+.shopping-widget.etsy .widget-icon { background: url('../images/icons/etsy.svg') center/contain no-repeat; }
+.shopping-widget.shopify .widget-icon { background: url('../images/icons/shopify.svg') center/contain no-repeat; }
+.shopping-widget.target .widget-icon { background: url('../images/icons/target.svg') center/contain no-repeat; }
+
+/* Fallback emoji for Best Buy, Temu, Shein */
+.shopping-widget.bestbuy .widget-icon,
+.shopping-widget.temu .widget-icon,
+.shopping-widget.shein .widget-icon {
+    font-size: 18px !important; display: flex !important; align-items: center; justify-content: center;
+    filter: none !important; color: #0a0f1a;
+}
+
+/* 5b. HOVER GLOWS */
+.facebook:hover { background: rgba(24,119,242,0.12) !important; box-shadow: 0 6px 20px rgba(24,119,242,0.4), inset 0 0 20px rgba(15,45,90,0.04) !important; }
+.youtube:hover { background: rgba(255,0,0,0.12) !important; box-shadow: 0 6px 20px rgba(255,0,0,0.4), inset 0 0 20px rgba(15,45,90,0.04) !important; }
+.instagram:hover { background: linear-gradient(135deg, rgba(228,64,95,0.12), rgba(245,133,41,0.12)) !important; box-shadow: 0 6px 20px rgba(228,64,95,0.4), inset 0 0 20px rgba(15,45,90,0.04) !important; }
+.tiktok:hover { background: rgba(220,20,60,0.15) !important; box-shadow: 0 6px 20px rgba(255,0,80,0.4), inset 0 0 20px rgba(15,45,90,0.04) !important; }
+.twitter:hover { background: rgba(29,161,242,0.12) !important; box-shadow: 0 6px 20px rgba(29,161,242,0.4), inset 0 0 20px rgba(15,45,90,0.04) !important; }
+.snapchat:hover { background: rgba(255,252,0,0.08) !important; box-shadow: 0 6px 20px rgba(255,252,0,0.3), inset 0 0 20px rgba(15,45,90,0.04) !important; }
+.linkedin:hover { background: rgba(10,102,194,0.12) !important; box-shadow: 0 6px 20px rgba(10,102,194,0.4), inset 0 0 20px rgba(15,45,90,0.04) !important; }
+.reddit:hover { background: rgba(255,69,0,0.12) !important; box-shadow: 0 6px 20px rgba(255,69,0,0.4), inset 0 0 20px rgba(15,45,90,0.04) !important; }
+.pinterest:hover { background: rgba(230,0,35,0.12) !important; box-shadow: 0 6px 20px rgba(230,0,35,0.4), inset 0 0 20px rgba(15,45,90,0.04) !important; }
+.discord:hover { background: rgba(88,101,242,0.12) !important; box-shadow: 0 6px 20px rgba(88,101,242,0.4), inset 0 0 20px rgba(15,45,90,0.04) !important; }
+.spotify:hover { background: rgba(30,215,96,0.10) !important; box-shadow: 0 6px 20px rgba(30,215,96,0.4), inset 0 0 20px rgba(15,45,90,0.04) !important; }
+.apple-music:hover { background: rgba(250,55,95,0.12) !important; box-shadow: 0 6px 20px rgba(250,55,95,0.4), inset 0 0 20px rgba(15,45,90,0.04) !important; }
+.pandora:hover { background: rgba(0,112,239,0.12) !important; box-shadow: 0 6px 20px rgba(0,112,239,0.4), inset 0 0 20px rgba(15,45,90,0.04) !important; }
+.soundcloud:hover { background: rgba(255,85,0,0.12) !important; box-shadow: 0 6px 20px rgba(255,85,0,0.4), inset 0 0 20px rgba(15,45,90,0.04) !important; }
+.youtube-music:hover { background: rgba(255,0,0,0.12) !important; box-shadow: 0 6px 20px rgba(255,0,0,0.4), inset 0 0 20px rgba(15,45,90,0.04) !important; }
+.amazon:hover { background: rgba(255,153,0,0.10) !important; box-shadow: 0 6px 20px rgba(255,153,0,0.4), inset 0 0 20px rgba(15,45,90,0.04) !important; }
+.ebay:hover { background: linear-gradient(135deg, rgba(255,0,0,0.10), rgba(0,50,255,0.10)) !important; box-shadow: 0 6px 20px rgba(255,0,0,0.4), inset 0 0 20px rgba(15,45,90,0.04) !important; }
+.aliexpress:hover { background: rgba(255,67,0,0.10) !important; box-shadow: 0 6px 20px rgba(255,67,0,0.4), inset 0 0 20px rgba(15,45,90,0.04) !important; }
+.walmart:hover { background: rgba(0,113,220,0.10) !important; box-shadow: 0 6px 20px rgba(0,113,220,0.4), inset 0 0 20px rgba(15,45,90,0.04) !important; }
+.etsy:hover { background: rgba(242,100,34,0.10) !important; box-shadow: 0 6px 20px rgba(242,100,34,0.4), inset 0 0 20px rgba(15,45,90,0.04) !important; }
+.shopify:hover { background: rgba(150,200,80,0.10) !important; box-shadow: 0 6px 20px rgba(150,200,80,0.4), inset 0 0 20px rgba(15,45,90,0.04) !important; }
+.target:hover { background: rgba(204,0,0,0.12) !important; box-shadow: 0 6px 20px rgba(204,0,0,0.4), inset 0 0 20px rgba(15,45,90,0.04) !important; }
+.bestbuy:hover { background: rgba(0,20,156,0.12) !important; box-shadow: 0 6px 20px rgba(0,20,156,0.4), inset 0 0 20px rgba(15,45,90,0.04) !important; }
+.temu:hover { background: rgba(255,99,25,0.12) !important; box-shadow: 0 6px 20px rgba(255,99,25,0.4), inset 0 0 20px rgba(15,45,90,0.04) !important; }
+.shein:hover { background: rgba(220,20,60,0.12) !important; box-shadow: 0 6px 20px rgba(220,20,60,0.4), inset 0 0 20px rgba(15,45,90,0.04) !important; }
+
+/* Brand-color icon tinting on hover */
+.facebook:hover .widget-icon { filter: brightness(0) saturate(100%) invert(40%) sepia(98%) saturate(2000%) hue-rotate(207deg) brightness(100%) !important; }
+.youtube:hover .widget-icon { filter: brightness(0) saturate(100%) invert(12%) sepia(99%) saturate(7000%) hue-rotate(0deg) brightness(100%) contrast(112%) !important; }
+.instagram:hover .widget-icon { filter: brightness(0) saturate(100%) invert(27%) sepia(83%) saturate(4000%) hue-rotate(335deg) brightness(100%) !important; }
+.linkedin:hover .widget-icon { filter: brightness(0) saturate(100%) invert(32%) sepia(98%) saturate(1400%) hue-rotate(196deg) brightness(95%) !important; }
+.reddit:hover .widget-icon { filter: brightness(0) saturate(100%) invert(36%) sepia(98%) saturate(5000%) hue-rotate(14deg) brightness(100%) !important; }
+.pinterest:hover .widget-icon { filter: brightness(0) saturate(100%) invert(12%) sepia(99%) saturate(6000%) hue-rotate(348deg) brightness(90%) !important; }
+.discord:hover .widget-icon { filter: brightness(0) saturate(100%) invert(36%) sepia(98%) saturate(2000%) hue-rotate(221deg) brightness(100%) !important; }
+.spotify:hover .widget-icon { filter: brightness(0) saturate(100%) invert(68%) sepia(60%) saturate(2000%) hue-rotate(94deg) brightness(95%) !important; }
+.apple-music:hover .widget-icon { filter: brightness(0) saturate(100%) invert(27%) sepia(83%) saturate(4000%) hue-rotate(335deg) brightness(100%) !important; }
+.soundcloud:hover .widget-icon { filter: brightness(0) saturate(100%) invert(40%) sepia(98%) saturate(3000%) hue-rotate(14deg) brightness(100%) !important; }
+.snapchat:hover .widget-icon { filter: brightness(0) saturate(100%) invert(92%) sepia(86%) saturate(6000%) hue-rotate(359deg) brightness(103%) !important; }
+
+/* 6. ADD WIDGET / RANK / AFFILIATE — deep blue */
+.add-widget-btn {
+    background: rgba(30,52,98,0.10) !important;
+    border: 2px dashed rgba(38,60,105,0.35) !important;
+    color: rgba(38,60,105,0.7) !important;
+}
+.add-widget-btn:hover {
+    background: rgba(30,52,98,0.18) !important;
+    border-color: rgba(38,60,105,0.60) !important;
+    color: rgba(11,34,71,0.9) !important;
+    box-shadow: 0 0 15px rgba(15,45,90,0.15) !important;
+}
+.rank-badge {
+    background: rgba(15,45,90,0.50) !important;
+    border: 1px solid rgba(30,52,98,0.45) !important;
+    box-shadow: 0 0 6px rgba(15,45,90,0.30) !important;
+    color: #fff !important;
+}
+.affiliate-indicator {
+    background: linear-gradient(135deg, rgb(15,45,90), rgb(11,60,105)) !important;
+    box-shadow: 0 0 8px rgba(15,45,90,0.6) !important;
+    animation: rg-pulse 2s infinite !important;
+}
+@keyframes rg-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.15); box-shadow: 0 0 14px rgba(15,45,90,0.7); }
+}
+
+/* 7. LEFT NAV — blue glass */
+#left-nav .nav-label { color: rgba(15,30,60,0.70) !important; }
+#left-nav .nav-item { color: rgba(8,15,34,0.90) !important; }
+#left-nav .nav-item:hover {
+    background: rgba(15,45,90,0.10) !important;
+    color: rgba(8,22,52,1) !important;
+    box-shadow: inset 3px 0 0 rgba(15,45,90,0.7) !important;
+}
+#left-nav .nav-item.active {
+    background: rgba(15,45,90,0.12) !important;
+    color: rgba(6,15,41,1) !important;
+    box-shadow: inset 3px 0 0 rgba(15,45,90,0.9) !important;
+}
+
+/* 8. RIGHT BUILDER — AI Icons, deep blue glass */
+#right-builder .builder-widget {
+    background: rgba(30,52,98,0.08) !important;
+    border: 1px solid rgba(38,60,105,0.18) !important;
+    border-radius: 12px !important;
+    transition: all 0.25s ease !important;
+}
+#right-builder .builder-widget:hover {
+    background: rgba(15,45,90,0.15) !important;
+    border-color: rgba(38,60,105,0.40) !important;
+    box-shadow: 0 0 15px rgba(15,45,90,0.22) !important;
+    transform: scale(1.08) !important;
+}
+#right-builder .builder-widget:nth-child(1) .widget-icon {
+    font-size: 0 !important; width: 30px; height: 30px; display: block;
+    background: url('../images/icons/genspark-ai.png') center/contain no-repeat; border-radius: 6px;
+}
+#right-builder .builder-widget:nth-child(2) .widget-icon {
+    font-size: 0 !important; width: 24px; height: 24px; display: block;
+    background: url('../images/icons/anthropic.svg') center/contain no-repeat; filter: brightness(0.15);
+}
+#right-builder .builder-widget:nth-child(3) .widget-icon {
+    font-size: 0 !important; width: 30px; height: 30px; display: block;
+    background: url('../images/icons/code-editor.png') center/contain no-repeat; border-radius: 6px;
+}
+#right-builder .builder-widget:nth-child(4) .widget-icon {
+    font-size: 0 !important; width: 24px; height: 24px; display: block;
+    background: url('../images/icons/openai.svg') center/contain no-repeat; filter: brightness(0.15);
+}
+#right-builder .builder-widget:nth-child(5) .widget-icon {
+    font-size: 0 !important; width: 30px; height: 30px; display: block;
+    background: url('../images/icons/customization.png') center/contain no-repeat; border-radius: 6px;
+}
+#right-builder .builder-widget:nth-child(6) .widget-icon {
+    font-size: 0 !important; width: 30px; height: 30px; display: block;
+    background: url('../images/icons/share-vibe.png') center/contain no-repeat; border-radius: 6px;
+}
+#right-builder .builder-widget:nth-child(7) .widget-icon {
+    font-size: 0 !important; width: 30px; height: 30px; display: block;
+    background: url('../images/icons/import-vibe.png') center/contain no-repeat; border-radius: 6px;
+}
+#right-builder .builder-widget:nth-child(8) .widget-icon {
+    font-size: 0 !important; width: 30px; height: 30px; display: block;
+    background: url('../images/icons/reset-theme.png') center/contain no-repeat; border-radius: 6px;
+}
+.add-builder-btn {
+    background: rgba(30,52,98,0.08) !important;
+    border: 2px dashed rgba(38,60,105,0.30) !important;
+    color: rgba(38,60,105,0.65) !important;
+}
+.add-builder-btn:hover {
+    background: rgba(15,45,90,0.10) !important;
+    border-color: rgba(38,60,105,0.40) !important;
+    color: rgba(11,34,71,0.9) !important;
+}
+
+/* 9. CHAT BOT — blue glass */
+#chat-bot .chat-icon {
+    border: 2px solid rgba(15,45,90,0.55) !important;
+    box-shadow: 0 4px 16px rgba(15,45,90,0.18) !important;
+}
+.chat-input {
+    background: rgba(255,255,255,0.60) !important;
+    border: 1px solid rgba(30,52,98,0.30) !important;
+    color: #0a0f1a !important;
+    caret-color: rgba(8,19,52,0.8) !important;
+}
+.chat-input:focus {
+    border-color: rgba(15,45,90,0.4) !important;
+    box-shadow: 0 0 15px rgba(15,45,90,0.08), inset 0 0 10px rgba(15,45,90,0.03) !important;
+}
+.chat-input::placeholder { color: rgba(22,38,68,0.55) !important; }
+#chat-bot button {
+    background: rgba(15,45,90,0.10) !important;
+    border: 1px solid rgba(30,52,98,0.20) !important;
+    color: rgba(11,26,56,0.8) !important;
+}
+#chat-bot button:hover {
+    background: rgba(15,45,90,0.18) !important;
+    border-color: rgba(30,52,98,0.35) !important;
+    box-shadow: 0 0 12px rgba(15,45,90,0.12) !important;
+}
+
+/* 10. MAIN CONTENT — subtle light frame */
+#main-content {
+    background: rgba(255,255,255,0.40) !important;
+    border: 1px solid rgba(30,52,98,0.18) !important;
+    border-radius: 20px !important;
+    box-shadow: inset 0 0 40px rgba(15,45,90,0.04), 0 4px 20px rgba(0,0,0,0.06) !important;
+}
+
+/* 11. CUSTOMIZATION TABS */
+.cust-tab.active .cust-tab-label { color: rgba(11,30,68,1) !important; }
+.tab-navigation { background: rgba(248,250,255,0.95) !important; border-bottom: 1px solid rgba(30,52,98,0.12) !important; }
+.tab-content-container { background: rgba(248,250,255,0.92) !important; }
+
+/* 12. SCROLLBAR / SELECTION */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: rgba(15,45,90,0.06); }
+::-webkit-scrollbar-thumb { background: rgba(15,45,90,0.30); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(15,45,90,0.50); }
+::selection { background: rgba(15,45,90,0.25); color: #0a0f1a; }
+
+/* 13. MODALS — frosted glass over light bg */
+.welcome-overlay, .onboarding-overlay, .modal-overlay {
+    backdrop-filter: blur(16px) !important;
+    background: rgba(245,248,255,0.75) !important;
+}
+.welcome-card, .onboarding-card, .modal-card {
+    background: radial-gradient(ellipse at 30% 20%, rgba(15,45,90,0.08) 0%, transparent 60%), linear-gradient(135deg, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.50) 100%) !important;
+    backdrop-filter: blur(28px) saturate(200%) !important;
+    border: 1px solid rgba(30,52,98,0.22) !important;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.08), 0 0 40px rgba(15,45,90,0.06), inset 0 1px 0 rgba(255,255,255,0.80) !important;
+    color: #0a0f1a !important;
+}
+
+/* 14. BUTTONS — blue glass gradient */
+.btn-primary, .quick-action-btn {
+    background: linear-gradient(135deg, rgba(15,45,90,0.20), rgba(30,22,82,0.12)) !important;
+    border: 1px solid rgba(30,52,98,0.30) !important;
+    color: #0a0f1a !important;
+}
+.btn-primary:hover, .quick-action-btn:hover {
+    background: linear-gradient(135deg, rgba(15,45,90,0.30), rgba(30,22,82,0.22)) !important;
+    border-color: rgba(30,52,98,0.50) !important;
+    box-shadow: 0 0 20px rgba(15,45,90,0.15) !important;
+}
+
+/* 15. RESPONSIVE */
+@media (max-width: 768px) {
+    .banner-section { border-radius: 12px !important; }
+    .social-widget .widget-icon, .shopping-widget .widget-icon { width: 18px !important; height: 18px !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .affiliate-indicator { animation: none !important; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   v1.1 PATCH — Widget Visibility Enhancement + Frame + Desaturation
+   ═══════════════════════════════════════════════════════════════════════
+   Based on screenshot analysis dated March 2026.
+   Issues fixed:
+   - Builder icons not rendering (overflow:hidden clipping + z-index)
+   - UI frame needs transparent blue overlay
+   - Chat bar desaturated to grayscale
+   - Collapsed banner tabs desaturated when inactive
+   - Widget contrast boosted against muted surroundings
+   ═══════════════════════════════════════════════════════════════════════ */
+
+
+/* ═══════════════════════════════════════════════
+   16. TRANSPARENT BLUE FRAME OVERLAY
+   A subtle blue veil over the entire layout container,
+   creating depth separation between frame and widgets.
+   rgba(15, 45, 90, 0.04) — visible blue tint, non-distracting
+   ═══════════════════════════════════════════════ */
+
+.vibenicity-container::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(15, 45, 90, 0.04);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Ensure actual content sits above the overlay */
+#banner,
+#left-nav,
+#main-content,
+#right-builder,
+#chat-bot {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* ═══════════════════════════════════════════════
+   17. CHAT BAR — Grayscale / Monochrome
+   Remove all color from the chat bar to push
+   visual focus toward widgets. Text remains readable
+   via white-on-dark contrast.
+   ═══════════════════════════════════════════════ */
+
+#chat-bot {
+    filter: saturate(0.15) brightness(0.88) !important;
+    transition: filter 0.4s ease !important;
+}
+
+/* Restore color on hover/focus for usability */
+#chat-bot:hover,
+#chat-bot:focus-within {
+    filter: saturate(0.6) brightness(0.96) !important;
+}
+
+
+/* ═══════════════════════════════════════════════
+   18. COLLAPSED TABS — Grayscale When Inactive
+   When banner sections are collapsed (label-only),
+   desaturate them so expanded widgets contrast more.
+   Active/expanded sections retain full color.
+   ═══════════════════════════════════════════════ */
+
+.banner-section.collapsed {
+    filter: saturate(0.7) brightness(0.85) !important;
+    transition: filter 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+/* Restore color on hover (pre-expand) */
+.banner-section.collapsed:hover {
+    filter: saturate(1) brightness(1) !important;
+}
+
+/* Fully expanded sections are vivid */
+.banner-section:not(.collapsed) {
+    filter: saturate(1.1) brightness(1) !important;
+    transition: filter 0.3s ease !important;
+}
+
+
+/* ═══════════════════════════════════════════════
+   19. LEFT NAV — Slightly Desaturated
+   Muted sidebar pushes focus to center + top widgets.
+   Still fully readable.
+   ═══════════════════════════════════════════════ */
+
+#left-nav {
+    filter: saturate(0.85) brightness(0.98) !important;
+    transition: filter 0.3s ease !important;
+}
+
+#left-nav:hover {
+    filter: saturate(1) brightness(1) !important;
+}
+
+
+/* ═══════════════════════════════════════════════
+   20. RIGHT BUILDER — Fix AI Icon Rendering
+   Critical: overflow must be visible, icons need
+   proper dimensions, and z-index must beat ::before
+   ═══════════════════════════════════════════════ */
+
+.builder-widget {
+    overflow: visible !important;
+    width: 52px !important;
+    height: 52px !important;
+    border-radius: 14px !important;
+    background: rgba(255, 255, 255, 0.45) !important;
+    border: 1px solid rgba(30, 52, 98, 0.18) !important;
+    position: relative !important;
+}
+
+.builder-widget .widget-icon {
+    position: relative !important;
+    z-index: 3 !important;
+    line-height: 1 !important;
+}
+
+/* Genspark AI — blue glass brain */
+#right-builder .builder-widget:nth-child(1) {
+    overflow: hidden !important;
+    border-radius: 14px !important;
+}
+#right-builder .builder-widget:nth-child(1) .widget-icon {
+    font-size: 0 !important;
+    width: 42px !important; height: 42px !important;
+    display: block !important;
+    background: url('../images/icons/genspark-ai.png') center/cover no-repeat !important;
+    border-radius: 10px !important;
+    filter: brightness(1.1) saturate(1.2) !important;
+}
+
+/* Claude AI — Anthropic SVG */
+#right-builder .builder-widget:nth-child(2) .widget-icon {
+    font-size: 0 !important;
+    width: 28px !important; height: 28px !important;
+    display: block !important;
+    background: url('../images/icons/anthropic.svg') center/contain no-repeat !important;
+    filter: brightness(0.2) !important;
+}
+
+/* Code Editor — blue brackets */
+#right-builder .builder-widget:nth-child(3) {
+    overflow: hidden !important;
+}
+#right-builder .builder-widget:nth-child(3) .widget-icon {
+    font-size: 0 !important;
+    width: 42px !important; height: 42px !important;
+    display: block !important;
+    background: url('../images/icons/code-editor.png') center/cover no-repeat !important;
+    border-radius: 10px !important;
+    filter: brightness(1.1) saturate(1.2) !important;
+}
+
+/* ChatGPT — OpenAI SVG */
+#right-builder .builder-widget:nth-child(4) .widget-icon {
+    font-size: 0 !important;
+    width: 28px !important; height: 28px !important;
+    display: block !important;
+    background: url('../images/icons/openai.svg') center/contain no-repeat !important;
+    filter: brightness(0.2) !important;
+}
+
+/* Customization — blue glass gear */
+#right-builder .builder-widget:nth-child(5) {
+    overflow: hidden !important;
+}
+#right-builder .builder-widget:nth-child(5) .widget-icon {
+    font-size: 0 !important;
+    width: 42px !important; height: 42px !important;
+    display: block !important;
+    background: url('../images/icons/customization.png') center/cover no-repeat !important;
+    border-radius: 10px !important;
+    filter: brightness(1.1) saturate(1.2) !important;
+}
+
+/* Share Vibe — blue upward arrow */
+#right-builder .builder-widget:nth-child(6) {
+    overflow: hidden !important;
+}
+#right-builder .builder-widget:nth-child(6) .widget-icon {
+    font-size: 0 !important;
+    width: 42px !important; height: 42px !important;
+    display: block !important;
+    background: url('../images/icons/share-vibe.png') center/cover no-repeat !important;
+    border-radius: 10px !important;
+    filter: brightness(1.1) saturate(1.2) !important;
+}
+
+/* Import Vibe — blue downward arrow */
+#right-builder .builder-widget:nth-child(7) {
+    overflow: hidden !important;
+}
+#right-builder .builder-widget:nth-child(7) .widget-icon {
+    font-size: 0 !important;
+    width: 42px !important; height: 42px !important;
+    display: block !important;
+    background: url('../images/icons/import-vibe.png') center/cover no-repeat !important;
+    border-radius: 10px !important;
+    filter: brightness(1.1) saturate(1.2) !important;
+}
+
+/* Reset Theme — blue circular arrows */
+#right-builder .builder-widget:nth-child(8) {
+    overflow: hidden !important;
+}
+#right-builder .builder-widget:nth-child(8) .widget-icon {
+    font-size: 0 !important;
+    width: 42px !important; height: 42px !important;
+    display: block !important;
+    background: url('../images/icons/reset-theme.png') center/cover no-repeat !important;
+    border-radius: 10px !important;
+    filter: brightness(1.1) saturate(1.2) !important;
+}
+
+/* Builder widget hover — blue glow pop */
+#right-builder .builder-widget:hover {
+    background: rgba(15, 45, 90, 0.10) !important;
+    border-color: rgba(30, 52, 98, 0.35) !important;
+    box-shadow:
+        0 0 18px rgba(15, 45, 90, 0.15),
+        0 8px 24px rgba(15, 45, 90, 0.08) !important;
+    transform: translateX(-4px) scale(1.1) !important;
+}
+
+/* Builder ::before overlay — blue tint on hover */
+.builder-widget::before {
+    background: linear-gradient(135deg, rgba(15, 45, 90, 0.15), transparent) !important;
+}
+
+
+/* ═══════════════════════════════════════════════
+   21. BANNER WIDGET ICONS — Boost Visibility
+   When sections expand, widgets should POP against
+   the desaturated surroundings.
+   ═══════════════════════════════════════════════ */
+
+.banner-section:not(.collapsed) .social-widget,
+.banner-section:not(.collapsed) .shopping-widget {
+    box-shadow: 0 0 10px rgba(15, 45, 90, 0.08) !important;
+    border-color: rgba(38, 60, 105, 0.18) !important;
+}
+
+/* Widget icon on light bg — keep dark, add subtle rose shadow */
+.banner-section:not(.collapsed) .widget-icon {
+    filter: brightness(0.2) drop-shadow(0 0 3px rgba(15, 45, 90, 0.2)) !important;
+}
+
+
+/* ═══════════════════════════════════════════════
+   22. RIGHT BUILDER PANEL — Keep Vivid
+   Counteract any inherited desaturation; builder
+   panel should stay colorful to showcase AI icons.
+   ═══════════════════════════════════════════════ */
+
+#right-builder {
+    filter: saturate(1) brightness(1) !important;
+    border-right: 3px solid rgba(15, 45, 90, 0.50) !important;
+    background:
+        radial-gradient(ellipse at 50% 20%, rgba(15, 45, 90, 0.12) 0%, transparent 50%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.35) 100%) !important;
+}
+
+
+/* ═══════════════════════════════════════════════
+   23. VISUAL HIERARCHY SUMMARY
+   ═══════════════════════════════════════════════
+   
+   VIVID (full color, maximum pop):
+   - Banner sections when expanded (widgets visible)
+   - Right builder panel (AI icons)
+   - Widget hover states
+   
+   MUTED (desaturated, receding):
+   - Chat bar (grayscale until hover)
+   - Collapsed banner tabs (gray until hover)
+   - Left nav sidebar (slightly muted)
+   
+   AMBIENT (transparent overlay):
+   - Blue frame overlay rgba(15,45,90,0.04)
+   - Creates warm depth without distraction
+   
+   This contrast hierarchy forces the eye toward
+   the widget areas — exactly as intended.
+   ═══════════════════════════════════════════════ */
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   v1.2 — ALWAYS-VISIBLE "LIT UP" CATEGORY ICONS
+   ═══════════════════════════════════════════════════════════════════════
+   Each collapsed banner section displays a glowing AI-generated category
+   icon (36×36 px sphere) next to its label. Icons pulse softly and emit
+   a category-specific colour glow so users always see three distinct,
+   instantly-recognisable tab destinations — no hover/click required.
+   
+   Social  = Blue sphere with people silhouettes
+   Music   = Rose-pink sphere with musical notes
+   Shopping = Scarlet-amber sphere with shopping bag
+   
+   DATE: March 2026 | DEPENDS ON: category-social.png, category-music.png, category-shop.png
+   ═══════════════════════════════════════════════════════════════════════ */
+
+
+/* ─── 24. CATEGORY ICON THUMBNAILS (injected by JS into .banner-label) ─── */
+
+.banner-label .category-icon {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 3;
+    /* Persistent glow ring — the "lit up" default state */
+    box-shadow:
+        0 0 8px rgba(15, 45, 90, 0.65),
+        0 0 18px rgba(15, 45, 90, 0.30),
+        inset 0 0 6px rgba(255, 255, 255, 0.2);
+    border: 1.5px solid rgba(38, 60, 105, 0.45);
+    animation: category-pulse 3s ease-in-out infinite;
+    transition: all 0.3s ease;
+    filter: brightness(1.2) saturate(1.2);
+}
+
+/* Category-specific icon images */
+.banner-label.social .category-icon {
+    background-image: url('../images/icons/category-social.png');
+    box-shadow:
+        0 0 10px rgba(15, 45, 90, 0.7),
+        0 0 22px rgba(15, 45, 90, 0.35),
+        0 0 40px rgba(15, 45, 90, 0.15),
+        inset 0 0 6px rgba(60, 82, 128, 0.2);
+    border-color: rgba(30, 52, 98, 0.45);
+}
+
+.banner-label.music .category-icon {
+    background-image: url('../images/icons/category-music.png');
+    box-shadow:
+        0 0 10px rgba(30, 22, 82, 0.7),
+        0 0 22px rgba(30, 22, 82, 0.35),
+        0 0 40px rgba(30, 22, 82, 0.15),
+        inset 0 0 6px rgba(98, 120, 150, 0.2);
+    border-color: rgba(26, 30, 90, 0.45);
+}
+
+.banner-label.shopping .category-icon {
+    background-image: url('../images/icons/category-shop.png');
+    box-shadow:
+        0 0 10px rgba(19, 52, 98, 0.7),
+        0 0 22px rgba(15, 41, 86, 0.35),
+        0 0 40px rgba(11, 30, 75, 0.15),
+        inset 0 0 6px rgba(45, 75, 120, 0.3);
+    border-color: rgba(22, 49, 94, 0.55);
+}
+
+/* Gentle pulse animation — always active */
+@keyframes category-pulse {
+    0%, 100% {
+        transform: scale(1);
+        filter: brightness(1.2) saturate(1.2);
+    }
+    50% {
+        transform: scale(1.06);
+        filter: brightness(1.35) saturate(1.4);
+    }
+}
+
+/* Hover state — intensify glow */
+.banner-label:hover .category-icon {
+    transform: scale(1.12);
+    filter: brightness(1.4) saturate(1.6);
+    animation-play-state: paused;
+}
+.banner-label.social:hover .category-icon {
+    box-shadow:
+        0 0 14px rgba(15, 45, 90, 0.8),
+        0 0 30px rgba(15, 45, 90, 0.4),
+        0 0 50px rgba(15, 45, 90, 0.15),
+        inset 0 0 8px rgba(60, 82, 128, 0.3);
+}
+.banner-label.music:hover .category-icon {
+    box-shadow:
+        0 0 14px rgba(30, 22, 82, 0.8),
+        0 0 30px rgba(30, 22, 82, 0.4),
+        0 0 50px rgba(30, 22, 82, 0.15),
+        inset 0 0 8px rgba(98, 120, 150, 0.3);
+}
+.banner-label.shopping:hover .category-icon {
+    box-shadow:
+        0 0 14px rgba(19, 52, 98, 0.8),
+        0 0 30px rgba(15, 41, 86, 0.4),
+        0 0 50px rgba(11, 30, 75, 0.15),
+        inset 0 0 8px rgba(45, 75, 120, 0.3);
+}
+
+
+/* ─── 25. COLLAPSED TAB — "LIT UP" OVERRIDE ─── */
+/* Override the desaturation for collapsed tabs:
+   they KEEP their color glow when displaying the category icon. */
+
+.banner-section.collapsed {
+    filter: saturate(0.7) brightness(0.85) !important;  /* was 0.15/0.70 — much more visible now */
+}
+
+.banner-section.collapsed:hover {
+    filter: saturate(1) brightness(1) !important;
+}
+
+/* Category icon in collapsed state — stays vivid via isolation */
+.banner-section.collapsed .banner-label .category-icon {
+    filter: brightness(1.2) saturate(1.4);  /* override parent desaturation */
+}
+
+
+/* ─── 26. BANNER LABEL TEXT — ENHANCED ─── */
+/* Increase label readability and visual weight when collapsed */
+
+.banner-label {
+    font-size: 10px !important;
+    font-weight: 900 !important;
+    letter-spacing: 2px !important;
+    text-shadow: 0 0 10px rgba(30, 52, 98, 0.35), 0 1px 2px rgba(0, 0, 0, 0.12) !important;
+    padding: 4px 20px 4px 4px !important;
+    gap: 8px !important;
+}
+
+.banner-label.social {
+    color: rgba(11, 34, 75, 1) !important;
+}
+.banner-label.music {
+    color: rgba(22, 19, 71, 1) !important;
+}
+.banner-label.shopping {
+    color: rgba(8, 41, 86, 1) !important;
+}
+
+/* Remove default emoji since we now have proper icons */
+.banner-label .category-icon + .label-emoji {
+    display: none;
+}
+
+
+/* ─── 27. LEFT NAV WIDGET SHORTCUTS ─── */
+
+.nav-section .nav-label.widgets-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: rgba(15, 30, 60, 0.55) !important;
+    font-weight: 800 !important;
+    font-size: 9px !important;
+    letter-spacing: 1.5px !important;
+}
+
+.nav-item.widget-shortcut {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    padding: 8px 14px !important;
+    cursor: pointer !important;
+    transition: all 0.25s ease !important;
+    border-radius: 10px !important;
+    position: relative !important;
+}
+
+.nav-item.widget-shortcut .shortcut-icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    flex-shrink: 0;
+    border: 1px solid rgba(15, 45, 90, 0.40);
+    filter: brightness(1.1) saturate(1.2);
+    transition: all 0.25s ease;
+}
+.nav-item.widget-shortcut .shortcut-icon.social-ico {
+    background-image: url('../images/icons/category-social.png');
+    box-shadow: 0 0 8px rgba(15, 45, 90, 0.40);
+}
+.nav-item.widget-shortcut .shortcut-icon.music-ico {
+    background-image: url('../images/icons/category-music.png');
+    box-shadow: 0 0 8px rgba(30, 22, 82, 0.40);
+}
+.nav-item.widget-shortcut .shortcut-icon.shop-ico {
+    background-image: url('../images/icons/category-shop.png');
+    box-shadow: 0 0 8px rgba(19, 52, 98, 0.40);
+}
+
+.nav-item.widget-shortcut:hover {
+    background: rgba(15, 45, 90, 0.10) !important;
+    box-shadow: inset 3px 0 0 rgba(15, 45, 90, 0.7) !important;
+}
+.nav-item.widget-shortcut:hover .shortcut-icon {
+    transform: scale(1.15);
+    filter: brightness(1.3) saturate(1.4);
+}
+.nav-item.widget-shortcut:hover .shortcut-icon.social-ico {
+    box-shadow: 0 0 14px rgba(15, 45, 90, 0.65);
+}
+.nav-item.widget-shortcut:hover .shortcut-icon.music-ico {
+    box-shadow: 0 0 14px rgba(30, 22, 82, 0.65);
+}
+.nav-item.widget-shortcut:hover .shortcut-icon.shop-ico {
+    box-shadow: 0 0 14px rgba(19, 52, 98, 0.65);
+}
+
+/* Widget count badge in nav */
+.nav-item.widget-shortcut .widget-count {
+    margin-left: auto;
+    font-size: 8px;
+    font-weight: 700;
+    color: rgba(15, 30, 60, 0.60);
+    background: rgba(15, 45, 90, 0.08);
+    padding: 2px 6px;
+    border-radius: 8px;
+    border: 1px solid rgba(30, 52, 98, 0.10);
+}
+
+
+/* ─── 28. RESPONSIVE — Category Icons ─── */
+
+@media (max-width: 768px) {
+    .banner-label .category-icon {
+        width: 24px;
+        height: 24px;
+    }
+    .nav-item.widget-shortcut .shortcut-icon {
+        width: 22px;
+        height: 22px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .banner-label .category-icon {
+        animation: none !important;
+    }
+    #left-nav .nav-icon {
+        animation: none !important;
+    }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   v1.3 — LEFT NAV ICON REDESIGN
+   ═══════════════════════════════════════════════════════════════════════
+   Replaces all emoji icons in #left-nav with AI-generated blue glass
+   icons. Each icon is a glowing sphere/silhouette on black, displayed at
+   24×24px with a persistent soft glow "lit up" default state.
+   
+   10 icons: Home, Feeds, Video, Builders, Themes, Settings,
+   Affiliate, Earnings, Sign Up, Login
+   
+   DATE: March 2026
+   ═══════════════════════════════════════════════════════════════════════ */
+
+
+/* ─── 29. LEFT NAV ICON BASE STYLE ─── */
+
+#left-nav .nav-icon {
+    display: inline-block !important;
+    width: 24px !important;
+    height: 24px !important;
+    min-width: 24px !important;
+    border-radius: 6px !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    font-size: 0 !important;               /* hide emoji text */
+    line-height: 0 !important;
+    overflow: hidden !important;
+    flex-shrink: 0 !important;
+    position: relative !important;
+    z-index: 2 !important;
+    /* "Lit up" default state — persistent deep blue glow */
+    filter: brightness(1.15) saturate(1.15) !important;
+    box-shadow:
+        0 0 6px rgba(15, 45, 90, 0.45),
+        0 0 14px rgba(15, 45, 90, 0.18) !important;
+    border: 1px solid rgba(38, 60, 105, 0.25) !important;
+    transition: all 0.25s ease !important;
+    animation: nav-icon-glow 4s ease-in-out infinite !important;
+}
+
+/* Gentle constant glow pulse */
+@keyframes nav-icon-glow {
+    0%, 100% {
+        box-shadow:
+            0 0 6px rgba(15, 45, 90, 0.45),
+            0 0 14px rgba(15, 45, 90, 0.18);
+        filter: brightness(1.15) saturate(1.15);
+    }
+    50% {
+        box-shadow:
+            0 0 8px rgba(15, 45, 90, 0.6),
+            0 0 18px rgba(15, 45, 90, 0.28);
+        filter: brightness(1.25) saturate(1.3);
+    }
+}
+
+/* Hover intensify */
+#left-nav .nav-item:hover .nav-icon {
+    filter: brightness(1.35) saturate(1.4) !important;
+    box-shadow:
+        0 0 10px rgba(15, 45, 90, 0.7),
+        0 0 22px rgba(15, 45, 90, 0.35) !important;
+    border-color: rgba(38, 60, 105, 0.45) !important;
+    transform: scale(1.12) !important;
+    animation-play-state: paused !important;
+}
+
+/* Active state — brighter, more vivid */
+#left-nav .nav-item.active .nav-icon {
+    filter: brightness(1.3) saturate(1.5) !important;
+    box-shadow:
+        0 0 10px rgba(15, 45, 90, 0.75),
+        0 0 24px rgba(15, 45, 90, 0.4),
+        inset 0 0 4px rgba(60, 82, 128, 0.25) !important;
+    border-color: rgba(38, 60, 105, 0.55) !important;
+}
+
+
+/* ─── 30. INDIVIDUAL NAV ICON IMAGES ─── */
+
+#left-nav .nav-home .nav-icon {
+    background-image: url('../images/icons/nav-home.png') !important;
+}
+#left-nav .nav-feeds .nav-icon {
+    background-image: url('../images/icons/nav-feeds.png') !important;
+}
+#left-nav .nav-video .nav-icon {
+    background-image: url('../images/icons/nav-video.png') !important;
+}
+#left-nav .nav-builders .nav-icon {
+    background-image: url('../images/icons/nav-builders.png') !important;
+}
+#left-nav .nav-themes .nav-icon {
+    background-image: url('../images/icons/nav-themes.png') !important;
+}
+#left-nav .nav-settings .nav-icon {
+    background-image: url('../images/icons/nav-settings.png') !important;
+}
+#left-nav .nav-affiliate .nav-icon {
+    background-image: url('../images/icons/nav-affiliate.png') !important;
+}
+#left-nav .nav-earnings .nav-icon {
+    background-image: url('../images/icons/nav-earnings.png') !important;
+}
+#left-nav .nav-signup .nav-icon {
+    background-image: url('../images/icons/nav-signup.png') !important;
+}
+#left-nav .nav-login .nav-icon {
+    background-image: url('../images/icons/nav-login.png') !important;
+}
+
+
+/* ─── 31. LEFT NAV DESATURATION — Override for lit icons ─── */
+/* Lighter desaturation so blue glass remains visible */
+
+#left-nav {
+    filter: saturate(0.7) brightness(0.90) !important;
+}
+#left-nav:hover {
+    filter: saturate(0.9) brightness(0.96) !important;
+}
+
+
+/* ─── 32. RESPONSIVE — Nav Icons ─── */
+
+@media (max-width: 768px) {
+    #left-nav .nav-icon {
+        width: 20px !important;
+        height: 20px !important;
+        min-width: 20px !important;
+        border-radius: 5px !important;
+    }
+}

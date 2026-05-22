@@ -1,0 +1,410 @@
+/**
+ * 🎬 VIBENICITY APP RENDERER
+ * 
+ * Displays generated code in a safe, sandboxed iframe.
+ * Shows working apps that users just created with their words.
+ * 
+ * THE MOMENT OF MAGIC - WHERE WORDS BECOME REALITY.
+ */
+
+const VibenicityAppRenderer = {
+    // Current rendered app
+    currentApp: null,
+    
+    // Renderer element
+    rendererContainer: null,
+
+    /**
+     * Initialize the app renderer
+     */
+    init() {
+        console.log('🎬 App Renderer initialized - Ready to bring code to life!');
+        this.createRendererContainer();
+    },
+
+    /**
+     * Create the renderer container in the DOM
+     */
+    createRendererContainer() {
+        // Check if container already exists
+        if (document.getElementById('vibenicityAppRenderer')) {
+            this.rendererContainer = document.getElementById('vibenicityAppRenderer');
+            return;
+        }
+
+        // Create container
+        const container = document.createElement('div');
+        container.id = 'vibenicityAppRenderer';
+        container.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            display: none;
+            flex-direction: column;
+            backdrop-filter: blur(20px);
+        `;
+
+        container.innerHTML = `
+            <div style="
+                position: relative;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+            ">
+                <!-- Header Bar -->
+                <div style="
+                    background: linear-gradient(135deg, rgba(var(--primary-glow), 0.2), rgba(var(--secondary-glow), 0.2));
+                    border-bottom: 2px solid rgba(var(--secondary-glow), 0.4);
+                    padding: 20px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    flex-shrink: 0;
+                ">
+                    <div style="display: flex; align-items: center; gap: 16px;">
+                        <div style="font-size: 24px;">🎨</div>
+                        <div>
+                            <div style="font-weight: 700; font-size: 18px; color: rgba(var(--secondary-glow), 1);">
+                                YOUR APP
+                            </div>
+                            <div style="font-size: 13px; opacity: 0.8;" id="appRendererTitle">
+                                Generated with VIBENICITY
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 12px; align-items: center;">
+                        <button onclick="VibenicityAppRenderer.toggleFullscreen()" style="
+                            background: rgba(var(--primary-glow), 0.2);
+                            border: 1px solid rgba(var(--primary-glow), 0.4);
+                            color: white;
+                            padding: 10px 20px;
+                            border-radius: 8px;
+                            cursor: pointer;
+                            font-weight: 600;
+                            transition: all 0.2s;
+                        " onmouseover="this.style.background='rgba(var(--primary-glow), 0.3)'" 
+                           onmouseout="this.style.background='rgba(var(--primary-glow), 0.2)'">
+                            ⛶ Fullscreen
+                        </button>
+                        
+                        <button onclick="VibenicityAppRenderer.downloadCode()" style="
+                            background: rgba(0, 255, 136, 0.2);
+                            border: 1px solid rgba(0, 255, 136, 0.4);
+                            color: white;
+                            padding: 10px 20px;
+                            border-radius: 8px;
+                            cursor: pointer;
+                            font-weight: 600;
+                            transition: all 0.2s;
+                        " onmouseover="this.style.background='rgba(0, 255, 136, 0.3)'" 
+                           onmouseout="this.style.background='rgba(0, 255, 136, 0.2)'">
+                            ⬇ Download
+                        </button>
+                        
+                        <button onclick="VibenicityAppRenderer.close()" style="
+                            background: rgba(255, 68, 68, 0.2);
+                            border: 1px solid rgba(255, 68, 68, 0.4);
+                            color: white;
+                            padding: 10px 20px;
+                            border-radius: 8px;
+                            cursor: pointer;
+                            font-weight: 600;
+                            font-size: 18px;
+                            transition: all 0.2s;
+                        " onmouseover="this.style.background='rgba(255, 68, 68, 0.3)'" 
+                           onmouseout="this.style.background='rgba(255, 68, 68, 0.2)'">
+                            ✕
+                        </button>
+                    </div>
+                </div>
+
+                <!-- App Display Area -->
+                <div style="
+                    flex: 1;
+                    overflow: hidden;
+                    position: relative;
+                    background: #000;
+                ">
+                    <iframe
+                        id="appRendererFrame"
+                        sandbox="allow-scripts allow-same-origin allow-forms allow-modals allow-popups"
+                        style="
+                            width: 100%;
+                            height: 100%;
+                            border: none;
+                            background: white;
+                        "
+                    ></iframe>
+                </div>
+
+                <!-- Footer Info Bar -->
+                <div style="
+                    background: rgba(0, 0, 0, 0.8);
+                    border-top: 1px solid rgba(var(--primary-glow), 0.3);
+                    padding: 12px 20px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-size: 13px;
+                    flex-shrink: 0;
+                ">
+                    <div style="opacity: 0.8;" id="appRendererInfo">
+                        Sandboxed environment • Safe to test
+                    </div>
+                    <div style="opacity: 0.6;" id="appRendererTimestamp">
+                        Generated just now
+                    </div>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(container);
+        this.rendererContainer = container;
+
+        console.log('✅ Renderer container created');
+    },
+
+    /**
+     * Render generated code
+     * @param {string} code - HTML code to render
+     * @param {Object} metadata - Metadata about the generation
+     */
+    render(code, metadata = {}) {
+        if (!code) {
+            console.error('No code provided to render');
+            return;
+        }
+
+        this.currentApp = {
+            code,
+            metadata,
+            timestamp: Date.now()
+        };
+
+        // Get iframe
+        const iframe = document.getElementById('appRendererFrame');
+        if (!iframe) {
+            console.error('Renderer iframe not found');
+            return;
+        }
+
+        // Update title
+        const title = document.getElementById('appRendererTitle');
+        if (title && metadata.userMessage) {
+            title.textContent = `"${metadata.userMessage}"`;
+        }
+
+        // Update info
+        const info = document.getElementById('appRendererInfo');
+        if (info && metadata.codeLength) {
+            info.textContent = `${metadata.codeLength} characters • Sandboxed environment`;
+        }
+
+        // Update timestamp
+        const timestamp = document.getElementById('appRendererTimestamp');
+        if (timestamp) {
+            timestamp.textContent = `Generated ${new Date().toLocaleTimeString()}`;
+        }
+
+        // Write code to iframe
+        const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+        iframeDoc.open();
+        iframeDoc.write(code);
+        iframeDoc.close();
+
+        // Show renderer
+        this.show();
+
+        console.log('✅ App rendered successfully');
+    },
+
+    /**
+     * Show the renderer
+     */
+    show() {
+        if (this.rendererContainer) {
+            this.rendererContainer.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevent scrolling behind
+        }
+    },
+
+    /**
+     * Hide/close the renderer
+     */
+    close() {
+        if (this.rendererContainer) {
+            this.rendererContainer.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+        console.log('📴 Renderer closed');
+    },
+
+    /**
+     * Toggle fullscreen mode
+     */
+    toggleFullscreen() {
+        const iframe = document.getElementById('appRendererFrame');
+        if (!iframe) return;
+
+        if (!document.fullscreenElement) {
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.webkitRequestFullscreen) {
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) {
+                iframe.msRequestFullscreen();
+            }
+            console.log('🖥️ Entered fullscreen');
+        } else {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            }
+            console.log('🖥️ Exited fullscreen');
+        }
+    },
+
+    /**
+     * Download the generated code as HTML file
+     */
+    downloadCode() {
+        if (!this.currentApp || !this.currentApp.code) {
+            console.error('No code to download');
+            return;
+        }
+
+        const code = this.currentApp.code;
+        const metadata = this.currentApp.metadata;
+
+        // Create filename
+        const timestamp = new Date().toISOString().slice(0, 10);
+        const filename = `vibenicity-app-${timestamp}.html`;
+
+        // Create blob
+        const blob = new Blob([code], { type: 'text/html' });
+        const url = URL.createObjectURL(blob);
+
+        // Create download link
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        a.click();
+
+        // Cleanup
+        setTimeout(() => {
+            URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+        }, 100);
+
+        console.log(`✅ Downloaded as ${filename}`);
+
+        // Show success message
+        this.showDownloadSuccess(filename);
+    },
+
+    /**
+     * Show download success notification
+     * @param {string} filename - Downloaded filename
+     */
+    showDownloadSuccess(filename) {
+        const notification = document.createElement('div');
+        notification.style.cssText = `
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.9), rgba(0, 229, 255, 0.9));
+            color: white;
+            padding: 20px 30px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 16px;
+            box-shadow: 0 8px 32px rgba(0, 255, 136, 0.5);
+            z-index: 10000;
+            animation: slideInRight 0.3s ease;
+        `;
+        notification.textContent = `✅ Downloaded: ${filename}`;
+
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+            notification.style.animation = 'slideOutRight 0.3s ease';
+            setTimeout(() => {
+                document.body.removeChild(notification);
+            }, 300);
+        }, 3000);
+    },
+
+    /**
+     * Get current rendered app
+     * @returns {Object|null} Current app data
+     */
+    getCurrentApp() {
+        return this.currentApp;
+    },
+
+    /**
+     * Clear current app
+     */
+    clearCurrentApp() {
+        this.currentApp = null;
+        const iframe = document.getElementById('appRendererFrame');
+        if (iframe) {
+            const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+            iframeDoc.open();
+            iframeDoc.write('');
+            iframeDoc.close();
+        }
+    }
+};
+
+// Add CSS animations
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes slideInRight {
+        from {
+            transform: translateX(400px);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideOutRight {
+        from {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        to {
+            transform: translateX(400px);
+            opacity: 0;
+        }
+    }
+
+    /* Responsive renderer */
+    @media (max-width: 768px) {
+        #vibenicityAppRenderer > div > div:first-child {
+            padding: 12px !important;
+        }
+        
+        #vibenicityAppRenderer button {
+            padding: 8px 12px !important;
+            font-size: 14px !important;
+        }
+    }
+`;
+document.head.appendChild(style);
+
+// Initialize on load
+if (typeof window !== 'undefined') {
+    window.VibenicityAppRenderer = VibenicityAppRenderer;
+    console.log('🎬 VIBENICITY App Renderer loaded - Ready to show your creations!');
+}

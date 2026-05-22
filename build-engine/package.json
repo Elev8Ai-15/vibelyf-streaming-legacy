@@ -1,0 +1,33 @@
+{
+  "name": "vibenicity-build-engine",
+  "version": "1.0.0",
+  "description": "Automated cultural language ingestion pipeline for VIBENICITY",
+  "main": "src/orchestrator.js",
+  "scripts": {
+    "start": "node src/orchestrator.js",
+    "dashboard": "npx serve public",
+    "test": "node src/orchestrator.js --test-mode",
+    "scan": "node src/orchestrator.js --scan-only"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "cheerio": "^1.0.0-rc.12",
+    "dotenv": "^16.3.1",
+    "fs-extra": "^11.2.0",
+    "openai": "^4.20.0",
+    "@google/generative-ai": "^0.1.0",
+    "chalk": "^4.1.2"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "keywords": [
+    "vibenicity",
+    "slang",
+    "cultural-vocabulary",
+    "ai",
+    "nlp"
+  ],
+  "author": "VIBENICITY Team",
+  "license": "MIT"
+}

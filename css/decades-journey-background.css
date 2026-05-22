@@ -1,0 +1,841 @@
+/**
+ * Decades Journey Background - 80s/90s/2000s Time Travel
+ * 
+ * A 3D ultra-realistic visual journey through three iconic decades:
+ * - Left: 1980s (Bold neon colors, geometric patterns, retrofuturism)
+ * - Center: 1990s (Grunge, minimalism, pop culture)
+ * - Right: 2000s (Sleek digital, metallic, futuristic)
+ * 
+ * Features:
+ * - Light flares from top-left corner (natural light source)
+ * - Smooth decade transitions
+ * - 3D depth and realistic lighting
+ * - Vibrant, engaging visual storytelling
+ * 
+ * @version 1.0.0
+ * @date 2025-11-19
+ */
+
+/* ============================================
+   DECADES JOURNEY BACKGROUND SYSTEM
+   ============================================ */
+
+.decades-journey-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+    background: linear-gradient(
+        135deg,
+        #0a0e27 0%,
+        #1a1f3a 50%,
+        #0f1419 100%
+    );
+}
+
+/* ============================================
+   DECADE SECTIONS - LEFT TO RIGHT LAYOUT
+   ============================================ */
+
+.decade-section {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 33.33%;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeInSection 2s ease-out forwards;
+}
+
+/* 1980s - LEFT SECTION */
+.decade-80s {
+    left: 0;
+    background: linear-gradient(
+        160deg,
+        #ff1493 0%,      /* Hot pink */
+        #00ffff 20%,     /* Cyan */
+        #ff00ff 40%,     /* Magenta */
+        #ffff00 60%,     /* Yellow */
+        #ff6ec7 80%,     /* Neon pink */
+        #00d4ff 100%     /* Electric blue */
+    );
+    animation-delay: 0s;
+}
+
+/* 1990s - CENTER SECTION */
+.decade-90s {
+    left: 33.33%;
+    background: linear-gradient(
+        180deg,
+        #2d3436 0%,      /* Dark grunge */
+        #636e72 15%,     /* Gray */
+        #b2bec3 30%,     /* Light gray */
+        #dfe6e9 45%,     /* Near white */
+        #74b9ff 60%,     /* Soft blue */
+        #a29bfe 75%,     /* Pastel purple */
+        #fd79a8 90%,     /* Pop pink */
+        #fdcb6e 100%     /* Pop yellow */
+    );
+    animation-delay: 0.3s;
+}
+
+/* 2000s - RIGHT SECTION */
+.decade-2000s {
+    left: 66.66%;
+    background: linear-gradient(
+        200deg,
+        #0f1419 0%,      /* Deep black */
+        #1e3a5f 15%,     /* Digital blue */
+        #2c5f8d 30%,     /* Cyan blue */
+        #4a90b8 45%,     /* Sky blue */
+        #6dd5ed 60%,     /* Bright cyan */
+        #c0c0c0 75%,     /* Chrome */
+        #e0e0e0 90%,     /* Silver */
+        #ffffff 100%     /* Pure white */
+    );
+    animation-delay: 0.6s;
+}
+
+/* ============================================
+   1980s VISUAL ELEMENTS
+   ============================================ */
+
+/* 80s Geometric Grid Pattern */
+.retro-grid-80s {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(0deg, rgba(255, 0, 255, 0.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 255, 0.3) 1px, transparent 1px);
+    background-size: 50px 50px;
+    perspective: 1000px;
+    transform: rotateX(60deg) translateZ(-100px);
+    opacity: 0.4;
+    animation: gridPulse80s 4s ease-in-out infinite;
+}
+
+/* 80s Neon Triangles */
+.neon-triangles-80s {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.triangle-80s {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 173px solid rgba(255, 20, 147, 0.3);
+    filter: drop-shadow(0 0 20px rgba(255, 20, 147, 0.8));
+    animation: float80s 15s ease-in-out infinite;
+}
+
+.triangle-80s:nth-child(1) {
+    top: 10%;
+    left: 5%;
+    transform: rotate(45deg);
+    animation-delay: 0s;
+}
+
+.triangle-80s:nth-child(2) {
+    top: 60%;
+    left: 15%;
+    transform: rotate(-30deg) scale(0.7);
+    animation-delay: 2s;
+    border-bottom-color: rgba(0, 255, 255, 0.3);
+    filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.8));
+}
+
+.triangle-80s:nth-child(3) {
+    top: 30%;
+    left: 20%;
+    transform: rotate(120deg) scale(0.5);
+    animation-delay: 4s;
+    border-bottom-color: rgba(255, 255, 0, 0.3);
+    filter: drop-shadow(0 0 20px rgba(255, 255, 0, 0.8));
+}
+
+/* 80s Scan Lines */
+.scanlines-80s {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.15) 0px,
+        transparent 1px,
+        transparent 2px,
+        rgba(0, 0, 0, 0.15) 3px
+    );
+    pointer-events: none;
+    opacity: 0.3;
+    animation: scanlineScroll 10s linear infinite;
+}
+
+/* ============================================
+   1990s VISUAL ELEMENTS
+   ============================================ */
+
+/* 90s Grunge Texture */
+.grunge-texture-90s {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(0, 0, 0, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(116, 185, 255, 0.15) 0%, transparent 50%);
+    mix-blend-mode: overlay;
+    opacity: 0.6;
+}
+
+/* 90s Minimalist Shapes */
+.minimal-shapes-90s {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.shape-90s {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    animation: floatMinimal90s 20s ease-in-out infinite;
+}
+
+.circle-90s {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    top: 20%;
+    left: 40%;
+    box-shadow: 0 0 40px rgba(116, 185, 255, 0.4);
+}
+
+.square-90s {
+    width: 120px;
+    height: 120px;
+    top: 60%;
+    left: 50%;
+    transform: rotate(45deg);
+    box-shadow: 0 0 40px rgba(253, 121, 168, 0.4);
+    animation-delay: 3s;
+}
+
+.rectangle-90s {
+    width: 200px;
+    height: 80px;
+    top: 40%;
+    left: 45%;
+    box-shadow: 0 0 40px rgba(162, 155, 254, 0.4);
+    animation-delay: 6s;
+}
+
+/* 90s Pop Culture Dots */
+.pop-dots-90s {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.dot-90s {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(253, 203, 110, 0.8) 0%, transparent 70%);
+    animation: twinkleDots 3s ease-in-out infinite;
+}
+
+/* ============================================
+   2000s VISUAL ELEMENTS
+   ============================================ */
+
+/* 2000s Metallic Panels */
+.metallic-panels-2000s {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(
+            120deg,
+            transparent 0%,
+            rgba(192, 192, 192, 0.1) 20%,
+            transparent 40%,
+            rgba(224, 224, 224, 0.1) 60%,
+            transparent 80%,
+            rgba(255, 255, 255, 0.1) 100%
+        );
+    animation: metallicShine 8s ease-in-out infinite;
+}
+
+/* 2000s Digital Hexagons */
+.digital-hexagons-2000s {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.hexagon-2000s {
+    position: absolute;
+    width: 100px;
+    height: 57.74px;
+    background: rgba(109, 213, 237, 0.2);
+    border: 1px solid rgba(109, 213, 237, 0.5);
+    box-shadow: 
+        0 0 20px rgba(109, 213, 237, 0.4),
+        inset 0 0 20px rgba(109, 213, 237, 0.2);
+    animation: hexagonFloat 12s ease-in-out infinite;
+}
+
+.hexagon-2000s::before,
+.hexagon-2000s::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+}
+
+.hexagon-2000s::before {
+    bottom: 100%;
+    border-bottom: 28.87px solid rgba(109, 213, 237, 0.2);
+}
+
+.hexagon-2000s::after {
+    top: 100%;
+    border-top: 28.87px solid rgba(109, 213, 237, 0.2);
+}
+
+.hexagon-2000s:nth-child(1) {
+    top: 15%;
+    left: 70%;
+}
+
+.hexagon-2000s:nth-child(2) {
+    top: 50%;
+    left: 75%;
+    animation-delay: 2s;
+    opacity: 0.6;
+}
+
+.hexagon-2000s:nth-child(3) {
+    top: 70%;
+    left: 80%;
+    animation-delay: 4s;
+    opacity: 0.4;
+}
+
+/* 2000s Chrome Orbs */
+.chrome-orbs-2000s {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.orb-2000s {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle at 30% 30%,
+        rgba(255, 255, 255, 0.8) 0%,
+        rgba(224, 224, 224, 0.6) 20%,
+        rgba(192, 192, 192, 0.4) 40%,
+        rgba(109, 213, 237, 0.3) 60%,
+        transparent 100%
+    );
+    box-shadow: 
+        0 0 30px rgba(255, 255, 255, 0.6),
+        inset -10px -10px 30px rgba(0, 0, 0, 0.3);
+    animation: orbFloat 15s ease-in-out infinite;
+}
+
+.orb-2000s:nth-child(1) {
+    width: 150px;
+    height: 150px;
+    top: 25%;
+    left: 85%;
+}
+
+.orb-2000s:nth-child(2) {
+    width: 100px;
+    height: 100px;
+    top: 60%;
+    left: 78%;
+    animation-delay: 3s;
+}
+
+/* ============================================
+   LIGHT FLARES FROM TOP-LEFT CORNER
+   ============================================ */
+
+.light-flares {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* Main Light Source */
+.main-light-source {
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 50%;
+    height: 50%;
+    background: radial-gradient(
+        circle at 20% 20%,
+        rgba(255, 255, 255, 0.3) 0%,
+        rgba(255, 255, 255, 0.15) 20%,
+        rgba(255, 255, 255, 0.08) 40%,
+        transparent 70%
+    );
+    filter: blur(40px);
+    animation: lightPulse 8s ease-in-out infinite;
+}
+
+/* Primary Light Flare */
+.light-flare-1 {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.6) 0%,
+        rgba(255, 200, 100, 0.3) 30%,
+        transparent 70%
+    );
+    filter: blur(20px);
+    animation: flarePulse 4s ease-in-out infinite;
+}
+
+/* Secondary Light Flare */
+.light-flare-2 {
+    position: absolute;
+    top: 10%;
+    left: 15%;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(
+        circle,
+        rgba(255, 220, 150, 0.4) 0%,
+        rgba(255, 150, 100, 0.2) 40%,
+        transparent 70%
+    );
+    filter: blur(25px);
+    animation: flarePulse 5s ease-in-out infinite 1s;
+}
+
+/* Tertiary Light Flare */
+.light-flare-3 {
+    position: absolute;
+    top: 15%;
+    left: 8%;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(
+        circle,
+        rgba(255, 240, 200, 0.3) 0%,
+        rgba(255, 200, 150, 0.15) 50%,
+        transparent 80%
+    );
+    filter: blur(15px);
+    animation: flarePulse 6s ease-in-out infinite 2s;
+}
+
+/* Light Rays Casting Across Decades */
+.light-rays {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.1) 0%,
+            transparent 15%,
+            transparent 25%,
+            rgba(255, 255, 255, 0.05) 30%,
+            transparent 35%,
+            transparent 45%,
+            rgba(255, 255, 255, 0.08) 50%,
+            transparent 55%
+        );
+    animation: raysSweep 20s linear infinite;
+}
+
+/* Lens Flare Effect */
+.lens-flare {
+    position: absolute;
+    top: 8%;
+    left: 8%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(
+        circle,
+        transparent 0%,
+        transparent 20%,
+        rgba(255, 255, 255, 0.1) 25%,
+        transparent 30%,
+        transparent 40%,
+        rgba(255, 200, 100, 0.08) 45%,
+        transparent 50%
+    );
+    animation: lensFlareRotate 30s linear infinite;
+}
+
+/* ============================================
+   SMOOTH TRANSITIONS BETWEEN DECADES
+   ============================================ */
+
+/* Gradient Blending Masks */
+.transition-blend-left {
+    position: absolute;
+    top: 0;
+    left: 33.33%;
+    width: 5%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(0, 0, 0, 0.3) 50%,
+        transparent 100%
+    );
+    mix-blend-mode: overlay;
+    z-index: 5;
+}
+
+.transition-blend-right {
+    position: absolute;
+    top: 0;
+    left: 64.33%;
+    width: 5%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(0, 0, 0, 0.3) 50%,
+        transparent 100%
+    );
+    mix-blend-mode: overlay;
+    z-index: 5;
+}
+
+/* Flowing Particles Between Decades */
+.transition-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.particle-flow {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    animation: particleFlow 15s linear infinite;
+}
+
+/* ============================================
+   3D DEPTH AND PERSPECTIVE
+   ============================================ */
+
+.depth-layer-1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateZ(0);
+    z-index: 1;
+}
+
+.depth-layer-2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateZ(-50px);
+    opacity: 0.7;
+    z-index: 0;
+}
+
+.depth-layer-3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateZ(-100px);
+    opacity: 0.4;
+    z-index: -1;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeInSection {
+    from {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes gridPulse80s {
+    0%, 100% {
+        opacity: 0.4;
+        transform: rotateX(60deg) translateZ(-100px) scale(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: rotateX(60deg) translateZ(-80px) scale(1.05);
+    }
+}
+
+@keyframes float80s {
+    0%, 100% {
+        transform: translateY(0) rotate(45deg);
+    }
+    50% {
+        transform: translateY(-30px) rotate(55deg);
+    }
+}
+
+@keyframes scanlineScroll {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(10px);
+    }
+}
+
+@keyframes floatMinimal90s {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    33% {
+        transform: translate(20px, -20px) rotate(5deg);
+    }
+    66% {
+        transform: translate(-15px, 15px) rotate(-3deg);
+    }
+}
+
+@keyframes twinkleDots {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.3);
+    }
+}
+
+@keyframes metallicShine {
+    0%, 100% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+}
+
+@keyframes hexagonFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translateY(-40px) rotate(180deg);
+        opacity: 0.6;
+    }
+}
+
+@keyframes orbFloat {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    33% {
+        transform: translate(-20px, -30px) scale(1.1);
+    }
+    66% {
+        transform: translate(15px, 20px) scale(0.95);
+    }
+}
+
+@keyframes lightPulse {
+    0%, 100% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.1);
+    }
+}
+
+@keyframes flarePulse {
+    0%, 100% {
+        opacity: 0.4;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes raysSweep {
+    0% {
+        transform: translateX(-10%) rotate(-5deg);
+    }
+    100% {
+        transform: translateX(110%) rotate(-5deg);
+    }
+}
+
+@keyframes lensFlareRotate {
+    0% {
+        transform: rotate(0deg);
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: rotate(360deg);
+        opacity: 0.3;
+    }
+}
+
+@keyframes particleFlow {
+    0% {
+        transform: translate(0, 0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(100vw, 50vh);
+        opacity: 0;
+    }
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .decade-section {
+        width: 100%;
+        height: 33.33%;
+        left: 0 !important;
+    }
+    
+    .decade-80s {
+        top: 0;
+    }
+    
+    .decade-90s {
+        top: 33.33%;
+    }
+    
+    .decade-2000s {
+        top: 66.66%;
+    }
+    
+    .transition-blend-left,
+    .transition-blend-right {
+        width: 100%;
+        height: 5%;
+        left: 0;
+    }
+    
+    .transition-blend-left {
+        top: 33.33%;
+    }
+    
+    .transition-blend-right {
+        top: 64.33%;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Reduce animation intensity on mobile */
+    .triangle-80s {
+        animation-duration: 20s;
+    }
+    
+    .hexagon-2000s {
+        width: 70px;
+        height: 40.42px;
+    }
+    
+    .orb-2000s:nth-child(1) {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .main-light-source {
+        width: 70%;
+        height: 70%;
+    }
+}
+
+/* ============================================
+   PERFORMANCE OPTIMIZATIONS
+   ============================================ */
+
+.decades-journey-bg * {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    .decades-journey-bg * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

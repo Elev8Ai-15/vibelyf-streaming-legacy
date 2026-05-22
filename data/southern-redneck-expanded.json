@@ -1,0 +1,1032 @@
+{
+  "source": "Southern/Redneck Dialect Expanded",
+  "sources": ["ThoughtCo", "1027KORD", "Southern Living"],
+  "totalRawTerms": 140,
+  "note": "Significant overlap with existing Appalachian/Southern database. Extracting unique terms and idioms.",
+  "extractionDate": "2025",
+  
+  "uniqueTermsNew": [
+    {
+      "term": "ain't",
+      "definition": "Contraction for am not, is not, are not, has not, have not",
+      "category": "Redneck/Southern",
+      "confidence": 0.98,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Negative contraction - multiple functions",
+      "context": "Standard in Southern dialects"
+    },
+    {
+      "term": "air-up",
+      "definition": "Inflate, pressurize (tires, balloons)",
+      "example": "Need to air-up the tires.",
+      "category": "Redneck",
+      "confidence": 0.94,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Particle verb"
+    },
+    {
+      "term": "a larking",
+      "definition": "Playing a prank, joking around",
+      "category": "Redneck",
+      "confidence": 0.89,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Activity descriptor"
+    },
+    {
+      "term": "all y'all",
+      "definition": "Emphatic form of 'y'all', addressing entire group",
+      "example": "All y'all need to listen.",
+      "category": "Redneck",
+      "confidence": 0.97,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Emphatic plural pronoun",
+      "relatedTerms": ["y'all"]
+    },
+    {
+      "term": "Arkansawyer",
+      "definition": "Person from Arkansas",
+      "category": "Redneck",
+      "confidence": 0.95,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Demonym - regional identity"
+    },
+    {
+      "term": "bowed up",
+      "definition": "Irritable, angry, ready to fight",
+      "category": "Redneck",
+      "confidence": 0.92,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Anger descriptor"
+    },
+    {
+      "term": "bread basket",
+      "definition": "Stomach, midsection",
+      "category": "Redneck",
+      "confidence": 0.93,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Body part euphemism"
+    },
+    {
+      "term": "can't carry a tune in a bucket",
+      "definition": "Unable to sing well",
+      "category": "Redneck",
+      "confidence": 0.94,
+      "sources": ["1027KORD"],
+      "sociolinguisticMarker": "Ability critique - musical",
+      "context": "Humorous insult about singing ability"
+    },
+    {
+      "term": "can't make a silk purse out of a sow's ear",
+      "definition": "Can't improve something fundamentally bad",
+      "category": "Southern/Redneck",
+      "confidence": 0.96,
+      "sources": ["Southern Living"],
+      "sociolinguisticMarker": "Proverbial expression",
+      "context": "Futility of improvement"
+    },
+    {
+      "term": "carry me to",
+      "definition": "Transport me to, drive me to",
+      "example": "Carry me to the store.",
+      "category": "Southern/Redneck",
+      "confidence": 0.95,
+      "sources": ["Southern Living"],
+      "sociolinguisticMarker": "Transportation verb - regional",
+      "context": "Common in Deep South"
+    },
+    {
+      "term": "cattywampus",
+      "definition": "Askew, crooked, not aligned properly",
+      "example": "That picture is all cattywampus.",
+      "category": "Redneck",
+      "confidence": 0.94,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Alignment descriptor",
+      "relatedTerms": ["catawampus"]
+    },
+    {
+      "term": "chief cook and bottle washer",
+      "definition": "Person who does everything, multitasker in charge",
+      "category": "Redneck",
+      "confidence": 0.91,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Role designation - humorous"
+    },
+    {
+      "term": "clod-hopper",
+      "definition": "Heavy farm shoes or boots",
+      "category": "Redneck",
+      "confidence": 0.93,
+      "sources": ["1027KORD"],
+      "sociolinguisticMarker": "Footwear descriptor"
+    },
+    {
+      "term": "dang",
+      "definition": "Mild expletive (euphemism for 'damn')",
+      "category": "Redneck",
+      "confidence": 0.97,
+      "sources": ["1027KORD"],
+      "sociolinguisticMarker": "Euphemistic expletive",
+      "relatedTerms": ["darn", "dern"]
+    },
+    {
+      "term": "darn",
+      "definition": "Mild expletive (euphemism for 'damn')",
+      "category": "Redneck",
+      "confidence": 0.97,
+      "sources": ["1027KORD"],
+      "sociolinguisticMarker": "Euphemistic expletive",
+      "relatedTerms": ["dang", "dern"]
+    },
+    {
+      "term": "dern",
+      "definition": "Mild expletive (euphemism for 'damn')",
+      "category": "Redneck",
+      "confidence": 0.96,
+      "sources": ["1027KORD"],
+      "sociolinguisticMarker": "Euphemistic expletive",
+      "relatedTerms": ["dang", "darn"]
+    },
+    {
+      "term": "egg on",
+      "definition": "Urge, encourage (often negative behavior)",
+      "example": "They egged him on to fight.",
+      "category": "Redneck",
+      "confidence": 0.96,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Encouragement verb"
+    },
+    {
+      "term": "fell out of the ugly tree and hit every branch",
+      "definition": "Very unattractive (harsh insult)",
+      "category": "Redneck",
+      "confidence": 0.93,
+      "sources": ["1027KORD"],
+      "sociolinguisticMarker": "Attractiveness insult - hyperbolic",
+      "context": "Humorous but cruel appearance insult"
+    },
+    {
+      "term": "figure",
+      "definition": "Consider, think, decide",
+      "example": "I figured on winning.",
+      "category": "Redneck",
+      "confidence": 0.95,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Cognitive verb"
+    },
+    {
+      "term": "fit as a fiddle",
+      "definition": "In excellent health",
+      "category": "Redneck",
+      "confidence": 0.96,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Health idiom"
+    },
+    {
+      "term": "fit to be tied",
+      "definition": "Extremely angry",
+      "category": "Redneck",
+      "confidence": 0.96,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Anger idiom"
+    },
+    {
+      "term": "frog gig",
+      "definition": "Spear for frogging, or the act of frog hunting",
+      "category": "Redneck",
+      "confidence": 0.91,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Hunting terminology"
+    },
+    {
+      "term": "funny as all get out",
+      "definition": "Very funny, hilarious",
+      "category": "Southern/Redneck",
+      "confidence": 0.94,
+      "sources": ["Southern Living"],
+      "sociolinguisticMarker": "Humor intensifier"
+    },
+    {
+      "term": "get up with",
+      "definition": "Contact, meet up with, get in touch",
+      "example": "I'll get up with you later.",
+      "category": "Redneck",
+      "confidence": 0.95,
+      "sources": ["1027KORD"],
+      "sociolinguisticMarker": "Contact verb phrase"
+    },
+    {
+      "term": "gimme some sugar",
+      "definition": "Give me a hug or kiss",
+      "category": "Southern/Redneck",
+      "confidence": 0.96,
+      "sources": ["Southern Living"],
+      "sociolinguisticMarker": "Affection request",
+      "context": "Often said to children"
+    },
+    {
+      "term": "goobers",
+      "definition": "Peanuts",
+      "category": "Redneck",
+      "confidence": 0.95,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Food term - regional"
+    },
+    {
+      "term": "grab a root",
+      "definition": "Eat dinner",
+      "category": "Redneck",
+      "confidence": 0.88,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Meal idiom"
+    },
+    {
+      "term": "granny-slappin' good",
+      "definition": "Delicious, so good you'd slap your granny",
+      "category": "Redneck",
+      "confidence": 0.92,
+      "sources": ["1027KORD"],
+      "sociolinguisticMarker": "Food praise - hyperbolic",
+      "relatedTerms": ["slap your mama"]
+    },
+    {
+      "term": "gussied up",
+      "definition": "Dressed up nicely, made fancy",
+      "category": "Redneck/Southern",
+      "confidence": 0.96,
+      "sources": ["1027KORD", "Southern Living"],
+      "sociolinguisticMarker": "Appearance descriptor"
+    },
+    {
+      "term": "happy as a pig in mud",
+      "definition": "Very content, extremely happy",
+      "category": "Southern/Redneck",
+      "confidence": 0.95,
+      "sources": ["Southern Living"],
+      "sociolinguisticMarker": "Happiness idiom"
+    },
+    {
+      "term": "happy as a puppy with two tails",
+      "definition": "Extremely happy",
+      "category": "Redneck",
+      "confidence": 0.93,
+      "sources": ["1027KORD"],
+      "sociolinguisticMarker": "Happiness idiom - animal comparison"
+    },
+    {
+      "term": "heap",
+      "definition": "Large quantity, a lot",
+      "example": "Heap of trouble.",
+      "category": "Redneck",
+      "confidence": 0.94,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Quantity descriptor"
+    },
+    {
+      "term": "hear tell",
+      "definition": "Hear secondhand information, heard it said",
+      "example": "I hear tell there's a new mini-mall.",
+      "category": "Redneck",
+      "confidence": 0.93,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Information source marker"
+    },
+    {
+      "term": "heavens to Betsy",
+      "definition": "Exclamation of surprise",
+      "category": "Southern/Redneck",
+      "confidence": 0.94,
+      "sources": ["Southern Living"],
+      "sociolinguisticMarker": "Euphemistic exclamation"
+    },
+    {
+      "term": "high cotton",
+      "definition": "Wealthy, doing well financially",
+      "category": "Redneck",
+      "confidence": 0.94,
+      "sources": ["1027KORD"],
+      "sociolinguisticMarker": "Wealth idiom",
+      "etymology": "From tall cotton crops indicating prosperity"
+    },
+    {
+      "term": "hill of beans",
+      "definition": "Something worthless, not worth much",
+      "category": "Southern/Redneck",
+      "confidence": 0.95,
+      "sources": ["Southern Living"],
+      "sociolinguisticMarker": "Value assessment - negative"
+    },
+    {
+      "term": "hit with the ugly stick",
+      "definition": "Unattractive (insult)",
+      "category": "Redneck",
+      "confidence": 0.93,
+      "sources": ["1027KORD"],
+      "sociolinguisticMarker": "Attractiveness insult"
+    },
+    {
+      "term": "hold your horses",
+      "definition": "Wait, slow down, be patient",
+      "category": "Southern/Redneck",
+      "confidence": 0.97,
+      "sources": ["Southern Living"],
+      "sociolinguisticMarker": "Patience directive"
+    },
+    {
+      "term": "honky-tonk",
+      "definition": "Country bar or nightclub",
+      "category": "Redneck",
+      "confidence": 0.96,
+      "sources": ["1027KORD"],
+      "sociolinguisticMarker": "Venue type - country music"
+    },
+    {
+      "term": "horse sense",
+      "definition": "Common sense, practical intelligence",
+      "example": "She's got horse sense.",
+      "category": "Redneck",
+      "confidence": 0.95,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Intelligence descriptor"
+    },
+    {
+      "term": "hotter than a goat's butt in a pepper patch",
+      "definition": "Extremely hot",
+      "category": "Redneck",
+      "confidence": 0.92,
+      "sources": ["1027KORD"],
+      "sociolinguisticMarker": "Temperature intensifier - hyperbolic"
+    },
+    {
+      "term": "hotter than blazes",
+      "definition": "Very hot",
+      "category": "Southern/Redneck",
+      "confidence": 0.95,
+      "sources": ["Southern Living"],
+      "sociolinguisticMarker": "Temperature intensifier"
+    },
+    {
+      "term": "how-do",
+      "definition": "How do you do? (greeting)",
+      "category": "Redneck",
+      "confidence": 0.93,
+      "sources": ["1027KORD"],
+      "sociolinguisticMarker": "Greeting formula - contracted"
+    },
+    {
+      "term": "hug your neck",
+      "definition": "Embrace you, miss you",
+      "category": "Southern/Redneck",
+      "confidence": 0.94,
+      "sources": ["Southern Living"],
+      "sociolinguisticMarker": "Affection expression"
+    },
+    {
+      "term": "hunkey dorey",
+      "definition": "Great, fine, satisfactory",
+      "category": "Redneck",
+      "confidence": 0.94,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Status descriptor - positive"
+    },
+    {
+      "term": "hush your mouth",
+      "definition": "Be quiet, stop talking (mild command)",
+      "category": "Southern/Redneck",
+      "confidence": 0.96,
+      "sources": ["Southern Living"],
+      "sociolinguisticMarker": "Silence directive"
+    },
+    {
+      "term": "I reckon",
+      "definition": "I think, I suppose",
+      "category": "Southern/Redneck",
+      "confidence": 0.98,
+      "sources": ["Southern Living"],
+      "sociolinguisticMarker": "Epistemic marker",
+      "relatedTerms": ["reckon"]
+    },
+    {
+      "term": "I'll tell you what",
+      "definition": "Emphasis phrase to start statement",
+      "category": "Southern/Redneck",
+      "confidence": 0.95,
+      "sources": ["Southern Living"],
+      "sociolinguisticMarker": "Discourse marker - emphasis"
+    },
+    {
+      "term": "if I had my druthers",
+      "definition": "If I had my way, if I could choose",
+      "category": "Redneck/Southern",
+      "confidence": 0.96,
+      "sources": ["1027KORD", "Southern Living"],
+      "sociolinguisticMarker": "Preference expression",
+      "etymology": "Contraction of 'would rather'"
+    },
+    {
+      "term": "June bug",
+      "definition": "Type of beetle common in summer",
+      "category": "Redneck",
+      "confidence": 0.96,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Insect terminology"
+    },
+    {
+      "term": "kin",
+      "definition": "Family members, relatives",
+      "category": "Redneck",
+      "confidence": 0.97,
+      "sources": ["1027KORD"],
+      "sociolinguisticMarker": "Kinship term",
+      "relatedTerms": ["kinfolk"]
+    },
+    {
+      "term": "kinfolk",
+      "definition": "Family members, relatives",
+      "category": "Redneck",
+      "confidence": 0.97,
+      "sources": ["1027KORD"],
+      "sociolinguisticMarker": "Kinship term",
+      "relatedTerms": ["kin"]
+    },
+    {
+      "term": "knee-high to a grasshopper",
+      "definition": "Very young, small child",
+      "category": "Redneck/Southern",
+      "confidence": 0.96,
+      "sources": ["1027KORD", "Southern Living"],
+      "sociolinguisticMarker": "Age/size descriptor"
+    },
+    {
+      "term": "lazy man's load",
+      "definition": "Carrying too much to avoid making multiple trips",
+      "example": "He took a lazy man's load and spilled groceries everywhere.",
+      "category": "Redneck",
+      "confidence": 0.91,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Behavior descriptor"
+    },
+    {
+      "term": "laying out",
+      "definition": "Staying out late, not coming home",
+      "example": "Laying out at the bar all night.",
+      "category": "Redneck",
+      "confidence": 0.92,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Activity descriptor"
+    },
+    {
+      "term": "let me let you go",
+      "definition": "Polite way to end phone conversation",
+      "category": "Southern/Redneck",
+      "confidence": 0.95,
+      "sources": ["Southern Living"],
+      "sociolinguisticMarker": "Conversation closing formula",
+      "context": "Southern politeness convention"
+    },
+    {
+      "term": "lick",
+      "definition": "Beat up, or small amount",
+      "category": "Redneck",
+      "confidence": 0.94,
+      "sources": ["1027KORD"],
+      "sociolinguisticMarker": "Polysemous - violence or quantity"
+    },
+    {
+      "term": "lickety-split",
+      "definition": "Very quickly",
+      "category": "Redneck",
+      "confidence": 0.96,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Speed intensifier"
+    },
+    {
+      "term": "like herding cats",
+      "definition": "Extremely difficult, chaotic task",
+      "category": "Redneck",
+      "confidence": 0.95,
+      "sources": ["1027KORD"],
+      "sociolinguisticMarker": "Difficulty idiom"
+    },
+    {
+      "term": "like to",
+      "definition": "Almost, nearly",
+      "example": "I like to peed my pants laughing.",
+      "category": "Redneck",
+      "confidence": 0.93,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Proximity marker"
+    },
+    {
+      "term": "madder than a wet hen",
+      "definition": "Extremely angry",
+      "category": "Southern/Redneck",
+      "confidence": 0.96,
+      "sources": ["Southern Living"],
+      "sociolinguisticMarker": "Anger idiom"
+    },
+    {
+      "term": "mash",
+      "definition": "Press (a button)",
+      "example": "Mash the button.",
+      "category": "Redneck",
+      "confidence": 0.95,
+      "sources": ["1027KORD"],
+      "sociolinguisticMarker": "Action verb - regional"
+    },
+    {
+      "term": "month of Sundays",
+      "definition": "Very long time",
+      "category": "Southern/Redneck",
+      "confidence": 0.95,
+      "sources": ["Southern Living"],
+      "sociolinguisticMarker": "Duration idiom"
+    },
+    {
+      "term": "more than Carter's got little pills",
+      "definition": "A whole lot, huge quantity",
+      "category": "Southern/Redneck",
+      "confidence": 0.91,
+      "sources": ["Southern Living"],
+      "sociolinguisticMarker": "Quantity idiom",
+      "etymology": "Reference to Carter's Little Liver Pills"
+    },
+    {
+      "term": "nearabout",
+      "definition": "Almost, nearly",
+      "example": "I nearabout ran over a deer.",
+      "category": "Redneck",
+      "confidence": 0.92,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Proximity marker"
+    },
+    {
+      "term": "need like a hole in the head",
+      "definition": "Don't need at all, completely unneeded",
+      "category": "Redneck",
+      "confidence": 0.96,
+      "sources": ["1027KORD"],
+      "sociolinguisticMarker": "Need negation idiom"
+    },
+    {
+      "term": "no bigger than a minnow in a fishing pond",
+      "definition": "Very tiny, small",
+      "category": "Southern/Redneck",
+      "confidence": 0.92,
+      "sources": ["Southern Living"],
+      "sociolinguisticMarker": "Size diminutive - hyperbolic"
+    },
+    {
+      "term": "no count",
+      "definition": "Worthless, lazy, unreliable",
+      "category": "Redneck",
+      "confidence": 0.94,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Character insult"
+    },
+    {
+      "term": "no dog in this fight",
+      "definition": "Not involved, not taking sides",
+      "category": "Southern/Redneck",
+      "confidence": 0.95,
+      "sources": ["Southern Living"],
+      "sociolinguisticMarker": "Neutrality expression"
+    },
+    {
+      "term": "nuss",
+      "definition": "Nurse, take care of",
+      "example": "She nussed the dog back to health.",
+      "category": "Redneck",
+      "confidence": 0.91,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Caregiving verb - phonetic"
+    },
+    {
+      "term": "oh my stars",
+      "definition": "Expression of astonishment",
+      "category": "Southern/Redneck",
+      "confidence": 0.94,
+      "sources": ["Southern Living"],
+      "sociolinguisticMarker": "Euphemistic exclamation"
+    },
+    {
+      "term": "Okie",
+      "definition": "Person from Oklahoma",
+      "category": "Redneck",
+      "confidence": 0.96,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Demonym",
+      "historicalNote": "Sometimes derogatory, especially during Dust Bowl era"
+    },
+    {
+      "term": "out of kilter",
+      "definition": "Not working properly, out of alignment",
+      "example": "My back is out of kilter.",
+      "category": "Redneck",
+      "confidence": 0.94,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Malfunction descriptor"
+    },
+    {
+      "term": "over yonder",
+      "definition": "Over there in that direction, distant location",
+      "example": "It's over yonder down the road.",
+      "category": "Southern/Redneck",
+      "confidence": 0.96,
+      "sources": ["Southern Living"],
+      "sociolinguisticMarker": "Distance/direction marker"
+    },
+    {
+      "term": "pack",
+      "definition": "Carry",
+      "category": "Redneck",
+      "confidence": 0.95,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Transportation verb",
+      "relatedTerms": ["tote"]
+    },
+    {
+      "term": "particular",
+      "definition": "Meticulous, picky, detail-oriented",
+      "category": "Redneck",
+      "confidence": 0.95,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Personality descriptor"
+    },
+    {
+      "term": "people",
+      "definition": "Kinfolk, family members",
+      "example": "Going to see her people.",
+      "category": "Redneck",
+      "confidence": 0.94,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Kinship collective"
+    },
+    {
+      "term": "piddlin'",
+      "definition": "Small amount, insignificant, or wasting time",
+      "example": "Just got a piddlin' raise.",
+      "category": "Redneck/Southern",
+      "confidence": 0.96,
+      "sources": ["ThoughtCo", "1027KORD", "Southern Living"],
+      "sociolinguisticMarker": "Diminutive - quantity or activity"
+    },
+    {
+      "term": "plumb",
+      "definition": "Completely, totally",
+      "example": "I'm plumb tired.",
+      "category": "Southern/Redneck",
+      "confidence": 0.97,
+      "sources": ["Southern Living"],
+      "sociolinguisticMarker": "Degree intensifier"
+    },
+    {
+      "term": "poop or get off the pot",
+      "definition": "Make a decision, stop delaying",
+      "category": "Redneck",
+      "confidence": 0.95,
+      "sources": ["1027KORD"],
+      "sociolinguisticMarker": "Decision directive - crude"
+    },
+    {
+      "term": "possum-pie",
+      "definition": "Pie made with possum meat",
+      "category": "Redneck",
+      "confidence": 0.88,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Regional food"
+    },
+    {
+      "term": "pretty as a peach",
+      "definition": "Very beautiful",
+      "category": "Southern/Redneck",
+      "confidence": 0.95,
+      "sources": ["Southern Living"],
+      "sociolinguisticMarker": "Attractiveness praise"
+    },
+    {
+      "term": "purdy",
+      "definition": "Pretty (phonetic pronunciation)",
+      "category": "Redneck",
+      "confidence": 0.94,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Attractiveness descriptor - phonetic"
+    },
+    {
+      "term": "rag-baby",
+      "definition": "Rag doll",
+      "category": "Redneck",
+      "confidence": 0.89,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Toy terminology"
+    },
+    {
+      "term": "redneck caviar",
+      "definition": "Potted meat spread",
+      "category": "Redneck",
+      "confidence": 0.92,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Food humor - self-deprecating"
+    },
+    {
+      "term": "right",
+      "definition": "Very, quite (intensifier)",
+      "example": "That's right nice of you.",
+      "category": "Redneck/Southern",
+      "confidence": 0.97,
+      "sources": ["ThoughtCo", "1027KORD"],
+      "sociolinguisticMarker": "Degree intensifier"
+    },
+    {
+      "term": "rile",
+      "definition": "Upset, anger, irritate",
+      "category": "Redneck",
+      "confidence": 0.95,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Emotion causation verb"
+    },
+    {
+      "term": "rough talk",
+      "definition": "Harsh, critical speech",
+      "category": "Redneck",
+      "confidence": 0.92,
+      "sources": ["1027KORD"],
+      "sociolinguisticMarker": "Speech style descriptor"
+    },
+    {
+      "term": "rubber-neck",
+      "definition": "Stare at accident or spectacle while driving",
+      "category": "Redneck",
+      "confidence": 0.94,
+      "sources": ["1027KORD"],
+      "sociolinguisticMarker": "Observation behavior"
+    },
+    {
+      "term": "ruther",
+      "definition": "Rather (phonetic pronunciation)",
+      "category": "Redneck",
+      "confidence": 0.93,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Preference marker - phonetic"
+    },
+    {
+      "term": "scarce as hen's teeth",
+      "definition": "Extremely rare (hens don't have teeth)",
+      "category": "Redneck",
+      "confidence": 0.95,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Rarity idiom"
+    },
+    {
+      "term": "sho 'nuff",
+      "definition": "Sure enough, definitely",
+      "category": "Redneck",
+      "confidence": 0.94,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Confirmation marker - phonetic"
+    },
+    {
+      "term": "show",
+      "definition": "Movie, film",
+      "example": "Going to see a show.",
+      "category": "Redneck",
+      "confidence": 0.95,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Entertainment terminology"
+    },
+    {
+      "term": "shuck",
+      "definition": "Remove husk from corn",
+      "category": "Redneck",
+      "confidence": 0.96,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Agricultural verb"
+    },
+    {
+      "term": "skedaddle",
+      "definition": "Run away quickly, leave in a hurry",
+      "category": "Redneck",
+      "confidence": 0.96,
+      "sources": ["ThoughtCo", "1027KORD"],
+      "sociolinguisticMarker": "Departure verb - rapid"
+    },
+    {
+      "term": "slap your mama",
+      "definition": "So delicious you'd slap your mama (food praise)",
+      "category": "Southern/Redneck",
+      "confidence": 0.93,
+      "sources": ["Southern Living"],
+      "sociolinguisticMarker": "Food praise - hyperbolic",
+      "relatedTerms": ["granny-slappin' good", "slap your pappy"]
+    },
+    {
+      "term": "slap your pappy",
+      "definition": "Pat stomach in satisfaction after good meal",
+      "category": "Redneck",
+      "confidence": 0.90,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Satisfaction gesture"
+    },
+    {
+      "term": "snug as a bug in a rug",
+      "definition": "Very cozy, comfortable",
+      "category": "Redneck/Southern",
+      "confidence": 0.96,
+      "sources": ["ThoughtCo", "1027KORD"],
+      "sociolinguisticMarker": "Comfort idiom"
+    },
+    {
+      "term": "sugar",
+      "definition": "Term of affection, or kiss/hug",
+      "category": "Redneck",
+      "confidence": 0.96,
+      "sources": ["1027KORD"],
+      "sociolinguisticMarker": "Affection term",
+      "relatedTerms": ["gimme some sugar"]
+    },
+    {
+      "term": "sweet talk",
+      "definition": "Flatter, use charming words to persuade",
+      "category": "Redneck",
+      "confidence": 0.96,
+      "sources": ["1027KORD"],
+      "sociolinguisticMarker": "Persuasion verb"
+    },
+    {
+      "term": "tater",
+      "definition": "Potato",
+      "category": "Redneck",
+      "confidence": 0.96,
+      "sources": ["1027KORD"],
+      "sociolinguisticMarker": "Food term - shortened"
+    },
+    {
+      "term": "tarred and feathered",
+      "definition": "Expression of great surprise",
+      "example": "Well I'll be tarred and feathered!",
+      "category": "Redneck",
+      "confidence": 0.92,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Surprise exclamation"
+    },
+    {
+      "term": "that dog won't hunt",
+      "definition": "That won't work, that idea is no good",
+      "category": "Redneck",
+      "confidence": 0.96,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Rejection idiom"
+    },
+    {
+      "term": "think one's shit don't stink",
+      "definition": "Arrogant, thinks they're better than others",
+      "category": "Redneck",
+      "confidence": 0.95,
+      "sources": ["1027KORD"],
+      "sociolinguisticMarker": "Arrogance insult - vulgar"
+    },
+    {
+      "term": "'til the cows come home",
+      "definition": "All day long, for a very long time",
+      "category": "Southern/Redneck",
+      "confidence": 0.96,
+      "sources": ["Southern Living"],
+      "sociolinguisticMarker": "Duration idiom"
+    },
+    {
+      "term": "too big for his britches",
+      "definition": "Arrogant, acting above one's station",
+      "category": "Redneck/Southern",
+      "confidence": 0.97,
+      "sources": ["1027KORD", "Southern Living"],
+      "sociolinguisticMarker": "Arrogance critique",
+      "relatedTerms": ["britches"]
+    },
+    {
+      "term": "tore up",
+      "definition": "Broken, upset, or destroyed",
+      "example": "I'm tore up about the wreck.",
+      "category": "Redneck/Southern",
+      "confidence": 0.96,
+      "sources": ["ThoughtCo", "1027KORD", "Southern Living"],
+      "sociolinguisticMarker": "State descriptor - negative"
+    },
+    {
+      "term": "tote",
+      "definition": "Carry, transport",
+      "category": "Redneck/Southern",
+      "confidence": 0.97,
+      "sources": ["ThoughtCo", "Southern Living"],
+      "sociolinguisticMarker": "Transportation verb",
+      "relatedTerms": ["pack"]
+    },
+    {
+      "term": "trotline",
+      "definition": "Fishing line for catfish with multiple hooks",
+      "category": "Redneck",
+      "confidence": 0.94,
+      "sources": ["ThoughtCo"],
+      "sociolinguisticMarker": "Fishing equipment"
+    },
+    {
+      "term": "uppity",
+      "definition": "Arrogant, snobbish, acting above one's station",
+      "category": "Redneck",
+      "confidence": 0.96,
+      "sources": ["1027KORD"],
+      "sociolinguisticMarker": "Arrogance critique",
+      "note": "Historically used with racist connotations"
+    },
+    {
+      "term": "used to could",
+      "definition": "Used to be able to",
+      "example": "I used to could run fast.",
+      "category": "Redneck",
+      "confidence": 0.94,
+      "sources": ["1027KORD"],
+      "sociolinguisticMarker": "Past ability marker - double modal"
+    },
+    {
+      "term": "useless as tits on a bull",
+      "definition": "Completely useless",
+      "category": "Redneck",
+      "confidence": 0.94,
+      "sources": ["1027KORD"],
+      "sociolinguisticMarker": "Uselessness idiom - vulgar"
+    },
+    {
+      "term": "varmint",
+      "definition": "Wild animal, pest",
+      "category": "Redneck",
+      "confidence": 0.96,
+      "sources": ["1027KORD"],
+      "sociolinguisticMarker": "Animal terminology"
+    },
+    {
+      "term": "well, butter my backside and call me a biscuit",
+      "definition": "Expression of surprise",
+      "category": "Southern/Redneck",
+      "confidence": 0.91,
+      "sources": ["Southern Living"],
+      "sociolinguisticMarker": "Surprise exclamation - humorous"
+    },
+    {
+      "term": "well, I declare",
+      "definition": "Expression of emphasis or surprise",
+      "category": "Southern/Redneck",
+      "confidence": 0.95,
+      "sources": ["Southern Living"],
+      "sociolinguisticMarker": "Emphasis marker"
+    },
+    {
+      "term": "well, I'll be a monkey's uncle",
+      "definition": "Expression of surprise or disbelief",
+      "category": "Redneck",
+      "confidence": 0.94,
+      "sources": ["1027KORD"],
+      "sociolinguisticMarker": "Surprise exclamation"
+    },
+    {
+      "term": "well, I s'wanee",
+      "definition": "I swear, expression of emphasis",
+      "category": "Southern/Redneck",
+      "confidence": 0.92,
+      "sources": ["Southern Living"],
+      "sociolinguisticMarker": "Oath marker - euphemistic",
+      "relatedTerms": ["swan", "swanny"]
+    },
+    {
+      "term": "worn slap out",
+      "definition": "Completely exhausted",
+      "category": "Southern/Redneck",
+      "confidence": 0.94,
+      "sources": ["Southern Living"],
+      "sociolinguisticMarker": "Exhaustion intensifier"
+    },
+    {
+      "term": "Yankee",
+      "definition": "Northerner (sometimes derogatory in Southern context)",
+      "category": "Redneck",
+      "confidence": 0.97,
+      "sources": ["1027KORD"],
+      "sociolinguisticMarker": "Geographic/cultural outsider term",
+      "context": "Can be neutral or pejorative depending on usage"
+    },
+    {
+      "term": "yapper",
+      "definition": "Mouth",
+      "category": "Redneck",
+      "confidence": 0.93,
+      "sources": ["1027KORD"],
+      "sociolinguisticMarker": "Body part slang"
+    },
+    {
+      "term": "younguns",
+      "definition": "Young people, children",
+      "category": "Redneck",
+      "confidence": 0.96,
+      "sources": ["1027KORD"],
+      "sociolinguisticMarker": "Age group collective - phonetic"
+    }
+  ]
+}

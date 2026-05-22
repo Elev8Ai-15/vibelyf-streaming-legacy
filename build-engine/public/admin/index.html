@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIBENICITY Build Engine Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <div class="header-content">
+                <h1>🚀 VIBENICITY BUILD ENGINE</h1>
+                <p class="subtitle">Automated Cultural Language Ingestion Pipeline</p>
+            </div>
+            <div class="stats-row">
+                <div class="stat-card">
+                    <span class="stat-label">Pending Review</span>
+                    <span class="stat-value" id="pendingCount">0</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Approved Today</span>
+                    <span class="stat-value" id="approvedCount">0</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Total Database</span>
+                    <span class="stat-value" id="totalTerms">453</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="filters-bar">
+            <button onclick="filterByCategory('all')" class="filter-btn active" data-filter="all">All</button>
+            <button onclick="filterByCategory('aave')" class="filter-btn" data-filter="aave">AAVE</button>
+            <button onclick="filterByCategory('hispanic')" class="filter-btn" data-filter="hispanic">Hispanic</button>
+            <button onclick="filterByCategory('digital')" class="filter-btn" data-filter="digital">Digital</button>
+            <button onclick="filterByConfidence('high')" class="filter-btn" data-filter="high">High Confidence (90+)</button>
+        </div>
+
+        <div class="actions-bar">
+            <button onclick="bulkApproveHighConfidence()" class="btn-primary">
+                ✅ Bulk Approve High Confidence
+            </button>
+            <button onclick="exportApproved()" class="btn-secondary">
+                📥 Export Approved Terms
+            </button>
+            <button onclick="refreshData()" class="btn-secondary">
+                🔄 Refresh Data
+            </button>
+        </div>
+
+        <div id="termsContainer" class="terms-grid">
+            <!-- Terms will be loaded here dynamically -->
+        </div>
+
+        <div id="emptyState" class="empty-state" style="display: none;">
+            <h2>No Terms Pending Review</h2>
+            <p>Run the Build Engine to scan for new slang terms</p>
+            <code>npm start</code>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

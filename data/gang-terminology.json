@@ -1,0 +1,46 @@
+{
+  "source": "Gang Terminology - Asian Gang Focus",
+  "totalTerms": 4,
+  "category": "Gang Terminology",
+  "extractionDate": "2025",
+  "terms": [
+    {
+      "term": "Tongs",
+      "definition": "Chinese extortion gangs, historically secret societies",
+      "category": "Asian Gang",
+      "confidence": 0.96,
+      "sources": ["Gang Enforcement"],
+      "context": "Chinese organized crime groups in North America",
+      "etymology": "From Chinese 堂 (táng) meaning 'hall' or 'meeting place'",
+      "historicalNote": "Dating back to 19th century Chinese immigrant communities"
+    },
+    {
+      "term": "Triads",
+      "definition": "Chinese organized crime syndicates, equivalent to mafia",
+      "category": "Asian Gang",
+      "confidence": 0.98,
+      "sources": ["Gang Enforcement"],
+      "context": "International Chinese criminal organizations",
+      "etymology": "Named for triangular symbol representing heaven, earth, and humanity",
+      "historicalNote": "Originated as resistance groups against Qing Dynasty"
+    },
+    {
+      "term": "Underworld Brotherhood",
+      "definition": "Generic term for any Asian gang member",
+      "category": "Asian Gang",
+      "confidence": 0.93,
+      "sources": ["Gang Enforcement"],
+      "context": "Collective reference to Asian organized crime affiliates"
+    },
+    {
+      "term": "Wings, Yellow",
+      "definition": "Motorcycle club patch earned for oral sex act on Asian woman",
+      "category": "Asian Gang",
+      "confidence": 0.91,
+      "sources": ["Gang Enforcement"],
+      "context": "MC gang patch system indicating specific acts",
+      "note": "Part of outlaw motorcycle club merit badge system",
+      "contentWarning": "Sexually explicit gang symbolism"
+    }
+  ]
+}

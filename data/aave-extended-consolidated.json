@@ -1,0 +1,875 @@
+{
+  "source": "AAVE Extended - Multiple Academic Sources",
+  "sources": ["SJSU PDF", "Wolfram PDF", "Ebonics PDF"],
+  "totalRawTerms": 120,
+  "note": "Heavy duplication with existing AAVE database. Focus on unique grammatical concepts and new vocabulary terms.",
+  "extractionDate": "2025",
+  
+  "grammaticalConcepts": [
+    {
+      "term": "completive done",
+      "definition": "Perfect aspect marker indicating completed action with current relevance",
+      "example": "They done used all the good ones up.",
+      "category": "Urban AAVE - Grammar",
+      "confidence": 0.98,
+      "sources": ["Wolfram PDF"],
+      "sociolinguisticMarker": "Aspect marker - completion",
+      "linguisticNote": "Grammaticalized from verb 'done' to aspect marker"
+    },
+    {
+      "term": "sequential be done",
+      "definition": "Resultative future marker indicating eventual outcome",
+      "example": "The ice cream be done melted by the time we get there.",
+      "category": "Urban AAVE - Grammar",
+      "confidence": 0.96,
+      "sources": ["Wolfram PDF"],
+      "sociolinguisticMarker": "Future resultative marker",
+      "linguisticNote": "Combines habitual 'be' with completive 'done'"
+    },
+    {
+      "term": "remote béen",
+      "definition": "Distant past marker with stress on 'been' indicating long-ago action",
+      "example": "I béen had that (I've had that for a long time).",
+      "category": "Urban AAVE - Grammar",
+      "confidence": 0.97,
+      "sources": ["Wolfram PDF"],
+      "sociolinguisticMarker": "Remote past tense marker",
+      "linguisticNote": "Stress distinguishes from standard 'been'; indicates distant time frame"
+    },
+    {
+      "term": "simple past had + verb",
+      "definition": "Narrative past tense construction",
+      "example": "They had went to the store.",
+      "category": "Urban AAVE - Grammar",
+      "confidence": 0.95,
+      "sources": ["Wolfram PDF"],
+      "sociolinguisticMarker": "Narrative past marker",
+      "linguisticNote": "Used in storytelling contexts"
+    },
+    {
+      "term": "indignant come",
+      "definition": "Marker of speaker's annoyance or disapproval at action",
+      "example": "He come walkin' in here like he owns the place.",
+      "category": "Urban AAVE - Grammar",
+      "confidence": 0.96,
+      "sources": ["Wolfram PDF", "SJSU PDF"],
+      "sociolinguisticMarker": "Attitudinal marker - indignation",
+      "linguisticNote": "Expresses speaker's emotional stance toward action"
+    },
+    {
+      "term": "steady",
+      "definition": "Intensified continuative aspect marker indicating persistent, intense activity",
+      "example": "She steady steppin' on people's feelings.",
+      "category": "Urban AAVE - Grammar",
+      "confidence": 0.97,
+      "sources": ["Wolfram PDF"],
+      "sociolinguisticMarker": "Intensified continuative aspect",
+      "linguisticNote": "Emphasizes persistent, ongoing nature of action"
+    },
+    {
+      "term": "3rd sg. -s absence",
+      "definition": "Omission of third person singular -s marking",
+      "example": "She walk_ to school every day.",
+      "category": "Urban AAVE - Grammar",
+      "confidence": 0.98,
+      "sources": ["Wolfram PDF"],
+      "sociolinguisticMarker": "Verbal inflection pattern",
+      "linguisticNote": "Systematic grammatical rule, not random omission"
+    },
+    {
+      "term": "be leveling",
+      "definition": "Regularization of 'be' across contexts",
+      "example": "Folks is home (where Standard English requires 'are').",
+      "category": "Urban AAVE - Grammar",
+      "confidence": 0.94,
+      "sources": ["Wolfram PDF"],
+      "sociolinguisticMarker": "Verb agreement pattern",
+      "linguisticNote": "Extends 'is' to plural contexts"
+    },
+    {
+      "term": "negative concord",
+      "definition": "Multiple negation for emphasis (not cancellation)",
+      "example": "There wasn't nothing I could do.",
+      "category": "Urban AAVE - Grammar",
+      "confidence": 0.99,
+      "sources": ["Wolfram PDF"],
+      "sociolinguisticMarker": "Negation strategy",
+      "linguisticNote": "Logically valid in many world languages; intensifies negation"
+    },
+    {
+      "term": "preverbal indefinite negative",
+      "definition": "Negative marker before indefinite in embedded clause",
+      "example": "Nobody don't like him.",
+      "category": "Urban AAVE - Grammar",
+      "confidence": 0.93,
+      "sources": ["Wolfram PDF"],
+      "sociolinguisticMarker": "Complex negation structure",
+      "linguisticNote": "Marks negative scope over embedded clause"
+    },
+    {
+      "term": "negative inversion",
+      "definition": "Inverted negative question structure",
+      "example": "Don't nobody like him.",
+      "category": "Urban AAVE - Grammar",
+      "confidence": 0.96,
+      "sources": ["Wolfram PDF"],
+      "sociolinguisticMarker": "Question formation pattern",
+      "linguisticNote": "Fronts negative for emphasis"
+    },
+    {
+      "term": "ain't for didn't",
+      "definition": "Use of 'ain't' as past tense negative",
+      "example": "She ain't do it (She didn't do it).",
+      "category": "Urban AAVE - Grammar",
+      "confidence": 0.97,
+      "sources": ["Wolfram PDF"],
+      "sociolinguisticMarker": "Past tense negation",
+      "linguisticNote": "Extends 'ain't' beyond Standard English usage"
+    },
+    {
+      "term": "possessive -s absence",
+      "definition": "Omission of possessive marker",
+      "example": "That's the dog_ tail.",
+      "category": "Urban AAVE - Grammar",
+      "confidence": 0.96,
+      "sources": ["Wolfram PDF"],
+      "sociolinguisticMarker": "Possessive marking pattern",
+      "linguisticNote": "Context makes possession clear without -s"
+    },
+    {
+      "term": "generalized plural -s absence",
+      "definition": "Omission of plural marker on nouns",
+      "example": "I got some dog_.",
+      "category": "Urban AAVE - Grammar",
+      "confidence": 0.95,
+      "sources": ["Wolfram PDF"],
+      "sociolinguisticMarker": "Plural marking pattern",
+      "linguisticNote": "Plurality indicated by quantifier, not inflection"
+    },
+    {
+      "term": "regularized irregular plurals",
+      "definition": "Application of regular plural rules to irregular nouns",
+      "example": "Oxes, gooses, childrens.",
+      "category": "Urban AAVE - Grammar",
+      "confidence": 0.94,
+      "sources": ["Wolfram PDF"],
+      "sociolinguisticMarker": "Morphological regularization",
+      "linguisticNote": "Extends productive plural rule uniformly"
+    },
+    {
+      "term": "possessive they",
+      "definition": "Use of 'they' as possessive determiner",
+      "example": "That's they book.",
+      "category": "Urban AAVE - Grammar",
+      "confidence": 0.96,
+      "sources": ["Wolfram PDF"],
+      "sociolinguisticMarker": "Possessive pronoun variant",
+      "linguisticNote": "Regularizes possessive paradigm"
+    },
+    {
+      "term": "regularized mines",
+      "definition": "Extension of possessive pronoun with -s",
+      "example": "That book is mines.",
+      "category": "Urban AAVE - Grammar",
+      "confidence": 0.95,
+      "sources": ["Wolfram PDF"],
+      "sociolinguisticMarker": "Possessive pronoun formation",
+      "linguisticNote": "Analogical extension from 'yours/hers/ours'"
+    },
+    {
+      "term": "regularized hisself",
+      "definition": "Reflexive pronoun formed from possessive base",
+      "example": "He washed hisself.",
+      "category": "Urban AAVE - Grammar",
+      "confidence": 0.96,
+      "sources": ["Wolfram PDF"],
+      "sociolinguisticMarker": "Reflexive pronoun pattern",
+      "linguisticNote": "Regularizes reflexive formation (his + self)"
+    },
+    {
+      "term": "demonstrative them",
+      "definition": "Use of 'them' as demonstrative determiner",
+      "example": "Look at them apples.",
+      "category": "Urban AAVE - Grammar",
+      "confidence": 0.97,
+      "sources": ["Wolfram PDF"],
+      "sociolinguisticMarker": "Demonstrative system",
+      "linguisticNote": "Extends 'them' to determiner function"
+    },
+    {
+      "term": "subject relative pro deletion",
+      "definition": "Omission of relative pronoun in subject position",
+      "example": "The man _ come over here is my friend.",
+      "category": "Urban AAVE - Grammar",
+      "confidence": 0.94,
+      "sources": ["Wolfram PDF"],
+      "sociolinguisticMarker": "Relative clause formation",
+      "linguisticNote": "Deletes 'who/that' in subject relatives"
+    },
+    {
+      "term": "non-inverted simple questions",
+      "definition": "Question without subject-auxiliary inversion",
+      "example": "Where that is? (instead of 'Where is that?')",
+      "category": "Urban AAVE - Grammar",
+      "confidence": 0.96,
+      "sources": ["Wolfram PDF"],
+      "sociolinguisticMarker": "Question formation pattern",
+      "linguisticNote": "Questions marked by intonation, not word order"
+    },
+    {
+      "term": "inverted embedded questions",
+      "definition": "Inversion in embedded question context",
+      "example": "I asked her could I go.",
+      "category": "Urban AAVE - Grammar",
+      "confidence": 0.95,
+      "sources": ["Wolfram PDF"],
+      "sociolinguisticMarker": "Embedded question structure",
+      "linguisticNote": "Maintains inversion in subordinate clause"
+    }
+  ],
+  
+  "vocabularyTermsNew": [
+    {
+      "term": "purr",
+      "definition": "Exclamation of approval, satisfaction",
+      "example": "Purr, chile, sis finna slay...",
+      "category": "AAVE",
+      "confidence": 0.94,
+      "sources": ["SJSU PDF"],
+      "sociolinguisticMarker": "Approval interjection",
+      "context": "Social media, Gen Z AAVE usage",
+      "note": "Recent addition to AAVE lexicon, popularized on TikTok"
+    },
+    {
+      "term": "chile",
+      "definition": "Affectionate address term (pronunciation of 'child')",
+      "example": "Purr, chile...",
+      "category": "AAVE",
+      "confidence": 0.97,
+      "sources": ["SJSU PDF"],
+      "sociolinguisticMarker": "Affectionate address",
+      "context": "Informal conversation, friendly address",
+      "relatedTerms": ["sis", "boo"]
+    },
+    {
+      "term": "hecka",
+      "definition": "Milder form of 'hella', very or a lot",
+      "example": "Hecka text messages.",
+      "category": "AAVE",
+      "confidence": 0.93,
+      "sources": ["SJSU PDF"],
+      "sociolinguisticMarker": "Degree intensifier - euphemistic",
+      "context": "Northern California origin, family-friendly variant",
+      "relatedTerms": ["hella"]
+    },
+    {
+      "term": "giggin'",
+      "definition": "Dancing, particularly hyphy-style dancing",
+      "example": "We was giggin' all night.",
+      "category": "AAVE",
+      "confidence": 0.95,
+      "sources": ["SJSU PDF"],
+      "sociolinguisticMarker": "Activity verb - dance",
+      "context": "Bay Area hyphy movement",
+      "regionalOrigin": "San Francisco Bay Area"
+    },
+    {
+      "term": "hyphy",
+      "definition": "Hyperactive, excited, wild (Bay Area slang)",
+      "example": "The party was hyphy.",
+      "category": "AAVE",
+      "confidence": 0.96,
+      "sources": ["SJSU PDF"],
+      "sociolinguisticMarker": "Intensity descriptor",
+      "context": "Bay Area hip-hop culture movement",
+      "etymology": "From 'hyperactive' → 'hyphy'",
+      "regionalOrigin": "Oakland/Bay Area",
+      "historicalNote": "Associated with Mac Dre and Bay Area rap scene"
+    },
+    {
+      "term": "juiced",
+      "definition": "Excited, hyped up, or intoxicated",
+      "example": "I'm juiced about the concert.",
+      "category": "AAVE",
+      "confidence": 0.95,
+      "sources": ["SJSU PDF"],
+      "sociolinguisticMarker": "Emotional state descriptor",
+      "context": "Dual meaning: excitement or intoxication"
+    },
+    {
+      "term": "the city",
+      "definition": "San Francisco (Bay Area reference)",
+      "example": "We going to the city tonight.",
+      "category": "AAVE",
+      "confidence": 0.97,
+      "sources": ["SJSU PDF"],
+      "sociolinguisticMarker": "Geographic reference - definite article + city",
+      "context": "Bay Area regional slang",
+      "regionalOrigin": "San Francisco Bay Area"
+    },
+    {
+      "term": "for real",
+      "definition": "Seriously, truthfully (emphasis)",
+      "example": "For real, I didn't know.",
+      "category": "AAVE",
+      "confidence": 0.98,
+      "sources": ["SJSU PDF"],
+      "sociolinguisticMarker": "Truth-value intensifier",
+      "context": "Emphasizing sincerity",
+      "relatedTerms": ["fr", "no cap"]
+    },
+    {
+      "term": "pressed",
+      "definition": "Upset, angry, bothered",
+      "example": "Why you so pressed about it?",
+      "category": "AAVE",
+      "confidence": 0.96,
+      "sources": ["SJSU PDF"],
+      "sociolinguisticMarker": "Emotional state descriptor",
+      "context": "Questioning why someone is upset"
+    },
+    {
+      "term": "catch hands",
+      "definition": "Start a fight, get physically confrontational",
+      "example": "Keep talking and you gon' catch hands.",
+      "category": "AAVE",
+      "confidence": 0.95,
+      "sources": ["SJSU PDF"],
+      "sociolinguisticMarker": "Threat marker - physical violence",
+      "context": "Warning of impending fight"
+    },
+    {
+      "term": "on gang",
+      "definition": "Emphasis phrase to emphasize truth of statement",
+      "example": "On gang, I'm telling the truth.",
+      "category": "AAVE",
+      "confidence": 0.94,
+      "sources": ["SJSU PDF"],
+      "sociolinguisticMarker": "Truth-value oath",
+      "context": "Swearing on one's gang affiliation",
+      "relatedTerms": ["on god", "on my momma"]
+    },
+    {
+      "term": "nah",
+      "definition": "No (casual negation)",
+      "example": "Nah, it's okay.",
+      "category": "AAVE",
+      "confidence": 0.98,
+      "sources": ["SJSU PDF"],
+      "sociolinguisticMarker": "Casual negation marker",
+      "context": "Informal conversation"
+    },
+    {
+      "term": "bestie",
+      "definition": "Best friend",
+      "example": "Bestie cannot die.",
+      "category": "AAVE",
+      "confidence": 0.97,
+      "sources": ["SJSU PDF"],
+      "sociolinguisticMarker": "Friendship term - diminutive",
+      "context": "Close friendship reference"
+    },
+    {
+      "term": "A-REOUS",
+      "definition": "Excellent, cool (phonetic spelling)",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.88,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Positive evaluation",
+      "note": "Phonetic spelling variation"
+    },
+    {
+      "term": "AW-ITE",
+      "definition": "All right (phonetic spelling)",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.92,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Agreement marker",
+      "note": "Phonetic transcription"
+    },
+    {
+      "term": "B.M.W.",
+      "definition": "Black Man Working (acronym)",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.91,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Employment pride acronym",
+      "context": "Reclaimed luxury car acronym"
+    },
+    {
+      "term": "befo",
+      "definition": "Before (phonetic spelling)",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.93,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Temporal preposition - phonetic",
+      "note": "Final consonant cluster reduction"
+    },
+    {
+      "term": "bemah",
+      "definition": "Beyond (phonetic pronunciation)",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.89,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Spatial preposition - phonetic"
+    },
+    {
+      "term": "bent",
+      "definition": "Intoxicated, drunk or high",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.94,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Intoxication descriptor"
+    },
+    {
+      "term": "bigga",
+      "definition": "Bigger (phonetic spelling)",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.92,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Comparative adjective - phonetic"
+    },
+    {
+      "term": "bo jangling",
+      "definition": "Boastful talking, bragging",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.90,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Verbal behavior - boasting"
+    },
+    {
+      "term": "bomb",
+      "definition": "Excellent, outstanding",
+      "example": "That meal was the bomb.",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.96,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Superlative praise"
+    },
+    {
+      "term": "boo",
+      "definition": "Romantic partner, significant other",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.97,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Romantic address term",
+      "relatedTerms": ["bae"]
+    },
+    {
+      "term": "booty",
+      "definition": "Buttocks",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.98,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Body part slang"
+    },
+    {
+      "term": "boyz",
+      "definition": "Boys, group of male friends",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.95,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Group designation - masculine",
+      "note": "Alternative spelling for stylistic effect"
+    },
+    {
+      "term": "brick",
+      "definition": "Long wait, extended period",
+      "example": "I been waiting a brick.",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.91,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Duration descriptor"
+    },
+    {
+      "term": "brurva",
+      "definition": "Brother, close friend (phonetic)",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.93,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Solidarity term - phonetic"
+    },
+    {
+      "term": "buck wild",
+      "definition": "Extremely uninhibited, out of control",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.95,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Behavior intensifier"
+    },
+    {
+      "term": "bud",
+      "definition": "Buddy, friend",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.94,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Friendly address"
+    },
+    {
+      "term": "buggin'",
+      "definition": "Acting irrational, crazy, or paranoid",
+      "example": "You buggin' right now.",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.96,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Behavioral critique"
+    },
+    {
+      "term": "bumping",
+      "definition": "Loud music playing, or lively party",
+      "example": "The party was bumping.",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.95,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Atmosphere descriptor"
+    },
+    {
+      "term": "bust out",
+      "definition": "Leave suddenly, escape",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.93,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Departure verb"
+    },
+    {
+      "term": "busta cap",
+      "definition": "Shoot a gun",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.94,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Violence verb",
+      "contentWarning": "Gun violence reference"
+    },
+    {
+      "term": "busta move",
+      "definition": "Take action, make a move",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.95,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Action initiation"
+    },
+    {
+      "term": "busta white",
+      "definition": "Inauthentic white person trying to act Black",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.90,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Authenticity critique - racial",
+      "context": "Cultural appropriation criticism"
+    },
+    {
+      "term": "cakes",
+      "definition": "Buttocks",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.94,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Body part slang",
+      "relatedTerms": ["booty"]
+    },
+    {
+      "term": "cavysack",
+      "definition": "Drug bag, small drug package",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.88,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Drug trade terminology"
+    },
+    {
+      "term": "cent",
+      "definition": "Dollar (currency)",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.91,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Money slang"
+    },
+    {
+      "term": "chillin",
+      "definition": "Relaxing, hanging out",
+      "example": "Just chillin' at home.",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.97,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Activity descriptor - leisure"
+    },
+    {
+      "term": "chronic",
+      "definition": "High-quality marijuana",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.96,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Drug quality descriptor",
+      "historicalNote": "Popularized by Dr. Dre's album 'The Chronic' (1992)"
+    },
+    {
+      "term": "cold-lampin",
+      "definition": "Lounging, relaxing in style",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.92,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Leisure activity - stylish"
+    },
+    {
+      "term": "cop-blockin",
+      "definition": "Blocking someone's romantic advances",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.94,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Romantic interference term",
+      "context": "Preventing someone from pursuing romantic interest"
+    },
+    {
+      "term": "cream",
+      "definition": "Money, cash (Cash Rules Everything Around Me)",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.96,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Money slang",
+      "etymology": "Popularized by Wu-Tang Clan song 'C.R.E.A.M.'"
+    },
+    {
+      "term": "crib",
+      "definition": "Home, house, apartment",
+      "example": "Come over to my crib.",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.98,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Dwelling reference"
+    },
+    {
+      "term": "curb job",
+      "definition": "Outdoor sex act",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.87,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Sexual activity - explicit",
+      "contentWarning": "Sexually explicit term"
+    },
+    {
+      "term": "curried",
+      "definition": "Defeated, beaten",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.89,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Loss descriptor"
+    },
+    {
+      "term": "da shit",
+      "definition": "Exceptional, the best",
+      "example": "That song is da shit.",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.95,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Superlative praise"
+    },
+    {
+      "term": "dime",
+      "definition": "Perfect 10, extremely attractive person",
+      "example": "She's a dime.",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.97,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Attractiveness scale - maximum",
+      "note": "Different meaning than prison 'dime' (10 years)"
+    },
+    {
+      "term": "dimebag",
+      "definition": "$10 worth of drugs",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.94,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Drug quantity/price term"
+    },
+    {
+      "term": "dimesack",
+      "definition": "$10 drug bag",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.93,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Drug packaging term",
+      "relatedTerms": ["dimebag"]
+    },
+    {
+      "term": "dis",
+      "definition": "This (phonetic spelling)",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.94,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Demonstrative pronoun - phonetic"
+    },
+    {
+      "term": "dog",
+      "definition": "Derogatory term for person, or close friend (context-dependent)",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.95,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Dual-valence address term",
+      "note": "Can be insult or term of endearment depending on context"
+    },
+    {
+      "term": "ebonics",
+      "definition": "AAVE dialect (term coined 1973)",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.97,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Meta-linguistic term",
+      "etymology": "Blend of 'ebony' + 'phonics'",
+      "historicalNote": "Coined by Robert Williams; controversial term"
+    },
+    {
+      "term": "ebony",
+      "definition": "Black person, dark-skinned",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.96,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Racial/ethnic descriptor"
+    },
+    {
+      "term": "fitty",
+      "definition": "Fifty dollars",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.92,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Money amount - phonetic"
+    },
+    {
+      "term": "flava",
+      "definition": "Style, flavor, distinctive character",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.95,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Style descriptor"
+    },
+    {
+      "term": "fly",
+      "definition": "Stylish, cool, attractive",
+      "example": "Those shoes are fly.",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.97,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Style/attractiveness praise"
+    },
+    {
+      "term": "fly gangster shit",
+      "definition": "Cool gangster-style behavior or items",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.90,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Street style praise"
+    },
+    {
+      "term": "folks",
+      "definition": "Friends, associates, group members",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.96,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Group designation"
+    },
+    {
+      "term": "foo",
+      "definition": "Fool (pronunciation variant)",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.94,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Mild insult or address - phonetic"
+    },
+    {
+      "term": "fronting",
+      "definition": "Pretending, being fake, putting on an act",
+      "example": "Stop fronting like you got money.",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.97,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Authenticity challenge"
+    },
+    {
+      "term": "G",
+      "definition": "Gangster, close friend",
+      "example": "What's up, G?",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.98,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Masculine address term"
+    },
+    {
+      "term": "ganja",
+      "definition": "Marijuana",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.96,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Drug slang",
+      "etymology": "From Sanskrit/Hindi via Jamaican Patois"
+    },
+    {
+      "term": "gank",
+      "definition": "Steal, rob",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.93,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Theft verb"
+    },
+    {
+      "term": "gat",
+      "definition": "Gun",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.95,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Weapon slang",
+      "etymology": "Shortened from 'Gatling gun'"
+    },
+    {
+      "term": "haps in da hood",
+      "definition": "News/events in the neighborhood",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.91,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Community information reference"
+    },
+    {
+      "term": "he be",
+      "definition": "He is (habitual construction)",
+      "example": "He be working late.",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.98,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Habitual aspect - third person",
+      "relatedTerms": ["habitual be"]
+    },
+    {
+      "term": "hella thick",
+      "definition": "Very curvaceous, very attractive body",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.94,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Physical attractiveness intensifier",
+      "relatedTerms": ["thick", "hella"]
+    },
+    {
+      "term": "ho",
+      "definition": "Promiscuous woman (derogatory)",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.96,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Gendered insult",
+      "note": "Derogatory term, historically rooted in 'whore'"
+    },
+    {
+      "term": "homey",
+      "definition": "Close friend, homeboy",
+      "example": "That's my homey.",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.97,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Friendship term",
+      "relatedTerms": ["homeboy"]
+    },
+    {
+      "term": "hood",
+      "definition": "Neighborhood, local area",
+      "example": "I'm from the hood.",
+      "category": "Ebonics/AAVE",
+      "confidence": 0.98,
+      "sources": ["Ebonics PDF"],
+      "sociolinguisticMarker": "Geographic community reference"
+    }
+  ]
+}

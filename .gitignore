@@ -1,0 +1,111 @@
+# ============================================================
+# VIBENICITY NATION — .gitignore
+# ============================================================
+
+# === OS / System Files ===
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# === Editors / IDEs ===
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+*~
+.project
+.classpath
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# === Node / Build Engine ===
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.npm
+.pnpm-store/
+.yarn/
+
+# === Build Output ===
+dist/
+build/
+out/
+.next/
+.nuxt/
+.cache/
+.parcel-cache/
+.vite/
+.turbo/
+
+# === Environment / Secrets — NEVER COMMIT THESE ===
+.env
+.env.local
+.env.development
+.env.production
+.env.*.local
+*.key
+*.pem
+secrets.json
+api-keys.json
+credentials.json
+
+# === Logs ===
+*.log
+logs/
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# === Test Coverage ===
+coverage/
+*.lcov
+.nyc_output/
+
+# === Temporary Files ===
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+*.backup
+*.orig
+
+# === Project-Specific Backup Patterns ===
+index-BACKUP-*.html
+index-SAFESAVE-*.html
+index-TEST-*.html
+index-BROKEN.html
+index-broken.html
+studio-BACKUP-*.html
+*-BACKUP-*.html
+
+# === Deployment ===
+.vercel/
+.netlify/
+.firebase/
+.cloudflare/
+
+# === Supabase ===
+.supabase/
+supabase/.branches
+supabase/.temp
+
+# === Documentation Archives ===
+docs/archive/
+session-notes/
+
+# === Misc ===
+.aider*
+.claude/
+.cursor/
+.github-copilot/
