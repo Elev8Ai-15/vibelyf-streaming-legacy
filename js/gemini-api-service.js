@@ -10,11 +10,10 @@
  * - Style preference adaptation (urban, minimal, professional, colorful)
  * 
  * Model Fallback Chain (tries in order):
- * 1. gemini-2.5-flash (2026 latest — fastest + native code execution)
- * 2. gemini-2.5-pro (2026 latest — highest quality)
- * 3. gemini-2.0-flash (Stable fast fallback)
- * 4. gemini-1.5-pro (Reliable legacy)
- * 5. gemini-1.5-flash (Ultimate fallback)
+ * 1. gemini-3-5-flash (May 2026 I/O release — outperforms 3.1 Pro, 4× faster output)
+ * 2. gemini-3-1-pro   (Highest quality 3.x)
+ * 3. gemini-2-5-flash (Stable fast fallback)
+ * 4. gemini-2-5-pro   (Reliable legacy)
  * 
  * Features:
  * - Automatic model fallback (if one fails, tries next)
@@ -37,13 +36,12 @@ class GeminiAPIService {
         // Load saved API key
         this.apiKey = this.loadAPIKey();
         
-        // Try latest models with fallback chain
+        // Try latest models with fallback chain (May 2026)
         this.models = [
-            'gemini-2.5-flash',          // 2026 latest — fastest + native code execution
-            'gemini-2.5-pro',            // 2026 latest — highest quality
-            'gemini-2.0-flash',          // Stable fast fallback
-            'gemini-1.5-pro',            // Reliable legacy
-            'gemini-1.5-flash'           // Ultimate fallback
+            'gemini-3-5-flash',          // May 2026 I/O release — outperforms 3.1 Pro, 4× faster
+            'gemini-3-1-pro',            // Highest quality 3.x
+            'gemini-2-5-flash',          // Stable fast fallback
+            'gemini-2-5-pro'             // Reliable legacy
         ];
         this.currentModel = this.models[0];
         this.apiEndpoint = `https://generativelanguage.googleapis.com/v1beta/models/${this.currentModel}:generateContent`;
@@ -255,11 +253,10 @@ Generate the complete HTML file now:`;
      * Call Gemini API with automatic model fallback
      * 
      * Tries models in sequence until one succeeds:
-     * 1. gemini-2.0-flash-exp (newest)
-     * 2. gemini-1.5-flash
-     * 3. gemini-1.5-pro
-     * 4. gemini-1.5-flash-latest
-     * 5. gemini-pro (oldest)
+     * 1. gemini-3-5-flash (May 2026 newest)
+     * 2. gemini-3-1-pro
+     * 3. gemini-2-5-flash
+     * 4. gemini-2-5-pro
      * 
      * Features:
      * - Automatic model detection and caching

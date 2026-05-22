@@ -1,20 +1,22 @@
 /**
- * ⚡ VIBELYF GROQ FAST-BRAIN SERVICE
- * 
- * Ultra-fast LLM inference via Groq API (300+ tokens/sec)
- * Used as the "fast brain" for instant tasks:
+ * ⚡ VIBELYF GROQ FAST-BRAIN SERVICE  (+ Cerebras failover)
+ *
+ * Ultra-fast LLM inference for the "fast brain" tier:
  *   - Slang detection & classification (<500ms)
  *   - Vague message analysis (<300ms)
  *   - Clarification generation (<500ms)
  *   - Intent classification (<200ms)
- * 
- * While Gemini handles the "deep brain" tasks (code generation),
- * Groq handles everything that needs to feel INSTANT.
- * 
- * Free tier: 6,000 requests/day
- * Model: llama-3.3-70b-versatile (open-source, no vendor lock-in)
- * 
- * CREATED: March 2026 — VIBELYF Intelligence Upgrade
+ *
+ * Primary:  Groq      — Llama 4 Maverick (17B active / 400B total MoE, day-zero on GroqCloud)
+ * Failover: Cerebras  — Llama 4 Scout (free tier: 1M tokens/day, 2,600 tok/s, no card)
+ *
+ * Deep-brain tasks (code generation) still go to Gemini 3.5 Flash via vibelyf-code-generator.js.
+ *
+ * Groq free tier: 6,000 requests/day
+ * Cerebras free: 1,000,000 tokens/day (more than enough headroom for slang detection)
+ *
+ * UPGRADED: May 2026 — Llama 4 Maverick + Scout (replaces Llama 3.3 70B)
+ *                       Cerebras failover wiring TODO in Phase 1.H Workers proxy.
  */
 
 window.VibeLyfGroqBrain = {
@@ -24,17 +26,34 @@ window.VibeLyfGroqBrain = {
     // ═══════════════════════════════════════════════════════════════
 
     config: {
+        // Primary provider: Groq
         endpoint: 'https://api.groq.com/openai/v1/chat/completions',
-        model: 'llama-3.3-70b-versatile',
-        fallbackModel: 'llama-3.1-8b-instant',  // Ultra-fast fallback
-        apiKey: '',  // User provides via setup or localStorage
+        model: 'llama-4-maverick',           // Day-zero on Groq, May 2026
+        fallbackModel: 'llama-4-scout',      // Lighter Llama 4 in-Groq backup
+        apiKey: '',                          // User provides via setup or localStorage
         maxTokens: 500,
-        temperature: 0.1,  // Low temp for consistent detection
-        timeout: 8000,     // 8s timeout (Groq is usually <2s)
+        temperature: 0.1,
+        timeout: 8000,
         enabled: false,
         requestCount: 0,
         dailyLimit: 6000,
         lastResetDate: null
+    },
+
+    // Cross-provider failover: Cerebras Cloud (free 1M tok/day, 2,600 tok/s)
+    // Activated by Phase 1.H — Workers proxy will detect Groq 429 / timeout
+    // and retry on Cerebras with Llama 4 Scout. For now this block holds the
+    // config; the failover logic itself is TODO in the proxy refactor.
+    cerebras: {
+        endpoint: 'https://api.cerebras.ai/v1/chat/completions',
+        model: 'llama-4-scout',
+        apiKey: '',                          // User provides via setup or localStorage
+        maxTokens: 500,
+        temperature: 0.1,
+        timeout: 8000,
+        enabled: false,
+        requestCount: 0,
+        dailyTokenLimit: 1_000_000           // Cerebras free tier limit
     },
 
     // ═══════════════════════════════════════════════════════════════
@@ -42,18 +61,40 @@ window.VibeLyfGroqBrain = {
     // ═══════════════════════════════════════════════════════════════
 
     init() {
-        // Load API key from localStorage
+        // Load Groq API key from localStorage
         const savedKey = localStorage.getItem('vibelyf_groq_api_key');
         if (savedKey) {
             this.config.apiKey = savedKey;
             this.config.enabled = true;
         }
 
+        // Load Cerebras API key from localStorage (for failover)
+        const cerebrasKey = localStorage.getItem('vibelyf_cerebras_api_key');
+        if (cerebrasKey) {
+            this.cerebras.apiKey = cerebrasKey;
+            this.cerebras.enabled = true;
+        }
+
         // Load daily counter
         this.loadDailyCounter();
 
-        console.log(`⚡ Groq Fast-Brain ${this.config.enabled ? 'ACTIVE' : 'STANDBY'} | Model: ${this.config.model}`);
+        console.log(
+            `⚡ Fast-Brain ${this.config.enabled ? 'ACTIVE' : 'STANDBY'} | ` +
+            `Groq: ${this.config.model}` +
+            (this.cerebras.enabled ? ` | Cerebras failover: ${this.cerebras.model}` : '')
+        );
         return this.config.enabled;
+    },
+
+    /**
+     * Set Cerebras API key for cross-provider failover
+     */
+    setCerebrasApiKey(key) {
+        this.cerebras.apiKey = key;
+        this.cerebras.enabled = !!key;
+        localStorage.setItem('vibelyf_cerebras_api_key', key);
+        console.log(`⚡ Cerebras failover ${key ? 'saved & enabled' : 'cleared'}`);
+        return this.cerebras.enabled;
     },
 
     /**

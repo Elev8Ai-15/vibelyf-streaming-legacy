@@ -1,22 +1,25 @@
 /**
  * 🚀 VIBELYF CODE GENERATOR
- * 
+ *
  * Takes clarified, interpreted user messages and generates actual working code.
- * Uses Google Gemini 2.5 Flash API to turn natural language into HTML/CSS/JS applications.
- * 
+ * Uses Google Gemini 3.5 Flash API to turn natural language into HTML/CSS/JS applications.
+ *
  * THE REWARD FOR CLEAR COMMUNICATION.
- * 
- * UPGRADED: March 2026 — Gemini 2.5 Flash (native code execution, 1M context, improved multimodal)
+ *
+ * UPGRADED: May 2026 — Gemini 3.5 Flash (Google I/O 2026 release, outperforms 3.1 Pro,
+ *                       4× faster output, 1M context, native code execution)
+ * NOTE:    API key is sourced from window.VIBELYF_API_KEYS or localStorage at runtime
+ *          once Phase 1.H Workers proxy lands. Hardcoded keys are dev-only placeholders.
  */
 
 const VibeLyfCodeGenerator = {
     // Gemini API Configuration
     config: {
         apiKey: 'AIzaSyB9jQaRGkfj4Tyq5y5j45RiYAeb_H2e-2g',
-        model: 'gemini-2.5-flash',
-        endpoint: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent',
+        model: 'gemini-3-5-flash',
+        endpoint: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3-5-flash:generateContent',
         // Fallback chain: try latest first, fall back gracefully
-        fallbackModels: ['gemini-2.5-flash', 'gemini-2.5-pro', 'gemini-2.0-flash', 'gemini-1.5-pro'],
+        fallbackModels: ['gemini-3-5-flash', 'gemini-3-1-pro', 'gemini-2-5-flash', 'gemini-2-5-pro'],
         fallbackIndex: 0
     },
 

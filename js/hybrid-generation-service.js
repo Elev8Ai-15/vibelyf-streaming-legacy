@@ -33,10 +33,10 @@ class HybridGenerationService {
             primaryMode: 'gemini',  // 'genspark' or 'gemini'
             autoFallback: true,      // Automatically fallback on failure
             geminiModels: [
-                'gemini-2.0-flash-exp',
-                'gemini-1.5-pro-latest',
-                'gemini-1.5-flash-latest',
-                'gemini-1.0-pro'
+                'gemini-3-5-flash',          // May 2026 latest
+                'gemini-3-1-pro',
+                'gemini-2-5-flash',
+                'gemini-2-5-pro'
             ]
         };
         

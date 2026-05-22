@@ -2,20 +2,21 @@
  * VIBELYF IMAGE FORGE ENGINE
  * Advanced multi-model Gemini build engine with image support
  * Extracted from V20 Forge Edition
- * UPGRADED: March 2026 — Gemini 2.5 Flash/Pro chain (native code exec, 1M context, improved multimodal)
+ * UPGRADED: May 2026 — Gemini 3.5 Flash chain (Google I/O 2026 release, 4× faster output)
+ * TODO Phase 2: migrate to fal.ai router (Flux 1.1 Pro / Ideogram 3 / Recraft V4 / Nano Banana Pro)
+ *                per notes/vibelyf-ai-stack-modernization-2026-05-22.md
  */
 
 window.VibeLyfImageForge = {
-    
+
     // Configuration
     config: {
         apiKey: '',
         modelChain: [
-            'gemini-2.5-flash',           // 2026 latest — fastest + native code exec
-            'gemini-2.5-pro',             // 2026 latest — highest quality
-            'gemini-2.0-flash',           // Stable fast fallback
-            'gemini-1.5-pro',             // Legacy reliable
-            'gemini-1.5-flash'            // Ultimate fallback
+            'gemini-3-5-flash',           // May 2026 I/O release — fastest + native code exec
+            'gemini-3-1-pro',             // Highest quality 3.x
+            'gemini-2-5-flash',           // Stable fast fallback
+            'gemini-2-5-pro'              // Reliable legacy
         ],
         workingModel: null,
         currentMode: 'build' // 'build' or 'editor'

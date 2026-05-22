@@ -9,10 +9,10 @@
  * - Query optimization strategies
  * - Data modeling best practices
  * 
- * Model: GPT-4 Turbo (gpt-4-turbo-preview)
- * - 4,096 max tokens
+ * Model: GPT-5 (gpt-5)
+ * - $0.625 / $5 per M tokens (May 2026)
  * - Best for structured data design
- * - Excellent at complex relationships
+ * - Skipped GPT-5.5 — too expensive for unit economics ($5/$30 per M)
  * 
  * Supported Databases:
  * - PostgreSQL (relational, ACID compliant)
@@ -38,7 +38,7 @@ class OpenAIAPIService extends BaseAPIService {
             'sk-' // Both 'sk-' and 'sk-proj-' are valid
         );
         this.apiEndpoint = 'https://api.openai.com/v1/chat/completions';
-        this.model = 'gpt-4-turbo-preview';
+        this.model = 'gpt-5';
         this.maxTokens = 4096;
         
         // Rate limiting configuration

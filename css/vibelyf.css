@@ -1,0 +1,1378 @@
+/* ============================================================================
+ * VibeLyf Design System v1.0
+ * "Build apps in your native tongue."
+ *
+ * Streetwear-meets-product-design system derived from the VibeLyf graffiti
+ * logo (charcoal "Vibe" + teal "Lyf" with cream outline, paint drips,
+ * concrete wall texture).
+ *
+ * Replaces: red-glassmorphism.css (Blue Glassmorphism v2.1 — Genspark legacy)
+ * Spec:     notes/vibelyf-design-system-2026-05-22.md
+ * Date:     2026-05-22
+ *
+ * Two visual modes that work together:
+ *   VibeLyf        = ground-floor street culture (free + Pro)
+ *   VibeLyf Nation = chrome iridescent premium (Creator $19.99/mo)
+ * ========================================================================== */
+
+
+/* ---------------------------------------------------------------------------
+ * 1. DESIGN TOKENS (CSS custom properties)
+ * ------------------------------------------------------------------------- */
+
+:root {
+    /* ── BRAND CORE ──────────────────────────────────────────────── */
+    --vl-charcoal:        hsl(210, 5%, 25%);     /* #3D4046 — "Vibe" letters */
+    --vl-charcoal-deep:   hsl(210, 8%, 15%);     /* #232629 — emphasis */
+    --vl-charcoal-soft:   hsl(210, 4%, 38%);     /* #5E6164 — muted text */
+
+    --vl-teal:            hsl(165, 50%, 50%);    /* #40BF99 — "Lyf" letters, brand */
+    --vl-teal-deep:       hsl(165, 60%, 38%);    /* #27996B — pressed */
+    --vl-teal-soft:       hsl(165, 40%, 70%);    /* #94D6BC — washes */
+    --vl-teal-glow:       hsl(165, 90%, 60%);    /* #33EBB0 — hover lift */
+
+    --vl-cream:           hsl(40, 50%, 80%);     /* #EAD9B0 — outlines */
+    --vl-cream-soft:      hsl(40, 35%, 88%);     /* #ECE0CB — paper cards */
+    --vl-cream-edge:      hsl(40, 60%, 70%);     /* #DBC082 — strokes */
+
+    /* ── SURFACES (concrete) ─────────────────────────────────────── */
+    --vl-concrete-100:    hsl(0, 0%, 95%);
+    --vl-concrete-200:    hsl(0, 0%, 88%);
+    --vl-concrete-300:    hsl(0, 0%, 75%);
+    --vl-concrete-700:    hsl(210, 6%, 22%);
+    --vl-concrete-800:    hsl(210, 7%, 16%);
+    --vl-concrete-900:    hsl(210, 8%, 10%);
+
+    /* ── SEMANTIC ────────────────────────────────────────────────── */
+    --vl-success:         hsl(150, 55%, 48%);
+    --vl-warning:         hsl(35, 90%, 55%);
+    --vl-danger:          hsl(0, 70%, 55%);
+    --vl-info:            hsl(200, 65%, 55%);
+
+    /* ── DRIP MOTIF (signature) ──────────────────────────────────── */
+    --vl-drip-color:      var(--vl-teal);
+    --vl-drip-shadow:     0 6px 16px -4px hsla(165, 60%, 38%, 0.45);
+
+    /* ── VIBELYF NATION (premium chrome) ─────────────────────────── */
+    --vln-chrome-1:       hsl(280, 80%, 65%);
+    --vln-chrome-2:       hsl(330, 85%, 65%);
+    --vln-chrome-3:       hsl(195, 90%, 70%);
+    --vln-gradient:       linear-gradient(135deg,
+                            var(--vln-chrome-1) 0%,
+                            var(--vln-chrome-2) 50%,
+                            var(--vln-chrome-3) 100%);
+
+    /* ── ACTIVE THEME (light by default) ─────────────────────────── */
+    --vl-bg:              var(--vl-concrete-100);
+    --vl-bg-elevated:     var(--vl-cream-soft);
+    --vl-surface:         var(--vl-concrete-200);
+    --vl-surface-border:  var(--vl-cream-edge);
+    --vl-text:            var(--vl-charcoal-deep);
+    --vl-text-muted:      var(--vl-charcoal-soft);
+    --vl-divider:         var(--vl-concrete-300);
+    --vl-shadow-color:    hsla(210, 10%, 10%, 0.12);
+
+    /* ── ACCENT (replaced by .theme-* classes) ───────────────────── */
+    --vl-accent:          var(--vl-teal);
+    --vl-accent-deep:     var(--vl-teal-deep);
+    --vl-accent-soft:     var(--vl-teal-soft);
+    --vl-accent-glow:     var(--vl-teal-glow);
+
+    /* ── TYPOGRAPHY ──────────────────────────────────────────────── */
+    --vl-font-body:       'Inter', system-ui, -apple-system, BlinkMacSystemFont,
+                          'Segoe UI', sans-serif;
+    --vl-font-display:    'Permanent Marker', 'Rubik Spray Paint', cursive;
+    --vl-font-mono:       'JetBrains Mono', 'Fira Code', 'Menlo', 'Consolas',
+                          monospace;
+
+    --vl-text-2xs:  clamp(0.625rem, 0.55rem + 0.25vw, 0.75rem);
+    --vl-text-xs:   clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+    --vl-text-sm:   clamp(0.875rem, 0.82rem + 0.25vw, 1rem);
+    --vl-text-base: clamp(1rem, 0.95rem + 0.3vw, 1.125rem);
+    --vl-text-lg:   clamp(1.125rem, 1.05rem + 0.4vw, 1.375rem);
+    --vl-text-xl:   clamp(1.375rem, 1.25rem + 0.6vw, 1.75rem);
+    --vl-text-2xl:  clamp(1.625rem, 1.4rem + 1.2vw, 2.25rem);
+    --vl-text-3xl:  clamp(2rem, 1.6rem + 2vw, 3rem);
+    --vl-text-4xl:  clamp(2.5rem, 1.8rem + 3.5vw, 4.5rem);
+    --vl-text-hero: clamp(3rem, 2rem + 6vw, 7rem);
+
+    --vl-weight-normal: 400;
+    --vl-weight-medium: 500;
+    --vl-weight-semi:   600;
+    --vl-weight-bold:   700;
+    --vl-weight-black:  900;
+
+    --vl-tracking-tight:   -0.02em;
+    --vl-tracking-normal:  0em;
+    --vl-tracking-wide:    0.04em;
+    --vl-tracking-display: 0.05em;
+
+    --vl-line-tight:   1.15;
+    --vl-line-snug:    1.35;
+    --vl-line-normal:  1.55;
+    --vl-line-relaxed: 1.75;
+
+    /* ── SPACING (4px scale) ─────────────────────────────────────── */
+    --vl-space-0:   0;
+    --vl-space-1:   0.25rem;   /* 4 */
+    --vl-space-2:   0.5rem;    /* 8 */
+    --vl-space-3:   0.75rem;   /* 12 */
+    --vl-space-4:   1rem;      /* 16 */
+    --vl-space-5:   1.25rem;   /* 20 */
+    --vl-space-6:   1.5rem;    /* 24 */
+    --vl-space-8:   2rem;      /* 32 */
+    --vl-space-10:  2.5rem;    /* 40 */
+    --vl-space-12:  3rem;      /* 48 */
+    --vl-space-16:  4rem;      /* 64 */
+    --vl-space-20:  5rem;      /* 80 */
+    --vl-space-section: clamp(3rem, 2rem + 4vw, 7rem);
+
+    /* ── RADII ───────────────────────────────────────────────────── */
+    --vl-radius-xs:    0.25rem;
+    --vl-radius-sm:    0.375rem;
+    --vl-radius-md:    0.5rem;
+    --vl-radius-lg:    0.75rem;
+    --vl-radius-xl:    1rem;
+    --vl-radius-2xl:   1.5rem;
+    --vl-radius-pill:  999px;
+
+    /* ── ELEVATION (shadows) ─────────────────────────────────────── */
+    --vl-shadow-sm:    0 1px 2px var(--vl-shadow-color);
+    --vl-shadow-md:    0 4px 12px -2px var(--vl-shadow-color);
+    --vl-shadow-lg:    0 12px 32px -8px var(--vl-shadow-color);
+    --vl-shadow-xl:    0 24px 64px -12px var(--vl-shadow-color);
+
+    /* ── MOTION ──────────────────────────────────────────────────── */
+    --vl-ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --vl-ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --vl-ease-in-out:   cubic-bezier(0.4, 0, 0.2, 1);
+
+    --vl-duration-fast: 150ms;
+    --vl-duration-base: 250ms;
+    --vl-duration-slow: 400ms;
+    --vl-duration-drip: 280ms;
+
+    /* ── Z LAYERS ────────────────────────────────────────────────── */
+    --vl-z-base:    1;
+    --vl-z-raised:  10;
+    --vl-z-nav:     100;
+    --vl-z-overlay: 500;
+    --vl-z-modal:   1000;
+    --vl-z-toast:   1500;
+    --vl-z-banner:  2000;
+}
+
+/* ---------------------------------------------------------------------------
+ * 2. THEME VARIANTS (override the active-theme tokens)
+ * ------------------------------------------------------------------------- */
+
+/* Dark theme — street-at-night */
+:root[data-theme="dark"],
+.theme-dark {
+    --vl-bg:              var(--vl-concrete-900);
+    --vl-bg-elevated:     var(--vl-concrete-800);
+    --vl-surface:         var(--vl-concrete-700);
+    --vl-surface-border:  hsla(165, 40%, 70%, 0.25);
+    --vl-text:            var(--vl-cream-soft);
+    --vl-text-muted:      hsl(40, 15%, 65%);
+    --vl-divider:         hsla(40, 35%, 88%, 0.12);
+    --vl-shadow-color:    hsla(0, 0%, 0%, 0.5);
+}
+
+/* Auto theme — defer to OS preference, default light */
+@media (prefers-color-scheme: dark) {
+    :root[data-theme="auto"] {
+        --vl-bg:              var(--vl-concrete-900);
+        --vl-bg-elevated:     var(--vl-concrete-800);
+        --vl-surface:         var(--vl-concrete-700);
+        --vl-surface-border:  hsla(165, 40%, 70%, 0.25);
+        --vl-text:            var(--vl-cream-soft);
+        --vl-text-muted:      hsl(40, 15%, 65%);
+        --vl-divider:         hsla(40, 35%, 88%, 0.12);
+        --vl-shadow-color:    hsla(0, 0%, 0%, 0.5);
+    }
+}
+
+/* 12 vibe theme presets — accent-only overrides */
+.theme-cyber     { --vl-accent: var(--vl-teal);              --vl-accent-deep: var(--vl-teal-deep);            --vl-accent-soft: var(--vl-teal-soft);             --vl-accent-glow: var(--vl-teal-glow); }
+.theme-fire      { --vl-accent: hsl(15, 90%, 55%);           --vl-accent-deep: hsl(15, 80%, 42%);              --vl-accent-soft: hsl(15, 70%, 78%);               --vl-accent-glow: hsl(15, 100%, 65%); }
+.theme-ice       { --vl-accent: hsl(200, 70%, 65%);          --vl-accent-deep: hsl(200, 70%, 48%);             --vl-accent-soft: hsl(200, 60%, 80%);              --vl-accent-glow: hsl(200, 100%, 75%); }
+.theme-neon      { --vl-accent: hsl(120, 100%, 50%);         --vl-accent-deep: hsl(120, 85%, 35%);             --vl-accent-soft: hsl(120, 70%, 75%);              --vl-accent-glow: hsl(120, 100%, 65%); }
+.theme-luxury    { --vl-accent: hsl(45, 100%, 50%);          --vl-accent-deep: hsl(45, 90%, 38%);              --vl-accent-soft: hsl(45, 80%, 75%);               --vl-accent-glow: hsl(45, 100%, 65%); }
+.theme-kawaii    { --vl-accent: hsl(330, 80%, 75%);          --vl-accent-deep: hsl(330, 70%, 60%);             --vl-accent-soft: hsl(330, 70%, 88%);              --vl-accent-glow: hsl(330, 100%, 80%); }
+.theme-matrix    { --vl-accent: hsl(120, 60%, 35%);          --vl-accent-deep: hsl(120, 70%, 22%);             --vl-accent-soft: hsl(120, 40%, 55%);              --vl-accent-glow: hsl(120, 80%, 45%); }
+.theme-ocean     { --vl-accent: hsl(195, 70%, 50%);          --vl-accent-deep: hsl(195, 80%, 38%);             --vl-accent-soft: hsl(195, 60%, 75%);              --vl-accent-glow: hsl(195, 100%, 60%); }
+.theme-sunset    { --vl-accent: hsl(20, 85%, 60%);           --vl-accent-deep: hsl(20, 80%, 45%);              --vl-accent-soft: hsl(20, 70%, 80%);               --vl-accent-glow: hsl(20, 100%, 70%); }
+.theme-aurora    { --vl-accent: hsl(280, 70%, 65%);          --vl-accent-deep: hsl(280, 75%, 50%);             --vl-accent-soft: hsl(280, 60%, 80%);              --vl-accent-glow: hsl(180, 80%, 65%); }
+.theme-brutalist { --vl-accent: hsl(0, 0%, 50%);             --vl-accent-deep: hsl(0, 0%, 25%);                --vl-accent-soft: hsl(0, 0%, 75%);                 --vl-accent-glow: hsl(0, 0%, 65%); }
+.theme-minimal   { --vl-accent: hsl(0, 0%, 0%);              --vl-accent-deep: hsl(0, 0%, 0%);                 --vl-accent-soft: hsl(0, 0%, 50%);                 --vl-accent-glow: hsl(0, 0%, 30%); }
+
+
+/* ---------------------------------------------------------------------------
+ * 3. RESET + BASE
+ * ------------------------------------------------------------------------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--vl-bg);
+    color: var(--vl-text);
+    font-family: var(--vl-font-body);
+    font-size: var(--vl-text-base);
+    line-height: var(--vl-line-normal);
+    font-weight: var(--vl-weight-normal);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings reset */
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 var(--vl-space-4);
+    color: var(--vl-text);
+    font-weight: var(--vl-weight-bold);
+    line-height: var(--vl-line-tight);
+    letter-spacing: var(--vl-tracking-tight);
+}
+h1 { font-size: var(--vl-text-4xl); }
+h2 { font-size: var(--vl-text-3xl); }
+h3 { font-size: var(--vl-text-2xl); }
+h4 { font-size: var(--vl-text-xl); }
+h5 { font-size: var(--vl-text-lg); }
+h6 { font-size: var(--vl-text-base); letter-spacing: var(--vl-tracking-wide); text-transform: uppercase; }
+
+p { margin: 0 0 var(--vl-space-4); line-height: var(--vl-line-normal); }
+p:last-child { margin-bottom: 0; }
+
+a {
+    color: var(--vl-accent-deep);
+    text-decoration: none;
+    transition: color var(--vl-duration-fast) var(--vl-ease-out-expo);
+}
+a:hover { color: var(--vl-accent); text-decoration: underline; }
+a:focus-visible { outline: 2px solid var(--vl-accent); outline-offset: 3px; border-radius: 2px; }
+
+img, picture, svg, video { max-width: 100%; height: auto; display: block; }
+
+code, kbd, samp, pre {
+    font-family: var(--vl-font-mono);
+    font-size: 0.92em;
+}
+
+pre {
+    background: var(--vl-concrete-800);
+    color: var(--vl-cream-soft);
+    padding: var(--vl-space-4);
+    border-radius: var(--vl-radius-md);
+    overflow-x: auto;
+    line-height: var(--vl-line-snug);
+}
+
+hr {
+    border: none;
+    border-top: 1px solid var(--vl-divider);
+    margin: var(--vl-space-6) 0;
+}
+
+::selection {
+    background: var(--vl-teal-soft);
+    color: var(--vl-charcoal-deep);
+}
+
+/* Skip-link for accessibility */
+.vl-skip-link {
+    position: absolute;
+    left: -10000px;
+    top: 0;
+    background: var(--vl-charcoal-deep);
+    color: var(--vl-cream-soft);
+    padding: var(--vl-space-3) var(--vl-space-5);
+    z-index: var(--vl-z-banner);
+    border-radius: 0 0 var(--vl-radius-md) 0;
+}
+.vl-skip-link:focus { left: 0; }
+
+
+/* ---------------------------------------------------------------------------
+ * 4. DISPLAY TYPOGRAPHY (graffiti font — sparing use)
+ * ------------------------------------------------------------------------- */
+
+.vl-display {
+    font-family: var(--vl-font-display);
+    font-weight: var(--vl-weight-normal);
+    letter-spacing: var(--vl-tracking-display);
+    line-height: var(--vl-line-tight);
+    text-shadow: 2px 2px 0 var(--vl-cream-edge);
+}
+
+.vl-display-hero {
+    font-family: var(--vl-font-display);
+    font-size: var(--vl-text-hero);
+    letter-spacing: var(--vl-tracking-display);
+    line-height: 0.95;
+    color: var(--vl-charcoal-deep);
+    text-shadow:
+        3px 3px 0 var(--vl-cream-edge),
+        6px 6px 0 hsla(165, 50%, 50%, 0.25);
+}
+
+.vl-display-section {
+    font-family: var(--vl-font-display);
+    font-size: var(--vl-text-3xl);
+    letter-spacing: var(--vl-tracking-display);
+    color: var(--vl-charcoal-deep);
+    text-shadow: 2px 2px 0 var(--vl-cream-edge);
+}
+
+.vl-eyebrow {
+    display: inline-block;
+    font-size: var(--vl-text-2xs);
+    font-weight: var(--vl-weight-black);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--vl-accent-deep);
+    margin-bottom: var(--vl-space-2);
+}
+
+
+/* ---------------------------------------------------------------------------
+ * 5. LAYOUT PRIMITIVES
+ * ------------------------------------------------------------------------- */
+
+.vl-container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 var(--vl-space-6);
+}
+.vl-container-narrow { max-width: 760px; }
+.vl-container-wide   { max-width: 1480px; }
+
+.vl-section {
+    padding-top: var(--vl-space-section);
+    padding-bottom: var(--vl-space-section);
+}
+
+.vl-stack > * + * { margin-top: var(--vl-space-4); }
+.vl-stack-lg > * + * { margin-top: var(--vl-space-8); }
+.vl-stack-sm > * + * { margin-top: var(--vl-space-2); }
+
+.vl-row {
+    display: flex;
+    gap: var(--vl-space-4);
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.vl-grid { display: grid; gap: var(--vl-space-6); }
+.vl-grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.vl-grid-3 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.vl-grid-4 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+
+
+/* ---------------------------------------------------------------------------
+ * 6. CONCRETE TEXTURE BACKGROUNDS
+ * ------------------------------------------------------------------------- */
+
+.vl-concrete-bg {
+    background-color: var(--vl-bg);
+    /* Procedural grain — no external image dependency */
+    background-image:
+        radial-gradient(circle at 25% 30%, hsla(0, 0%, 0%, 0.04) 0%, transparent 50%),
+        radial-gradient(circle at 75% 70%, hsla(165, 30%, 40%, 0.04) 0%, transparent 50%),
+        repeating-linear-gradient(
+            105deg,
+            transparent 0,
+            transparent 2px,
+            hsla(0, 0%, 0%, 0.012) 2px,
+            hsla(0, 0%, 0%, 0.012) 4px
+        );
+    background-attachment: fixed;
+}
+
+.vl-concrete-bg-deep {
+    background-color: var(--vl-bg-elevated);
+    background-image:
+        radial-gradient(ellipse at top, transparent 0%, hsla(0, 0%, 0%, 0.06) 100%),
+        repeating-linear-gradient(
+            105deg,
+            transparent 0,
+            transparent 2px,
+            hsla(0, 0%, 0%, 0.015) 2px,
+            hsla(0, 0%, 0%, 0.015) 4px
+        );
+}
+
+
+/* ---------------------------------------------------------------------------
+ * 7. BUTTONS (with drip motif on primary)
+ * ------------------------------------------------------------------------- */
+
+.vl-btn {
+    --_btn-pad-y: 0.75rem;
+    --_btn-pad-x: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--vl-space-2);
+    padding: var(--_btn-pad-y) var(--_btn-pad-x);
+    border-radius: var(--vl-radius-md);
+    font-family: var(--vl-font-body);
+    font-size: var(--vl-text-base);
+    font-weight: var(--vl-weight-bold);
+    letter-spacing: var(--vl-tracking-wide);
+    line-height: 1;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    border: 2px solid transparent;
+    background: transparent;
+    color: inherit;
+    transition: transform var(--vl-duration-base) var(--vl-ease-out-expo),
+                box-shadow var(--vl-duration-base) var(--vl-ease-out-expo),
+                background-color var(--vl-duration-fast),
+                border-color var(--vl-duration-fast),
+                color var(--vl-duration-fast);
+    position: relative;
+    overflow: visible;
+    text-decoration: none;
+}
+
+.vl-btn:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px hsla(165, 50%, 50%, 0.35);
+}
+
+.vl-btn[disabled],
+.vl-btn[aria-disabled="true"] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.vl-btn-sm { --_btn-pad-y: 0.5rem;  --_btn-pad-x: 1rem;    font-size: var(--vl-text-sm); }
+.vl-btn-lg { --_btn-pad-y: 1rem;    --_btn-pad-x: 2rem;    font-size: var(--vl-text-lg); }
+
+/* Primary — teal with signature drip on hover */
+.vl-btn-primary {
+    background: var(--vl-accent);
+    color: var(--vl-cream-soft);
+    border-color: var(--vl-accent-deep);
+}
+.vl-btn-primary::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 0;
+    background: var(--vl-accent);
+    border-radius: 0 0 var(--vl-radius-md) var(--vl-radius-md);
+    opacity: 0;
+    transition: height var(--vl-duration-drip) var(--vl-ease-out-back),
+                opacity var(--vl-duration-base) var(--vl-ease-out-expo);
+    pointer-events: none;
+    clip-path: polygon(
+        0 0, 100% 0,
+        100% 60%,
+        85% 100%, 80% 60%,
+        50% 90%, 45% 60%,
+        20% 80%, 15% 60%,
+        0 60%
+    );
+}
+.vl-btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--vl-drip-shadow);
+    color: var(--vl-cream-soft);
+}
+.vl-btn-primary:hover::after { height: 14px; opacity: 1; }
+.vl-btn-primary:active { transform: translateY(1px); }
+.vl-btn-primary:active::after { height: 6px; }
+
+/* Secondary — cream outline that fills on hover */
+.vl-btn-secondary {
+    background: transparent;
+    color: var(--vl-text);
+    border-color: var(--vl-cream-edge);
+}
+.vl-btn-secondary:hover {
+    background: var(--vl-cream-soft);
+    border-color: var(--vl-accent);
+    color: var(--vl-charcoal-deep);
+    transform: translateY(-1px);
+}
+
+/* Ghost — minimal, only tints on hover */
+.vl-btn-ghost {
+    background: transparent;
+    color: var(--vl-text-muted);
+    border-color: transparent;
+    font-weight: var(--vl-weight-medium);
+    padding: 0.5rem 1rem;
+}
+.vl-btn-ghost:hover {
+    background: hsla(165, 50%, 50%, 0.1);
+    color: var(--vl-accent-deep);
+}
+
+/* Danger — destructive actions */
+.vl-btn-danger {
+    background: var(--vl-danger);
+    color: white;
+    border-color: hsl(0, 75%, 42%);
+}
+.vl-btn-danger:hover {
+    background: hsl(0, 75%, 48%);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px -4px hsla(0, 70%, 45%, 0.4);
+}
+
+/* Icon-only buttons */
+.vl-btn-icon {
+    padding: 0.625rem;
+    border-radius: var(--vl-radius-pill);
+    aspect-ratio: 1;
+}
+
+/* VibeLyf Nation — chrome iridescent upgrade CTA */
+.vl-btn-nation {
+    background: var(--vln-gradient);
+    background-size: 200% 200%;
+    color: white;
+    border: 2px solid hsla(0, 0%, 100%, 0.35);
+    font-weight: var(--vl-weight-black);
+    text-transform: uppercase;
+    letter-spacing: var(--vl-tracking-wide);
+    animation: vln-shimmer 6s var(--vl-ease-in-out) infinite;
+    box-shadow: 0 4px 16px -2px hsla(330, 70%, 50%, 0.3);
+}
+.vl-btn-nation:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -4px hsla(330, 70%, 50%, 0.45);
+    color: white;
+}
+
+@keyframes vln-shimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50%      { background-position: 100% 50%; }
+}
+
+
+/* ---------------------------------------------------------------------------
+ * 8. CARDS (drip on hover)
+ * ------------------------------------------------------------------------- */
+
+.vl-card {
+    background: var(--vl-surface);
+    border: 2px solid var(--vl-surface-border);
+    border-radius: var(--vl-radius-lg);
+    padding: var(--vl-space-5);
+    position: relative;
+    transition: transform var(--vl-duration-base) var(--vl-ease-out-expo),
+                box-shadow var(--vl-duration-base) var(--vl-ease-out-expo);
+}
+
+.vl-card::after {
+    content: "";
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    top: calc(100% - 2px);
+    height: 0;
+    background: var(--vl-accent-soft);
+    border-radius: 0 0 var(--vl-radius-md) var(--vl-radius-md);
+    opacity: 0;
+    transition: height var(--vl-duration-slow) var(--vl-ease-out-expo),
+                opacity var(--vl-duration-base);
+    clip-path: polygon(
+        0 0, 100% 0,
+        90% 80%, 80% 30%,
+        60% 70%, 50% 25%,
+        30% 65%, 20% 25%,
+        0 60%
+    );
+    pointer-events: none;
+}
+
+.vl-card-interactive:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--vl-shadow-md);
+}
+.vl-card-interactive:hover::after {
+    height: 10px;
+    opacity: 0.6;
+}
+
+.vl-card-elevated {
+    background: var(--vl-surface);
+    border: 2px solid var(--vl-cream-edge);
+    border-radius: var(--vl-radius-lg);
+    box-shadow:
+        0 1px 0 hsla(40, 35%, 88%, 0.6) inset,
+        var(--vl-shadow-lg);
+}
+
+.vl-card-glass {
+    background: hsla(40, 35%, 88%, 0.7);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    backdrop-filter: blur(16px) saturate(140%);
+    border: 1px solid hsla(40, 60%, 70%, 0.4);
+    border-radius: var(--vl-radius-lg);
+    padding: var(--vl-space-5);
+}
+:root[data-theme="dark"] .vl-card-glass,
+.theme-dark .vl-card-glass {
+    background: hsla(210, 7%, 16%, 0.7);
+    border-color: hsla(165, 40%, 70%, 0.25);
+}
+
+/* Nation-tier card — chrome border */
+.vl-card-nation {
+    background: var(--vl-surface);
+    border: 2px solid transparent;
+    background-image:
+        linear-gradient(var(--vl-surface), var(--vl-surface)),
+        var(--vln-gradient);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    border-radius: var(--vl-radius-lg);
+    padding: var(--vl-space-5);
+}
+
+
+/* ---------------------------------------------------------------------------
+ * 9. INPUTS / FORMS
+ * ------------------------------------------------------------------------- */
+
+.vl-input,
+.vl-textarea,
+.vl-select {
+    width: 100%;
+    background: var(--vl-bg);
+    color: var(--vl-text);
+    border: 2px solid var(--vl-surface-border);
+    border-radius: var(--vl-radius-md);
+    padding: 0.625rem 0.875rem;
+    font-family: var(--vl-font-body);
+    font-size: var(--vl-text-base);
+    line-height: var(--vl-line-snug);
+    transition: border-color var(--vl-duration-fast),
+                box-shadow var(--vl-duration-fast),
+                background var(--vl-duration-fast);
+}
+
+.vl-input::placeholder,
+.vl-textarea::placeholder {
+    color: var(--vl-text-muted);
+    opacity: 0.7;
+}
+
+.vl-input:hover,
+.vl-textarea:hover,
+.vl-select:hover {
+    border-color: var(--vl-accent-soft);
+}
+
+.vl-input:focus,
+.vl-textarea:focus,
+.vl-select:focus {
+    outline: none;
+    border-color: var(--vl-accent);
+    box-shadow: 0 0 0 4px hsla(165, 50%, 50%, 0.2);
+}
+
+.vl-input[aria-invalid="true"],
+.vl-input:invalid:not(:placeholder-shown) {
+    border-color: var(--vl-danger);
+}
+
+.vl-textarea {
+    resize: vertical;
+    min-height: 6rem;
+}
+
+.vl-select {
+    background-image: linear-gradient(45deg, transparent 50%, var(--vl-text-muted) 50%),
+                      linear-gradient(135deg, var(--vl-text-muted) 50%, transparent 50%);
+    background-position: calc(100% - 18px) center, calc(100% - 13px) center;
+    background-size: 5px 5px, 5px 5px;
+    background-repeat: no-repeat;
+    appearance: none;
+    padding-right: 2.25rem;
+}
+
+.vl-label {
+    display: block;
+    font-size: var(--vl-text-sm);
+    font-weight: var(--vl-weight-semi);
+    color: var(--vl-text);
+    margin-bottom: var(--vl-space-2);
+    letter-spacing: var(--vl-tracking-normal);
+}
+
+.vl-help-text {
+    font-size: var(--vl-text-xs);
+    color: var(--vl-text-muted);
+    margin-top: var(--vl-space-1);
+}
+
+.vl-error-text {
+    font-size: var(--vl-text-xs);
+    color: var(--vl-danger);
+    margin-top: var(--vl-space-1);
+    font-weight: var(--vl-weight-semi);
+}
+
+/* Checkbox / radio basic styling */
+.vl-checkbox,
+.vl-radio {
+    accent-color: var(--vl-accent);
+    width: 1.125rem;
+    height: 1.125rem;
+}
+
+
+/* ---------------------------------------------------------------------------
+ * 10. BADGES
+ * ------------------------------------------------------------------------- */
+
+.vl-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--vl-space-1);
+    padding: 0.25rem 0.625rem;
+    border-radius: var(--vl-radius-pill);
+    font-size: var(--vl-text-2xs);
+    font-weight: var(--vl-weight-bold);
+    letter-spacing: var(--vl-tracking-wide);
+    text-transform: uppercase;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+.vl-badge-teal     { background: var(--vl-teal);            color: var(--vl-cream-soft); }
+.vl-badge-cream    { background: var(--vl-cream);           color: var(--vl-charcoal-deep); }
+.vl-badge-charcoal { background: var(--vl-charcoal);        color: var(--vl-cream-soft); }
+.vl-badge-success  { background: var(--vl-success);         color: white; }
+.vl-badge-warning  { background: var(--vl-warning);         color: var(--vl-charcoal-deep); }
+.vl-badge-danger   { background: var(--vl-danger);          color: white; }
+.vl-badge-outline  { background: transparent;               color: var(--vl-text); border: 1px solid var(--vl-surface-border); }
+
+/* Nation premium badge */
+.vl-badge-nation {
+    background: var(--vln-gradient);
+    background-size: 200% 200%;
+    color: white;
+    font-weight: var(--vl-weight-black);
+    animation: vln-shimmer 6s var(--vl-ease-in-out) infinite;
+    border: 1px solid hsla(0, 0%, 100%, 0.25);
+}
+
+
+/* ---------------------------------------------------------------------------
+ * 11. AVATARS
+ * ------------------------------------------------------------------------- */
+
+.vl-avatar {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: var(--vl-radius-pill);
+    border: 2px solid var(--vl-cream-edge);
+    object-fit: cover;
+    background: var(--vl-surface);
+    display: inline-block;
+    flex-shrink: 0;
+}
+.vl-avatar-sm { width: 1.75rem; height: 1.75rem; border-width: 1px; }
+.vl-avatar-lg { width: 4rem;    height: 4rem;    border-width: 3px; }
+.vl-avatar-xl { width: 6rem;    height: 6rem;    border-width: 4px; }
+
+/* Nation iridescent ring */
+.vl-avatar-nation {
+    border: 2px solid transparent;
+    box-shadow:
+        0 0 0 2px var(--vl-bg),
+        0 0 0 4px var(--vln-chrome-2),
+        0 0 12px -2px hsla(330, 80%, 60%, 0.5);
+    position: relative;
+}
+
+
+/* ---------------------------------------------------------------------------
+ * 12. HANDLE / IDENTITY
+ * ------------------------------------------------------------------------- */
+
+.vl-handle {
+    color: var(--vl-text);
+    font-weight: var(--vl-weight-semi);
+}
+
+.vl-handle-nation::after {
+    content: "•VLN";
+    display: inline-block;
+    margin-left: var(--vl-space-2);
+    padding: 0.125rem 0.375rem;
+    background: var(--vln-gradient);
+    color: white;
+    font-size: var(--vl-text-2xs);
+    font-weight: var(--vl-weight-black);
+    border-radius: var(--vl-radius-xs);
+    letter-spacing: 0.05em;
+    vertical-align: middle;
+}
+
+
+/* ---------------------------------------------------------------------------
+ * 13. COMMUNICATION SCORE
+ * ------------------------------------------------------------------------- */
+
+.vl-comm-score {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--vl-space-2);
+    padding: 0.375rem 0.875rem;
+    background: var(--vl-charcoal-deep);
+    color: var(--vl-cream-soft);
+    border-radius: var(--vl-radius-md);
+    font-family: var(--vl-font-mono);
+    font-size: var(--vl-text-sm);
+    font-weight: var(--vl-weight-bold);
+    border: 1px solid hsla(165, 50%, 50%, 0.25);
+}
+.vl-comm-score__icon  { font-size: 1.1em; }
+.vl-comm-score__value { color: var(--vl-teal-glow); }
+.vl-comm-score__label { color: var(--vl-cream); font-size: 0.85em; opacity: 0.8; }
+
+.vl-comm-score--private {
+    background: var(--vl-concrete-700);
+    color: var(--vl-charcoal-soft);
+}
+.vl-comm-score--private::after {
+    content: "🔒";
+    margin-left: var(--vl-space-1);
+    font-size: 0.85em;
+}
+
+
+/* ---------------------------------------------------------------------------
+ * 14. NAVIGATION / HEADER
+ * ------------------------------------------------------------------------- */
+
+.vl-nav {
+    background: var(--vl-bg-elevated);
+    border-bottom: 2px solid var(--vl-surface-border);
+    padding: var(--vl-space-3) 0;
+    position: sticky;
+    top: 0;
+    z-index: var(--vl-z-nav);
+    -webkit-backdrop-filter: saturate(160%) blur(8px);
+    backdrop-filter: saturate(160%) blur(8px);
+    background: hsla(40, 35%, 88%, 0.85);
+}
+:root[data-theme="dark"] .vl-nav,
+.theme-dark .vl-nav {
+    background: hsla(210, 8%, 12%, 0.85);
+}
+
+.vl-nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--vl-space-4);
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 var(--vl-space-6);
+}
+
+.vl-nav-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--vl-space-2);
+    text-decoration: none;
+    color: inherit;
+}
+.vl-nav-brand img { height: 36px; width: auto; }
+.vl-nav-brand-text {
+    font-family: var(--vl-font-display);
+    font-size: var(--vl-text-xl);
+    letter-spacing: var(--vl-tracking-display);
+    color: var(--vl-text);
+}
+
+.vl-nav-links {
+    display: flex;
+    gap: var(--vl-space-2);
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.vl-nav-link {
+    padding: var(--vl-space-2) var(--vl-space-3);
+    color: var(--vl-text-muted);
+    text-decoration: none;
+    border-radius: var(--vl-radius-sm);
+    font-weight: var(--vl-weight-medium);
+    transition: color var(--vl-duration-fast), background var(--vl-duration-fast);
+}
+.vl-nav-link:hover,
+.vl-nav-link[aria-current="page"] {
+    color: var(--vl-accent-deep);
+    background: hsla(165, 50%, 50%, 0.08);
+}
+
+
+/* ---------------------------------------------------------------------------
+ * 15. FOOTER
+ * ------------------------------------------------------------------------- */
+
+.vl-footer {
+    background: var(--vl-bg-elevated);
+    border-top: 2px solid var(--vl-surface-border);
+    padding: var(--vl-space-12) 0 var(--vl-space-6);
+    margin-top: var(--vl-space-section);
+    color: var(--vl-text-muted);
+    font-size: var(--vl-text-sm);
+}
+.vl-footer a { color: var(--vl-text-muted); }
+.vl-footer a:hover { color: var(--vl-accent); }
+.vl-footer-cols {
+    display: grid;
+    gap: var(--vl-space-8);
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    margin-bottom: var(--vl-space-8);
+}
+.vl-footer-col h6 {
+    color: var(--vl-text);
+    margin-bottom: var(--vl-space-3);
+}
+.vl-footer-bottom {
+    border-top: 1px solid var(--vl-divider);
+    padding-top: var(--vl-space-4);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--vl-space-3);
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--vl-text-xs);
+}
+
+
+/* ---------------------------------------------------------------------------
+ * 16. MODALS / OVERLAYS
+ * ------------------------------------------------------------------------- */
+
+.vl-overlay {
+    position: fixed;
+    inset: 0;
+    background: hsla(210, 8%, 10%, 0.65);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    z-index: var(--vl-z-modal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--vl-space-4);
+}
+
+.vl-modal {
+    background: var(--vl-bg);
+    color: var(--vl-text);
+    border: 2px solid var(--vl-surface-border);
+    border-radius: var(--vl-radius-lg);
+    padding: var(--vl-space-6);
+    max-width: 560px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: var(--vl-shadow-xl);
+}
+.vl-modal-lg { max-width: 880px; }
+
+.vl-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--vl-space-4);
+    margin-bottom: var(--vl-space-4);
+}
+.vl-modal-title {
+    margin: 0;
+    font-size: var(--vl-text-2xl);
+}
+.vl-modal-close {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--vl-text-muted);
+    font-size: 1.5rem;
+    line-height: 1;
+    padding: var(--vl-space-1);
+    border-radius: var(--vl-radius-sm);
+}
+.vl-modal-close:hover { color: var(--vl-danger); background: hsla(0, 70%, 55%, 0.08); }
+
+.vl-modal-footer {
+    display: flex;
+    gap: var(--vl-space-3);
+    justify-content: flex-end;
+    margin-top: var(--vl-space-6);
+    padding-top: var(--vl-space-4);
+    border-top: 1px solid var(--vl-divider);
+}
+
+
+/* ---------------------------------------------------------------------------
+ * 17. TOASTS / ALERTS
+ * ------------------------------------------------------------------------- */
+
+.vl-toast {
+    position: fixed;
+    bottom: var(--vl-space-6);
+    right: var(--vl-space-6);
+    background: var(--vl-charcoal-deep);
+    color: var(--vl-cream-soft);
+    padding: var(--vl-space-3) var(--vl-space-5);
+    border-radius: var(--vl-radius-md);
+    box-shadow: var(--vl-shadow-lg);
+    z-index: var(--vl-z-toast);
+    max-width: 360px;
+    border-left: 4px solid var(--vl-accent);
+    animation: vl-toast-in var(--vl-duration-base) var(--vl-ease-out-back);
+}
+@keyframes vl-toast-in {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+.vl-toast-success { border-left-color: var(--vl-success); }
+.vl-toast-warning { border-left-color: var(--vl-warning); }
+.vl-toast-danger  { border-left-color: var(--vl-danger); }
+
+.vl-alert {
+    padding: var(--vl-space-4);
+    border-radius: var(--vl-radius-md);
+    border-left: 4px solid var(--vl-info);
+    background: hsla(200, 65%, 55%, 0.08);
+    color: var(--vl-text);
+}
+.vl-alert-success { border-left-color: var(--vl-success); background: hsla(150, 55%, 48%, 0.08); }
+.vl-alert-warning { border-left-color: var(--vl-warning); background: hsla(35, 90%, 55%, 0.1); }
+.vl-alert-danger  { border-left-color: var(--vl-danger);  background: hsla(0, 70%, 55%, 0.08); }
+
+
+/* ---------------------------------------------------------------------------
+ * 18. LOADING — drip dots (replaces spinner)
+ * ------------------------------------------------------------------------- */
+
+.vl-loader {
+    display: inline-flex;
+    gap: var(--vl-space-2);
+    align-items: flex-end;
+    height: 1.5rem;
+}
+.vl-loader span {
+    width: 0.5rem;
+    height: 0.5rem;
+    background: var(--vl-accent);
+    border-radius: 0 0 50% 50% / 0 0 40% 40%;
+    animation: vl-drip 1.4s var(--vl-ease-in-out) infinite;
+}
+.vl-loader span:nth-child(2) { animation-delay: 0.2s; }
+.vl-loader span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes vl-drip {
+    0%, 80%, 100% { height: 0.5rem; opacity: 0.3; }
+    40%           { height: 1.5rem; opacity: 1; }
+}
+
+
+/* ---------------------------------------------------------------------------
+ * 19. COMPLIANCE COMPONENTS (Phase 1.I — bake in early)
+ * ------------------------------------------------------------------------- */
+
+/* AI disclosure badge — permanent label on AI-generated artifacts */
+.vl-ai-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--vl-space-1);
+    padding: 0.25rem 0.625rem;
+    background: hsla(165, 50%, 50%, 0.12);
+    border: 1px solid var(--vl-accent);
+    color: var(--vl-accent-deep);
+    border-radius: var(--vl-radius-pill);
+    font-size: var(--vl-text-2xs);
+    font-weight: var(--vl-weight-bold);
+    letter-spacing: var(--vl-tracking-wide);
+    text-transform: uppercase;
+}
+.vl-ai-badge::before {
+    content: "✦";
+    font-size: 0.9em;
+}
+
+/* Persistent AI footer label on generated artifacts */
+.vl-ai-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--vl-space-3);
+    padding: var(--vl-space-2) var(--vl-space-3);
+    background: var(--vl-bg-elevated);
+    border-top: 1px solid var(--vl-divider);
+    font-size: var(--vl-text-xs);
+    color: var(--vl-text-muted);
+}
+.vl-ai-footer__source { font-weight: var(--vl-weight-semi); color: var(--vl-text); }
+
+/* Cookie consent banner — bottom-fixed, dismissible */
+.vl-cookie-banner {
+    position: fixed;
+    left: var(--vl-space-4);
+    right: var(--vl-space-4);
+    bottom: var(--vl-space-4);
+    max-width: 760px;
+    margin: 0 auto;
+    background: var(--vl-charcoal-deep);
+    color: var(--vl-cream-soft);
+    border: 2px solid var(--vl-cream-edge);
+    border-radius: var(--vl-radius-lg);
+    padding: var(--vl-space-5);
+    z-index: var(--vl-z-banner);
+    box-shadow: var(--vl-shadow-xl);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--vl-space-4);
+    align-items: center;
+    justify-content: space-between;
+    animation: vl-banner-up var(--vl-duration-slow) var(--vl-ease-out-back);
+}
+.vl-cookie-banner[hidden] { display: none; }
+.vl-cookie-banner__text { flex: 1; min-width: 240px; font-size: var(--vl-text-sm); line-height: var(--vl-line-snug); }
+.vl-cookie-banner__text a { color: var(--vl-teal-glow); }
+.vl-cookie-banner__actions { display: flex; gap: var(--vl-space-2); flex-wrap: wrap; }
+
+@keyframes vl-banner-up {
+    from { transform: translateY(150%); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+}
+
+/* Privacy / Do-Not-Sell link in footer */
+.vl-dnsl-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--vl-space-1);
+    padding: var(--vl-space-1) var(--vl-space-3);
+    border: 1px solid var(--vl-surface-border);
+    border-radius: var(--vl-radius-pill);
+    color: var(--vl-text);
+    font-size: var(--vl-text-xs);
+    font-weight: var(--vl-weight-semi);
+    text-decoration: none;
+}
+.vl-dnsl-link:hover {
+    border-color: var(--vl-accent);
+    color: var(--vl-accent-deep);
+    background: hsla(165, 50%, 50%, 0.06);
+}
+
+/* Age gate modal — special-case styling above .vl-modal */
+.vl-age-gate {
+    background: var(--vl-bg);
+    border: 3px solid var(--vl-accent);
+    text-align: center;
+    padding: var(--vl-space-8);
+}
+.vl-age-gate__heading {
+    font-family: var(--vl-font-display);
+    font-size: var(--vl-text-2xl);
+    margin-bottom: var(--vl-space-2);
+}
+
+
+/* ---------------------------------------------------------------------------
+ * 20. UTILITIES
+ * ------------------------------------------------------------------------- */
+
+.vl-text-center { text-align: center; }
+.vl-text-right  { text-align: right; }
+.vl-text-muted  { color: var(--vl-text-muted); }
+.vl-text-accent { color: var(--vl-accent-deep); }
+.vl-text-danger { color: var(--vl-danger); }
+.vl-text-success { color: var(--vl-success); }
+
+.vl-font-mono    { font-family: var(--vl-font-mono); }
+.vl-font-display { font-family: var(--vl-font-display); letter-spacing: var(--vl-tracking-display); }
+
+.vl-uppercase { text-transform: uppercase; letter-spacing: var(--vl-tracking-wide); }
+.vl-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+}
+
+.vl-hidden       { display: none !important; }
+.vl-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.vl-flex          { display: flex; }
+.vl-flex-col      { display: flex; flex-direction: column; }
+.vl-flex-center   { display: flex; align-items: center; justify-content: center; }
+.vl-flex-between  { display: flex; align-items: center; justify-content: space-between; }
+.vl-gap-2 { gap: var(--vl-space-2); }
+.vl-gap-3 { gap: var(--vl-space-3); }
+.vl-gap-4 { gap: var(--vl-space-4); }
+.vl-gap-6 { gap: var(--vl-space-6); }
+
+.vl-mt-2 { margin-top: var(--vl-space-2); }
+.vl-mt-4 { margin-top: var(--vl-space-4); }
+.vl-mt-6 { margin-top: var(--vl-space-6); }
+.vl-mb-2 { margin-bottom: var(--vl-space-2); }
+.vl-mb-4 { margin-bottom: var(--vl-space-4); }
+.vl-mb-6 { margin-bottom: var(--vl-space-6); }
+
+/* Drip divider — decorative section break */
+.vl-drip-divider {
+    height: 14px;
+    background: var(--vl-accent);
+    margin: var(--vl-space-8) 0;
+    clip-path: polygon(
+        0 0, 100% 0,
+        100% 40%,
+        92% 100%, 88% 40%,
+        70% 90%, 65% 40%,
+        45% 95%, 40% 40%,
+        18% 85%, 14% 40%,
+        0 40%
+    );
+}
+
+
+/* ---------------------------------------------------------------------------
+ * 21. ACCESSIBILITY & REDUCED MOTION
+ * ------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+    .vl-btn-primary::after,
+    .vl-card::after { transition: none; }
+    .vl-btn-primary:hover,
+    .vl-card-interactive:hover { transform: none; }
+}
+
+@media (prefers-contrast: more) {
+    :root {
+        --vl-surface-border: var(--vl-charcoal);
+        --vl-divider: var(--vl-charcoal);
+        --vl-text-muted: var(--vl-text);
+    }
+    .vl-btn { border-width: 3px; }
+}
+
+/* Forced-colors (Windows High Contrast) */
+@media (forced-colors: active) {
+    .vl-btn { border: 2px solid ButtonText; forced-color-adjust: none; }
+    .vl-card { border: 2px solid CanvasText; }
+}
+
+
+/* ---------------------------------------------------------------------------
+ * 22. PRINT
+ * ------------------------------------------------------------------------- */
+
+@media print {
+    .vl-nav, .vl-footer, .vl-cookie-banner, .vl-toast { display: none !important; }
+    body { background: white; color: black; }
+    .vl-card { border: 1px solid #999; box-shadow: none; }
+    .vl-btn { display: none; }
+}
+
+
+/* ---------------------------------------------------------------------------
+ * 23. LEGACY COMPATIBILITY SHIMS
+ *     The Genspark code uses lots of inline styles + plain selectors;
+ *     these map the old Blue Glassmorphism class names to new VibeLyf tokens
+ *     so nothing breaks visually while the JS modules get rewritten.
+ * ------------------------------------------------------------------------- */
+
+/* Old .glass-card → new vl-card-glass treatment */
+.glass-card,
+.glassmorphism,
+.glass-panel {
+    background: hsla(40, 35%, 88%, 0.65);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    backdrop-filter: blur(16px) saturate(140%);
+    border: 1px solid hsla(40, 60%, 70%, 0.4);
+    border-radius: var(--vl-radius-lg);
+    padding: var(--vl-space-5);
+    color: var(--vl-text);
+}
+:root[data-theme="dark"] .glass-card,
+:root[data-theme="dark"] .glassmorphism,
+:root[data-theme="dark"] .glass-panel,
+.theme-dark .glass-card,
+.theme-dark .glassmorphism,
+.theme-dark .glass-panel {
+    background: hsla(210, 7%, 16%, 0.7);
+    border-color: hsla(165, 40%, 70%, 0.25);
+    color: var(--vl-text);
+}
+
+/* Old .btn-primary etc → map to vl-btn-* */
+.btn-primary {
+    background: var(--vl-accent);
+    color: var(--vl-cream-soft);
+    border: 2px solid var(--vl-accent-deep);
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--vl-radius-md);
+    font-weight: var(--vl-weight-bold);
+    cursor: pointer;
+    transition: transform var(--vl-duration-base);
+}
+.btn-primary:hover { transform: translateY(-1px); box-shadow: var(--vl-drip-shadow); }
+
+.btn-secondary {
+    background: transparent;
+    color: var(--vl-text);
+    border: 2px solid var(--vl-cream-edge);
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--vl-radius-md);
+    cursor: pointer;
+}
+.btn-secondary:hover { background: var(--vl-cream-soft); border-color: var(--vl-accent); }
+
+/* Old "neon blue" / "cyan" accents → recolor to teal */
+.text-cyan,
+.text-neon,
+.text-electric { color: var(--vl-accent); }
+
+.border-cyan { border-color: var(--vl-accent) !important; }
+
+.bg-cyan { background: var(--vl-accent); color: var(--vl-cream-soft); }
+
+
+/* end of vibelyf.css */

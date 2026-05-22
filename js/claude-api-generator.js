@@ -13,7 +13,10 @@ const ClaudeAPIGenerator = {
     // Configuration
     config: {
         claudeEndpoint: 'https://api.anthropic.com/v1/messages',
-        claudeModel: 'claude-sonnet-4-20250514',
+        // UPGRADED May 2026: Sonnet 4.6 is current latest. 1M context beta available.
+        claudeModel: 'claude-sonnet-4-6',
+        // NOTE: This key was hardcoded in the Genspark export. Phase 1.H moves it
+        //       to the Cloudflare Workers proxy. Rotate this key before Phase 1.F (GitHub push).
         claudeApiKey: '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',
         maxTokens: 4096,
         debug: true
@@ -328,21 +331,21 @@ const ClaudeAPIGenerator = {
         
         // Strategy: Try Gemini first (CORS-safe), then Claude, then local fallback
         
-        // 1. Try Gemini 2.5 Flash (browser-safe, fast)
+        // 1. Try Gemini 3.5 Flash (browser-safe, fast)
         try {
             const geminiResponse = await this.callGeminiForSchema(prompt);
             if (geminiResponse) {
-                this.log('✅ Schema extracted via Gemini 2.5 Flash (CORS-safe)');
+                this.log('✅ Schema extracted via Gemini 3.5 Flash (CORS-safe)');
                 return this.parseSchemaResponse(geminiResponse);
             }
         } catch (geminiError) {
             this.log('⚠️ Gemini schema extraction failed:', geminiError.message);
         }
-        
-        // 2. Try Claude (may fail due to CORS in browser)
+
+        // 2. Try Claude (may fail due to CORS in browser — fixed by Phase 1.H Workers proxy)
         try {
             const response = await this.callClaude(prompt);
-            this.log('✅ Schema extracted via Claude Sonnet 4');
+            this.log('✅ Schema extracted via Claude Sonnet 4.6');
             return this.parseSchemaResponse(response);
         } catch (error) {
             this.log('⚠️ Claude unavailable (likely CORS):', error.message);
@@ -411,7 +414,7 @@ RESPOND WITH ONLY VALID JSON (no markdown):
             throw new Error('No Gemini API key available');
         }
         
-        const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
+        const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-5-flash:generateContent?key=${apiKey}`;
         
         const response = await fetch(endpoint, {
             method: 'POST',
