@@ -1,5 +1,5 @@
 /**
- * 🎤 VIBENICITY VOICE INPUT SYSTEM
+ * 🎤 VIBELYF VOICE INPUT SYSTEM
  * 
  * Voice-first coding in your own dialect.
  * Uses the Web Speech API (FREE, built into all modern browsers).
@@ -9,7 +9,7 @@
  * This is the killer feature for inner-city youth who communicate
  * verbally more naturally than through typing.
  * 
- * CREATED: March 2026 — VIBENICITY Accessibility Upgrade
+ * CREATED: March 2026 — VIBELYF Accessibility Upgrade
  * 
  * Features:
  *   - Push-to-talk mic button
@@ -20,7 +20,7 @@
  *   - Graceful degradation (hide mic if unsupported)
  */
 
-window.VibenicityVoice = {
+window.VibeLyfVoice = {
 
     // ═══════════════════════════════════════════════════════════════
     // STATE
@@ -139,10 +139,10 @@ window.VibenicityVoice = {
      * Inject CSS styles for voice UI
      */
     injectStyles() {
-        if (document.getElementById('vibenicity-voice-styles')) return;
+        if (document.getElementById('vibelyf-voice-styles')) return;
 
         const styles = document.createElement('style');
-        styles.id = 'vibenicity-voice-styles';
+        styles.id = 'vibelyf-voice-styles';
         styles.textContent = `
             /* Mic Button */
             .voice-mic-btn {
@@ -397,8 +397,8 @@ window.VibenicityVoice = {
                 if (transcriptEl) transcriptEl.style.display = 'none';
                 
                 // Trigger the send
-                if (window.VibenicityApp && typeof window.VibenicityApp.sendMessage === 'function') {
-                    window.VibenicityApp.sendMessage();
+                if (window.VibeLyfApp && typeof window.VibeLyfApp.sendMessage === 'function') {
+                    window.VibeLyfApp.sendMessage();
                 }
             }, 600);
 
@@ -463,7 +463,7 @@ window.VibenicityVoice = {
 
     loadStats() {
         try {
-            const saved = JSON.parse(localStorage.getItem('vibenicity_voice_stats') || '{}');
+            const saved = JSON.parse(localStorage.getItem('vibelyf_voice_stats') || '{}');
             this.state.totalVoiceMessages = saved.total || 0;
         } catch (e) {
             this.state.totalVoiceMessages = 0;
@@ -471,7 +471,7 @@ window.VibenicityVoice = {
     },
 
     saveStats() {
-        localStorage.setItem('vibenicity_voice_stats', JSON.stringify({
+        localStorage.setItem('vibelyf_voice_stats', JSON.stringify({
             total: this.state.totalVoiceMessages,
             lastUsed: new Date().toISOString()
         }));
@@ -490,8 +490,8 @@ window.VibenicityVoice = {
 
 // Auto-initialize after DOM is ready
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => window.VibenicityVoice.init());
+    document.addEventListener('DOMContentLoaded', () => window.VibeLyfVoice.init());
 } else {
     // DOM already loaded — wait a tick for chat UI to render
-    setTimeout(() => window.VibenicityVoice.init(), 500);
+    setTimeout(() => window.VibeLyfVoice.init(), 500);
 }

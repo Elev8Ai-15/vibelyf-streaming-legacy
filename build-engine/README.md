@@ -1,4 +1,4 @@
-# 🚀 VIBENICITY BUILD ENGINE
+# 🚀 VIBELYF BUILD ENGINE
 
 **Automated Cultural Language Ingestion Pipeline**
 
@@ -8,7 +8,7 @@ Transform your static 453-term vocabulary database into a self-learning system t
 
 ## 📋 Overview
 
-The VIBENICITY Build Engine is a 6-stage AI-powered pipeline that:
+The VIBELYF Build Engine is a 6-stage AI-powered pipeline that:
 
 1. **Scans** trending song lyrics from Genius API
 2. **Detects** new slang using OpenAI GPT-4
@@ -22,7 +22,7 @@ The VIBENICITY Build Engine is a 6-stage AI-powered pipeline that:
 ## 🏗️ Architecture
 
 ```
-vibenicity-build-engine/
+vibelyf-build-engine/
 ├── config/
 │   └── config.js               # Central configuration
 ├── data/
@@ -312,7 +312,7 @@ Add to your deployment pipeline:
 
 ---
 
-## 🤝 Integration with VIBENICITY
+## 🤝 Integration with VIBELYF
 
 This Build Engine is designed to update:
 ```
@@ -324,9 +324,9 @@ After merging approved terms:
 2. New terms are added to the appropriate category
 3. Metadata is updated (version, count, date)
 4. The file is sorted alphabetically
-5. VIBENICITY automatically uses the new terms
+5. VIBELYF automatically uses the new terms
 
-**No code changes needed in VIBENICITY!**
+**No code changes needed in VIBELYF!**
 
 ---
 
@@ -336,7 +336,7 @@ After merging approved terms:
 2. **Review terms:** `npm run dashboard`
 3. **Approve high-confidence terms**
 4. **Merge to database**
-5. **Test in VIBENICITY**
+5. **Test in VIBELYF**
 6. **Set up daily automation**
 
 ---
@@ -350,7 +350,7 @@ Track your progress:
 - [ ] Database reaches 500 terms
 - [ ] Daily scans automated
 - [ ] 10+ terms added per week
-- [ ] Users discover new slang in VIBENICITY
+- [ ] Users discover new slang in VIBELYF
 
 ---
 
@@ -362,16 +362,16 @@ Track your progress:
 - Verify API keys in `.env`
 
 **Questions?**
-Contact the VIBENICITY development team.
+Contact the VIBELYF development team.
 
 ---
 
 ## 📄 License
 
-MIT License - Part of the VIBENICITY project
+MIT License - Part of the VIBELYF project
 
 ---
 
-**Built with ❤️ for VIBENICITY**
+**Built with ❤️ for VIBELYF**
 
 *Keeping cultural language alive, one slang term at a time.*

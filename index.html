@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>VIBENICITY NATION</title>
+    <title>VIBELYF NATION</title>
     
     <!-- 📱 PWA: Progressive Web App Support (March 2026) -->
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#00e5ff">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Vibenicity">
-    <link rel="apple-touch-icon" href="images/vibenicity-icon-192.png">
+    <meta name="apple-mobile-web-app-title" content="VibeLyf">
+    <link rel="apple-touch-icon" href="images/vibelyf-icon-192.png">
     
     <!-- 📊 PostHog Analytics (March 2026) — Track everything, prove impact -->
     <script>
@@ -33,48 +33,48 @@
     <script src="js/linguistics-engine-v32.js"></script>
     
     <!-- 🪿 THE GOLDEN GOOSE: Self-Learning Language System -->
-    <script src="js/vibenicity-learning-loop.js"></script>
+    <script src="js/vibelyf-learning-loop.js"></script>
     
     <!-- 🚀 Code Generator: Turn Words Into Apps -->
-    <script src="js/vibenicity-code-generator.js"></script>
+    <script src="js/vibelyf-code-generator.js"></script>
     
     <!-- 🎬 App Renderer: Display Generated Apps -->
-    <script src="js/vibenicity-app-renderer.js"></script>
+    <script src="js/vibelyf-app-renderer.js"></script>
     
     <!-- 🔌 API Generator: Claude-Powered API Builder -->
     <script src="js/claude-api-generator.js"></script>
-    <script src="js/vibenicity-integration.js"></script>
-    <script src="js/vibenicity-integration-exports.js"></script>
+    <script src="js/vibelyf-integration.js"></script>
+    <script src="js/vibelyf-integration-exports.js"></script>
     
     <!-- 📊 Enhanced Communication System: 5-Step Loop + Scoring -->
-    <script src="js/vibenicity-enhanced-communication.js"></script>
+    <script src="js/vibelyf-enhanced-communication.js"></script>
     
     <!-- 🔧 Diagnostic Tool: Test All Systems -->
-    <script src="js/vibenicity-diagnostic.js"></script>
+    <script src="js/vibelyf-diagnostic.js"></script>
     
     <!-- 🎨 Image Forge: Multi-Model Gemini Builder with Image Support -->
-    <script src="js/vibenicity-image-forge-engine.js"></script>
+    <script src="js/vibelyf-image-forge-engine.js"></script>
     
     <!-- 🖼️ Image Editor: Real-time CSS Filter Editor -->
-    <script src="js/vibenicity-image-editor.js"></script>
+    <script src="js/vibelyf-image-editor.js"></script>
     
     <!-- 🎯 Multi-Engine Orchestrator: Route Requests to Best Engine -->
-    <script src="js/vibenicity-orchestrator.js"></script>
+    <script src="js/vibelyf-orchestrator.js"></script>
     
     <!-- ⚡ Groq Fast-Brain: Instant slang detection & analysis (March 2026) -->
-    <script src="js/vibenicity-groq-brain.js"></script>
+    <script src="js/vibelyf-groq-brain.js"></script>
     
     <!-- 🎤 Voice Input: Speak to code in your own dialect (March 2026) -->
-    <script src="js/vibenicity-voice-input.js"></script>
+    <script src="js/vibelyf-voice-input.js"></script>
     
     <!-- ☁️ Supabase Cloud: Auth + DB persistence (March 2026) -->
-    <script src="js/vibenicity-cloud.js"></script>
+    <script src="js/vibelyf-cloud.js"></script>
     
     <!-- 👤 User Profile: Stats, vibe themes, cloud sync (March 2026) -->
-    <script src="js/vibenicity-profile.js"></script>
+    <script src="js/vibelyf-profile.js"></script>
     
     <!-- 🗂️ Hover-Reveal Tabs: Space-saving widget navigation (March 2026) -->
-    <script src="js/vibenicity-tabs.js"></script>
+    <script src="js/vibelyf-tabs.js"></script>
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -184,7 +184,7 @@
         }
 
         /* CELL PHONE HOME SCREEN LAYOUT */
-        .vibenicity-container {
+        .vibelyf-container {
             position: relative;
             z-index: 10;
             display: grid;
@@ -201,19 +201,19 @@
         }
         
         /* Immersive mode - hide sidebars when app is open */
-        .vibenicity-container.immersive-mode #banner,
-        .vibenicity-container.immersive-mode #left-nav,
-        .vibenicity-container.immersive-mode #right-builder {
+        .vibelyf-container.immersive-mode #banner,
+        .vibelyf-container.immersive-mode #left-nav,
+        .vibelyf-container.immersive-mode #right-builder {
             opacity: 0;
             transform: translateX(-100%);
             pointer-events: none;
         }
         
-        .vibenicity-container.immersive-mode #right-builder {
+        .vibelyf-container.immersive-mode #right-builder {
             transform: translateX(100%);
         }
         
-        .vibenicity-container.immersive-mode {
+        .vibelyf-container.immersive-mode {
             grid-template-columns: 0 1fr 0;
             grid-template-rows: 0 1fr 100px;
         }
@@ -357,7 +357,7 @@
             transform: rotate(-90deg);
         }
         
-        /* .banner-widgets styles are injected by js/vibenicity-tabs.js
+        /* .banner-widgets styles are injected by js/vibelyf-tabs.js
            for GPU-composited horizontal slide animations */
         
         .banner-label.social {
@@ -613,7 +613,7 @@
         }
         
         /* OPTIMIZED VIDEO PLAYBACK - MAXIMUM GPU ACCELERATION + ANTI-GLITCH */
-        #vibenicity-brand-video {
+        #vibelyf-brand-video {
             /* GPU Acceleration */
             transform: translateZ(0) translate3d(0,0,0);
             backface-visibility: hidden;
@@ -1348,7 +1348,7 @@
         }
 
         @media (max-width: 1024px) {
-            .vibenicity-container {
+            .vibelyf-container {
                 grid-template-columns: 60px 1fr 60px;
             }
         }
@@ -1356,7 +1356,7 @@
         /* 📱 LANDSCAPE MOBILE - LAPTOP EXPERIENCE */
         @media (max-width: 926px) and (orientation: landscape) {
             /* Force laptop-style layout in landscape */
-            .vibenicity-container {
+            .vibelyf-container {
                 grid-template-areas:
                     "banner banner banner"
                     "left-nav main right-builder"
@@ -1417,7 +1417,7 @@
             }
             
             /* Optimize main content video */
-            #vibenicity-brand-video {
+            #vibelyf-brand-video {
                 max-height: calc(100vh - 140px);
             }
         }
@@ -1448,7 +1448,7 @@
         
         /* 🖥️ TABLET LANDSCAPE - FULL LAPTOP EXPERIENCE */
         @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-            .vibenicity-container {
+            .vibelyf-container {
                 grid-template-columns: 220px 1fr 75px;
                 grid-template-rows: 45px 1fr 90px;
             }
@@ -1516,7 +1516,7 @@
     <div class="background"></div>
     
     <!-- FULL LAYOUT (WORKS ON ALL DEVICES) -->
-    <div class="vibenicity-container">
+    <div class="vibelyf-container">
         <!-- TOP BANNER: SPLIT - SOCIAL (LEFT) + SHOPPING (RIGHT) -->
         <div id="banner">
             <!-- LEFT: SOCIAL MEDIA WIDGETS (Ranked #1-10) -->
@@ -1525,8 +1525,8 @@
                 
                 <!-- #1 Facebook - 3.05B users -->
                 <div class="social-widget facebook" 
-                     onclick="VibenicityApp.openApp('facebook')" 
-                     oncontextmenu="event.preventDefault(); VibenicityApp.customizeWidget('facebook', 'f'); return false;"
+                     onclick="VibeLyfApp.openApp('facebook')" 
+                     oncontextmenu="event.preventDefault(); VibeLyfApp.customizeWidget('facebook', 'f'); return false;"
                      title="Facebook - #1 | ⚠️ No API Available | Right-click to add your Facebook URL">
                     <span class="widget-icon">f</span>
                     <span class="rank-badge">1</span>
@@ -1534,8 +1534,8 @@
                 
                 <!-- #2 YouTube - 2.5B users -->
                 <div class="social-widget youtube" 
-                     onclick="VibenicityApp.openApp('youtube')" 
-                     oncontextmenu="event.preventDefault(); VibenicityApp.customizeWidget('youtube', '▶️'); return false;"
+                     onclick="VibeLyfApp.openApp('youtube')" 
+                     oncontextmenu="event.preventDefault(); VibeLyfApp.customizeWidget('youtube', '▶️'); return false;"
                      title="YouTube - #2 | Left-click: Open | Right-click: Customize Link">
                     <span class="widget-icon">▶️</span>
                     <span class="rank-badge">2</span>
@@ -1543,8 +1543,8 @@
                 
                 <!-- #3 Instagram - 2B users -->
                 <div class="social-widget instagram" 
-                     onclick="VibenicityApp.openApp('instagram')" 
-                     oncontextmenu="event.preventDefault(); VibenicityApp.customizeWidget('instagram', '📷'); return false;"
+                     onclick="VibeLyfApp.openApp('instagram')" 
+                     oncontextmenu="event.preventDefault(); VibeLyfApp.customizeWidget('instagram', '📷'); return false;"
                      title="Instagram - #3 | Left-click: Open | Right-click: Customize Link">
                     <span class="widget-icon">📷</span>
                     <span class="rank-badge">3</span>
@@ -1552,8 +1552,8 @@
                 
                 <!-- #4 TikTok - 1.58B users -->
                 <div class="social-widget tiktok" 
-                     onclick="VibenicityApp.openApp('tiktok')" 
-                     oncontextmenu="event.preventDefault(); VibenicityApp.customizeWidget('tiktok', '🎵'); return false;"
+                     onclick="VibeLyfApp.openApp('tiktok')" 
+                     oncontextmenu="event.preventDefault(); VibeLyfApp.customizeWidget('tiktok', '🎵'); return false;"
                      title="TikTok - #4 | Left-click: Open | Right-click: Customize Link">
                     <span class="widget-icon">🎵</span>
                     <span class="rank-badge">4</span>
@@ -1561,8 +1561,8 @@
                 
                 <!-- #5 Twitter/X - 619M users -->
                 <div class="social-widget twitter" 
-                     onclick="VibenicityApp.openApp('twitter')" 
-                     oncontextmenu="event.preventDefault(); VibenicityApp.customizeWidget('twitter', '𝕏'); return false;"
+                     onclick="VibeLyfApp.openApp('twitter')" 
+                     oncontextmenu="event.preventDefault(); VibeLyfApp.customizeWidget('twitter', '𝕏'); return false;"
                      title="Twitter/X - #5 | Left-click: Open | Right-click: Customize Link">
                     <span class="widget-icon">𝕏</span>
                     <span class="rank-badge">5</span>
@@ -1570,8 +1570,8 @@
                 
                 <!-- #6 Snapchat - 750M users -->
                 <div class="social-widget snapchat" 
-                     onclick="VibenicityApp.openApp('snapchat')" 
-                     oncontextmenu="event.preventDefault(); VibenicityApp.customizeWidget('snapchat', '👻'); return false;"
+                     onclick="VibeLyfApp.openApp('snapchat')" 
+                     oncontextmenu="event.preventDefault(); VibeLyfApp.customizeWidget('snapchat', '👻'); return false;"
                      title="Snapchat - #6 | Left-click: Open | Right-click: Customize Link">
                     <span class="widget-icon">👻</span>
                     <span class="rank-badge">6</span>
@@ -1579,8 +1579,8 @@
                 
                 <!-- #7 LinkedIn - 930M users -->
                 <div class="social-widget linkedin" 
-                     onclick="VibenicityApp.openApp('linkedin')" 
-                     oncontextmenu="event.preventDefault(); VibenicityApp.customizeWidget('linkedin', '💼'); return false;"
+                     onclick="VibeLyfApp.openApp('linkedin')" 
+                     oncontextmenu="event.preventDefault(); VibeLyfApp.customizeWidget('linkedin', '💼'); return false;"
                      title="LinkedIn - #7 | Left-click: Open | Right-click: Customize Link">
                     <span class="widget-icon">💼</span>
                     <span class="rank-badge">7</span>
@@ -1588,8 +1588,8 @@
                 
                 <!-- #8 Reddit - 850M users -->
                 <div class="social-widget reddit" 
-                     onclick="VibenicityApp.openApp('reddit')" 
-                     oncontextmenu="event.preventDefault(); VibenicityApp.customizeWidget('reddit', '🔴'); return false;"
+                     onclick="VibeLyfApp.openApp('reddit')" 
+                     oncontextmenu="event.preventDefault(); VibeLyfApp.customizeWidget('reddit', '🔴'); return false;"
                      title="Reddit - #8 | Left-click: Open | Right-click: Customize Link">
                     <span class="widget-icon">🔴</span>
                     <span class="rank-badge">8</span>
@@ -1597,8 +1597,8 @@
                 
                 <!-- #9 Pinterest - 465M users -->
                 <div class="social-widget pinterest" 
-                     onclick="VibenicityApp.openApp('pinterest')" 
-                     oncontextmenu="event.preventDefault(); VibenicityApp.customizeWidget('pinterest', '📌'); return false;"
+                     onclick="VibeLyfApp.openApp('pinterest')" 
+                     oncontextmenu="event.preventDefault(); VibeLyfApp.customizeWidget('pinterest', '📌'); return false;"
                      title="Pinterest - #9 | Left-click: Open | Right-click: Customize Link">
                     <span class="widget-icon">📌</span>
                     <span class="rank-badge">9</span>
@@ -1606,14 +1606,14 @@
                 
                 <!-- #10 Discord - 563M users -->
                 <div class="social-widget discord" 
-                     onclick="VibenicityApp.openApp('discord')" 
-                     oncontextmenu="event.preventDefault(); VibenicityApp.customizeWidget('discord', '💬'); return false;"
+                     onclick="VibeLyfApp.openApp('discord')" 
+                     oncontextmenu="event.preventDefault(); VibeLyfApp.customizeWidget('discord', '💬'); return false;"
                      title="Discord - #10 | Left-click: Open | Right-click: Customize Link">
                     <span class="widget-icon">💬</span>
                     <span class="rank-badge">10</span>
                 </div>
                 
-                <div class="add-widget-btn" onclick="VibenicityApp.showAddWidgetGuide('social')" title="Add Social Platform">
+                <div class="add-widget-btn" onclick="VibeLyfApp.showAddWidgetGuide('social')" title="Add Social Platform">
                     +
                 </div>
             </div>
@@ -1624,8 +1624,8 @@
                 
                 <!-- #1 Spotify - 615M users -->
                 <div class="social-widget spotify" 
-                     onclick="VibenicityApp.openApp('spotify')" 
-                     oncontextmenu="event.preventDefault(); VibenicityApp.customizeWidget('spotify', '🟢'); return false;"
+                     onclick="VibeLyfApp.openApp('spotify')" 
+                     oncontextmenu="event.preventDefault(); VibeLyfApp.customizeWidget('spotify', '🟢'); return false;"
                      title="Spotify - #1 | Left-click: Open | Right-click: Customize Link">
                     <span class="widget-icon">🟢</span>
                     <span class="rank-badge">1</span>
@@ -1633,8 +1633,8 @@
                 
                 <!-- #2 Apple Music - 88M users -->
                 <div class="social-widget apple-music" 
-                     onclick="VibenicityApp.openApp('apple-music')" 
-                     oncontextmenu="event.preventDefault(); VibenicityApp.customizeWidget('apple-music', '🎵'); return false;"
+                     onclick="VibeLyfApp.openApp('apple-music')" 
+                     oncontextmenu="event.preventDefault(); VibeLyfApp.customizeWidget('apple-music', '🎵'); return false;"
                      title="Apple Music - #2 | Left-click: Open | Right-click: Customize Link">
                     <span class="widget-icon">🍎</span>
                     <span class="rank-badge">2</span>
@@ -1642,8 +1642,8 @@
                 
                 <!-- #3 Pandora - 50M users -->
                 <div class="social-widget pandora" 
-                     onclick="VibenicityApp.openApp('pandora')" 
-                     oncontextmenu="event.preventDefault(); VibenicityApp.customizeWidget('pandora', '📻'); return false;"
+                     onclick="VibeLyfApp.openApp('pandora')" 
+                     oncontextmenu="event.preventDefault(); VibeLyfApp.customizeWidget('pandora', '📻'); return false;"
                      title="Pandora - #3 | Left-click: Open | Right-click: Customize Link">
                     <span class="widget-icon">📻</span>
                     <span class="rank-badge">3</span>
@@ -1651,8 +1651,8 @@
                 
                 <!-- #4 SoundCloud -->
                 <div class="social-widget soundcloud" 
-                     onclick="VibenicityApp.openApp('soundcloud')" 
-                     oncontextmenu="event.preventDefault(); VibenicityApp.customizeWidget('soundcloud', '☁️'); return false;"
+                     onclick="VibeLyfApp.openApp('soundcloud')" 
+                     oncontextmenu="event.preventDefault(); VibeLyfApp.customizeWidget('soundcloud', '☁️'); return false;"
                      title="SoundCloud - #4 | Left-click: Open | Right-click: Customize Link">
                     <span class="widget-icon">☁️</span>
                     <span class="rank-badge">4</span>
@@ -1660,15 +1660,15 @@
                 
                 <!-- #5 YouTube Music -->
                 <div class="social-widget youtube-music" 
-                     onclick="VibenicityApp.openApp('youtube-music')" 
-                     oncontextmenu="event.preventDefault(); VibenicityApp.customizeWidget('youtube-music', '🎶'); return false;"
+                     onclick="VibeLyfApp.openApp('youtube-music')" 
+                     oncontextmenu="event.preventDefault(); VibeLyfApp.customizeWidget('youtube-music', '🎶'); return false;"
                      title="YouTube Music - #5 | Left-click: Open | Right-click: Customize Link">
                     <span class="widget-icon">🎶</span>
                     <span class="rank-badge">5</span>
                 </div>
                 
                 <div class="add-widget-btn" style="background: rgba(0, 255, 100, 0.1); border-color: rgba(0, 255, 100, 0.4); color: #00FF64;" 
-                     onclick="VibenicityApp.showAddWidgetGuide('music')" title="Add Music Platform">
+                     onclick="VibeLyfApp.showAddWidgetGuide('music')" title="Add Music Platform">
                     +
                 </div>
             </div>
@@ -1678,76 +1678,76 @@
                 <span class="banner-label shopping">🛒 SHOP</span>
                 
                 <!-- #1 Amazon - Associates: 1-10% commission -->
-                <div class="shopping-widget amazon" onclick="VibenicityApp.openShop('amazon')" title="Amazon - #1 (1-10% commission)">
+                <div class="shopping-widget amazon" onclick="VibeLyfApp.openShop('amazon')" title="Amazon - #1 (1-10% commission)">
                     <span class="widget-icon">📦</span>
                     <span class="rank-badge">1</span>
                     <span class="affiliate-indicator"></span>
                 </div>
                 
                 <!-- #2 eBay - Partner Network: 50-70% revenue share -->
-                <div class="shopping-widget ebay" onclick="VibenicityApp.openShop('ebay')" title="eBay - #2 (50-70% share)">
+                <div class="shopping-widget ebay" onclick="VibeLyfApp.openShop('ebay')" title="eBay - #2 (50-70% share)">
                     <span class="widget-icon">🏷️</span>
                     <span class="rank-badge">2</span>
                     <span class="affiliate-indicator"></span>
                 </div>
                 
                 <!-- #3 AliExpress - Admitad: Up to 11% -->
-                <div class="shopping-widget aliexpress" onclick="VibenicityApp.openShop('aliexpress')" title="AliExpress - #3 (Up to 11%)">
+                <div class="shopping-widget aliexpress" onclick="VibeLyfApp.openShop('aliexpress')" title="AliExpress - #3 (Up to 11%)">
                     <span class="widget-icon">🛍️</span>
                     <span class="rank-badge">3</span>
                     <span class="affiliate-indicator"></span>
                 </div>
                 
                 <!-- #4 Walmart - Up to 4% -->
-                <div class="shopping-widget walmart" onclick="VibenicityApp.openShop('walmart')" title="Walmart - #4 (Up to 4%)">
+                <div class="shopping-widget walmart" onclick="VibeLyfApp.openShop('walmart')" title="Walmart - #4 (Up to 4%)">
                     <span class="widget-icon">🏬</span>
                     <span class="rank-badge">4</span>
                     <span class="affiliate-indicator"></span>
                 </div>
                 
                 <!-- #5 Etsy - $3-5 per sale -->
-                <div class="shopping-widget etsy" onclick="VibenicityApp.openShop('etsy')" title="Etsy - #5 ($3-5/sale)">
+                <div class="shopping-widget etsy" onclick="VibeLyfApp.openShop('etsy')" title="Etsy - #5 ($3-5/sale)">
                     <span class="widget-icon">🎨</span>
                     <span class="rank-badge">5</span>
                     <span class="affiliate-indicator"></span>
                 </div>
                 
                 <!-- #6 Shopify - $58-$2000 per referral -->
-                <div class="shopping-widget shopify" onclick="VibenicityApp.openShop('shopify')" title="Shopify - #6 ($58-$2000/ref)">
+                <div class="shopping-widget shopify" onclick="VibeLyfApp.openShop('shopify')" title="Shopify - #6 ($58-$2000/ref)">
                     <span class="widget-icon">🏪</span>
                     <span class="rank-badge">6</span>
                     <span class="affiliate-indicator"></span>
                 </div>
                 
                 <!-- #7 Target - Up to 8% -->
-                <div class="shopping-widget target" onclick="VibenicityApp.openShop('target')" title="Target - #7 (Up to 8%)">
+                <div class="shopping-widget target" onclick="VibeLyfApp.openShop('target')" title="Target - #7 (Up to 8%)">
                     <span class="widget-icon">🎯</span>
                     <span class="rank-badge">7</span>
                     <span class="affiliate-indicator"></span>
                 </div>
                 
                 <!-- #8 Best Buy - 1-3% -->
-                <div class="shopping-widget bestbuy" onclick="VibenicityApp.openShop('bestbuy')" title="Best Buy - #8 (1-3%)">
+                <div class="shopping-widget bestbuy" onclick="VibeLyfApp.openShop('bestbuy')" title="Best Buy - #8 (1-3%)">
                     <span class="widget-icon">💻</span>
                     <span class="rank-badge">8</span>
                     <span class="affiliate-indicator"></span>
                 </div>
                 
                 <!-- #9 Temu - Up to 20% commission! -->
-                <div class="shopping-widget temu" onclick="VibenicityApp.openShop('temu')" title="Temu - #9 (Up to 20%!)">
+                <div class="shopping-widget temu" onclick="VibeLyfApp.openShop('temu')" title="Temu - #9 (Up to 20%!)">
                     <span class="widget-icon">🎁</span>
                     <span class="rank-badge">9</span>
                     <span class="affiliate-indicator"></span>
                 </div>
                 
                 <!-- #10 Shein - Up to 20% commission! -->
-                <div class="shopping-widget shein" onclick="VibenicityApp.openShop('shein')" title="Shein - #10 (Up to 20%!)">
+                <div class="shopping-widget shein" onclick="VibeLyfApp.openShop('shein')" title="Shein - #10 (Up to 20%!)">
                     <span class="widget-icon">👗</span>
                     <span class="rank-badge">10</span>
                     <span class="affiliate-indicator"></span>
                 </div>
                 
-                <div class="add-widget-btn shopping" onclick="VibenicityApp.showAddWidgetGuide('shopping')" title="Add Shopping Platform">
+                <div class="add-widget-btn shopping" onclick="VibeLyfApp.showAddWidgetGuide('shopping')" title="Add Shopping Platform">
                     +
                 </div>
             </div>
@@ -1757,19 +1757,19 @@
         <nav class="glass-panel" id="left-nav">
             <div class="nav-section">
                 <div class="nav-label">NAVIGATION</div>
-                <div class="nav-item nav-home active" onclick="VibenicityApp.returnToHome()">
+                <div class="nav-item nav-home active" onclick="VibeLyfApp.returnToHome()">
                     <span class="nav-icon">🏠</span>
                     <span>Home</span>
                 </div>
-                <div class="nav-item nav-feeds" onclick="VibenicityApp.showAllFeeds()">
+                <div class="nav-item nav-feeds" onclick="VibeLyfApp.showAllFeeds()">
                     <span class="nav-icon">📱</span>
                     <span>All Feeds</span>
                 </div>
-                <div class="nav-item nav-video" onclick="VibenicityApp.openApp('video-studio')">
+                <div class="nav-item nav-video" onclick="VibeLyfApp.openApp('video-studio')">
                     <span class="nav-icon">🎬</span>
                     <span>Video Studio</span>
                 </div>
-                <div class="nav-item nav-builders" onclick="VibenicityApp.showBuilders()">
+                <div class="nav-item nav-builders" onclick="VibeLyfApp.showBuilders()">
                     <span class="nav-icon">🛠️</span>
                     <span>Builders</span>
                 </div>
@@ -1781,7 +1781,7 @@
                     <span class="nav-icon">🎨</span>
                     <span>Themes</span>
                 </div>
-                <div class="nav-item nav-settings" onclick="VibenicityApp.setupClaudeAPI()">
+                <div class="nav-item nav-settings" onclick="VibeLyfApp.setupClaudeAPI()">
                     <span class="nav-icon">⚙️</span>
                     <span>Settings</span>
                 </div>
@@ -1789,11 +1789,11 @@
             
             <div class="nav-section">
                 <div class="nav-label">💰 REVENUE</div>
-                <div class="nav-item nav-affiliate" onclick="VibenicityApp.showAffiliateStats()">
+                <div class="nav-item nav-affiliate" onclick="VibeLyfApp.showAffiliateStats()">
                     <span class="nav-icon">💎</span>
                     <span>Affiliate Stats</span>
                 </div>
-                <div class="nav-item nav-earnings" onclick="VibenicityApp.showEarnings()">
+                <div class="nav-item nav-earnings" onclick="VibeLyfApp.showEarnings()">
                     <span class="nav-icon">💵</span>
                     <span>Earnings</span>
                 </div>
@@ -1801,11 +1801,11 @@
             
             <div class="nav-section">
                 <div class="nav-label">ACCOUNT</div>
-                <div class="nav-item nav-signup" onclick="VibenicityApp.showAuth('signup')">
+                <div class="nav-item nav-signup" onclick="VibeLyfApp.showAuth('signup')">
                     <span class="nav-icon">✨</span>
                     <span>Sign Up</span>
                 </div>
-                <div class="nav-item nav-login" onclick="VibenicityApp.showAuth('login')">
+                <div class="nav-item nav-login" onclick="VibeLyfApp.showAuth('login')">
                     <span class="nav-icon">🚀</span>
                     <span>Login</span>
                 </div>
@@ -1815,7 +1815,7 @@
         <!-- MAIN CONTENT -->
         <main id="main-content" style="padding: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #000;">
             <video 
-                id="vibenicity-brand-video"
+                id="vibelyf-brand-video"
                 autoplay 
                 muted 
                 playsinline 
@@ -1825,14 +1825,14 @@
                 disablePictureInPicture
                 x-webkit-airplay="deny"
                 style="max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; filter: none; will-change: transform; image-rendering: -webkit-optimize-contrast;">
-                <source src="videos/vibenicity-intro.mp4" type="video/mp4">
+                <source src="videos/vibelyf-intro.mp4" type="video/mp4">
             </video>
         </main>
         
         <script>
             // ADVANCED ANTI-GLITCH VIDEO OPTIMIZATION SYSTEM
             (function() {
-                const video = document.getElementById('vibenicity-brand-video');
+                const video = document.getElementById('vibelyf-brand-video');
                 
                 if (!video) return;
                 
@@ -1963,22 +1963,22 @@
         <!-- RIGHT BUILDER COLUMN - BUILD APPS + THEME -->
         <aside class="glass-panel" id="right-builder">
             <!-- Genspark -->
-            <div class="builder-widget" onclick="VibenicityApp.openApp('genspark')" title="Genspark AI">
+            <div class="builder-widget" onclick="VibeLyfApp.openApp('genspark')" title="Genspark AI">
                 <span class="widget-icon">✨</span>
             </div>
             
             <!-- Claude -->
-            <div class="builder-widget" onclick="VibenicityApp.openApp('claude')" title="Claude AI">
+            <div class="builder-widget" onclick="VibeLyfApp.openApp('claude')" title="Claude AI">
                 <span class="widget-icon">🤖</span>
             </div>
             
             <!-- Monaco Editor -->
-            <div class="builder-widget" onclick="VibenicityApp.openApp('editor')" title="Code Editor">
+            <div class="builder-widget" onclick="VibeLyfApp.openApp('editor')" title="Code Editor">
                 <span class="widget-icon">💻</span>
             </div>
             
             <!-- ChatGPT -->
-            <div class="builder-widget" onclick="VibenicityApp.openApp('chatgpt')" title="ChatGPT">
+            <div class="builder-widget" onclick="VibeLyfApp.openApp('chatgpt')" title="ChatGPT">
                 <span class="widget-icon">🧠</span>
             </div>
             
@@ -2003,7 +2003,7 @@
             </div>
             
             <!-- Add Builder Button -->
-            <div class="add-builder-btn" onclick="VibenicityApp.showAddWidgetGuide()" title="Add Builder Tool">
+            <div class="add-builder-btn" onclick="VibeLyfApp.showAddWidgetGuide()" title="Add Builder Tool">
                 +
             </div>
         </aside>
@@ -2011,7 +2011,7 @@
         <!-- BOTTOM CHAT BOT -->
         <div class="glass-panel" id="chat-bot" style="position: relative; z-index: 99;">
             <div class="chat-icon" style="
-                background: url('images/vibenicity-logo.jpg') center/cover;
+                background: url('images/vibelyf-logo.jpg') center/cover;
                 width: 48px;
                 height: 48px;
                 border-radius: 50%;
@@ -2040,9 +2040,9 @@
                 class="chat-input" 
                 id="chatInput"
                 placeholder="Ask AI or paste social media link..."
-                onkeydown="if(event.key === 'Enter') VibenicityApp.sendMessage()"
+                onkeydown="if(event.key === 'Enter') VibeLyfApp.sendMessage()"
             >
-            <button class="send-button" onclick="VibenicityApp.sendMessage()">
+            <button class="send-button" onclick="VibeLyfApp.sendMessage()">
                 Send
             </button>
         </div>
@@ -2449,7 +2449,7 @@
     <div class="app-view" id="appView">
         <div class="app-header">
             <h3 id="appTitle" style="color: #00E5FF; font-size: 18px; font-weight: 700;">Loading...</h3>
-            <div class="app-close" onclick="VibenicityApp.closeApp()" title="Close App">
+            <div class="app-close" onclick="VibeLyfApp.closeApp()" title="Close App">
                 ✕
             </div>
         </div>
@@ -2473,10 +2473,10 @@
             </div>
             
             <div class="modal-buttons">
-                <button class="btn-secondary" onclick="VibenicityApp.closeModal('authModal')">
+                <button class="btn-secondary" onclick="VibeLyfApp.closeModal('authModal')">
                     Cancel
                 </button>
-                <button class="btn-primary" onclick="VibenicityApp.handleAuth()" id="authBtn">
+                <button class="btn-primary" onclick="VibeLyfApp.handleAuth()" id="authBtn">
                     Continue
                 </button>
             </div>
@@ -2591,7 +2591,7 @@
         // CUSTOMIZATION SYSTEM - 6-TAB PANEL WITH GEMINI AI INTEGRATION
         // ═══════════════════════════════════════════════════════════════════
         const CustomizationSystem = {
-            STORAGE_KEY: 'vibenicity_custom_theme',
+            STORAGE_KEY: 'vibelyf_custom_theme',
             currentTab: 'themes',
             
             // GEMINI AI CONFIGURATION
@@ -2966,7 +2966,7 @@
             
             // Generate theme from AI
             async generateThemeFromAI(prompt) {
-                const systemPrompt = `You are a theme designer for VIBENICITY, a cyberpunk social platform. 
+                const systemPrompt = `You are a theme designer for VIBELYF, a cyberpunk social platform. 
                 
 User Request: "${prompt}"
 
@@ -3298,7 +3298,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
 
         // FACEBOOK INTEGRATION CONTROLLER
         const FacebookIntegration = {
-            STORAGE_KEY: 'vibenicity_fb_data',
+            STORAGE_KEY: 'vibelyf_fb_data',
             user: null,
             accessToken: null,
             
@@ -3377,7 +3377,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                 // Show demo feed with sample data
                 const demoPost = {
                     id: 'demo_1',
-                    message: 'This is a demo post! To see real Facebook posts, you need Facebook App Review approval for advanced permissions.\n\nCurrently, VIBENICITY can:\n✅ Login with Facebook\n✅ Get your profile info\n✅ Show your name & picture\n\nWith app review, you could:\n📱 See your real feed\n👍 Like posts\n💬 Comment\n✍️ Create posts',
+                    message: 'This is a demo post! To see real Facebook posts, you need Facebook App Review approval for advanced permissions.\n\nCurrently, VIBELYF can:\n✅ Login with Facebook\n✅ Get your profile info\n✅ Show your name & picture\n\nWith app review, you could:\n📱 See your real feed\n👍 Like posts\n💬 Comment\n✍️ Create posts',
                     created_time: new Date().toISOString(),
                     full_picture: null,
                     likes: { summary: { total_count: 42 } },
@@ -3503,7 +3503,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                     </div>
                     
                     <div class="modal-buttons">
-                        <button class="btn-secondary" onclick="VibenicityApp.closeModal('authModal')">
+                        <button class="btn-secondary" onclick="VibeLyfApp.closeModal('authModal')">
                             Cancel
                         </button>
                         <button class="btn-primary" onclick="FacebookIntegration.createPost()">
@@ -3526,7 +3526,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                 
                 alert('✍️ Post creation requires Facebook App Review!\n\nYour message:\n"' + message + '"\n\nTo enable posting, you need:\n1. Submit app for Facebook review\n2. Request "publish_to_groups" or "pages_manage_posts" permission\n3. Get approved by Facebook\n\nThis is a demo showing how it would work.');
                 
-                VibenicityApp.closeModal('authModal');
+                VibeLyfApp.closeModal('authModal');
             },
             
             likePost(postId) {
@@ -3597,7 +3597,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                 const mainContent = document.getElementById('main-content');
                 mainContent.innerHTML = `
                     <div class="welcome-screen">
-                        <h1>VIBENICITY NATION</h1>
+                        <h1>VIBELYF NATION</h1>
                         <p>
                             Your AI-powered digital universe where social media, builder tools, 
                             and creativity converge. Never leave your vibe.
@@ -3647,7 +3647,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
             }
         };
 
-        const VibenicityApp = {
+        const VibeLyfApp = {
             state: {
                 user: null,
                 widgets: [],
@@ -3660,7 +3660,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                 }
             },
 
-            STORAGE_KEY: 'vibenicity_state',
+            STORAGE_KEY: 'vibelyf_state',
             
             // AFFILIATE GOLDMINE CONFIG 💰
             AFFILIATE_LINKS: {
@@ -3690,7 +3690,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
             },
 
             init() {
-                console.log('🚀 VIBENICITY initializing...');
+                console.log('🚀 VIBELYF initializing...');
                 this.loadState();
                 this.initFileUpload();
                 console.log('✅ Ready!');
@@ -3777,7 +3777,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
             },
             
             customizeWidget(appName, currentIcon) {
-                const customLinks = JSON.parse(localStorage.getItem('vibenicity_custom_links') || '{}');
+                const customLinks = JSON.parse(localStorage.getItem('vibelyf_custom_links') || '{}');
                 const currentLink = customLinks[appName] || '';
                 
                 const appName_pretty = appName.charAt(0).toUpperCase() + appName.slice(1);
@@ -3800,7 +3800,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                         try {
                             new URL(newLink.trim());
                             customLinks[appName] = newLink.trim();
-                            localStorage.setItem('vibenicity_custom_links', JSON.stringify(customLinks));
+                            localStorage.setItem('vibelyf_custom_links', JSON.stringify(customLinks));
                             alert('✅ Widget customized! Right-click to change anytime.');
                         } catch (e) {
                             alert('❌ Invalid URL. Please enter a valid link starting with http:// or https://');
@@ -3808,7 +3808,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                     } else {
                         // Clear custom link
                         delete customLinks[appName];
-                        localStorage.setItem('vibenicity_custom_links', JSON.stringify(customLinks));
+                        localStorage.setItem('vibelyf_custom_links', JSON.stringify(customLinks));
                         alert('✅ Reset to default URL');
                     }
                 }
@@ -3825,17 +3825,17 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                 }
                 
                 // HIDE WELCOME VIDEO
-                const video = document.getElementById('vibenicity-brand-video');
+                const video = document.getElementById('vibelyf-brand-video');
                 if (video) video.style.display = 'none';
                 
-                // VIBENICITY STUDIO - special handler
-                if (appName === 'video-studio' || appName === 'vibenicity-studio') {
+                // VIBELYF STUDIO - special handler
+                if (appName === 'video-studio' || appName === 'vibelyf-studio') {
                     this.loadVideoStudio();
                     return;
                 }
                 
                 // Check for user's custom link first
-                const customLinks = JSON.parse(localStorage.getItem('vibenicity_custom_links') || '{}');
+                const customLinks = JSON.parse(localStorage.getItem('vibelyf_custom_links') || '{}');
                 if (customLinks[appName]) {
                     this.loadFeedSmart(appName, customLinks[appName]);
                     return;
@@ -3925,7 +3925,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                                 " onmouseover="this.style.background='rgba(var(--primary-glow),0.15)'" onmouseout="this.style.background='rgba(var(--primary-glow),0.08)'">
                                     ↗ Open Full Site
                                 </button>
-                                <button onclick="VibenicityApp.returnToHome()" style="
+                                <button onclick="VibeLyfApp.returnToHome()" style="
                                     background: rgba(var(--primary-glow), 0.08); border: 1px solid rgba(var(--primary-glow), 0.2);
                                     color: rgba(var(--primary-glow), 0.8); padding: 6px 14px; border-radius: 8px;
                                     cursor: pointer; font-size: 12px; font-weight: 600; transition: all 0.2s;
@@ -3971,7 +3971,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                             " onmouseover="this.style.background='rgba(var(--primary-glow),0.2)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(var(--primary-glow),0.12)'; this.style.transform=''">
                                 ↗ Open ${platformName}
                             </button>
-                            <button onclick="VibenicityApp.returnToHome()" style="
+                            <button onclick="VibeLyfApp.returnToHome()" style="
                                 background: transparent; border: 1px solid rgba(var(--primary-glow), 0.2);
                                 color: rgba(var(--primary-glow), 0.6); padding: 14px 24px; border-radius: 12px;
                                 cursor: pointer; font-size: 14px; font-weight: 600; transition: all 0.2s;
@@ -4001,14 +4001,14 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                 const mainContent = document.getElementById('main-content');
                 mainContent.innerHTML = `
                     <video 
-                        id="vibenicity-brand-video"
+                        id="vibelyf-brand-video"
                         autoplay 
                         muted 
                         playsinline 
                         webkit-playsinline
                         loop
                         style="max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain;">
-                        <source src="videos/vibenicity-intro.mp4" type="video/mp4">
+                        <source src="videos/vibelyf-intro.mp4" type="video/mp4">
                     </video>
                 `;
                 mainContent.style.padding = '0';
@@ -4022,7 +4022,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
             // Show All Feeds - aggregated feed view
             showAllFeeds() {
                 const mainContent = document.getElementById('main-content');
-                const video = document.getElementById('vibenicity-brand-video');
+                const video = document.getElementById('vibelyf-brand-video');
                 if (video) video.style.display = 'none';
                 
                 // Highlight nav
@@ -4042,7 +4042,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                         </p>
                         <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px;">
                             ${['instagram','youtube','spotify','twitter','tiktok','soundcloud','facebook','snapchat','linkedin','reddit','pinterest','discord'].map(p => `
-                                <div onclick="VibenicityApp.openApp('${p}')" style="
+                                <div onclick="VibeLyfApp.openApp('${p}')" style="
                                     background: rgba(var(--primary-glow), 0.06);
                                     border: 1px solid rgba(var(--primary-glow), 0.15);
                                     border-radius: 12px;
@@ -4064,7 +4064,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
             // Show Builders panel - AI tools grid
             showBuilders() {
                 const mainContent = document.getElementById('main-content');
-                const video = document.getElementById('vibenicity-brand-video');
+                const video = document.getElementById('vibelyf-brand-video');
                 if (video) video.style.display = 'none';
                 
                 // Highlight nav
@@ -4091,7 +4091,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                                 {id:'video-studio', icon:'🎬', name:'Video Studio', desc:'Edit & create videos'},
                                 {id:'image-forge', icon:'🎨', name:'Image Forge', desc:'AI image generation'}
                             ].map(b => `
-                                <div onclick="VibenicityApp.openApp('${b.id}')" style="
+                                <div onclick="VibeLyfApp.openApp('${b.id}')" style="
                                     background: rgba(var(--primary-glow), 0.06);
                                     border: 1px solid rgba(var(--primary-glow), 0.15);
                                     border-radius: 14px;
@@ -4112,7 +4112,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
             },
             
             // ========================================
-            // 🎬 VIBENICITY STUDIO - VIDEO EDITOR HUB
+            // 🎬 VIBELYF STUDIO - VIDEO EDITOR HUB
             // ========================================
             
             loadVideoStudio() {
@@ -4125,7 +4125,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                             🎬
                         </div>
                         <h2 style="color: rgba(var(--primary-glow), 1); font-size: 28px; font-weight: 800; margin-bottom: 12px;">
-                            VIBENICITY STUDIO
+                            VIBELYF STUDIO
                         </h2>
                         <p style="color: rgba(255,255,255,0.6); font-size: 14px;">
                             Loading Video Editing Optimization Hub...
@@ -4156,14 +4156,14 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                                     <div style="font-size: 32px;">🎬</div>
                                     <div>
                                         <h2 style="color: rgba(var(--primary-glow), 1); font-size: 20px; font-weight: 800; margin: 0;">
-                                            VIBENICITY STUDIO
+                                            VIBELYF STUDIO
                                         </h2>
                                         <p style="color: rgba(255,255,255,0.5); font-size: 12px; margin: 0;">
                                             Professional Video Editing Optimization Hub
                                         </p>
                                     </div>
                                 </div>
-                                <button onclick="VibenicityApp.closeVideoStudio()" style="
+                                <button onclick="VibeLyfApp.closeVideoStudio()" style="
                                     padding: 10px 20px;
                                     background: rgba(139, 92, 246, 0.2);
                                     border: 1px solid rgba(139, 92, 246, 0.4);
@@ -4181,7 +4181,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                             <iframe 
                                 src="video-editor-hub.html" 
                                 style="width: 100%; height: calc(100% - 73px); border: none; display: block;"
-                                title="VIBENICITY Video Studio">
+                                title="VIBELYF Video Studio">
                             </iframe>
                         </div>
                     `;
@@ -4226,7 +4226,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
             connectYouTube() {
                 const choice = confirm(
                     '📺 YOUTUBE - ALREADY EMBEDDED! ✅\n\n' +
-                    'YouTube videos already play inside VIBENICITY!\n\n' +
+                    'YouTube videos already play inside VIBELYF!\n\n' +
                     'But you can also:\n' +
                     '• Set a custom channel link\n' +
                     '• Link to a specific playlist\n' +
@@ -4251,7 +4251,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
             connectSpotify() {
                 const choice = confirm(
                     '🎵 SPOTIFY - ALREADY EMBEDDED! ✅\n\n' +
-                    'Spotify playlists already play inside VIBENICITY!\n\n' +
+                    'Spotify playlists already play inside VIBELYF!\n\n' +
                     'But you can also:\n' +
                     '• Set a custom artist profile\n' +
                     '• Link to your personal playlists\n' +
@@ -4323,7 +4323,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                         '• https://tiktok.com/@yourusername\n' +
                         '• https://vm.tiktok.com/SHORT_CODE (specific video)\n\n' +
                         '🔥 STRATEGY: The more users paste TikTok links,\n' +
-                        'the more TikTok sees demand for VIBENICITY integration.\n\n' +
+                        'the more TikTok sees demand for VIBELYF integration.\n\n' +
                         '💪 When they see we drive TRAFFIC to their platform,\n' +
                         'they\'ll BEG us to integrate officially!\n\n' +
                         '💡 You\'re part of making this happen!'
@@ -4334,7 +4334,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
             connectSoundCloud() {
                 const choice = confirm(
                     '☁️ SOUNDCLOUD - ALREADY EMBEDDED! ✅\n\n' +
-                    'SoundCloud tracks already play inside VIBENICITY!\n\n' +
+                    'SoundCloud tracks already play inside VIBELYF!\n\n' +
                     'But you can also:\n' +
                     '• Set a custom artist profile\n' +
                     '• Link to your personal tracks\n' +
@@ -4360,7 +4360,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
             // 🔥 CUSTOM LINK PASTING SYSTEM
             // ========================================
             pasteCustomLink(platform, title, message) {
-                const customLinks = JSON.parse(localStorage.getItem('vibenicity_custom_links') || '{}');
+                const customLinks = JSON.parse(localStorage.getItem('vibelyf_custom_links') || '{}');
                 const currentLink = customLinks[platform] || '';
                 
                 const newLink = prompt(message, currentLink);
@@ -4370,7 +4370,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                     try {
                         new URL(newLink.trim());
                         customLinks[platform] = newLink.trim();
-                        localStorage.setItem('vibenicity_custom_links', JSON.stringify(customLinks));
+                        localStorage.setItem('vibelyf_custom_links', JSON.stringify(customLinks));
                         
                         // Track this event - shows demand for platform integration!
                         this.trackEvent('custom_link_set', {
@@ -4396,7 +4396,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                 } else if (newLink === '') {
                     // Clear custom link
                     delete customLinks[platform];
-                    localStorage.setItem('vibenicity_custom_links', JSON.stringify(customLinks));
+                    localStorage.setItem('vibelyf_custom_links', JSON.stringify(customLinks));
                     alert(`✅ Reset to default ${this.getPlatformName(platform)} behavior`);
                     this.markWidgetAsDefault(platform);
                 }
@@ -4478,7 +4478,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                 this.trackAffiliateClick(shopName);
                 
                 // Hide welcome video
-                const video = document.getElementById('vibenicity-brand-video');
+                const video = document.getElementById('vibelyf-brand-video');
                 if (video) video.style.display = 'none';
                 
                 // Generate affiliate link
@@ -4518,9 +4518,9 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                 };
                 
                 // Store in localStorage for tracking
-                const clicks = JSON.parse(localStorage.getItem('vibenicity_affiliate_clicks') || '[]');
+                const clicks = JSON.parse(localStorage.getItem('vibelyf_affiliate_clicks') || '[]');
                 clicks.push(clickData);
-                localStorage.setItem('vibenicity_affiliate_clicks', JSON.stringify(clicks));
+                localStorage.setItem('vibelyf_affiliate_clicks', JSON.stringify(clicks));
                 
                 this.saveState();
                 
@@ -4537,15 +4537,15 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                 };
                 
                 // Store events for analytics
-                const events = JSON.parse(localStorage.getItem('vibenicity_events') || '[]');
+                const events = JSON.parse(localStorage.getItem('vibelyf_events') || '[]');
                 events.push(event);
-                localStorage.setItem('vibenicity_events', JSON.stringify(events));
+                localStorage.setItem('vibelyf_events', JSON.stringify(events));
             },
             
             closeApp() {
                 const appView = document.getElementById('appView');
                 const appFrame = document.getElementById('appFrame');
-                const container = document.querySelector('.vibenicity-container');
+                const container = document.querySelector('.vibelyf-container');
                 
                 // Disable immersive mode
                 container.classList.remove('immersive-mode');
@@ -4678,15 +4678,15 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                 if (!message) return;
                 
                 console.log('💬 User message:', message);
-                console.log('🪿 Learning Loop Active:', window.VibenicityLearningLoop ? 'YES' : 'NO');
+                console.log('🪿 Learning Loop Active:', window.VibeLyfLearningLoop ? 'YES' : 'NO');
                 
                 // Clear input immediately
                 input.value = '';
                 
                 // 🎯 CHAT COMMANDS: Check for special commands
                 if (message.toLowerCase() === '/score' || message.toLowerCase() === 'score' || message.toLowerCase() === 'my score') {
-                    if (window.VibenicityCommunicationScore) {
-                        const scoreMessage = window.VibenicityCommunicationScore.displayScore();
+                    if (window.VibeLyfCommunicationScore) {
+                        const scoreMessage = window.VibeLyfCommunicationScore.displayScore();
                         setTimeout(() => {
                             this.addChatMessage(scoreMessage, 'bot');
                         }, 500);
@@ -4702,12 +4702,12 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                 if (message.toLowerCase().startsWith('/groq')) {
                     const key = message.replace(/^\/groq\s*/i, '').trim();
                     if (key && key.startsWith('gsk_')) {
-                        window.VibenicityGroqBrain?.setApiKey(key);
+                        window.VibeLyfGroqBrain?.setApiKey(key);
                         setTimeout(() => {
                             this.addChatMessage('⚡ Groq API key saved! Fast-Brain is now ACTIVE.\n\nSlang detection will now be instant (<500ms) instead of slow.\n\nGet your free key at: https://console.groq.com', 'bot');
                         }, 300);
                     } else {
-                        const stats = window.VibenicityGroqBrain?.getStats() || {};
+                        const stats = window.VibeLyfGroqBrain?.getStats() || {};
                         setTimeout(() => {
                             this.addChatMessage(
                                 `⚡ **Groq Fast-Brain Status**\n\n` +
@@ -4726,7 +4726,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                 
                 // 🎤 /voice command — voice input stats
                 if (message.toLowerCase() === '/voice') {
-                    const stats = window.VibenicityVoice?.getStats() || {};
+                    const stats = window.VibeLyfVoice?.getStats() || {};
                     setTimeout(() => {
                         this.addChatMessage(
                             `🎤 **Voice Input Status**\n\n` +
@@ -4743,23 +4743,23 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                 
                 // 🔍 /status command — full system diagnostic
                 if (message.toLowerCase() === '/status' || message.toLowerCase() === '/diag') {
-                    const groqStats = window.VibenicityGroqBrain?.getStats() || {};
-                    const voiceStats = window.VibenicityVoice?.getStats() || {};
-                    const commScore = window.VibenicityCommunicationScore?.getScore() || 0;
-                    const cloudStatus = window.VibenicityCloud?.getStatus() || {};
+                    const groqStats = window.VibeLyfGroqBrain?.getStats() || {};
+                    const voiceStats = window.VibeLyfVoice?.getStats() || {};
+                    const commScore = window.VibeLyfCommunicationScore?.getScore() || 0;
+                    const cloudStatus = window.VibeLyfCloud?.getStatus() || {};
                     const vocabCount = window.culturalVocabularyMaster?.getAllTerms?.()?.length || 453;
                     setTimeout(() => {
                         this.addChatMessage(
-                            `📊 **VIBENICITY SYSTEM STATUS**\n\n` +
+                            `📊 **VIBELYF SYSTEM STATUS**\n\n` +
                             `**Build Engines:**\n` +
-                            `• Code Generator (Gemini 2.5 Flash): ${window.VibenicityCodeGenerator ? '✅' : '❌'}\n` +
+                            `• Code Generator (Gemini 2.5 Flash): ${window.VibeLyfCodeGenerator ? '✅' : '❌'}\n` +
                             `• API Generator (Gemini + Claude): ${window.ClaudeAPIGenerator ? '✅ CORS-safe' : '❌'}\n` +
-                            `• Image Forge (Gemini Multi): ${window.VibenicityImageForge ? '✅' : '❌'}\n` +
-                            `• Orchestrator: ${window.VibenicityOrchestrator ? '✅' : '❌'}\n\n` +
+                            `• Image Forge (Gemini Multi): ${window.VibeLyfImageForge ? '✅' : '❌'}\n` +
+                            `• Orchestrator: ${window.VibeLyfOrchestrator ? '✅' : '❌'}\n\n` +
                             `**Intelligence Layer:**\n` +
                             `• Vocabulary DB: ${window.culturalVocabularyMaster ? `✅ ${vocabCount} terms` : '❌'}\n` +
                             `• Slang Translator: ${window.culturalVocabularyMaster?.translate ? '✅' : '❌'}\n` +
-                            `• Learning Loop: ${window.VibenicityLearningLoop ? '✅' : '❌'}\n` +
+                            `• Learning Loop: ${window.VibeLyfLearningLoop ? '✅' : '❌'}\n` +
                             `• Linguistics V32: ${window.Linguistics ? '✅ 16 vibes' : '❌'}\n` +
                             `• Groq Fast-Brain: ${groqStats.enabled ? `✅ (${groqStats.requestsToday}/${groqStats.dailyLimit} today)` : '⚪ Not configured'}\n\n` +
                             `**Cloud & Auth:**\n` +
@@ -4784,7 +4784,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                         // /cloud URL KEY — setup
                         const [url, key] = args.split(/\s+/);
                         if (url.includes('supabase') && key) {
-                            const result = await window.VibenicityCloud?.init(url, key);
+                            const result = await window.VibeLyfCloud?.init(url, key);
                             setTimeout(() => {
                                 this.addChatMessage(
                                     result ? 
@@ -4796,7 +4796,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                         }
                     } else {
                         // /cloud — show status
-                        const status = window.VibenicityCloud?.getStatus() || {};
+                        const status = window.VibeLyfCloud?.getStatus() || {};
                         setTimeout(() => {
                             this.addChatMessage(
                                 `☁️ **Cloud Status**\n\n` +
@@ -4821,11 +4821,11 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                     const args = message.replace(/^\/signup\s*/i, '').trim().split(/\s+/);
                     if (args.length >= 2) {
                         const [email, password] = args;
-                        const result = await window.VibenicityCloud?.signUp(email, password);
+                        const result = await window.VibeLyfCloud?.signUp(email, password);
                         setTimeout(() => {
                             this.addChatMessage(
                                 result?.success ? 
-                                `🎉 **Account created!** Welcome to VIBENICITY, ${email.split('@')[0]}!\n\nCheck your email for a confirmation link. Your data will now sync to the cloud.` :
+                                `🎉 **Account created!** Welcome to VIBELYF, ${email.split('@')[0]}!\n\nCheck your email for a confirmation link. Your data will now sync to the cloud.` :
                                 `❌ Signup failed: ${result?.error || 'Unknown error'}\n\nMake sure Supabase is configured: \`/cloud\``,
                                 'bot'
                             );
@@ -4843,7 +4843,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                     const args = message.replace(/^\/login\s*/i, '').trim().split(/\s+/);
                     if (args.length >= 2) {
                         const [email, password] = args;
-                        const result = await window.VibenicityCloud?.signIn(email, password);
+                        const result = await window.VibeLyfCloud?.signIn(email, password);
                         setTimeout(() => {
                             this.addChatMessage(
                                 result?.success ? 
@@ -4862,12 +4862,12 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                 
                 // 🔄 /sync command
                 if (message.toLowerCase() === '/sync') {
-                    const synced = await window.VibenicityCloud?.sync();
+                    const synced = await window.VibeLyfCloud?.sync();
                     setTimeout(() => {
                         this.addChatMessage(
                             synced ? 
                             `☁️ **Sync complete!** All local data pushed to cloud.` :
-                            `⚠️ Cannot sync: ${window.VibenicityCloud?.isReady() ? 'Not signed in' : 'Supabase not configured'}. Use \`/cloud\` to set up.`,
+                            `⚠️ Cannot sync: ${window.VibeLyfCloud?.isReady() ? 'Not signed in' : 'Supabase not configured'}. Use \`/cloud\` to set up.`,
                             'bot'
                         );
                     }, 300);
@@ -4878,11 +4878,11 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                 this.addChatMessage(message, 'user');
                 
                 // 🪿 THE GOLDEN GOOSE: Check if we're waiting for a definition
-                if (window.VibenicityLearningLoop && window.VibenicityLearningLoop.state.waitingForDefinition) {
+                if (window.VibeLyfLearningLoop && window.VibeLyfLearningLoop.state.waitingForDefinition) {
                     console.log('📚 User is providing definition for unknown term');
                     
                     // Learn from user's explanation
-                    const result = window.VibenicityLearningLoop.learnFromUser(message);
+                    const result = window.VibeLyfLearningLoop.learnFromUser(message);
                     
                     if (result.success) {
                         // Show learning confirmation
@@ -4905,10 +4905,10 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                 let detectedSlang = [];
                 let groqAnalysis = null;
                 
-                if (window.VibenicityGroqBrain && window.VibenicityGroqBrain.isReady()) {
+                if (window.VibeLyfGroqBrain && window.VibeLyfGroqBrain.isReady()) {
                     // ⚡ FAST PATH: Groq analyzes slang + vagueness in <500ms
                     console.log('⚡ Using Groq Fast-Brain for instant analysis...');
-                    groqAnalysis = await window.VibenicityGroqBrain.detectSlang(message);
+                    groqAnalysis = await window.VibeLyfGroqBrain.detectSlang(message);
                     
                     if (groqAnalysis && groqAnalysis.detected) {
                         detectedSlang = groqAnalysis.detected.map(d => ({
@@ -4924,16 +4924,16 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                     console.log('⚡ Groq detected:', detectedSlang.length, 'slang terms');
                 } else {
                     // 🔍 LOCAL PATH: Use existing Learning Loop detection
-                    detectedSlang = window.VibenicityLearningLoop ? 
-                        window.VibenicityLearningLoop.detectSlang(message) : 
+                    detectedSlang = window.VibeLyfLearningLoop ? 
+                        window.VibeLyfLearningLoop.detectSlang(message) : 
                         this.detectSlang(message);
                 }
                     
                 console.log('🔍 Detected slang:', detectedSlang);
                 
                 // 🆕 STEP 2: Find unknown terms (THE LEARNING LOOP!)
-                const unknownTerms = window.VibenicityLearningLoop ? 
-                    window.VibenicityLearningLoop.findUnknownTerms(message, detectedSlang) : 
+                const unknownTerms = window.VibeLyfLearningLoop ? 
+                    window.VibeLyfLearningLoop.findUnknownTerms(message, detectedSlang) : 
                     [];
                     
                 if (unknownTerms.length > 0) {
@@ -4941,7 +4941,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                     
                     // Ask user to define the first unknown term
                     const unknownTerm = unknownTerms[0].term;
-                    const definitionRequest = window.VibenicityLearningLoop.requestDefinition(unknownTerm, message);
+                    const definitionRequest = window.VibeLyfLearningLoop.requestDefinition(unknownTerm, message);
                     
                     setTimeout(() => {
                         this.addChatMessage(definitionRequest, 'bot');
@@ -4962,15 +4962,15 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                     vagueReason = 'Groq analysis: message lacks specifics';
                     
                     // Get a culturally-aware clarification from Groq
-                    if (window.VibenicityGroqBrain && window.VibenicityGroqBrain.isReady()) {
-                        clarificationMsg = await window.VibenicityGroqBrain.generateClarification(message);
+                    if (window.VibeLyfGroqBrain && window.VibeLyfGroqBrain.isReady()) {
+                        clarificationMsg = await window.VibeLyfGroqBrain.generateClarification(message);
                     }
-                } else if (window.VibenicityVagueDetector) {
-                    const vaguenessCheck = window.VibenicityVagueDetector.isVague(message);
+                } else if (window.VibeLyfVagueDetector) {
+                    const vaguenessCheck = window.VibeLyfVagueDetector.isVague(message);
                     isVagueMessage = vaguenessCheck.isVague;
                     vagueReason = vaguenessCheck.reason;
                     if (isVagueMessage) {
-                        clarificationMsg = window.VibenicityVagueDetector.getClarificationMessage(vaguenessCheck);
+                        clarificationMsg = window.VibeLyfVagueDetector.getClarificationMessage(vaguenessCheck);
                     }
                 }
                 
@@ -4978,8 +4978,8 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                     console.log('🤔 VAGUE MESSAGE DETECTED:', vagueReason);
                         
                     // Log as vague
-                    if (window.VibenicityCommunicationScore) {
-                        window.VibenicityCommunicationScore.logMessage('vague', message);
+                    if (window.VibeLyfCommunicationScore) {
+                        window.VibeLyfCommunicationScore.logMessage('vague', message);
                     }
                     
                     // Show clarification request (already generated above)
@@ -4988,8 +4988,8 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                     }, 500);
                     
                     // Show current score
-                    if (window.VibenicityCommunicationScore) {
-                        const score = window.VibenicityCommunicationScore.getScore();
+                    if (window.VibeLyfCommunicationScore) {
+                        const score = window.VibeLyfCommunicationScore.getScore();
                         setTimeout(() => {
                             this.addChatMessage(`💡 **Your Communication Score: ${score}%** - Be more specific to improve!`, 'bot');
                         }, 1500);
@@ -5005,9 +5005,9 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                     // Message is clear! Log it and praise user
                     console.log('✅ CLEAR MESSAGE DETECTED');
                     
-                    if (window.VibenicityCommunicationScore) {
-                        window.VibenicityCommunicationScore.logMessage('clear', message);
-                        const score = window.VibenicityCommunicationScore.getScore();
+                    if (window.VibeLyfCommunicationScore) {
+                        window.VibeLyfCommunicationScore.logMessage('clear', message);
+                        const score = window.VibeLyfCommunicationScore.getScore();
                         
                         // Praise for good communication
                         if (score >= 80) {
@@ -5044,7 +5044,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                     
                     // Get API keys — Claude optional (CORS issue), Gemini preferred
                     const claudeKey = localStorage.getItem('claude_api_key') || window.ClaudeAPIGenerator.config.claudeApiKey;
-                    const geminiKey = window.VibenicityCodeGenerator?.config?.apiKey || localStorage.getItem('gemini_api_key');
+                    const geminiKey = window.VibeLyfCodeGenerator?.config?.apiKey || localStorage.getItem('gemini_api_key');
                     
                     if (!claudeKey && !geminiKey) {
                         setTimeout(() => {
@@ -5125,7 +5125,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                                 );
                                 
                                 // Use orchestrator to select and use the best engine
-                                const result = await window.VibenicityOrchestrator.generate(message, {
+                                const result = await window.VibeLyfOrchestrator.generate(message, {
                                     interpretedMessage: interpretedMessage,
                                     detectedSlang: detectedSlang,
                                     hasImages: this.state.uploadedFiles.length > 0,
@@ -5144,8 +5144,8 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                                     this.addChatMessage(`✅ Generated with **${engineName}**!`, 'bot');
                                     
                                     // ⭐ Award XP for successful generation
-                                    if (window.VibenicityProfile) {
-                                        window.VibenicityProfile.addXP(25, 'App generated with ' + engineName);
+                                    if (window.VibeLyfProfile) {
+                                        window.VibeLyfProfile.addXP(25, 'App generated with ' + engineName);
                                     }
                                     
                                     // 📊 Track generation in PostHog
@@ -5165,8 +5165,8 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                                     
                                     // Render the app
                                     setTimeout(() => {
-                                        if (window.VibenicityAppRenderer && result.code) {
-                                            window.VibenicityAppRenderer.render(result.code, {
+                                        if (window.VibeLyfAppRenderer && result.code) {
+                                            window.VibeLyfAppRenderer.render(result.code, {
                                                 userMessage: message,
                                                 interpretedMessage: interpretedMessage,
                                                 codeLength: result.code.length,
@@ -5319,8 +5319,8 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                 else if (lowerMessage.match(/what|how|where|when|why|tell me|explain/)) {
                     interpretation = `It seems like you're **asking a question** or want an **explanation**. `;
                     
-                    if (lowerMessage.includes('vibenicity') || lowerMessage.includes('this')) {
-                        interpretation += `Specifically about **VIBENICITY platform**. `;
+                    if (lowerMessage.includes('vibelyf') || lowerMessage.includes('this')) {
+                        interpretation += `Specifically about **VIBELYF platform**. `;
                         confidence = 'high';
                     } else if (detectedSlang.length > 0) {
                         interpretation += `You might want to know about the term **"${detectedSlang[0].term}"**. `;
@@ -5735,7 +5735,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                 
                 // PRIORITY 2: Handle common requests
                 if (lowerMessage.includes('help') || lowerMessage.includes('guide')) {
-                    return `📚 **VIBENICITY HELP CENTER**\n\n` +
+                    return `📚 **VIBELYF HELP CENTER**\n\n` +
                            `I'm your AI guide with deep cultural linguistics knowledge!\n\n` +
                            `**What I Can Do:**\n` +
                            `• 🔍 Detect & explain 453 cultural/slang terms\n` +
@@ -5896,7 +5896,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                 
                 // Default friendly response
                 return `💭 **I'm listening!**\n\n` +
-                       `I'm VIBENICITY's AI assistant with deep cultural linguistics knowledge.\n\n` +
+                       `I'm VIBELYF's AI assistant with deep cultural linguistics knowledge.\n\n` +
                        `**Try:**\n` +
                        `• Ask about slang terms (I know 453!)\n` +
                        `• Say "help" for a full guide\n` +
@@ -6054,7 +6054,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                 const mainContent = document.getElementById('main-content');
                 
                 // HIDE VIDEO (welcome screen is over - chat started!)
-                const video = document.getElementById('vibenicity-brand-video');
+                const video = document.getElementById('vibelyf-brand-video');
                 if (video) {
                     video.style.display = 'none';
                 }
@@ -6164,7 +6164,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
             // Show chat response in UI with enhanced features
             showChatResponse(response, detectedSlang) {
                 const categoryIcon = detectedSlang.length > 0 ? this.getCategoryIcon(detectedSlang[0].category) : '🤖';
-                let message = `${categoryIcon} VIBENICITY AI ${response.powered ? '(Powered by Claude)' : ''}\n\n${response.text}`;
+                let message = `${categoryIcon} VIBELYF AI ${response.powered ? '(Powered by Claude)' : ''}\n\n${response.text}`;
                 
                 // Add content warnings first
                 const warnings = detectedSlang.filter(t => t.contentWarning);
@@ -6234,12 +6234,12 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                 const apiKey = prompt(message);
                 
                 if (apiKey && apiKey.trim()) {
-                    localStorage.setItem('vibenicity_claude_api_key', apiKey.trim());
+                    localStorage.setItem('vibelyf_claude_api_key', apiKey.trim());
                     CLAUDE_CONFIG.apiKey = apiKey.trim();
                     alert('✅ Claude API Key saved!\n\nYour chatbot is now powered by Claude AI.');
                 } else if (apiKey === '') {
                     // User cleared the field
-                    localStorage.removeItem('vibenicity_claude_api_key');
+                    localStorage.removeItem('vibelyf_claude_api_key');
                     CLAUDE_CONFIG.apiKey = null;
                     alert('🗑️ API Key removed');
                 }
@@ -6247,7 +6247,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
             
             // Show affiliate revenue stats
             showAffiliateStats() {
-                const clicks = JSON.parse(localStorage.getItem('vibenicity_affiliate_clicks') || '[]');
+                const clicks = JSON.parse(localStorage.getItem('vibelyf_affiliate_clicks') || '[]');
                 const stats = this.state.affiliateStats;
                 
                 const breakdown = {};
@@ -6270,7 +6270,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
             
             // Show projected earnings
             showEarnings() {
-                const clicks = JSON.parse(localStorage.getItem('vibenicity_affiliate_clicks') || '[]');
+                const clicks = JSON.parse(localStorage.getItem('vibelyf_affiliate_clicks') || '[]');
                 
                 // Estimated conversion rate: 2-5%
                 const estimatedConversionRate = 0.03;
@@ -6305,7 +6305,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
         // 🎓 ONBOARDING SYSTEM
         // ============================================
         const OnboardingSystem = {
-            STORAGE_KEY: 'vibenicity_onboarding',
+            STORAGE_KEY: 'vibelyf_onboarding',
             
             state: {
                 completed: false,
@@ -6325,7 +6325,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                 // Check if user is new (no onboarding record)
                 // ONBOARDING DISABLED - Let users explore freely
                 // User can manually click "Get Started" button if they want the tour
-                console.log('🎬 VIBENICITY Ready - Onboarding available via Get Started button');
+                console.log('🎬 VIBELYF Ready - Onboarding available via Get Started button');
                 
                 // Initialize chatbot trigger system
                 this.initChatbotTriggers();
@@ -6376,12 +6376,12 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                                autoplay 
                                playsinline 
                                style="width: 100%; height: auto; display: block;">
-                            <source src="videos/vibenicity-intro.mp4" type="video/mp4">
+                            <source src="videos/vibelyf-intro.mp4" type="video/mp4">
                             Your browser does not support video playback.
                         </video>
                         <img id="introLogo" 
-                             src="images/vibenicity-logo.jpg" 
-                             alt="VIBENICITY" 
+                             src="images/vibelyf-logo.jpg" 
+                             alt="VIBELYF" 
                              style="
                                 width: 80%;
                                 max-width: 500px;
@@ -6421,7 +6421,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
             
             offerResumeOnboarding() {
                 const resume = confirm(
-                    '👋 Welcome back to VIBENICITY!\n\n' +
+                    '👋 Welcome back to VIBELYF!\n\n' +
                     'You started the tour earlier. Want to continue where you left off?\n\n' +
                     'Click OK to resume, or Cancel to skip.'
                 );
@@ -6462,7 +6462,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                             🌟
                         </div>
                         <h1 style="font-size: 32px; font-weight: 900; background: linear-gradient(135deg, rgba(var(--primary-glow), 1), rgba(var(--secondary-glow), 1)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 16px;">
-                            Welcome to VIBENICITY!
+                            Welcome to VIBELYF!
                         </h1>
                         <p style="color: rgba(255,255,255,0.7); font-size: 16px; line-height: 1.6; margin-bottom: 32px;">
                             The social platform powered by next-gen AI<br>
@@ -6539,13 +6539,13 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                 alert(`🔐 ${providerNames[provider]} Login\n\nIn production, this would use OAuth to securely log you in.\n\nFor this demo, we'll create a profile for you!`);
                 
                 // Create demo user
-                VibenicityApp.state.user = {
+                VibeLyfApp.state.user = {
                     email: `user@${provider}.com`,
                     username: `${provider}User`,
                     id: 'demo_' + Date.now(),
                     provider: provider
                 };
-                VibenicityApp.saveState();
+                VibeLyfApp.saveState();
                 
                 this.showSuccessConfirmation();
             },
@@ -6561,12 +6561,12 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                 }
                 
                 // Create user
-                VibenicityApp.state.user = {
+                VibeLyfApp.state.user = {
                     email: email,
                     username: username,
                     id: 'demo_' + Date.now()
                 };
-                VibenicityApp.saveState();
+                VibeLyfApp.saveState();
                 
                 this.showSuccessConfirmation();
             },
@@ -6575,7 +6575,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                 const modal = document.getElementById('authModal');
                 const modalContent = modal.querySelector('.modal');
                 
-                const username = VibenicityApp.state.user.username || 'Friend';
+                const username = VibeLyfApp.state.user.username || 'Friend';
                 
                 modalContent.innerHTML = `
                     <div style="text-align: center;">
@@ -6586,7 +6586,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                             Welcome aboard, ${username}!
                         </h2>
                         <p style="color: rgba(255,255,255,0.7); font-size: 16px; margin-bottom: 32px;">
-                            Your VIBENICITY journey begins now.
+                            Your VIBELYF journey begins now.
                         </p>
                         
                         <div style="background: rgba(var(--primary-glow), 0.1); border: 2px solid rgba(var(--primary-glow), 0.3); border-radius: 12px; padding: 20px; margin-bottom: 24px;">
@@ -6624,7 +6624,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                 this.state.tourSkipped = true;
                 this.state.completed = true;
                 this.saveState();
-                VibenicityApp.closeModal('authModal');
+                VibeLyfApp.closeModal('authModal');
                 
                 // Show quick Genspark tip
                 setTimeout(() => {
@@ -6636,7 +6636,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
             // STAGE 2: UI TOUR
             // ============================================
             startUITour() {
-                VibenicityApp.closeModal('authModal');
+                VibeLyfApp.closeModal('authModal');
                 this.state.currentStage = 2;
                 this.state.currentStep = '2.1';
                 this.saveState();
@@ -6842,7 +6842,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
             completeOnboarding() {
                 this.state.completed = true;
                 this.saveState();
-                VibenicityApp.closeModal('authModal');
+                VibeLyfApp.closeModal('authModal');
                 
                 // Navigate to Genspark
                 alert('🚀 Launching Genspark!\n\nNote: In production, this would open the Genspark build interface.\n\nFor now, explore the widgets and try typing creation phrases in chat!');
@@ -6851,10 +6851,10 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
             exploreFirst() {
                 this.state.completed = true;
                 this.saveState();
-                VibenicityApp.closeModal('authModal');
+                VibeLyfApp.closeModal('authModal');
                 
                 setTimeout(() => {
-                    alert("✨ Welcome to VIBENICITY!\n\n💡 Remember: Type \"let's build\" or \"let's create\" anytime to launch Genspark!\n\n❓ Click the help icons for guidance in each section.");
+                    alert("✨ Welcome to VIBELYF!\n\n💡 Remember: Type \"let's build\" or \"let's create\" anytime to launch Genspark!\n\n❓ Click the help icons for guidance in each section.");
                 }, 500);
             },
             
@@ -6965,7 +6965,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
         // Interactive Conversational Onboarding Bot
         // ================================================
         const WelcomeChat = {
-            STORAGE_KEY: 'vibenicity_welcome_chat',
+            STORAGE_KEY: 'vibelyf_welcome_chat',
             state: {
                 active: false,
                 currentStage: 0,
@@ -7074,7 +7074,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                                 <div style="font-size: 32px;">🤖</div>
                                 <div>
                                     <div style="font-weight: 700; color: rgba(var(--primary-glow), 1); font-size: 16px;">
-                                        VIBENICITY Guide
+                                        VIBELYF Guide
                                     </div>
                                     <div id="chatStatus" style="font-size: 12px; color: rgba(255, 255, 255, 0.6);">
                                         Online • Ready to help
@@ -7469,7 +7469,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                         this.addMessage(
                             '📚 <strong>Here to help!</strong><br><br>' +
                             'I can show you:<br>' +
-                            '• How to use VIBENICITY<br>' +
+                            '• How to use VIBELYF<br>' +
                             '• How to launch Genspark AI<br>' +
                             '• How to customize your widgets<br>' +
                             '• How to connect social accounts<br><br>' +
@@ -7534,7 +7534,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                     else {
                         const responses = [
                             "💭 Interesting! Want to try building something with Genspark AI? Just say \"let's build\"!",
-                            "👍 Got it! Need help with anything? I'm here to guide you through VIBENICITY.",
+                            "👍 Got it! Need help with anything? I'm here to guide you through VIBELYF.",
                             '✨ Cool! If you want to explore, click any widget or ask me for help!',
                             "🚀 Awesome! Ready to unleash your creativity with Genspark? Just say \"let's create\"!"
                         ];
@@ -7642,7 +7642,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                 setTimeout(() => {
                     this.hideTypingIndicator();
                     this.addMessage(
-                        '👋 <strong>Welcome to VIBENICITY!</strong><br><br>' +
+                        '👋 <strong>Welcome to VIBELYF!</strong><br><br>' +
                         "I'm your personal guide, here to help you get started with the <strong style=\"color: rgba(var(--primary-glow), 1);\">most powerful social generative platform</strong> on the planet! 🌍✨"
                     );
                     
@@ -7728,7 +7728,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
             showStage1_ProfileSuccess() {
                 // Assume user completed profile
                 this.state.hasProfile = true;
-                this.state.userName = VibenicityApp.state.user?.username || 'Friend';
+                this.state.userName = VibeLyfApp.state.user?.username || 'Friend';
                 this.saveState();
                 
                 setTimeout(() => {
@@ -7737,7 +7737,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                     setTimeout(() => {
                         this.hideTypingIndicator();
                         this.addMessage(
-                            `🎊 <strong>Great! Your VIBENICITY journey begins now, ${this.state.userName}!</strong><br><br>` +
+                            `🎊 <strong>Great! Your VIBELYF journey begins now, ${this.state.userName}!</strong><br><br>` +
                             `Ready for a quick 30-second tour? I'll show you around!`
                         );
                         
@@ -7767,7 +7767,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                 setTimeout(() => {
                     this.hideTypingIndicator();
                     this.addMessage(
-                        "📱 <strong>Perfect! Let's explore VIBENICITY together.</strong><br><br>" +
+                        "📱 <strong>Perfect! Let's explore VIBELYF together.</strong><br><br>" +
                         "I'll walk you through the main areas. This will be super quick!"
                     );
                     
@@ -7785,7 +7785,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                     this.addMessage(
                         '🎯 <strong>Your Widget Dashboard</strong><br><br>' +
                         'See those colorful tiles? Those are your <strong>social widgets</strong>!<br><br>' +
-                        '✨ <strong>Click</strong> any widget to view content inside VIBENICITY<br>' +
+                        '✨ <strong>Click</strong> any widget to view content inside VIBELYF<br>' +
                         '🔗 <strong>Right-click</strong> to customize with your own links<br>' +
                         '➕ Use the <strong>+ button</strong> to add more platforms'
                     );
@@ -7865,7 +7865,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                     this.hideTypingIndicator();
                     this.addMessage(
                         '🎓 <strong>Tour Complete!</strong><br><br>' +
-                        'You\'re getting the hang of VIBENICITY! Now, let me introduce you to the <strong style="color: rgba(var(--primary-glow), 1);">star of the show</strong>...'
+                        'You\'re getting the hang of VIBELYF! Now, let me introduce you to the <strong style="color: rgba(var(--primary-glow), 1);">star of the show</strong>...'
                     );
                     
                     setTimeout(() => this.showStage3_GensparkIntro(), 2000);
@@ -7982,7 +7982,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                     );
                     
                     setTimeout(() => {
-                        VibenicityApp.openApp('genspark');
+                        VibeLyfApp.openApp('genspark');
                         this.completeOnboarding();
                     }, 1500);
                 }, 1000);
@@ -8003,7 +8003,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                         this.hideTypingIndicator();
                         this.addMessage(
                             '🎉 <strong>You\'re All Set!</strong><br><br>' +
-                            'Welcome to the VIBENICITY family! 🌟<br><br>' +
+                            'Welcome to the VIBELYF family! 🌟<br><br>' +
                             'I\'ll be here anytime you need help. Just click my icon or type in the chat!<br><br>' +
                             '<strong style="color: rgba(var(--primary-glow), 1);">Happy creating!</strong>'
                         );
@@ -8119,7 +8119,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                 home: {
                     title: '🏠 Home Screen',
                     content: `
-                        <strong>Welcome to your VIBENICITY home!</strong><br><br>
+                        <strong>Welcome to your VIBELYF home!</strong><br><br>
                         
                         <strong>What you can do here:</strong><br>
                         • View your main feed and updates<br>
@@ -8148,7 +8148,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                         • See posts from all platforms in one place<br>
                         • Filter by platform type<br>
                         • Search across all content<br>
-                        • Interact without leaving VIBENICITY<br><br>
+                        • Interact without leaving VIBELYF<br><br>
                         
                         <strong>To connect more platforms:</strong><br>
                         1. Click the <strong>+ button</strong> on widget sections<br>
@@ -8186,7 +8186,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                 themes: {
                     title: '🎨 Theme Customization',
                     content: `
-                        <strong>Personalize Your VIBENICITY Experience</strong><br><br>
+                        <strong>Personalize Your VIBELYF Experience</strong><br><br>
                         
                         <strong>Preset Themes:</strong><br>
                         • Cyberpunk Ocean (default)<br>
@@ -8381,55 +8381,55 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
         };
 
         window.addEventListener('DOMContentLoaded', () => {
-            VibenicityApp.init();
+            VibeLyfApp.init();
             OnboardingSystem.init();
             WelcomeChat.init();
             
             // 🪿 Initialize THE GOLDEN GOOSE - Self-Learning Language System
-            if (window.VibenicityLearningLoop) {
-                window.VibenicityLearningLoop.init();
+            if (window.VibeLyfLearningLoop) {
+                window.VibeLyfLearningLoop.init();
                 console.log('🪿 Learning Loop initialized - The revolution begins!');
             }
             
             // 🚀 Initialize Code Generator
-            if (window.VibenicityCodeGenerator) {
-                window.VibenicityCodeGenerator.init();
+            if (window.VibeLyfCodeGenerator) {
+                window.VibeLyfCodeGenerator.init();
                 console.log('🚀 Code Generator initialized - Ready to build!');
             }
             
             // 🎬 Initialize App Renderer
-            if (window.VibenicityAppRenderer) {
-                window.VibenicityAppRenderer.init();
+            if (window.VibeLyfAppRenderer) {
+                window.VibeLyfAppRenderer.init();
                 console.log('🎬 App Renderer initialized - Ready to show magic!');
             }
             
             // ⚡ Initialize Groq Fast-Brain (March 2026)
-            if (window.VibenicityGroqBrain) {
-                window.VibenicityGroqBrain.init();
+            if (window.VibeLyfGroqBrain) {
+                window.VibeLyfGroqBrain.init();
                 console.log('⚡ Groq Fast-Brain initialized - Instant slang detection ready!');
             }
             
             // 🎤 Initialize Voice Input (March 2026)
-            if (window.VibenicityVoice) {
-                window.VibenicityVoice.init();
+            if (window.VibeLyfVoice) {
+                window.VibeLyfVoice.init();
                 console.log('🎤 Voice Input initialized - Speak to code!');
             }
             
             // ☁️ Initialize Supabase Cloud (March 2026)
-            if (window.VibenicityCloud) {
-                window.VibenicityCloud.init();
+            if (window.VibeLyfCloud) {
+                window.VibeLyfCloud.init();
                 console.log('☁️ Cloud layer initialized');
             }
             
             // 👤 Initialize User Profile (March 2026)
-            if (window.VibenicityProfile) {
-                window.VibenicityProfile.init();
+            if (window.VibeLyfProfile) {
+                window.VibeLyfProfile.init();
                 console.log('👤 User Profile initialized');
             }
             
             // 🗂️ Initialize Hover-Reveal Tabs (March 2026)
-            if (window.VibenicityTabs) {
-                window.VibenicityTabs.init();
+            if (window.VibeLyfTabs) {
+                window.VibeLyfTabs.init();
                 console.log('🗂️ Hover-Reveal Tabs initialized');
             }
             
@@ -8444,15 +8444,15 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
             if (window.posthog && window.posthog.capture) {
                 window.posthog.capture('app_launched', {
                     version: '2026.03',
-                    has_groq: !!window.VibenicityGroqBrain?.isReady(),
-                    has_voice: !!window.VibenicityVoice?.state?.isSupported,
+                    has_groq: !!window.VibeLyfGroqBrain?.isReady(),
+                    has_voice: !!window.VibeLyfVoice?.state?.isSupported,
                     vocab_size: window.culturalVocabularyMaster?.getAllTerms?.()?.length || 453
                 });
             }
             
             // FORCE PLAY WELCOME VIDEO
             setTimeout(() => {
-                const video = document.getElementById('vibenicity-brand-video');
+                const video = document.getElementById('vibelyf-brand-video');
                 if (video) {
                     console.log('🎬 Force playing welcome video...');
                     video.play().then(() => {

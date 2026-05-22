@@ -1,5 +1,5 @@
 -- ═══════════════════════════════════════════════════════════════
--- VIBENICITY SUPABASE SETUP SQL
+-- VIBELYF SUPABASE SETUP SQL
 -- Run this in your Supabase SQL Editor (Dashboard → SQL Editor → New Query)
 -- 
 -- Creates: profiles, user_data, community_terms tables
@@ -122,5 +122,5 @@ CREATE TRIGGER user_data_updated_at
 -- 1. Go to Authentication → Settings → enable Email provider
 -- 2. Optionally enable Google, GitHub, Discord OAuth
 -- 3. Copy your project URL and anon key from Settings → API
--- 4. In VIBENICITY: VibenicityCloud.init('YOUR_URL', 'YOUR_ANON_KEY')
+-- 4. In VIBELYF: VibeLyfCloud.init('YOUR_URL', 'YOUR_ANON_KEY')
 -- ═══════════════════════════════════════════════════════════════

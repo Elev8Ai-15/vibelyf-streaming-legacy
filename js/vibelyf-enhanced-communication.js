@@ -1,5 +1,5 @@
 /**
- * VIBENICITY - Enhanced Communication System
+ * VIBELYF - Enhanced Communication System
  * 5-Step Loop: Vague Detection → Clarification → Context → Generation → Score
  */
 
@@ -7,13 +7,13 @@
 // COMMUNICATION SCORE SYSTEM
 // ═══════════════════════════════════════════════════════════════
 
-const VibenicityCommunicationScore = {
+const VibeLyfCommunicationScore = {
     
     /**
      * Log a message interaction
      */
     logMessage(type, message = '') {
-        let stats = JSON.parse(localStorage.getItem('vibenicity_comm_stats')) || {
+        let stats = JSON.parse(localStorage.getItem('vibelyf_comm_stats')) || {
             clear: 0,
             vague: 0,
             history: [],
@@ -35,7 +35,7 @@ const VibenicityCommunicationScore = {
         // Check for achievements
         this.checkAchievements(stats);
         
-        localStorage.setItem('vibenicity_comm_stats', JSON.stringify(stats));
+        localStorage.setItem('vibelyf_comm_stats', JSON.stringify(stats));
         
         console.log(`📊 Communication logged: ${type} | Score: ${this.getScore()}%`);
     },
@@ -44,7 +44,7 @@ const VibenicityCommunicationScore = {
      * Get current communication score
      */
     getScore() {
-        let stats = JSON.parse(localStorage.getItem('vibenicity_comm_stats')) || { clear: 0, vague: 0 };
+        let stats = JSON.parse(localStorage.getItem('vibelyf_comm_stats')) || { clear: 0, vague: 0 };
         const total = stats.clear + stats.vague;
         return total > 0 ? Math.round((stats.clear / total) * 100) : 0;
     },
@@ -53,7 +53,7 @@ const VibenicityCommunicationScore = {
      * Get detailed stats
      */
     getStats() {
-        return JSON.parse(localStorage.getItem('vibenicity_comm_stats')) || {
+        return JSON.parse(localStorage.getItem('vibelyf_comm_stats')) || {
             clear: 0,
             vague: 0,
             history: [],
@@ -143,9 +143,9 @@ ${this.getScoreAdvice(score)}
         // Show new achievements
         newAchievements.forEach(ach => {
             console.log(`🏆 NEW ACHIEVEMENT: ${ach.name} - ${ach.description}`);
-            if (window.VibenicityApp && window.VibenicityApp.addChatMessage) {
+            if (window.VibeLyfApp && window.VibeLyfApp.addChatMessage) {
                 setTimeout(() => {
-                    window.VibenicityApp.addChatMessage(
+                    window.VibeLyfApp.addChatMessage(
                         `🏆 **ACHIEVEMENT UNLOCKED!**\n\n**${ach.name}**\n${ach.description}`,
                         'bot'
                     );
@@ -159,7 +159,7 @@ ${this.getScoreAdvice(score)}
 // VAGUE DETECTION SYSTEM
 // ═══════════════════════════════════════════════════════════════
 
-const VibenicityVagueDetector = {
+const VibeLyfVagueDetector = {
     
     /**
      * Patterns that indicate vague requests (ONLY truly vague patterns)
@@ -304,7 +304,7 @@ const VibenicityVagueDetector = {
 // WIDGET LOADING SYSTEM
 // ═══════════════════════════════════════════════════════════════
 
-const VibenicityWidgetLoader = {
+const VibeLyfWidgetLoader = {
     
     /**
      * Widget URLs and configurations
@@ -407,7 +407,7 @@ const VibenicityWidgetLoader = {
      * Track affiliate clicks
      */
     trackClick(platform) {
-        let clicks = JSON.parse(localStorage.getItem('vibenicity_clicks')) || [];
+        let clicks = JSON.parse(localStorage.getItem('vibelyf_clicks')) || [];
         clicks.push({
             platform,
             timestamp: Date.now()
@@ -418,7 +418,7 @@ const VibenicityWidgetLoader = {
             clicks = clicks.slice(-1000);
         }
         
-        localStorage.setItem('vibenicity_clicks', JSON.stringify(clicks));
+        localStorage.setItem('vibelyf_clicks', JSON.stringify(clicks));
     }
 };
 
@@ -427,9 +427,9 @@ const VibenicityWidgetLoader = {
 // ═══════════════════════════════════════════════════════════════
 
 if (typeof window !== 'undefined') {
-    window.VibenicityCommunicationScore = VibenicityCommunicationScore;
-    window.VibenicityVagueDetector = VibenicityVagueDetector;
-    window.VibenicityWidgetLoader = VibenicityWidgetLoader;
+    window.VibeLyfCommunicationScore = VibeLyfCommunicationScore;
+    window.VibeLyfVagueDetector = VibeLyfVagueDetector;
+    window.VibeLyfWidgetLoader = VibeLyfWidgetLoader;
     
-    console.log('✅ VIBENICITY Enhanced Communication System loaded');
+    console.log('✅ VIBELYF Enhanced Communication System loaded');
 }

@@ -1,5 +1,5 @@
 /**
- * VIBENICITY BUILD ENGINE - CONFIGURATION
+ * VIBELYF BUILD ENGINE - CONFIGURATION
  * Central configuration for all Build Engine components
  */
 
@@ -116,7 +116,7 @@ const config = {
     // Admin Dashboard
     dashboard: {
         port: parseInt(process.env.PORT) || 3000,
-        title: 'VIBENICITY Build Engine Dashboard',
+        title: 'VIBELYF Build Engine Dashboard',
         autoRefreshInterval: 30000 // 30 seconds
     },
 

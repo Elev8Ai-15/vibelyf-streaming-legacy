@@ -11,9 +11,9 @@
 
 ## 🔒 Reporting a Vulnerability
 
-If you discover a security vulnerability in Vibenicity Nation, please **do not** open a public issue. Instead:
+If you discover a security vulnerability in VibeLyf Nation, please **do not** open a public issue. Instead:
 
-1. Email the maintainers (replace with your contact): `security@vibenicity.example.com`
+1. Email the maintainers (replace with your contact): `security@vibelyf.example.com`
 2. Include:
    - A clear description of the vulnerability
    - Steps to reproduce
@@ -27,7 +27,7 @@ We'll work with you to verify, fix, and (with permission) credit you in the rele
 
 ## ⚠️ Known Security Considerations
 
-Vibenicity is a **client-side static web app**. Users should be aware:
+VibeLyf is a **client-side static web app**. Users should be aware:
 
 ### API Keys
 - API keys (Gemini, Claude, Groq, Supabase) are stored in **browser localStorage**
@@ -35,7 +35,7 @@ Vibenicity is a **client-side static web app**. Users should be aware:
 - **Future fix:** Proxy all LLM calls through a Cloudflare Worker (see roadmap Phase 2)
 
 ### Third-Party Embeds
-- Vibenicity embeds platforms via iframe (YouTube, Spotify, SoundCloud, etc.)
+- VibeLyf embeds platforms via iframe (YouTube, Spotify, SoundCloud, etc.)
 - We do not control content served from embedded sources
 - All non-embeddable platforms (Instagram, X, Facebook, etc.) open in **new tabs**, not iframes
 
@@ -51,7 +51,7 @@ Vibenicity is a **client-side static web app**. Users should be aware:
 
 ## 🛡️ Best Practices for Self-Hosters
 
-If you fork Vibenicity to run your own instance:
+If you fork VibeLyf to run your own instance:
 
 - ✅ Set strict Content-Security-Policy headers on your server
 - ✅ Never commit API keys to git (`.env` is in `.gitignore`)
@@ -67,4 +67,4 @@ If you fork Vibenicity to run your own instance:
 - Critical vulnerabilities will be patched and disclosed within 30 days
 - Researchers acting in good faith will be credited
 
-Thank you for helping keep Vibenicity Nation secure! 🛡️
+Thank you for helping keep VibeLyf Nation secure! 🛡️

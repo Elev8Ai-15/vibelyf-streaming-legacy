@@ -1,8 +1,8 @@
 /**
- * Sociolinguistic Foundations - Vibenicity Knowledge Base
+ * Sociolinguistic Foundations - VibeLyf Knowledge Base
  * Purpose: Foundational concepts for understanding cultural language varieties
  * 
- * This data helps Vibenicity understand that cultural language features are
+ * This data helps VibeLyf understand that cultural language features are
  * SYSTEMATIC and GRAMMATICALLY VALID, not errors to be "fixed"
  */
 
@@ -14,7 +14,7 @@ window.sociolinguisticFoundations = {
             keyPoint: "Dialects are systematic language systems, not 'broken' versions of Standard English",
             examples: ["Southern American English", "AAVE", "Appalachian English", "New York English"],
             sociolinguisticContext: "Dialects carry social meaning and identity markers. They are rule-governed systems.",
-            culturalRelevance: "Understanding dialects helps Vibenicity recognize valid linguistic patterns in user input"
+            culturalRelevance: "Understanding dialects helps VibeLyf recognize valid linguistic patterns in user input"
         },
         
         vernacular: {
@@ -22,7 +22,7 @@ window.sociolinguisticFoundations = {
             keyPoint: "Vernaculars are natural, acquired language varieties used in everyday communication",
             examples: ["AAVE", "Chicano English", "Appalachian English", "Working-class speech"],
             sociolinguisticContext: "Vernaculars have 'covert prestige' - valued within their communities even if stigmatized outside",
-            culturalRelevance: "Most Vibenicity users will input commands in vernacular forms - we must recognize them as valid"
+            culturalRelevance: "Most VibeLyf users will input commands in vernacular forms - we must recognize them as valid"
         },
         
         sociolect: {
@@ -38,7 +38,7 @@ window.sociolinguisticFoundations = {
             keyPoint: "Ethnolects are linguistic expressions of ethnic identity and cultural heritage",
             examples: ["AAVE (African American)", "Chicano English (Latino)", "Asian American English"],
             sociolinguisticContext: "Ethnolects carry ethnic identity and often arise from contact between heritage languages and English",
-            culturalRelevance: "Core to Vibenicity's mission - respecting ethnic linguistic identity in coding"
+            culturalRelevance: "Core to VibeLyf's mission - respecting ethnic linguistic identity in coding"
         },
         
         covertPrestige: {
@@ -50,7 +50,7 @@ window.sociolinguisticFoundations = {
                 "Street slang valued in urban youth culture"
             ],
             sociolinguisticContext: "Speakers may intentionally use stigmatized features to signal identity and belonging",
-            culturalRelevance: "Vibenicity celebrates covert prestige - we don't 'fix' language, we understand it"
+            culturalRelevance: "VibeLyf celebrates covert prestige - we don't 'fix' language, we understand it"
         },
         
         standardLanguage: {
@@ -58,7 +58,7 @@ window.sociolinguisticFoundations = {
             keyPoint: "Standard English is ONE variety among many - not inherently 'better' or 'more correct'",
             examples: ["Standard American English", "Standard British English", "Academic English"],
             sociolinguisticContext: "Standards are socially constructed and maintained by institutional power",
-            culturalRelevance: "Vibenicity normalizes TO Standard English for code generation, but respects non-standard input"
+            culturalRelevance: "VibeLyf normalizes TO Standard English for code generation, but respects non-standard input"
         },
         
         codeSwitching: {
@@ -70,7 +70,7 @@ window.sociolinguisticFoundations = {
                 "Professional language at work, slang with friends"
             ],
             sociolinguisticContext: "Bilingual and bidialectal speakers code-switch based on audience, topic, and setting",
-            culturalRelevance: "Vibenicity users may code-switch within their input - we must recognize both varieties"
+            culturalRelevance: "VibeLyf users may code-switch within their input - we must recognize both varieties"
         },
         
         linguisticJustice: {
@@ -82,30 +82,30 @@ window.sociolinguisticFoundations = {
                 "Respecting code-switching and multilingualism"
             ],
             sociolinguisticContext: "Language attitudes reflect and reinforce social inequalities",
-            culturalRelevance: "Vibenicity's ENTIRE MISSION - 'Where Culture Codes the Future' - is about linguistic justice"
+            culturalRelevance: "VibeLyf's ENTIRE MISSION - 'Where Culture Codes the Future' - is about linguistic justice"
         }
     },
     
-    // Why This Matters for Vibenicity
-    applicationToVibenicity: {
-        inputUnderstanding: "These concepts help Vibenicity RECOGNIZE valid cultural language patterns in user commands",
+    // Why This Matters for VibeLyf
+    applicationToVibeLyf: {
+        inputUnderstanding: "These concepts help VibeLyf RECOGNIZE valid cultural language patterns in user commands",
         
         normalizationStrategy: "We normalize TO Standard English for code generation, but we UNDERSTAND cultural input as valid",
         
-        culturalRespect: "By understanding sociolinguistic concepts, Vibenicity treats cultural language with respect, not as errors",
+        culturalRespect: "By understanding sociolinguistic concepts, VibeLyf treats cultural language with respect, not as errors",
         
         accurateProcessing: "Recognizing grammatical patterns (like Habitual 'Be' or Zero Copula) prevents misinterpretation",
         
         communityAlignment: "Understanding covert prestige helps us serve communities who use stigmatized features proudly",
         
-        missionCritical: "Vibenicity = 'Vibe + Ethnicity' - sociolinguistics is our CORE, not an add-on"
+        missionCritical: "VibeLyf = 'Vibe + Ethnicity' - sociolinguistics is our CORE, not an add-on"
     },
     
     // Educational Context (for future UI features)
     educationalNotes: {
         forDevelopers: "Understanding these concepts makes you a better developer who builds inclusive technology",
         
-        forUsers: "Your language is valid. Your dialect is systematic. Vibenicity gets it.",
+        forUsers: "Your language is valid. Your dialect is systematic. VibeLyf gets it.",
         
         forCritics: "This isn't 'dumbing down' - it's recognizing linguistic diversity as sophisticated and rule-governed",
         
@@ -118,4 +118,4 @@ if (typeof window !== 'undefined') {
     window.sociolinguisticFoundations = window.sociolinguisticFoundations;
 }
 
-console.log('✅ Sociolinguistic Foundations loaded - Vibenicity understands cultural language is SYSTEMATIC');
+console.log('✅ Sociolinguistic Foundations loaded - VibeLyf understands cultural language is SYSTEMATIC');

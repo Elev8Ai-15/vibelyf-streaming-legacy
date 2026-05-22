@@ -1,5 +1,5 @@
 /**
- * VIBENICITY BUILD ENGINE - MAIN ORCHESTRATOR
+ * VIBELYF BUILD ENGINE - MAIN ORCHESTRATOR
  * Coordinates all pipeline stages
  */
 
@@ -21,7 +21,7 @@ class BuildEngineOrchestrator {
         console.log(chalk.bold.cyan(`
 ╔═══════════════════════════════════════════════════════════╗
 ║                                                           ║
-║          🚀 VIBENICITY BUILD ENGINE v1.0.0               ║
+║          🚀 VIBELYF BUILD ENGINE v1.0.0               ║
 ║                                                           ║
 ║    Automated Cultural Language Ingestion Pipeline        ║
 ║                                                           ║

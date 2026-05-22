@@ -1,7 +1,7 @@
 {
-  "name": "vibenicity-build-engine",
+  "name": "vibelyf-build-engine",
   "version": "1.0.0",
-  "description": "Automated cultural language ingestion pipeline for VIBENICITY",
+  "description": "Automated cultural language ingestion pipeline for VIBELYF",
   "main": "src/orchestrator.js",
   "scripts": {
     "start": "node src/orchestrator.js",
@@ -22,12 +22,12 @@
     "node": ">=16.0.0"
   },
   "keywords": [
-    "vibenicity",
+    "vibelyf",
     "slang",
     "cultural-vocabulary",
     "ai",
     "nlp"
   ],
-  "author": "VIBENICITY Team",
+  "author": "VIBELYF Team",
   "license": "MIT"
 }

@@ -1,8 +1,8 @@
 /**
- * Regional Variations - Vibenicity Knowledge Base
+ * Regional Variations - VibeLyf Knowledge Base
  * Purpose: Understanding sub-varieties and regional differences within language varieties
  * 
- * Helps Vibenicity recognize that:
+ * Helps VibeLyf recognize that:
  * - Southern English in Charleston ≠ Southern English in Dallas ≠ Southern English in Appalachia
  * - AAVE varies by region, age, class
  * - These variations are SYSTEMATIC, not random
@@ -325,4 +325,4 @@ if (typeof window !== 'undefined') {
     window.regionalVariations = window.regionalVariations;
 }
 
-console.log('✅ Regional Variations loaded - Vibenicity understands language diversity is systematic and regional');
+console.log('✅ Regional Variations loaded - VibeLyf understands language diversity is systematic and regional');

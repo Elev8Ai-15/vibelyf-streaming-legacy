@@ -1,5 +1,5 @@
 /**
- * 📱 VIBENICITY SERVICE WORKER
+ * 📱 VIBELYF SERVICE WORKER
  * 
  * Enables PWA features:
  *   - Home screen install on mobile
@@ -10,25 +10,25 @@
  * CREATED: March 2026
  */
 
-const CACHE_NAME = 'vibenicity-v2026.03';
+const CACHE_NAME = 'vibelyf-v2026.03';
 const CORE_ASSETS = [
     '/',
     '/index.html',
     '/js/cultural-vocabulary-master.js',
     '/js/linguistics-engine-v32.js',
-    '/js/vibenicity-learning-loop.js',
-    '/js/vibenicity-code-generator.js',
-    '/js/vibenicity-app-renderer.js',
-    '/js/vibenicity-orchestrator.js',
-    '/js/vibenicity-enhanced-communication.js',
-    '/js/vibenicity-groq-brain.js',
-    '/js/vibenicity-voice-input.js',
-    '/js/vibenicity-image-forge-engine.js',
-    '/js/vibenicity-image-editor.js',
+    '/js/vibelyf-learning-loop.js',
+    '/js/vibelyf-code-generator.js',
+    '/js/vibelyf-app-renderer.js',
+    '/js/vibelyf-orchestrator.js',
+    '/js/vibelyf-enhanced-communication.js',
+    '/js/vibelyf-groq-brain.js',
+    '/js/vibelyf-voice-input.js',
+    '/js/vibelyf-image-forge-engine.js',
+    '/js/vibelyf-image-editor.js',
     '/js/claude-api-generator.js',
-    '/js/vibenicity-integration.js',
-    '/js/vibenicity-integration-exports.js',
-    '/js/vibenicity-diagnostic.js',
+    '/js/vibelyf-integration.js',
+    '/js/vibelyf-integration-exports.js',
+    '/js/vibelyf-diagnostic.js',
     '/css/api-generator.css',
     '/manifest.json'
 ];

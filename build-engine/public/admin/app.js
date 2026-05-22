@@ -1,5 +1,5 @@
 /**
- * VIBENICITY Build Engine Dashboard
+ * VIBELYF Build Engine Dashboard
  */
 
 let pendingTerms = [];

@@ -1,16 +1,16 @@
 /**
- * VIBENICITY User Profile System
+ * VIBELYF User Profile System
  * Visual profile panel with vibe customization, stats, and cloud sync
  * 
  * Works in two modes:
  * - Offline: localStorage-based guest profile
- * - Cloud: Supabase-backed persistent profile (when VibenicityCloud is connected)
+ * - Cloud: Supabase-backed persistent profile (when VibeLyfCloud is connected)
  * 
  * @version 1.0.0
  * @date March 2026
  */
 
-window.VibenicityProfile = {
+window.VibeLyfProfile = {
 
     // ═══════════════════════════════════════════════════════════════
     // STATE
@@ -36,7 +36,7 @@ window.VibenicityProfile = {
     },
 
     panelVisible: false,
-    STORAGE_KEY: 'vibenicity_profile',
+    STORAGE_KEY: 'vibelyf_profile',
 
     // Available vibe themes with preview colors
     vibeThemes: {
@@ -104,27 +104,27 @@ window.VibenicityProfile = {
      */
     refreshStats() {
         // Communication score
-        if (window.VibenicityCommunicationScore) {
-            this.profile.stats.communicationScore = window.VibenicityCommunicationScore.getScore();
+        if (window.VibeLyfCommunicationScore) {
+            this.profile.stats.communicationScore = window.VibeLyfCommunicationScore.getScore();
         }
 
         // Code history
         try {
-            const history = JSON.parse(localStorage.getItem('vibenicity_code_history') || '[]');
+            const history = JSON.parse(localStorage.getItem('vibelyf_code_history') || '[]');
             this.profile.stats.appsGenerated = history.length;
         } catch (e) {}
 
         // Vocabulary
         try {
-            const pending = JSON.parse(localStorage.getItem('vibenicity_pending_terms') || '[]');
-            const session = JSON.parse(localStorage.getItem('vibenicity_session_vocab') || '{}');
+            const pending = JSON.parse(localStorage.getItem('vibelyf_pending_terms') || '[]');
+            const session = JSON.parse(localStorage.getItem('vibelyf_session_vocab') || '{}');
             this.profile.stats.termsLearned = Object.keys(session).length;
             this.profile.stats.vocabContributions = pending.length;
         } catch (e) {}
 
         // Voice
         try {
-            const voice = JSON.parse(localStorage.getItem('vibenicity_voice_stats') || '{}');
+            const voice = JSON.parse(localStorage.getItem('vibelyf_voice_stats') || '{}');
             this.profile.stats.voiceMessages = voice.totalMessages || 0;
         } catch (e) {}
 
@@ -189,7 +189,7 @@ window.VibenicityProfile = {
                 box-shadow: 0 0 20px rgba(139,92,246,0.4);
                 transition: all 0.3s ease;
                 border: 2px solid rgba(255,255,255,0.15);
-            " onclick="VibenicityProfile.togglePanel()" 
+            " onclick="VibeLyfProfile.togglePanel()" 
                onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 0 30px rgba(139,92,246,0.6)'" 
                onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 0 20px rgba(139,92,246,0.4)'">
                 ${this.profile.avatarEmoji}
@@ -243,7 +243,7 @@ window.VibenicityProfile = {
         const nextLevelXP = this.levelThresholds[p.level] || this.levelThresholds[this.levelThresholds.length - 1];
         const prevLevelXP = this.levelThresholds[p.level - 1] || 0;
         const xpProgress = Math.min(100, ((p.xp - prevLevelXP) / (nextLevelXP - prevLevelXP)) * 100);
-        const cloudUser = window.VibenicityCloud?.getUser();
+        const cloudUser = window.VibeLyfCloud?.getUser();
 
         return `
             <div style="padding: 24px;">
@@ -252,7 +252,7 @@ window.VibenicityProfile = {
                     <h2 style="margin: 0; font-size: 18px; font-weight: 700; background: linear-gradient(135deg, ${theme.primary}, ${theme.secondary}); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
                         MY VIBE PROFILE
                     </h2>
-                    <button onclick="VibenicityProfile.togglePanel()" style="
+                    <button onclick="VibeLyfProfile.togglePanel()" style="
                         background: rgba(255,255,255,0.1); border: none; color: white;
                         width: 32px; height: 32px; border-radius: 8px; cursor: pointer;
                         font-size: 16px; transition: all 0.2s;
@@ -267,7 +267,7 @@ window.VibenicityProfile = {
                         border: 3px solid ${theme.primary}; margin: 0 auto 12px;
                         display: flex; align-items: center; justify-content: center;
                         font-size: 40px; cursor: pointer;
-                    " onclick="VibenicityProfile.changeAvatar()" title="Click to change avatar">
+                    " onclick="VibeLyfProfile.changeAvatar()" title="Click to change avatar">
                         ${p.avatarEmoji}
                     </div>
                     <div contenteditable="true" id="profileDisplayName" style="
@@ -275,7 +275,7 @@ window.VibenicityProfile = {
                         border-bottom: 2px solid transparent; padding: 4px;
                         transition: border-color 0.2s;
                     " onfocus="this.style.borderBottomColor='${theme.primary}'" 
-                       onblur="this.style.borderBottomColor='transparent'; VibenicityProfile.updateName(this.textContent)"
+                       onblur="this.style.borderBottomColor='transparent'; VibeLyfProfile.updateName(this.textContent)"
                     >${p.displayName}</div>
                     <div style="color: rgba(255,255,255,0.5); font-size: 13px; margin-top: 4px;">
                         ${cloudUser ? `🔐 ${cloudUser.email}` : '⚪ Guest — /login to sync'}
@@ -323,7 +323,7 @@ window.VibenicityProfile = {
                     </h3>
                     <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;">
                         ${Object.entries(this.vibeThemes).map(([key, t]) => `
-                            <div onclick="VibenicityProfile.setTheme('${key}')" style="
+                            <div onclick="VibeLyfProfile.setTheme('${key}')" style="
                                 padding: 8px 4px; border-radius: 8px; text-align: center; cursor: pointer;
                                 background: ${p.vibeTheme === key ? `linear-gradient(135deg, ${t.primary}22, ${t.secondary}22)` : 'rgba(255,255,255,0.03)'};
                                 border: 1px solid ${p.vibeTheme === key ? t.primary : 'rgba(255,255,255,0.06)'};
@@ -346,26 +346,26 @@ window.VibenicityProfile = {
                         background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
                         color: white; font-family: 'Inter', sans-serif; font-size: 13px;
                         resize: vertical; outline: none;
-                    " onblur="VibenicityProfile.updateBio(this.value)">${p.bio}</textarea>
+                    " onblur="VibeLyfProfile.updateBio(this.value)">${p.bio}</textarea>
                 </div>
                 
                 <!-- Actions -->
                 <div style="display: flex; flex-direction: column; gap: 8px;">
                     ${cloudUser ? `
-                        <button onclick="VibenicityCloud.sync().then(() => VibenicityProfile.refreshAndRender())" style="
+                        <button onclick="VibeLyfCloud.sync().then(() => VibeLyfProfile.refreshAndRender())" style="
                             padding: 10px; border-radius: 8px; background: rgba(139,92,246,0.2);
                             border: 1px solid rgba(139,92,246,0.3); color: #a78bfa;
                             font-weight: 600; cursor: pointer; transition: all 0.2s;
                         " onmouseover="this.style.background='rgba(139,92,246,0.3)'" onmouseout="this.style.background='rgba(139,92,246,0.2)'">
                             ☁️ Sync to Cloud
                         </button>
-                        <button onclick="VibenicityCloud.signOut().then(() => VibenicityProfile.refreshAndRender())" style="
+                        <button onclick="VibeLyfCloud.signOut().then(() => VibeLyfProfile.refreshAndRender())" style="
                             padding: 10px; border-radius: 8px; background: rgba(255,255,255,0.05);
                             border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.6);
                             cursor: pointer; transition: all 0.2s;
                         ">🔓 Sign Out</button>
                     ` : `
-                        <button onclick="document.getElementById('chatInput').value='/cloud'; document.getElementById('chatInput').focus(); VibenicityProfile.togglePanel();" style="
+                        <button onclick="document.getElementById('chatInput').value='/cloud'; document.getElementById('chatInput').focus(); VibeLyfProfile.togglePanel();" style="
                             padding: 10px; border-radius: 8px; background: rgba(139,92,246,0.2);
                             border: 1px solid rgba(139,92,246,0.3); color: #a78bfa;
                             font-weight: 600; cursor: pointer; transition: all 0.2s;
@@ -484,4 +484,4 @@ window.VibenicityProfile = {
     }
 };
 
-console.log('👤 VibenicityProfile module loaded');
+console.log('👤 VibeLyfProfile module loaded');

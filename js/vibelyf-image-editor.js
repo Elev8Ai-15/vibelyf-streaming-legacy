@@ -1,10 +1,10 @@
 /**
- * VIBENICITY IMAGE EDITOR
+ * VIBELYF IMAGE EDITOR
  * Real-time image editing with CSS filters and canvas export
  * Extracted from V20 Forge Edition
  */
 
-window.VibenicityImageEditor = {
+window.VibeLyfImageEditor = {
     
     originalImage: null,
     currentImage: null,
@@ -207,7 +207,7 @@ window.VibenicityImageEditor = {
     /**
      * Export edited image to canvas and download
      */
-    async downloadImage(imageElement, filename = 'vibenicity-edited.png') {
+    async downloadImage(imageElement, filename = 'vibelyf-edited.png') {
         if (!this.originalImage) {
             throw new Error('No image loaded');
         }
@@ -329,4 +329,4 @@ window.VibenicityImageEditor = {
 };
 
 // Export for debugging
-console.log('✅ VibenicityImageEditor loaded');
+console.log('✅ VibeLyfImageEditor loaded');

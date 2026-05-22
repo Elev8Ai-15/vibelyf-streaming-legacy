@@ -129,7 +129,7 @@ Use this checklist to get the Build Engine running successfully.
 - [ ] Open browser to: http://localhost:3000/admin/
 
 - [ ] Verify dashboard loads:
-  - [ ] Header shows "VIBENICITY BUILD ENGINE"
+  - [ ] Header shows "VIBELYF BUILD ENGINE"
   - [ ] Stats show pending count
   - [ ] Terms display in cards
 
@@ -245,7 +245,7 @@ Mark these off as you achieve them:
 ### Week 2:
 - [ ] 5-10 terms approved total
 - [ ] Terms merged into database
-- [ ] VIBENICITY recognizes new terms
+- [ ] VIBELYF recognizes new terms
 - [ ] Daily scans set up (optional)
 
 ### Month 1:

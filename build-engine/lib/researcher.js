@@ -1,5 +1,5 @@
 /**
- * VIBENICITY BUILD ENGINE - STAGE 3: DEFINITION RESEARCHER (Gemini)
+ * VIBELYF BUILD ENGINE - STAGE 3: DEFINITION RESEARCHER (Gemini)
  */
 
 const { GoogleGenerativeAI } = require('@google/generative-ai');

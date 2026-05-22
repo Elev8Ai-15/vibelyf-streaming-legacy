@@ -1,5 +1,5 @@
 /**
- * 🎬 VIBENICITY APP RENDERER
+ * 🎬 VIBELYF APP RENDERER
  * 
  * Displays generated code in a safe, sandboxed iframe.
  * Shows working apps that users just created with their words.
@@ -7,7 +7,7 @@
  * THE MOMENT OF MAGIC - WHERE WORDS BECOME REALITY.
  */
 
-const VibenicityAppRenderer = {
+const VibeLyfAppRenderer = {
     // Current rendered app
     currentApp: null,
     
@@ -27,14 +27,14 @@ const VibenicityAppRenderer = {
      */
     createRendererContainer() {
         // Check if container already exists
-        if (document.getElementById('vibenicityAppRenderer')) {
-            this.rendererContainer = document.getElementById('vibenicityAppRenderer');
+        if (document.getElementById('vibelyfAppRenderer')) {
+            this.rendererContainer = document.getElementById('vibelyfAppRenderer');
             return;
         }
 
         // Create container
         const container = document.createElement('div');
-        container.id = 'vibenicityAppRenderer';
+        container.id = 'vibelyfAppRenderer';
         container.style.cssText = `
             position: fixed;
             top: 0;
@@ -73,13 +73,13 @@ const VibenicityAppRenderer = {
                                 YOUR APP
                             </div>
                             <div style="font-size: 13px; opacity: 0.8;" id="appRendererTitle">
-                                Generated with VIBENICITY
+                                Generated with VIBELYF
                             </div>
                         </div>
                     </div>
                     
                     <div style="display: flex; gap: 12px; align-items: center;">
-                        <button onclick="VibenicityAppRenderer.toggleFullscreen()" style="
+                        <button onclick="VibeLyfAppRenderer.toggleFullscreen()" style="
                             background: rgba(var(--primary-glow), 0.2);
                             border: 1px solid rgba(var(--primary-glow), 0.4);
                             color: white;
@@ -93,7 +93,7 @@ const VibenicityAppRenderer = {
                             ⛶ Fullscreen
                         </button>
                         
-                        <button onclick="VibenicityAppRenderer.downloadCode()" style="
+                        <button onclick="VibeLyfAppRenderer.downloadCode()" style="
                             background: rgba(0, 255, 136, 0.2);
                             border: 1px solid rgba(0, 255, 136, 0.4);
                             color: white;
@@ -107,7 +107,7 @@ const VibenicityAppRenderer = {
                             ⬇ Download
                         </button>
                         
-                        <button onclick="VibenicityAppRenderer.close()" style="
+                        <button onclick="VibeLyfAppRenderer.close()" style="
                             background: rgba(255, 68, 68, 0.2);
                             border: 1px solid rgba(255, 68, 68, 0.4);
                             color: white;
@@ -283,7 +283,7 @@ const VibenicityAppRenderer = {
 
         // Create filename
         const timestamp = new Date().toISOString().slice(0, 10);
-        const filename = `vibenicity-app-${timestamp}.html`;
+        const filename = `vibelyf-app-${timestamp}.html`;
 
         // Create blob
         const blob = new Blob([code], { type: 'text/html' });
@@ -391,11 +391,11 @@ style.textContent = `
 
     /* Responsive renderer */
     @media (max-width: 768px) {
-        #vibenicityAppRenderer > div > div:first-child {
+        #vibelyfAppRenderer > div > div:first-child {
             padding: 12px !important;
         }
         
-        #vibenicityAppRenderer button {
+        #vibelyfAppRenderer button {
             padding: 8px 12px !important;
             font-size: 14px !important;
         }
@@ -405,6 +405,6 @@ document.head.appendChild(style);
 
 // Initialize on load
 if (typeof window !== 'undefined') {
-    window.VibenicityAppRenderer = VibenicityAppRenderer;
-    console.log('🎬 VIBENICITY App Renderer loaded - Ready to show your creations!');
+    window.VibeLyfAppRenderer = VibeLyfAppRenderer;
+    console.log('🎬 VIBELYF App Renderer loaded - Ready to show your creations!');
 }

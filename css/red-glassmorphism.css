@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════════
-   VIBENICITY — BLUE GLASSMORPHISM DESIGN SYSTEM v2.1
+   VIBELYF — BLUE GLASSMORPHISM DESIGN SYSTEM v2.1
    ═══════════════════════════════════════════════════════════════════════
    25% deeper navy glass on white. Rich dark-navy accents on frosted
    white panels with true glassmorphism translucency.
@@ -376,7 +376,7 @@ body {
    rgba(15, 45, 90, 0.04) — visible blue tint, non-distracting
    ═══════════════════════════════════════════════ */
 
-.vibenicity-container::before {
+.vibelyf-container::before {
     content: '';
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;

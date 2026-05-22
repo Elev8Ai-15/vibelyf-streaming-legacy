@@ -1,5 +1,5 @@
 /**
- * 🚀 VIBENICITY CODE GENERATOR
+ * 🚀 VIBELYF CODE GENERATOR
  * 
  * Takes clarified, interpreted user messages and generates actual working code.
  * Uses Google Gemini 2.5 Flash API to turn natural language into HTML/CSS/JS applications.
@@ -9,7 +9,7 @@
  * UPGRADED: March 2026 — Gemini 2.5 Flash (native code execution, 1M context, improved multimodal)
  */
 
-const VibenicityCodeGenerator = {
+const VibeLyfCodeGenerator = {
     // Gemini API Configuration
     config: {
         apiKey: 'AIzaSyB9jQaRGkfj4Tyq5y5j45RiYAeb_H2e-2g',
@@ -40,7 +40,7 @@ const VibenicityCodeGenerator = {
      */
     loadHistory() {
         try {
-            const saved = localStorage.getItem('vibenicity_code_history');
+            const saved = localStorage.getItem('vibelyf_code_history');
             if (saved) {
                 this.state.history = JSON.parse(saved);
                 console.log(`📜 Loaded ${this.state.history.length} previous generations`);
@@ -60,7 +60,7 @@ const VibenicityCodeGenerator = {
             this.state.history = this.state.history.slice(0, 50);
         }
         try {
-            localStorage.setItem('vibenicity_code_history', JSON.stringify(this.state.history));
+            localStorage.setItem('vibelyf_code_history', JSON.stringify(this.state.history));
         } catch (error) {
             console.error('Error saving history:', error);
         }
@@ -178,7 +178,7 @@ The vibe should DOMINATE the visual design — it's what the user asked for.`;
             }
         }
 
-        return `You are VIBENICITY Code Generator, an AI that builds web applications from natural language descriptions.
+        return `You are VIBELYF Code Generator, an AI that builds web applications from natural language descriptions.
 
 USER'S ORIGINAL MESSAGE (may contain slang):
 "${userMessage}"
@@ -202,7 +202,7 @@ REQUIREMENTS:
 8. Use Tailwind CSS via CDN: <script src="https://cdn.tailwindcss.com"></script>
 
 STYLE GUIDELINES:
-${vibeInstructions ? '- FOLLOW THE VIBE AESTHETIC ABOVE as the primary visual direction' : '- Dark theme with neon/cyber aesthetic (matches VIBENICITY brand)'}
+${vibeInstructions ? '- FOLLOW THE VIBE AESTHETIC ABOVE as the primary visual direction' : '- Dark theme with neon/cyber aesthetic (matches VIBELYF brand)'}
 - Use gradients (purple, cyan, pink, electric blue)
 - Add subtle animations and hover effects
 - Clean, modern typography
@@ -434,13 +434,13 @@ Generate the code now:`;
      */
     clearHistory() {
         this.state.history = [];
-        localStorage.removeItem('vibenicity_code_history');
+        localStorage.removeItem('vibelyf_code_history');
         console.log('🗑️ Cleared generation history');
     }
 };
 
 // Initialize on load
 if (typeof window !== 'undefined') {
-    window.VibenicityCodeGenerator = VibenicityCodeGenerator;
-    console.log('🚀 VIBENICITY Code Generator loaded - Ready to build apps from your words!');
+    window.VibeLyfCodeGenerator = VibeLyfCodeGenerator;
+    console.log('🚀 VIBELYF Code Generator loaded - Ready to build apps from your words!');
 }

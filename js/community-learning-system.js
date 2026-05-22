@@ -126,7 +126,7 @@ class CommunityLearningSystem {
         }
         
         if (needsFeedback) {
-            message += ' <strong>Your feedback makes Vibenicity smarter for everyone!</strong>';
+            message += ' <strong>Your feedback makes VibeLyf smarter for everyone!</strong>';
         }
         
         return message;
@@ -166,14 +166,14 @@ class CommunityLearningSystem {
             // Save stats
             this.saveStats();
             
-            console.log('✅ Translation confirmed! Thank you for helping Vibenicity learn!');
+            console.log('✅ Translation confirmed! Thank you for helping VibeLyf learn!');
             
             // Show appreciation
             this.showAppreciation('confirmation');
             
             return {
                 success: true,
-                message: 'Translation confirmed! Your input helps improve Vibenicity for everyone. 🙏',
+                message: 'Translation confirmed! Your input helps improve VibeLyf for everyone. 🙏',
                 contributionCount: this.userContributions.length
             };
         } catch (error) {
@@ -219,14 +219,14 @@ class CommunityLearningSystem {
             // Save stats
             this.saveStats();
             
-            console.log('🎓 Translation corrected! Vibenicity just got smarter!');
+            console.log('🎓 Translation corrected! VibeLyf just got smarter!');
             
             // Show appreciation
             this.showAppreciation('correction');
             
             return {
                 success: true,
-                message: 'Correction saved! You just taught Vibenicity something new. 🔥',
+                message: 'Correction saved! You just taught VibeLyf something new. 🔥',
                 contributionCount: this.userContributions.length,
                 newTranslation: correctedTranslation
             };
@@ -419,7 +419,7 @@ class CommunityLearningSystem {
             // Check localStorage quota before writing
             this.checkStorageQuota();
             
-            const key = `vibenicity_learned_${type}`;
+            const key = `vibelyf_learned_${type}`;
             let patterns = JSON.parse(localStorage.getItem(key) || '[]');
             patterns.push(pattern);
             
@@ -433,7 +433,7 @@ class CommunityLearningSystem {
                 this.cleanupOldPatterns(type);
                 // Try again after cleanup
                 try {
-                    const key = `vibenicity_learned_${type}`;
+                    const key = `vibelyf_learned_${type}`;
                     let patterns = JSON.parse(localStorage.getItem(key) || '[]');
                     patterns.push(pattern);
                     localStorage.setItem(key, JSON.stringify(patterns));
@@ -456,7 +456,7 @@ class CommunityLearningSystem {
         const learned = {};
         
         for (const type of types) {
-            const key = `vibenicity_learned_${type}`;
+            const key = `vibelyf_learned_${type}`;
             learned[type] = JSON.parse(localStorage.getItem(key) || '[]');
         }
         
@@ -472,12 +472,12 @@ class CommunityLearningSystem {
                 '🙏 Thank you! Your confirmation helps us learn!',
                 '💯 Appreciated! You\'re building linguistic history!',
                 '🔥 You just helped thousands of future users!',
-                '✨ Every confirmation makes Vibenicity smarter!'
+                '✨ Every confirmation makes VibeLyf smarter!'
             ],
             correction: [
                 '🎓 You just taught us something new! Legend!',
                 '🚀 Game-changer! Your correction goes live immediately!',
-                '💎 Your knowledge is now part of Vibenicity forever!',
+                '💎 Your knowledge is now part of VibeLyf forever!',
                 '🔥 You\'re literally shaping the future of language tech!'
             ]
         };
@@ -486,8 +486,8 @@ class CommunityLearningSystem {
         const message = pool[Math.floor(Math.random() * pool.length)];
         
         // Show toast notification
-        if (window.VibenicityUI) {
-            window.VibenicityUI.showToast(message, 'success', 4000);
+        if (window.VibeLyfUI) {
+            window.VibeLyfUI.showToast(message, 'success', 4000);
         }
     }
     
@@ -542,10 +542,10 @@ class CommunityLearningSystem {
      * Get or create anonymous user ID
      */
     getUserId() {
-        let userId = localStorage.getItem('vibenicity_user_id');
+        let userId = localStorage.getItem('vibelyf_user_id');
         if (!userId) {
             userId = 'user_' + Date.now() + '_' + Math.random().toString(36).slice(2, 11);
-            localStorage.setItem('vibenicity_user_id', userId);
+            localStorage.setItem('vibelyf_user_id', userId);
         }
         return userId;
     }
@@ -557,7 +557,7 @@ class CommunityLearningSystem {
         try {
             this.checkStorageQuota();
             const dataToStore = JSON.stringify(this.userContributions);
-            localStorage.setItem('vibenicity_contributions', dataToStore);
+            localStorage.setItem('vibelyf_contributions', dataToStore);
             console.log(`✅ Contributions saved: ${this.userContributions.length} total`);
         } catch (error) {
             if (error.name === 'QuotaExceededError') {
@@ -565,7 +565,7 @@ class CommunityLearningSystem {
                 // Keep only last 100 contributions
                 this.userContributions = this.userContributions.slice(-100);
                 try {
-                    localStorage.setItem('vibenicity_contributions', JSON.stringify(this.userContributions));
+                    localStorage.setItem('vibelyf_contributions', JSON.stringify(this.userContributions));
                     console.log('✅ Contributions trimmed and saved');
                 } catch (retryError) {
                     console.error('❌ Failed to save contributions even after trimming:', retryError);
@@ -580,7 +580,7 @@ class CommunityLearningSystem {
      * Load user contributions from localStorage
      */
     loadContributions() {
-        return JSON.parse(localStorage.getItem('vibenicity_contributions') || '[]');
+        return JSON.parse(localStorage.getItem('vibelyf_contributions') || '[]');
     }
     
     /**
@@ -589,7 +589,7 @@ class CommunityLearningSystem {
     saveStats() {
         try {
             const dataToStore = JSON.stringify(this.stats);
-            localStorage.setItem('vibenicity_learning_stats', dataToStore);
+            localStorage.setItem('vibelyf_learning_stats', dataToStore);
         } catch (error) {
             console.error('Error saving stats:', error);
             // Non-critical - stats can be reconstructed from contributions
@@ -600,7 +600,7 @@ class CommunityLearningSystem {
      * Load stats from localStorage
      */
     loadStats() {
-        const saved = localStorage.getItem('vibenicity_learning_stats');
+        const saved = localStorage.getItem('vibelyf_learning_stats');
         if (saved) {
             Object.assign(this.stats, JSON.parse(saved));
         }
@@ -646,7 +646,7 @@ class CommunityLearningSystem {
             // Estimate current usage
             let totalSize = 0;
             for (let key in localStorage) {
-                if (localStorage.hasOwnProperty(key) && key.startsWith('vibenicity_')) {
+                if (localStorage.hasOwnProperty(key) && key.startsWith('vibelyf_')) {
                     totalSize += localStorage[key].length + key.length;
                 }
             }
@@ -661,8 +661,8 @@ class CommunityLearningSystem {
             // Warn if over 80%
             if (usagePercent > 80) {
                 console.warn(`⚠️ localStorage usage at ${usagePercent.toFixed(1)}%! Consider cleanup.`);
-                if (window.VibenicityUI) {
-                    window.VibenicityUI.showToast(
+                if (window.VibeLyfUI) {
+                    window.VibeLyfUI.showToast(
                         'Storage nearly full - oldest data may be cleaned up automatically',
                         'warning',
                         5000
@@ -688,7 +688,7 @@ class CommunityLearningSystem {
      */
     cleanupOldPatterns(type) {
         try {
-            const key = `vibenicity_learned_${type}`;
+            const key = `vibelyf_learned_${type}`;
             let patterns = JSON.parse(localStorage.getItem(key) || '[]');
             
             if (patterns.length > 100) {

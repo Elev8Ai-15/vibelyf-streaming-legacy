@@ -36,7 +36,7 @@ class StudioController {
     }
 
     async init() {
-        console.log('🎨 Vibenicity Studio initializing (Hybrid Edition)...');
+        console.log('🎨 VibeLyf Studio initializing (Hybrid Edition)...');
         
         // Check service status
         const status = await this.generationService.getStatus();
@@ -98,7 +98,7 @@ class StudioController {
         }
         
         this.addMessage('assistant', `
-            <strong>🌟 Welcome to Vibenicity Studio!</strong><br><br>
+            <strong>🌟 Welcome to VibeLyf Studio!</strong><br><br>
             
             ${configInfo}
             

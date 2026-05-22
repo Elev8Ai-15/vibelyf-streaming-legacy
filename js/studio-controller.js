@@ -514,7 +514,7 @@ class StudioController {
 
     showHelp() {
         this.addMessage('assistant', `
-            <strong>💡 How to Use Vibenicity Studio:</strong><br><br>
+            <strong>💡 How to Use VibeLyf Studio:</strong><br><br>
             
             <strong>1. Describe Your App</strong><br>
             Tell me what you want to build in the chat. Use AAVE, slang, Southern, Spanglish, or regular English - I understand all of it!<br><br>

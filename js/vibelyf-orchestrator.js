@@ -1,12 +1,12 @@
 /**
- * VIBENICITY MULTI-ENGINE ORCHESTRATOR
+ * VIBELYF MULTI-ENGINE ORCHESTRATOR
  * Routes build requests to the appropriate engine
  * - Image Forge: For builds with images or advanced UI
  * - Code Generator: For standard app generation
  * - API Generator: For backend/API generation
  */
 
-window.VibenicityOrchestrator = {
+window.VibeLyfOrchestrator = {
     
     /**
      * Determine which engine should handle the request
@@ -155,7 +155,7 @@ window.VibenicityOrchestrator = {
      * Generate with Image Forge
      */
     async generateWithImageForge(message, options) {
-        if (!window.VibenicityImageForge) {
+        if (!window.VibeLyfImageForge) {
             throw new Error('Image Forge not loaded');
         }
         
@@ -163,12 +163,12 @@ window.VibenicityOrchestrator = {
         
         // Initialize if needed
         const geminiKey = localStorage.getItem('gemini_api_key') || '';
-        if (geminiKey && !window.VibenicityImageForge.isReady()) {
-            window.VibenicityImageForge.init(geminiKey);
+        if (geminiKey && !window.VibeLyfImageForge.isReady()) {
+            window.VibeLyfImageForge.init(geminiKey);
         }
         
         // Check if ready
-        if (!window.VibenicityImageForge.isReady()) {
+        if (!window.VibeLyfImageForge.isReady()) {
             throw new Error('Image Forge not initialized. Please set your Gemini API key.');
         }
         
@@ -180,13 +180,13 @@ window.VibenicityOrchestrator = {
         
         // Generate with retry
         const files = options.files || [];
-        const result = await window.VibenicityImageForge.generateWithRetry(translatedMessage, files);
+        const result = await window.VibeLyfImageForge.generateWithRetry(translatedMessage, files);
         
         // Inject images if provided
         let finalCode = result.code;
         if (files.length > 0) {
-            const blobUrls = window.VibenicityImageForge.createBlobUrls(files);
-            finalCode = window.VibenicityImageForge.injectImages(finalCode, blobUrls);
+            const blobUrls = window.VibeLyfImageForge.createBlobUrls(files);
+            finalCode = window.VibeLyfImageForge.injectImages(finalCode, blobUrls);
         }
         
         return {
@@ -202,7 +202,7 @@ window.VibenicityOrchestrator = {
      * Generate with standard Code Generator
      */
     async generateWithCodeGenerator(message, options) {
-        if (!window.VibenicityCodeGenerator) {
+        if (!window.VibeLyfCodeGenerator) {
             throw new Error('Code Generator not loaded');
         }
         
@@ -211,7 +211,7 @@ window.VibenicityOrchestrator = {
         const interpretedMessage = options.interpretedMessage || message;
         const detectedSlang = options.detectedSlang || [];
         
-        const result = await window.VibenicityCodeGenerator.generateCode(
+        const result = await window.VibeLyfCodeGenerator.generateCode(
             message,
             interpretedMessage,
             detectedSlang
@@ -236,16 +236,16 @@ window.VibenicityOrchestrator = {
                 ready: window.ClaudeAPIGenerator ? window.ClaudeAPIGenerator.isInitialized?.() : false
             },
             'image-forge': {
-                loaded: !!window.VibenicityImageForge,
-                ready: window.VibenicityImageForge ? window.VibenicityImageForge.isReady() : false
+                loaded: !!window.VibeLyfImageForge,
+                ready: window.VibeLyfImageForge ? window.VibeLyfImageForge.isReady() : false
             },
             'code-generator': {
-                loaded: !!window.VibenicityCodeGenerator,
-                ready: window.VibenicityCodeGenerator ? !!window.VibenicityCodeGenerator.apiKey : false
+                loaded: !!window.VibeLyfCodeGenerator,
+                ready: window.VibeLyfCodeGenerator ? !!window.VibeLyfCodeGenerator.apiKey : false
             }
         };
     }
 };
 
 // Export for debugging
-console.log('✅ VibenicityOrchestrator loaded');
+console.log('✅ VibeLyfOrchestrator loaded');

@@ -1,6 +1,6 @@
-# Contributing to Vibenicity Nation
+# Contributing to VibeLyf Nation
 
-First off — thanks for considering contributing! Vibenicity is an AI-powered social creation platform built around **linguistic diversity as a bridge to tech literacy**. Contributions of all kinds are welcome.
+First off — thanks for considering contributing! VibeLyf is an AI-powered social creation platform built around **linguistic diversity as a bridge to tech literacy**. Contributions of all kinds are welcome.
 
 ---
 
@@ -22,8 +22,8 @@ First off — thanks for considering contributing! Vibenicity is an AI-powered s
 
 ### 1. Fork & Clone
 ```bash
-git clone https://github.com/YOUR_USERNAME/vibenicity.git
-cd vibenicity
+git clone https://github.com/YOUR_USERNAME/vibelyf.git
+cd vibelyf
 ```
 
 ### 2. Run Locally
@@ -67,7 +67,7 @@ Open http://localhost:8000
 | `css/red-glassmorphism.css` | Blue Glassmorphism v2.1 design system |
 | `js/cultural-vocabulary-master.js` | 453-term cultural database |
 | `js/linguistics-engine-v32.js` | 16 vibe archetypes → CSS |
-| `js/vibenicity-tabs.js` | Hover-reveal tab system |
+| `js/vibelyf-tabs.js` | Hover-reveal tab system |
 | `SUPABASE_SETUP.sql` | Database schema |
 
 See `SAVE_STATE.md` for the full architecture map.
@@ -85,12 +85,12 @@ See `SAVE_STATE.md` for the full architecture map.
 
 ## 📜 Code of Conduct
 
-Be respectful. Vibenicity celebrates linguistic diversity and aims to be a welcoming space for builders of all backgrounds. Discriminatory language, harassment, or gatekeeping will not be tolerated.
+Be respectful. VibeLyf celebrates linguistic diversity and aims to be a welcoming space for builders of all backgrounds. Discriminatory language, harassment, or gatekeeping will not be tolerated.
 
 ---
 
 ## ❓ Questions?
 
-Open a [discussion](https://github.com/YOUR_USERNAME/vibenicity/discussions) or reach out via the issue tracker.
+Open a [discussion](https://github.com/YOUR_USERNAME/vibelyf/discussions) or reach out via the issue tracker.
 
 **Built with ❤️ and 453 slang terms.**

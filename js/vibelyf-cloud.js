@@ -1,5 +1,5 @@
 /**
- * VIBENICITY Supabase Integration Layer
+ * VIBELYF Supabase Integration Layer
  * Cloud Auth + Database for persistent user profiles, vocabulary, and app state
  * 
  * @version 1.0.0
@@ -8,11 +8,11 @@
  * SETUP:
  * 1. Create free Supabase project at https://supabase.com
  * 2. Run the SQL in SUPABASE_SETUP.sql to create tables
- * 3. Set your keys via: VibenicityCloud.init('YOUR_SUPABASE_URL', 'YOUR_ANON_KEY')
- *    Or via localStorage: vibenicity_supabase_url, vibenicity_supabase_key
+ * 3. Set your keys via: VibeLyfCloud.init('YOUR_SUPABASE_URL', 'YOUR_ANON_KEY')
+ *    Or via localStorage: vibelyf_supabase_url, vibelyf_supabase_key
  */
 
-window.VibenicityCloud = {
+window.VibeLyfCloud = {
 
     // ═══════════════════════════════════════════════════════════════
     // CONFIGURATION
@@ -41,19 +41,19 @@ window.VibenicityCloud = {
      */
     async init(url, key) {
         // Get credentials
-        this.config.supabaseUrl = url || localStorage.getItem('vibenicity_supabase_url') || '';
-        this.config.supabaseKey = key || localStorage.getItem('vibenicity_supabase_key') || '';
+        this.config.supabaseUrl = url || localStorage.getItem('vibelyf_supabase_url') || '';
+        this.config.supabaseKey = key || localStorage.getItem('vibelyf_supabase_key') || '';
 
         if (!this.config.supabaseUrl || !this.config.supabaseKey) {
             console.log('☁️ Supabase: No credentials set — using localStorage only');
-            console.log('💡 To enable cloud sync: VibenicityCloud.init("YOUR_URL", "YOUR_KEY")');
+            console.log('💡 To enable cloud sync: VibeLyfCloud.init("YOUR_URL", "YOUR_KEY")');
             this.config.initialized = false;
             return false;
         }
 
         // Store for persistence
-        localStorage.setItem('vibenicity_supabase_url', this.config.supabaseUrl);
-        localStorage.setItem('vibenicity_supabase_key', this.config.supabaseKey);
+        localStorage.setItem('vibelyf_supabase_url', this.config.supabaseUrl);
+        localStorage.setItem('vibelyf_supabase_key', this.config.supabaseKey);
 
         // Check if Supabase SDK is loaded
         if (!window.supabase?.createClient) {
@@ -316,7 +316,7 @@ window.VibenicityCloud = {
 
         try {
             // Sync communication stats
-            const commStats = JSON.parse(localStorage.getItem('vibenicity_comm_stats') || '{}');
+            const commStats = JSON.parse(localStorage.getItem('vibelyf_comm_stats') || '{}');
             if (Object.keys(commStats).length > 0) {
                 await this.client.from('user_data').upsert({
                     user_id: userId,
@@ -327,7 +327,7 @@ window.VibenicityCloud = {
             }
 
             // Sync vocabulary contributions
-            const pendingTerms = JSON.parse(localStorage.getItem('vibenicity_pending_terms') || '[]');
+            const pendingTerms = JSON.parse(localStorage.getItem('vibelyf_pending_terms') || '[]');
             if (pendingTerms.length > 0) {
                 await this.client.from('user_data').upsert({
                     user_id: userId,
@@ -338,7 +338,7 @@ window.VibenicityCloud = {
             }
 
             // Sync code generation history
-            const codeHistory = JSON.parse(localStorage.getItem('vibenicity_code_history') || '[]');
+            const codeHistory = JSON.parse(localStorage.getItem('vibelyf_code_history') || '[]');
             if (codeHistory.length > 0) {
                 await this.client.from('user_data').upsert({
                     user_id: userId,
@@ -349,7 +349,7 @@ window.VibenicityCloud = {
             }
 
             // Sync achievements
-            const achievements = JSON.parse(localStorage.getItem('vibenicity_achievements') || '{}');
+            const achievements = JSON.parse(localStorage.getItem('vibelyf_achievements') || '{}');
             if (Object.keys(achievements).length > 0) {
                 await this.client.from('user_data').upsert({
                     user_id: userId,
@@ -405,10 +405,10 @@ window.VibenicityCloud = {
 
             // Merge cloud data into localStorage
             const keyMap = {
-                'comm_stats': 'vibenicity_comm_stats',
-                'pending_terms': 'vibenicity_pending_terms',
-                'code_history': 'vibenicity_code_history',
-                'achievements': 'vibenicity_achievements',
+                'comm_stats': 'vibelyf_comm_stats',
+                'pending_terms': 'vibelyf_pending_terms',
+                'code_history': 'vibelyf_code_history',
+                'achievements': 'vibelyf_achievements',
                 'custom_vibes': 'vibe_custom_specs'
             };
 
@@ -542,5 +542,5 @@ window.VibenicityCloud = {
     }
 };
 
-console.log('☁️ VibenicityCloud module loaded — Supabase Auth + DB ready');
-console.log('💡 Setup: VibenicityCloud.init("YOUR_SUPABASE_URL", "YOUR_ANON_KEY")');
+console.log('☁️ VibeLyfCloud module loaded — Supabase Auth + DB ready');
+console.log('💡 Setup: VibeLyfCloud.init("YOUR_SUPABASE_URL", "YOUR_ANON_KEY")');

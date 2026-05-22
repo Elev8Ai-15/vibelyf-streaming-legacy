@@ -1,6 +1,6 @@
 # ⚡ QUICK START GUIDE
 
-Get the VIBENICITY Build Engine running in **5 minutes**.
+Get the VIBELYF Build Engine running in **5 minutes**.
 
 ---
 
@@ -50,7 +50,7 @@ npm start
 You'll see:
 
 ```
-🚀 VIBENICITY BUILD ENGINE v1.0.0
+🚀 VIBELYF BUILD ENGINE v1.0.0
 Automated Cultural Language Ingestion Pipeline
 
 🎵 STAGE 1: LYRICS SCANNER
@@ -111,7 +111,7 @@ Or click **"✅ Bulk Approve High Confidence"** to approve all 90%+ terms at onc
 
 ## Step 6: Merge to Database
 
-After approving terms, they're ready to merge into your VIBENICITY database.
+After approving terms, they're ready to merge into your VIBELYF database.
 
 The Build Engine will:
 1. Create backup of current database
@@ -119,7 +119,7 @@ The Build Engine will:
 3. Update version and term count
 4. Save to `../js/cultural-vocabulary-master.js`
 
-Your VIBENICITY chatbot will automatically use the new terms! 🎉
+Your VIBELYF chatbot will automatically use the new terms! 🎉
 
 ---
 
@@ -145,7 +145,7 @@ This runs the pipeline every day at 3 AM.
 
 - [ ] Run your first scan
 - [ ] Approve your first term
-- [ ] Test in VIBENICITY
+- [ ] Test in VIBELYF
 - [ ] Set up daily automation
 - [ ] Watch your database grow from 453 → 500+ terms!
 

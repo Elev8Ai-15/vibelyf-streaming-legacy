@@ -1,5 +1,5 @@
 /**
- * VIBENICITY HOVER-REVEAL TAB SYSTEM v2.0
+ * VIBELYF HOVER-REVEAL TAB SYSTEM v2.0
  * 
  * ENHANCES the existing #banner layout — does NOT replace it.
  * Each .banner-section starts collapsed (label only) and slides open
@@ -34,7 +34,7 @@
  * @date March 2026
  */
 
-window.VibenicityTabs = {
+window.VibeLyfTabs = {
 
     // ═══════════════════════════════════════════════════════════════
     // CONFIGURATION
@@ -647,4 +647,4 @@ window.VibenicityTabs = {
     }
 };
 
-console.log('🗂️ VibenicityTabs v2 module loaded — hover-reveal for existing banner');
+console.log('🗂️ VibeLyfTabs v2 module loaded — hover-reveal for existing banner');

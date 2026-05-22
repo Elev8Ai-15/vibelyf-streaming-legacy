@@ -1,5 +1,5 @@
 /**
- * VIBENICITY BUILD ENGINE - STAGE 1: GENIUS LYRICS SCANNER
+ * VIBELYF BUILD ENGINE - STAGE 1: GENIUS LYRICS SCANNER
  * Fetches trending song lyrics from Genius API
  */
 

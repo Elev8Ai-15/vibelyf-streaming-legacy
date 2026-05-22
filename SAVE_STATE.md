@@ -1,4 +1,4 @@
-# 💾 VIBENICITY NATION — SESSION SAVE STATE
+# 💾 VIBELYF NATION — SESSION SAVE STATE
 > **Created:** May 14, 2026  
 > **Purpose:** Continue development in a new chat session  
 > **Project Status:** ✅ STABLE — 0 JS errors, all 9 modules operational  
@@ -10,7 +10,7 @@
 
 **Paste this into your new chat to resume:**
 
-> I'm continuing work on VIBENICITY NATION. Please read `SAVE_STATE.md` and `README.md` to understand the current project state. The main app is `index.html` (~421KB single-page app). The design system is `css/red-glassmorphism.css` (Blue Glassmorphism v2.1 — file is named "red" from legacy, but all colors are deep navy blue). The hover-reveal tab system is `js/vibenicity-tabs.js`.
+> I'm continuing work on VIBELYF NATION. Please read `SAVE_STATE.md` and `README.md` to understand the current project state. The main app is `index.html` (~421KB single-page app). The design system is `css/red-glassmorphism.css` (Blue Glassmorphism v2.1 — file is named "red" from legacy, but all colors are deep navy blue). The hover-reveal tab system is `js/vibelyf-tabs.js`.
 
 ---
 
@@ -27,9 +27,9 @@ All blue RGB values in `css/red-glassmorphism.css` were multiplied by ×0.75 in 
 ### 2. ✅ 7 Broken Nav/Tab Items Fixed
 | Item | Was Broken Because | Fix Applied |
 |------|-------------------|-------------|
-| Home nav (line ~1760) | No `onclick` | `onclick="VibenicityApp.returnToHome()"` |
-| All Feeds nav (line ~1764) | No `onclick`, no function | `onclick="VibenicityApp.showAllFeeds()"` + new function |
-| Builders nav (line ~1772) | No `onclick`, no function | `onclick="VibenicityApp.showBuilders()"` + new function |
+| Home nav (line ~1760) | No `onclick` | `onclick="VibeLyfApp.returnToHome()"` |
+| All Feeds nav (line ~1764) | No `onclick`, no function | `onclick="VibeLyfApp.showAllFeeds()"` + new function |
+| Builders nav (line ~1772) | No `onclick`, no function | `onclick="VibeLyfApp.showBuilders()"` + new function |
 | Themes nav (line ~1780) | No `onclick` | `onclick="CustomizationSystem.toggle()"` |
 | Share Vibe btn (line ~1991) | Called undefined `ThemeBuilder.shareVibe()` | → `CustomizationSystem.shareVibe()` |
 | Import Vibe btn (line ~1996) | Called undefined `ThemeBuilder.importVibe()` | → `CustomizationSystem.importVibe()` |
@@ -45,7 +45,7 @@ All blue RGB values in `css/red-glassmorphism.css` were multiplied by ×0.75 in 
 | **Shopping (new tab)** | Amazon, eBay, AliExpress, Walmart, Etsy, Shopify, Target, Best Buy, Temu, Shein | Affiliate URL in new tab with click tracking |
 | **Builder Tools** | Claude AI, ChatGPT, Genspark AI | Opens in new tab (auth-required) |
 
-**New functions added to `VibenicityApp` (inline in index.html):**
+**New functions added to `VibeLyfApp` (inline in index.html):**
 - `openApp(appName)` — complete rewrite with platform URL map + canEmbed flags (~line 3810)
 - `loadFeedSmart(appName, url, canEmbed)` — single entry point for all feed loading (~line 3887)
 - `showNewTabLauncher(appName, url, name, icon)` — clean launcher for non-embeddable platforms (~line 3950)
@@ -69,26 +69,26 @@ All blue RGB values in `css/red-glassmorphism.css` were multiplied by ×0.75 in 
 - **`index.html`** (~421KB, ~9000+ lines) — The entire application is a single-page app
   - HTML structure: header, left nav, banner (social/music/shop tabs), main content area, right builder panel, chat bar, customization panel
   - Inline CSS overrides (~hundreds of lines)
-  - Inline JavaScript: `VibenicityApp`, `CustomizationSystem`, `FacebookIntegration`, `WelcomeChat`, and more
+  - Inline JavaScript: `VibeLyfApp`, `CustomizationSystem`, `FacebookIntegration`, `WelcomeChat`, and more
 
 ### Critical Files
 | File | Size | Purpose |
 |------|------|---------|
 | `index.html` | 421KB | Main SPA — all HTML + inline JS |
 | `css/red-glassmorphism.css` | 47KB | Blue Glassmorphism v2.1 design system (legacy filename) |
-| `js/vibenicity-tabs.js` | 29KB | Hover-reveal tab system v2.0 |
+| `js/vibelyf-tabs.js` | 29KB | Hover-reveal tab system v2.0 |
 | `js/cultural-vocabulary-master.js` | 185KB | 453-term cultural vocabulary database |
 | `js/claude-api-generator.js` | 41KB | API generation (Gemini primary + Claude fallback) |
-| `js/vibenicity-code-generator.js` | 17KB | Gemini 2.5 Flash code generation |
-| `js/vibenicity-cloud.js` | 20KB | Supabase auth/DB integration |
-| `js/vibenicity-profile.js` | 23KB | User profile system |
-| `js/vibenicity-groq-brain.js` | 16KB | Groq fast slang detection |
-| `videos/vibenicity-intro.mp4` | 2.1MB | Welcome brand video |
+| `js/vibelyf-code-generator.js` | 17KB | Gemini 2.5 Flash code generation |
+| `js/vibelyf-cloud.js` | 20KB | Supabase auth/DB integration |
+| `js/vibelyf-profile.js` | 23KB | User profile system |
+| `js/vibelyf-groq-brain.js` | 16KB | Groq fast slang detection |
+| `videos/vibelyf-intro.mp4` | 2.1MB | Welcome brand video |
 
 ### Key JavaScript Objects (defined inline in index.html)
 | Object | ~Line | Purpose |
 |--------|-------|---------|
-| `VibenicityApp` | ~3650 | Main app controller — openApp, openShop, returnToHome, showAllFeeds, showBuilders, loadFeedSmart, showNewTabLauncher, loadVideoStudio |
+| `VibeLyfApp` | ~3650 | Main app controller — openApp, openShop, returnToHome, showAllFeeds, showBuilders, loadFeedSmart, showNewTabLauncher, loadVideoStudio |
 | `CustomizationSystem` | ~2593 | 6-tab panel (Themes/Effects/Typography/Layout/Widgets/AI) — toggle, shareVibe, importVibe, resetToDefault |
 | `FacebookIntegration` | varies | Facebook widget handler |
 | `WelcomeChat` | varies | Onboarding chat flow |
@@ -114,22 +114,22 @@ All blue RGB values in `css/red-glassmorphism.css` were multiplied by ×0.75 in 
 ### 18 External JS Modules (loaded in order in index.html)
 1. `js/cultural-vocabulary-master.js` → `culturalVocabularyMaster`
 2. `js/linguistics-engine-v32.js` → `Linguistics`
-3. `js/vibenicity-learning-loop.js` → `VibenicityLearningLoop`
-4. `js/vibenicity-code-generator.js` → `VibenicityCodeGenerator`
-5. `js/vibenicity-app-renderer.js` → `VibenicityAppRenderer`
+3. `js/vibelyf-learning-loop.js` → `VibeLyfLearningLoop`
+4. `js/vibelyf-code-generator.js` → `VibeLyfCodeGenerator`
+5. `js/vibelyf-app-renderer.js` → `VibeLyfAppRenderer`
 6. `js/claude-api-generator.js` → `ClaudeAPIGenerator`
-7. `js/vibenicity-integration.js` → (functions)
-8. `js/vibenicity-integration-exports.js` → (window exports)
-9. `js/vibenicity-enhanced-communication.js` → `VibenicityCommunicationScore`
-10. `js/vibenicity-diagnostic.js` → `VibenicityDiagnostic`
-11. `js/vibenicity-image-forge-engine.js` → `VibenicityImageForge`
-12. `js/vibenicity-image-editor.js` → `VibenicityImageEditor`
-13. `js/vibenicity-orchestrator.js` → `VibenicityOrchestrator`
-14. `js/vibenicity-groq-brain.js` → `VibenicityGroqBrain`
-15. `js/vibenicity-voice-input.js` → `VibenicityVoice`
-16. `js/vibenicity-cloud.js` → `VibenicityCloud`
-17. `js/vibenicity-profile.js` → `VibenicityProfile`
-18. `js/vibenicity-tabs.js` → `VibenicityTabs`
+7. `js/vibelyf-integration.js` → (functions)
+8. `js/vibelyf-integration-exports.js` → (window exports)
+9. `js/vibelyf-enhanced-communication.js` → `VibeLyfCommunicationScore`
+10. `js/vibelyf-diagnostic.js` → `VibeLyfDiagnostic`
+11. `js/vibelyf-image-forge-engine.js` → `VibeLyfImageForge`
+12. `js/vibelyf-image-editor.js` → `VibeLyfImageEditor`
+13. `js/vibelyf-orchestrator.js` → `VibeLyfOrchestrator`
+14. `js/vibelyf-groq-brain.js` → `VibeLyfGroqBrain`
+15. `js/vibelyf-voice-input.js` → `VibeLyfVoice`
+16. `js/vibelyf-cloud.js` → `VibeLyfCloud`
+17. `js/vibelyf-profile.js` → `VibeLyfProfile`
+18. `js/vibelyf-tabs.js` → `VibeLyfTabs`
 
 ---
 
@@ -154,7 +154,7 @@ All blue RGB values in `css/red-glassmorphism.css` were multiplied by ×0.75 in 
 - **Always use `Grep` first** to find the exact line numbers before editing
 - **Use `Read` with `offset` and `limit`** to view specific sections
 - **The `Edit` tool matches the smallest unique string** — when removing large blocks, include enough context to be unique
-- **VibenicityApp object** starts around line ~3650 — this is where `openApp`, `loadFeedSmart`, `showNewTabLauncher`, etc. live
+- **VibeLyfApp object** starts around line ~3650 — this is where `openApp`, `loadFeedSmart`, `showNewTabLauncher`, etc. live
 - **CustomizationSystem** starts around line ~2593
 - **Nav items** are around lines ~1760-1810
 - **Builder widgets** (Share/Import/Reset) are around lines ~1991-2001
@@ -164,7 +164,7 @@ All blue RGB values in `css/red-glassmorphism.css` were multiplied by ×0.75 in 
 - All color values use the CSS custom properties format: `rgba(var(--primary-glow), 0.5)`
 - Some older sections still have hardcoded `rgba(15,45,90,...)` values alongside the variable usage
 
-### Tab System: `js/vibenicity-tabs.js`
+### Tab System: `js/vibelyf-tabs.js`
 - v2.0 — hover-reveal with keyboard accessibility
 - Injects category icons and nav widget shortcuts dynamically
 - Has `destroy()` method for cleanup
@@ -210,20 +210,20 @@ All blue RGB values in `css/red-glassmorphism.css` were multiplied by ×0.75 in 
 │   ├── api-generator.css       API generator styles
 │   └── (6 more CSS files)
 ├── js/
-│   ├── vibenicity-tabs.js          Hover-reveal tab system (29KB)
+│   ├── vibelyf-tabs.js          Hover-reveal tab system (29KB)
 │   ├── cultural-vocabulary-master.js   453-term vocab DB (185KB)
 │   ├── claude-api-generator.js     API generation (41KB)
-│   ├── vibenicity-code-generator.js    Code gen (17KB)
-│   ├── vibenicity-cloud.js         Supabase integration (20KB)
-│   ├── vibenicity-profile.js       User profile (23KB)
+│   ├── vibelyf-code-generator.js    Code gen (17KB)
+│   ├── vibelyf-cloud.js         Supabase integration (20KB)
+│   ├── vibelyf-profile.js       User profile (23KB)
 │   └── (55 more JS files)
 ├── images/
-│   ├── vibenicity-logo.jpg         Brand logo
+│   ├── vibelyf-logo.jpg         Brand logo
 │   ├── cyberpunk-city-background.jpg   Background image
-│   ├── vibenicity-icon-512.png     PWA icon
+│   ├── vibelyf-icon-512.png     PWA icon
 │   └── icons/                      SVG brand icons
 ├── videos/
-│   └── vibenicity-intro.mp4        Welcome video (2.1MB)
+│   └── vibelyf-intro.mp4        Welcome video (2.1MB)
 ├── data/                           Linguistic datasets (17 files)
 ├── build-engine/                   Node.js build engine (not used in static site)
 ├── components/                     Profile selector component

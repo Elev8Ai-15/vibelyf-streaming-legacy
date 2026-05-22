@@ -639,7 +639,7 @@ class TranslationFeedbackUI {
         const result = await this.learningSystem.correctTranslation(correction);
         
         if (result.success) {
-            this.showSuccess('Correction saved! Vibenicity just learned from you! 🔥');
+            this.showSuccess('Correction saved! VibeLyf just learned from you! 🔥');
             
             // Update the translation in UI
             if (this.currentTranslation) {
@@ -664,8 +664,8 @@ class TranslationFeedbackUI {
      * Show success message
      */
     showSuccess(message) {
-        if (window.VibenicityUI) {
-            window.VibenicityUI.showToast(message, 'success', 4000);
+        if (window.VibeLyfUI) {
+            window.VibeLyfUI.showToast(message, 'success', 4000);
         } else {
             alert(message);
         }

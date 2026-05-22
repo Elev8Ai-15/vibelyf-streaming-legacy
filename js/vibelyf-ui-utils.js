@@ -1,5 +1,5 @@
 /**
- * Vibenicity UI Utilities
+ * VibeLyf UI Utilities
  * 
  * Enhanced UI components and utilities for better UX
  * Including loading states, toast notifications, error handling, and animations
@@ -9,7 +9,7 @@
  * @author Culture Coders Team
  */
 
-class VibenicityUI {
+class VibeLyfUI {
     constructor() {
         this.toasts = [];
         this.loadingElements = new Map();
@@ -42,7 +42,7 @@ class VibenicityUI {
         // Add global loading styles
         this.addGlobalStyles();
         
-        console.log('✨ Vibenicity UI utilities initialized');
+        console.log('✨ VibeLyf UI utilities initialized');
     }
     
     /**
@@ -59,7 +59,7 @@ class VibenicityUI {
         
         // Show loading state
         element.innerHTML = `
-            <div class="vibenicity-loading">
+            <div class="vibelyf-loading">
                 <div class="loading-spinner"></div>
                 <div class="loading-message">${message}</div>
             </div>
@@ -99,7 +99,7 @@ class VibenicityUI {
         const toast = document.createElement('div');
         const toastId = `toast-${Date.now()}`;
         toast.id = toastId;
-        toast.className = `vibenicity-toast toast-${type}`;
+        toast.className = `vibelyf-toast toast-${type}`;
         
         const icons = {
             success: '✅',
@@ -111,7 +111,7 @@ class VibenicityUI {
         toast.innerHTML = `
             <div class="toast-icon">${icons[type] || 'ℹ️'}</div>
             <div class="toast-message">${message}</div>
-            <button class="toast-close" onclick="vibenicityUI.closeToast('${toastId}')">&times;</button>
+            <button class="toast-close" onclick="vibelyfUI.closeToast('${toastId}')">&times;</button>
         `;
         
         container.appendChild(toast);
@@ -190,7 +190,7 @@ class VibenicityUI {
      */
     showConfirm(message, onConfirm, onCancel) {
         const modal = document.createElement('div');
-        modal.className = 'vibenicity-confirm-modal';
+        modal.className = 'vibelyf-confirm-modal';
         modal.innerHTML = `
             <div class="confirm-overlay"></div>
             <div class="confirm-dialog">
@@ -354,13 +354,13 @@ class VibenicityUI {
      * Add global styles
      */
     addGlobalStyles() {
-        if (document.getElementById('vibenicity-ui-styles')) return;
+        if (document.getElementById('vibelyf-ui-styles')) return;
         
         const styles = document.createElement('style');
-        styles.id = 'vibenicity-ui-styles';
+        styles.id = 'vibelyf-ui-styles';
         styles.textContent = `
             /* Loading Spinner */
-            .vibenicity-loading {
+            .vibelyf-loading {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -389,7 +389,7 @@ class VibenicityUI {
             }
             
             /* Toast Notifications */
-            .vibenicity-toast {
+            .vibelyf-toast {
                 display: flex;
                 align-items: center;
                 gap: 0.75rem;
@@ -405,7 +405,7 @@ class VibenicityUI {
                 transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             }
             
-            .vibenicity-toast.show {
+            .vibelyf-toast.show {
                 opacity: 1;
                 transform: translateX(0);
             }
@@ -473,7 +473,7 @@ class VibenicityUI {
             }
             
             /* Confirmation Modal */
-            .vibenicity-confirm-modal {
+            .vibelyf-confirm-modal {
                 position: fixed;
                 inset: 0;
                 z-index: 10000;
@@ -566,7 +566,7 @@ class VibenicityUI {
                     top: 10px;
                 }
                 
-                .vibenicity-toast {
+                .vibelyf-toast {
                     min-width: auto;
                     width: 100%;
                 }
@@ -578,10 +578,10 @@ class VibenicityUI {
 }
 
 // Create global instance
-const vibenicityUI = new VibenicityUI();
-window.vibenicityUI = vibenicityUI;
+const vibelyfUI = new VibeLyfUI();
+window.vibelyfUI = vibelyfUI;
 
 // Export for use in other modules
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = VibenicityUI;
+    module.exports = VibeLyfUI;
 }

@@ -1,12 +1,12 @@
 /**
- * VIBENICITY API Generator - Integration Snippet
+ * VIBELYF API Generator - Integration Snippet
  * 
  * Add this to your index.html around line 4045 (inside sendMessage function)
  * Or include this file after claude-api-generator.js
  */
 
 // ═══════════════════════════════════════════════════════════════
-// INTEGRATION INTO VIBENICITY
+// INTEGRATION INTO VIBELYF
 // ═══════════════════════════════════════════════════════════════
 
 /**
@@ -56,11 +56,11 @@ async function handleAPIGeneratorRequest(userMessage) {
  */
 function getClaudeApiKey() {
     // Check localStorage first
-    let key = localStorage.getItem('vibenicity_claude_api_key');
+    let key = localStorage.getItem('vibelyf_claude_api_key');
     
     // If not found, check if there's a settings object
-    if (!key && window.vibenicitySettings?.claudeApiKey) {
-        key = window.vibenicitySettings.claudeApiKey;
+    if (!key && window.vibelyfSettings?.claudeApiKey) {
+        key = window.vibelyfSettings.claudeApiKey;
     }
     
     return key;
@@ -94,7 +94,7 @@ function saveClaudeApiKey() {
     const key = input?.value?.trim();
     
     if (key && key.startsWith('sk-')) {
-        localStorage.setItem('vibenicity_claude_api_key', key);
+        localStorage.setItem('vibelyf_claude_api_key', key);
         document.querySelector('.api-key-modal')?.remove();
         
         // Retry the last message
@@ -311,7 +311,7 @@ async function downloadGeneratedAPI() {
         }
 
         const { schema, files } = window.lastGeneratedAPI;
-        const filename = `${schema.apiName || 'vibenicity-api'}.zip`;
+        const filename = `${schema.apiName || 'vibelyf-api'}.zip`;
         
         await ClaudeAPIGenerator.createZip(files, filename);
         

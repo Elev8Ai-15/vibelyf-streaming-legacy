@@ -1,8 +1,8 @@
 /**
- * Grammatical Rules - Vibenicity Knowledge Base
+ * Grammatical Rules - VibeLyf Knowledge Base
  * Purpose: Pattern recognition for cultural grammar features in USER INPUT
  * 
- * These patterns help Vibenicity UNDERSTAND user commands like:
+ * These patterns help VibeLyf UNDERSTAND user commands like:
  * - "Build me an app that be tracking workouts" (Habitual 'Be')
  * - "I need something that my sister gonna use" (Zero Copula context)
  * - "Make an app that might could help people budget" (Multiple Modals)
@@ -416,4 +416,4 @@ if (typeof window !== 'undefined') {
     window.grammaticalRules = window.grammaticalRules;
 }
 
-console.log('✅ Grammatical Rules loaded - Vibenicity understands cultural grammar patterns');
+console.log('✅ Grammatical Rules loaded - VibeLyf understands cultural grammar patterns');

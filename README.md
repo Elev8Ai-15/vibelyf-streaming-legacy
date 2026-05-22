@@ -1,4 +1,4 @@
-# 🌐 Vibenicity Nation
+# 🌐 VibeLyf Nation
 
 > AI-powered social creation platform that **understands slang**, **teaches communication**, and **builds apps from your words**.
 
@@ -12,9 +12,9 @@
 
 ---
 
-## 🎯 What is Vibenicity?
+## 🎯 What is VibeLyf?
 
-Vibenicity is a **dual-purpose platform**:
+VibeLyf is a **dual-purpose platform**:
 
 1. **🌍 Universal Social/Productivity Hub** — aggregates social media, music, shopping, and AI tools into one feed
 2. **🎓 AI Communication Intelligence Trainer** — detects vague language, interprets slang, teaches precise communication
@@ -67,8 +67,8 @@ No build step required — it's a static site.
 
 ```bash
 # Clone
-git clone https://github.com/YOUR_USERNAME/vibenicity.git
-cd vibenicity
+git clone https://github.com/YOUR_USERNAME/vibelyf.git
+cd vibelyf
 
 # Serve (Python)
 python3 -m http.server 8000
@@ -110,7 +110,7 @@ For **Gemini** and **Claude** keys, see in-app prompts when you first try a buil
 ## 🏗️ Architecture
 
 ```
-vibenicity/
+vibelyf/
 ├── index.html              Main SPA (~421KB) — entire app
 ├── manifest.json           PWA manifest
 ├── sw.js                   Service worker
@@ -120,12 +120,12 @@ vibenicity/
 ├── js/                     18 JavaScript modules
 │   ├── cultural-vocabulary-master.js   453-term database
 │   ├── linguistics-engine-v32.js       16 vibe archetypes
-│   ├── vibenicity-code-generator.js    Gemini code gen
+│   ├── vibelyf-code-generator.js    Gemini code gen
 │   ├── claude-api-generator.js         API gen
-│   ├── vibenicity-groq-brain.js        Fast slang detection
-│   ├── vibenicity-cloud.js             Supabase auth/DB
-│   ├── vibenicity-profile.js           User profile system
-│   ├── vibenicity-tabs.js              Hover-reveal tab system
+│   ├── vibelyf-groq-brain.js        Fast slang detection
+│   ├── vibelyf-cloud.js             Supabase auth/DB
+│   ├── vibelyf-profile.js           User profile system
+│   ├── vibelyf-tabs.js              Hover-reveal tab system
 │   └── (10 more)
 ├── images/                 Icons + brand assets
 │   └── icons/              SVG brand logos (Simple Icons, MIT)
@@ -141,7 +141,7 @@ vibenicity/
 |---|---|---|
 | [`index.html`](index.html) | 421KB | Main SPA with inline JS |
 | [`css/red-glassmorphism.css`](css/red-glassmorphism.css) | 47KB | Design system (Blue Glassmorphism v2.1) |
-| [`js/vibenicity-tabs.js`](js/vibenicity-tabs.js) | 29KB | Hover-reveal tab system v2.0 |
+| [`js/vibelyf-tabs.js`](js/vibelyf-tabs.js) | 29KB | Hover-reveal tab system v2.0 |
 | [`js/cultural-vocabulary-master.js`](js/cultural-vocabulary-master.js) | 185KB | 453-term vocabulary database |
 | [`SAVE_STATE.md`](SAVE_STATE.md) | 13KB | Architecture map for AI agents |
 
@@ -221,7 +221,7 @@ Found a vulnerability? See [`SECURITY.md`](SECURITY.md) for responsible disclosu
 
 ## 📜 License
 
-[MIT](LICENSE) © 2026 Vibenicity Nation
+[MIT](LICENSE) © 2026 VibeLyf Nation
 
 ---
 

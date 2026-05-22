@@ -1,6 +1,6 @@
 {
-    "name": "VIBENICITY — Code in Your Own Language",
-    "short_name": "Vibenicity",
+    "name": "VIBELYF — Code in Your Own Language",
+    "short_name": "VibeLyf",
     "description": "Self-learning code generation platform that understands slang, learns from users, and generates real apps. Code in your own voice.",
     "start_url": "/index.html",
     "scope": "/",
@@ -13,13 +13,13 @@
     "dir": "ltr",
     "icons": [
         {
-            "src": "images/vibenicity-icon-192.png",
+            "src": "images/vibelyf-icon-192.png",
             "sizes": "192x192",
             "type": "image/png",
             "purpose": "any maskable"
         },
         {
-            "src": "images/vibenicity-icon-512.png",
+            "src": "images/vibelyf-icon-512.png",
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "any maskable"
@@ -32,7 +32,7 @@
             "short_name": "Build",
             "description": "Start building with AI",
             "url": "/index.html",
-            "icons": [{ "src": "images/vibenicity-icon-192.png", "sizes": "192x192" }]
+            "icons": [{ "src": "images/vibelyf-icon-192.png", "sizes": "192x192" }]
         }
     ],
     "prefer_related_applications": false

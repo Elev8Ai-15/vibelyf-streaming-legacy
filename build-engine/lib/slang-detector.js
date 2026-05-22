@@ -1,5 +1,5 @@
 /**
- * VIBENICITY BUILD ENGINE - STAGE 2: SLANG DETECTOR (OpenAI)
+ * VIBELYF BUILD ENGINE - STAGE 2: SLANG DETECTOR (OpenAI)
  * Uses GPT-4 to identify new slang terms in lyrics
  */
 

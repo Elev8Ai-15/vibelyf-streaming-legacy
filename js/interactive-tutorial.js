@@ -12,7 +12,7 @@ class InteractiveTutorial {
             {
                 id: 'welcome',
                 target: null, // No specific target, centered
-                title: '👋 Welcome to Vibenicity!',
+                title: '👋 Welcome to VibeLyf!',
                 message: 'Let me show you around! This quick tour will get you building apps in no time. Ready?',
                 position: 'center',
                 buttons: ['Start Tour', 'Skip']
@@ -86,7 +86,7 @@ class InteractiveTutorial {
         this.highlightElement = null;
         
         // Check if user has seen tutorial
-        this.hasSeenTutorial = localStorage.getItem('vibenicity_tutorial_completed') === 'true';
+        this.hasSeenTutorial = localStorage.getItem('vibelyf_tutorial_completed') === 'true';
     }
     
     /**
@@ -371,7 +371,7 @@ class InteractiveTutorial {
      */
     complete() {
         this.isActive = false;
-        localStorage.setItem('vibenicity_tutorial_completed', 'true');
+        localStorage.setItem('vibelyf_tutorial_completed', 'true');
         
         // Remove elements
         if (this.bubble) this.bubble.remove();
@@ -385,7 +385,7 @@ class InteractiveTutorial {
      * Reset tutorial (for testing)
      */
     reset() {
-        localStorage.removeItem('vibenicity_tutorial_completed');
+        localStorage.removeItem('vibelyf_tutorial_completed');
         this.hasSeenTutorial = false;
         console.log('Tutorial reset - will show on next page load');
     }

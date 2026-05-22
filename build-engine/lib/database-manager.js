@@ -1,5 +1,5 @@
 /**
- * VIBENICITY BUILD ENGINE - STAGE 6: DATABASE MANAGER
+ * VIBELYF BUILD ENGINE - STAGE 6: DATABASE MANAGER
  */
 
 const fs = require('fs-extra');
@@ -114,7 +114,7 @@ class DatabaseManager {
 
     generateDatabaseFile() {
         return `/**
- * VIBENICITY Cultural Vocabulary Master Database
+ * VIBELYF Cultural Vocabulary Master Database
  * Version: ${this.database.metadata.version}
  * Last Updated: ${this.database.metadata.lastUpdated}
  * Total Terms: ${this.database.metadata.totalTerms}

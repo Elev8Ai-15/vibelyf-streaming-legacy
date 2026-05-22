@@ -1,12 +1,12 @@
 /**
- * Vibenicity Cultural Vocabulary Knowledge Base
+ * VibeLyf Cultural Vocabulary Knowledge Base
  * Purpose: Authentic slang and cultural terms from Hispanic/Latino and Digital/Gen Z communities
  * Schema Version: 4.1 (Enhanced w/ Origins)
  * Integrated: 2025-11-20
  */
 
 (function initializeVocabulary() {
-    console.log("🌍 Vibenicity: Initializing Cultural Vocabulary Knowledge Base...");
+    console.log("🌍 VibeLyf: Initializing Cultural Vocabulary Knowledge Base...");
 
     // Define Global Vocabulary Object
     window.culturalVocabulary = {

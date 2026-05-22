@@ -1,5 +1,5 @@
 /**
- * ⚡ VIBENICITY GROQ FAST-BRAIN SERVICE
+ * ⚡ VIBELYF GROQ FAST-BRAIN SERVICE
  * 
  * Ultra-fast LLM inference via Groq API (300+ tokens/sec)
  * Used as the "fast brain" for instant tasks:
@@ -14,10 +14,10 @@
  * Free tier: 6,000 requests/day
  * Model: llama-3.3-70b-versatile (open-source, no vendor lock-in)
  * 
- * CREATED: March 2026 — VIBENICITY Intelligence Upgrade
+ * CREATED: March 2026 — VIBELYF Intelligence Upgrade
  */
 
-window.VibenicityGroqBrain = {
+window.VibeLyfGroqBrain = {
 
     // ═══════════════════════════════════════════════════════════════
     // CONFIGURATION
@@ -43,7 +43,7 @@ window.VibenicityGroqBrain = {
 
     init() {
         // Load API key from localStorage
-        const savedKey = localStorage.getItem('vibenicity_groq_api_key');
+        const savedKey = localStorage.getItem('vibelyf_groq_api_key');
         if (savedKey) {
             this.config.apiKey = savedKey;
             this.config.enabled = true;
@@ -62,7 +62,7 @@ window.VibenicityGroqBrain = {
     setApiKey(key) {
         this.config.apiKey = key;
         this.config.enabled = !!key;
-        localStorage.setItem('vibenicity_groq_api_key', key);
+        localStorage.setItem('vibelyf_groq_api_key', key);
         console.log(`⚡ Groq API key ${key ? 'saved & enabled' : 'cleared'}`);
         return this.config.enabled;
     },
@@ -79,7 +79,7 @@ window.VibenicityGroqBrain = {
      */
     loadDailyCounter() {
         try {
-            const saved = JSON.parse(localStorage.getItem('vibenicity_groq_usage') || '{}');
+            const saved = JSON.parse(localStorage.getItem('vibelyf_groq_usage') || '{}');
             const today = new Date().toISOString().split('T')[0];
             if (saved.date === today) {
                 this.config.requestCount = saved.count || 0;
@@ -95,7 +95,7 @@ window.VibenicityGroqBrain = {
     incrementCounter() {
         this.config.requestCount++;
         const today = new Date().toISOString().split('T')[0];
-        localStorage.setItem('vibenicity_groq_usage', JSON.stringify({
+        localStorage.setItem('vibelyf_groq_usage', JSON.stringify({
             date: today,
             count: this.config.requestCount
         }));
@@ -305,7 +305,7 @@ Return JSON:
      */
     async generateClarification(message, context = {}) {
         const result = await this.query(
-            `You are Vibenicity, a cultural AI that celebrates linguistic diversity. A user sent a vague message. Generate a friendly, encouraging clarification question.
+            `You are VibeLyf, a cultural AI that celebrates linguistic diversity. A user sent a vague message. Generate a friendly, encouraging clarification question.
 
 Rules:
 - Never shame or correct their language
@@ -398,7 +398,7 @@ If you genuinely don't know the term or it's not slang, return: { "term": "${ter
 
 // Auto-initialize on load
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => window.VibenicityGroqBrain.init());
+    document.addEventListener('DOMContentLoaded', () => window.VibeLyfGroqBrain.init());
 } else {
-    window.VibenicityGroqBrain.init();
+    window.VibeLyfGroqBrain.init();
 }

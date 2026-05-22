@@ -1,5 +1,5 @@
 /**
- * 🔧 VIBENICITY SYSTEM DIAGNOSTIC & FIX
+ * 🔧 VIBELYF SYSTEM DIAGNOSTIC & FIX
  * 
  * This file tests and fixes all 3 systems:
  * 1. API Generator
@@ -11,14 +11,14 @@
 // DIAGNOSTIC FUNCTIONS
 // ═══════════════════════════════════════════════════════════════
 
-const VibenicityDiagnostic = {
+const VibeLyfDiagnostic = {
     
     /**
      * Run full system diagnostic
      */
     async runDiagnostic() {
         console.log('🔍 ═══════════════════════════════════════════');
-        console.log('🔍 VIBENICITY SYSTEM DIAGNOSTIC');
+        console.log('🔍 VIBELYF SYSTEM DIAGNOSTIC');
         console.log('🔍 ═══════════════════════════════════════════');
         
         const results = {
@@ -65,9 +65,9 @@ const VibenicityDiagnostic = {
      * Check Learning Loop
      */
     checkLearningLoop() {
-        const exists = typeof window.VibenicityLearningLoop !== 'undefined';
+        const exists = typeof window.VibeLyfLearningLoop !== 'undefined';
         console.log(`${exists ? '✅' : '❌'} Learning Loop: ${exists ? 'LOADED' : 'MISSING'}`);
-        if (exists && typeof window.VibenicityLearningLoop.detectSlang === 'function') {
+        if (exists && typeof window.VibeLyfLearningLoop.detectSlang === 'function') {
             console.log('   ✅ detectSlang() available');
         }
         return exists;
@@ -77,12 +77,12 @@ const VibenicityDiagnostic = {
      * Check Code Generator
      */
     checkCodeGenerator() {
-        const exists = typeof window.VibenicityCodeGenerator !== 'undefined';
+        const exists = typeof window.VibeLyfCodeGenerator !== 'undefined';
         console.log(`${exists ? '✅' : '❌'} Code Generator: ${exists ? 'LOADED' : 'MISSING'}`);
         if (exists) {
-            console.log(`   API Key: ${window.VibenicityCodeGenerator.config.apiKey ? 'SET' : 'MISSING'}`);
-            console.log(`   Model: ${window.VibenicityCodeGenerator.config.model}`);
-            if (typeof window.VibenicityCodeGenerator.generateCode === 'function') {
+            console.log(`   API Key: ${window.VibeLyfCodeGenerator.config.apiKey ? 'SET' : 'MISSING'}`);
+            console.log(`   Model: ${window.VibeLyfCodeGenerator.config.model}`);
+            if (typeof window.VibeLyfCodeGenerator.generateCode === 'function') {
                 console.log('   ✅ generateCode() available');
             }
         }
@@ -93,9 +93,9 @@ const VibenicityDiagnostic = {
      * Check App Renderer
      */
     checkAppRenderer() {
-        const exists = typeof window.VibenicityAppRenderer !== 'undefined';
+        const exists = typeof window.VibeLyfAppRenderer !== 'undefined';
         console.log(`${exists ? '✅' : '❌'} App Renderer: ${exists ? 'LOADED' : 'MISSING'}`);
-        if (exists && typeof window.VibenicityAppRenderer.render === 'function') {
+        if (exists && typeof window.VibeLyfAppRenderer.render === 'function') {
             console.log('   ✅ render() available');
         }
         return exists;
@@ -121,11 +121,11 @@ const VibenicityDiagnostic = {
      * Check Communication Score
      */
     checkCommunicationScore() {
-        const exists = typeof window.VibenicityCommunicationScore !== 'undefined';
+        const exists = typeof window.VibeLyfCommunicationScore !== 'undefined';
         console.log(`${exists ? '✅' : '❌'} Communication Score: ${exists ? 'LOADED' : 'MISSING'}`);
-        if (exists && typeof window.VibenicityCommunicationScore.logMessage === 'function') {
+        if (exists && typeof window.VibeLyfCommunicationScore.logMessage === 'function') {
             console.log('   ✅ logMessage() available');
-            console.log(`   Current score: ${window.VibenicityCommunicationScore.getScore()}%`);
+            console.log(`   Current score: ${window.VibeLyfCommunicationScore.getScore()}%`);
         }
         return exists;
     },
@@ -134,9 +134,9 @@ const VibenicityDiagnostic = {
      * Check Vague Detector
      */
     checkVagueDetector() {
-        const exists = typeof window.VibenicityVagueDetector !== 'undefined';
+        const exists = typeof window.VibeLyfVagueDetector !== 'undefined';
         console.log(`${exists ? '✅' : '❌'} Vague Detector: ${exists ? 'LOADED' : 'MISSING'}`);
-        if (exists && typeof window.VibenicityVagueDetector.isVague === 'function') {
+        if (exists && typeof window.VibeLyfVagueDetector.isVague === 'function') {
             console.log('   ✅ isVague() available');
         }
         return exists;
@@ -148,13 +148,13 @@ const VibenicityDiagnostic = {
     async testCodeGenerator() {
         console.log('\n🧪 TESTING CODE GENERATOR...');
         
-        if (!window.VibenicityCodeGenerator) {
+        if (!window.VibeLyfCodeGenerator) {
             console.error('❌ Code Generator not loaded!');
             return false;
         }
         
         try {
-            const result = await window.VibenicityCodeGenerator.generateCode(
+            const result = await window.VibeLyfCodeGenerator.generateCode(
                 'build me a simple calculator',
                 'A calculator application for mathematical calculations',
                 []
@@ -217,14 +217,14 @@ const VibenicityDiagnostic = {
 // QUICK FIXES
 // ═══════════════════════════════════════════════════════════════
 
-const VibenicityQuickFix = {
+const VibeLyfQuickFix = {
     
     /**
-     * Fix missing VibenicityApp reference
+     * Fix missing VibeLyfApp reference
      */
-    fixVibenicityApp() {
-        if (typeof window.VibenicityApp === 'undefined') {
-            console.warn('⚠️ VibenicityApp not found on window - may need to wait for DOMContentLoaded');
+    fixVibeLyfApp() {
+        if (typeof window.VibeLyfApp === 'undefined') {
+            console.warn('⚠️ VibeLyfApp not found on window - may need to wait for DOMContentLoaded');
             return false;
         }
         return true;
@@ -236,12 +236,12 @@ const VibenicityQuickFix = {
     ensureGlobalModules() {
         const modules = [
             'culturalVocabularyMaster',
-            'VibenicityLearningLoop',
-            'VibenicityCodeGenerator',
-            'VibenicityAppRenderer',
+            'VibeLyfLearningLoop',
+            'VibeLyfCodeGenerator',
+            'VibeLyfAppRenderer',
             'ClaudeAPIGenerator',
-            'VibenicityCommunicationScore',
-            'VibenicityVagueDetector'
+            'VibeLyfCommunicationScore',
+            'VibeLyfVagueDetector'
         ];
         
         const missing = modules.filter(m => typeof window[m] === 'undefined');
@@ -264,19 +264,19 @@ const VibenicityQuickFix = {
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
-            VibenicityDiagnostic.runDiagnostic();
+            VibeLyfDiagnostic.runDiagnostic();
         }, 2000);
     });
 } else {
     setTimeout(() => {
-        VibenicityDiagnostic.runDiagnostic();
+        VibeLyfDiagnostic.runDiagnostic();
     }, 2000);
 }
 
 // Export to window
-window.VibenicityDiagnostic = VibenicityDiagnostic;
-window.VibenicityQuickFix = VibenicityQuickFix;
+window.VibeLyfDiagnostic = VibeLyfDiagnostic;
+window.VibeLyfQuickFix = VibeLyfQuickFix;
 
-console.log('🔧 Diagnostic tools loaded! Run: VibenicityDiagnostic.runDiagnostic()');
-console.log('🧪 Test code generator: VibenicityDiagnostic.testCodeGenerator()');
-console.log('🧪 Test API generator: VibenicityDiagnostic.testAPIGenerator()');
+console.log('🔧 Diagnostic tools loaded! Run: VibeLyfDiagnostic.runDiagnostic()');
+console.log('🧪 Test code generator: VibeLyfDiagnostic.testCodeGenerator()');
+console.log('🧪 Test API generator: VibeLyfDiagnostic.testAPIGenerator()');

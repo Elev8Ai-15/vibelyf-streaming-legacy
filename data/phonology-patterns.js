@@ -1,8 +1,8 @@
 /**
- * Phonology Patterns - Vibenicity Knowledge Base
+ * Phonology Patterns - VibeLyf Knowledge Base
  * Purpose: Recognize pronunciation-based spelling variations in USER INPUT
  * 
- * These patterns help Vibenicity understand when users type how they SPEAK:
+ * These patterns help VibeLyf understand when users type how they SPEAK:
  * - "worsh" → "wash" (Appalachian intrusive r)
  * - "dis" → "this" (AAVE th-stopping)
  * - "finna" → "fixing to" (phonological reduction)
@@ -307,4 +307,4 @@ if (typeof window !== 'undefined') {
     window.phonologyPatterns = window.phonologyPatterns;
 }
 
-console.log('✅ Phonology Patterns loaded - Vibenicity recognizes pronunciation-based spelling variations');
+console.log('✅ Phonology Patterns loaded - VibeLyf recognizes pronunciation-based spelling variations');

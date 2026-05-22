@@ -1,5 +1,5 @@
 /**
- * 🪿 VIBENICITY LEARNING LOOP - THE GOLDEN GOOSE
+ * 🪿 VIBELYF LEARNING LOOP - THE GOLDEN GOOSE
  * 
  * This is the self-learning language system that:
  * 1. Detects unknown slang terms
@@ -10,7 +10,7 @@
  * THE REVOLUTION STARTS HERE.
  */
 
-const VibenicityLearningLoop = {
+const VibeLyfLearningLoop = {
     // Storage for pending terms (to be reviewed/approved)
     pendingTerms: [],
     
@@ -39,7 +39,7 @@ const VibenicityLearningLoop = {
      */
     loadPendingTerms() {
         try {
-            const saved = localStorage.getItem('vibenicity_pending_terms');
+            const saved = localStorage.getItem('vibelyf_pending_terms');
             if (saved) {
                 this.pendingTerms = JSON.parse(saved);
                 console.log(`📚 Loaded ${this.pendingTerms.length} pending terms`);
@@ -54,7 +54,7 @@ const VibenicityLearningLoop = {
      */
     savePendingTerms() {
         try {
-            localStorage.setItem('vibenicity_pending_terms', JSON.stringify(this.pendingTerms));
+            localStorage.setItem('vibelyf_pending_terms', JSON.stringify(this.pendingTerms));
             console.log(`💾 Saved ${this.pendingTerms.length} pending terms`);
         } catch (error) {
             console.error('Error saving pending terms:', error);
@@ -66,7 +66,7 @@ const VibenicityLearningLoop = {
      */
     loadSessionVocabulary() {
         try {
-            const saved = localStorage.getItem('vibenicity_session_vocab');
+            const saved = localStorage.getItem('vibelyf_session_vocab');
             if (saved) {
                 this.sessionVocabulary = JSON.parse(saved);
                 console.log(`🧠 Loaded ${Object.keys(this.sessionVocabulary).length} session terms`);
@@ -81,7 +81,7 @@ const VibenicityLearningLoop = {
      */
     saveSessionVocabulary() {
         try {
-            localStorage.setItem('vibenicity_session_vocab', JSON.stringify(this.sessionVocabulary));
+            localStorage.setItem('vibelyf_session_vocab', JSON.stringify(this.sessionVocabulary));
         } catch (error) {
             console.error('Error saving session vocabulary:', error);
         }
@@ -340,7 +340,7 @@ const VibenicityLearningLoop = {
             needsReview: true,
             category: 'user-submitted',
             confidence: 0.70, // Lower confidence (user-provided, not academically validated)
-            source: 'VIBENICITY User Contribution'
+            source: 'VIBELYF User Contribution'
         };
 
         // Add to session vocabulary (immediate use)
@@ -505,7 +505,7 @@ const VibenicityLearningLoop = {
                     </div>
                     <p style="font-size: 15px; margin: 0; opacity: 0.95; line-height: 1.6;">
                         You just experienced the learning loop: I didn't understand → You explained clearly → 
-                        We both got smarter → The system improved → Everyone wins! This is how VIBENICITY 
+                        We both got smarter → The system improved → Everyone wins! This is how VIBELYF 
                         evolves from 453 terms to 500,000+ terms. <strong>Thank you for making it better!</strong> 🎉
                     </p>
                 </div>
@@ -564,6 +564,6 @@ const VibenicityLearningLoop = {
 
 // Initialize on load
 if (typeof window !== 'undefined') {
-    window.VibenicityLearningLoop = VibenicityLearningLoop;
-    console.log('🪿 VIBENICITY Learning Loop loaded - Ready to learn and grow!');
+    window.VibeLyfLearningLoop = VibeLyfLearningLoop;
+    console.log('🪿 VIBELYF Learning Loop loaded - Ready to learn and grow!');
 }

@@ -27,7 +27,7 @@ class StudioController {
     }
 
     async init() {
-        console.log('🎨 Vibenicity Studio initializing (GenSpark Edition)...');
+        console.log('🎨 VibeLyf Studio initializing (GenSpark Edition)...');
         
         // Check GenSpark health
         const health = await this.checkServiceHealth();
@@ -60,7 +60,7 @@ class StudioController {
      */
     showWelcomeMessage() {
         this.addMessage('assistant', `
-            <strong>🌟 Welcome to Vibenicity Studio!</strong><br><br>
+            <strong>🌟 Welcome to VibeLyf Studio!</strong><br><br>
             
             <strong>Powered by GenSpark AI</strong> 🚀<br><br>
             

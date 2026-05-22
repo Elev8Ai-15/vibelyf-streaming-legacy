@@ -1,5 +1,5 @@
 /**
- * Enhanced Input Normalizer - Vibenicity Knowledge Base Integration
+ * Enhanced Input Normalizer - VibeLyf Knowledge Base Integration
  * Purpose: Normalize USER INPUT from cultural language to Standard English for code generation
  * 
  * THIS IS FOR INPUT PROCESSING ONLY - NOT FOR GENERATING OUTPUT!

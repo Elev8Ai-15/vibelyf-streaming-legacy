@@ -3,7 +3,7 @@
 // "The Universal Vibe Compiler"
 // ════════════════════════════════════════════════════════════════════════════
 const Linguistics = {
-    // 1. ARCHETYPES (The DNA of Vibenicity)
+    // 1. ARCHETYPES (The DNA of VibeLyf)
     defaults: {
         'ice': 'bg-cyan-950/30 backdrop-blur-xl border border-cyan-400/20 text-cyan-50 shadow-[0_0_40px_-10px_rgba(34,211,238,0.3)] relative overflow-hidden',
         'fire': 'bg-gradient-to-br from-orange-900/40 to-red-900/40 border border-orange-500/30 text-orange-50 shadow-[0_0_30px_-5px_rgba(249,115,22,0.3)] animate-pulse-slow',

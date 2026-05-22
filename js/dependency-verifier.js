@@ -24,14 +24,9 @@ class DependencyVerifier {
             'GeminiAPIService': { type: 'class', critical: true },
             'HybridGenerationService': { type: 'class', critical: true },
             
-            // VibeUp Auto-Scanner System (NEW - Revolutionary Learning)
-            'VibeUpAutoScanner': { type: 'class', critical: true },
-            'VibeUpUI': { type: 'class', critical: true },
-            
             // UI Components
             'TranslationFeedbackUI': { type: 'class', critical: true },
             'InteractiveTutorial': { type: 'class', critical: false },
-            'CultrVibeProfileSystem': { type: 'class', critical: false },
             
             // Data (Knowledge Base)
             'sociolinguisticFoundations': { type: 'object', critical: true },
