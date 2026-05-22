@@ -84,7 +84,13 @@
     <!-- API Generator Styles -->
     <link rel="stylesheet" href="css/api-generator.css">
 
-    <!-- VibeLyf Design System v1.0 (urban graffiti — replaces Blue Glassmorphism v2.1) -->
+    <!-- Layout base — provides hover-reveal tabs, widget banner, left-nav, etc.
+         that vibelyf-tabs.js depends on. To be progressively replaced by vibelyf.css
+         in a follow-up pass. -->
+    <link rel="stylesheet" href="css/red-glassmorphism.css">
+
+    <!-- VibeLyf Design System v1.0 (urban graffiti) — brand-token override layer.
+         Loaded AFTER red-glassmorphism.css so vibelyf-* classes + tokens win cascade. -->
     <link rel="stylesheet" href="css/vibelyf.css">
     
     <style>
@@ -1510,7 +1516,11 @@
         }
     </style>
     
-    <!-- VibeLyf Design System v1.0 — loaded again to override inline <style> blocks above -->
+    <!-- Layout base reloaded so it sits before final override -->
+    <link rel="stylesheet" href="css/red-glassmorphism.css">
+
+    <!-- VibeLyf Design System v1.0 — loaded again last so brand tokens override
+         everything (inline <style> blocks above AND the layout base). -->
     <link rel="stylesheet" href="css/vibelyf.css">
 </head>
 <body>
