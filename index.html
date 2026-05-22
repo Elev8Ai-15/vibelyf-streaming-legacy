@@ -4,14 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>VibeLyf — Build apps in your native tongue</title>
-    
-    <!-- 📱 PWA: Progressive Web App Support (March 2026) -->
+    <meta name="description" content="Build apps in your native tongue. AI that understands slang, learns from you, and generates real apps — on a creator platform built for vibecoders.">
+    <link rel="canonical" href="https://vibelyf.com/">
+
+    <!-- 🎨 Open Graph (Facebook, LinkedIn, iMessage previews) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="VibeLyf">
+    <meta property="og:title" content="VibeLyf — Build apps in your native tongue">
+    <meta property="og:description" content="AI that understands slang, learns from you, and generates real apps. Home of the vibecoders.">
+    <meta property="og:url" content="https://vibelyf.com/">
+    <meta property="og:image" content="https://vibelyf.com/images/vibelyf-logo.webp">
+    <meta property="og:image:alt" content="VibeLyf — graffiti drip logo on concrete">
+    <meta property="og:image:width" content="1152">
+    <meta property="og:image:height" content="896">
+
+    <!-- 🐦 Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="VibeLyf — Build apps in your native tongue">
+    <meta name="twitter:description" content="AI that understands slang, learns from you, and generates real apps. Home of the vibecoders.">
+    <meta name="twitter:image" content="https://vibelyf.com/images/vibelyf-logo.webp">
+
+    <!-- 📱 PWA: Progressive Web App Support -->
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#40BF99">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="VibeLyf">
+    <!-- TODO Phase 1.G: regenerate apple-touch-icon (180x180 PNG) and PWA icons
+         (192x192 + 512x512 maskable PNG) from images/vibelyf-logo.webp. Current
+         vibelyf-icon-*.png files are the old purple Genspark cubes. Use
+         pwa-asset-generator or https://realfavicongenerator.net once Brad confirms
+         desired crop/padding. -->
     <link rel="apple-touch-icon" href="images/vibelyf-icon-192.png">
+    <link rel="icon" type="image/webp" href="images/vibelyf-logo.webp">
     
     <!-- 📊 PostHog Analytics (March 2026) — Track everything, prove impact -->
     <script>
@@ -2023,7 +2048,7 @@
         <!-- BOTTOM CHAT BOT -->
         <div class="glass-panel" id="chat-bot" style="position: relative; z-index: 99;">
             <div class="chat-icon" style="
-                background: url('images/vibelyf-logo.jpg') center/cover;
+                background: url('images/vibelyf-logo.webp') center/cover;
                 width: 48px;
                 height: 48px;
                 border-radius: 50%;
@@ -6391,9 +6416,9 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                             <source src="videos/vibelyf-intro.mp4" type="video/mp4">
                             Your browser does not support video playback.
                         </video>
-                        <img id="introLogo" 
-                             src="images/vibelyf-logo.jpg" 
-                             alt="VIBELYF" 
+                        <img id="introLogo"
+                             src="images/vibelyf-logo.webp"
+                             alt="VibeLyf"
                              style="
                                 width: 80%;
                                 max-width: 500px;
