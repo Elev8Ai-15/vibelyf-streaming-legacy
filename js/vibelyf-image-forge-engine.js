@@ -13,10 +13,10 @@ window.VibeLyfImageForge = {
     config: {
         apiKey: '',
         modelChain: [
-            'gemini-3-5-flash',           // May 2026 I/O release — fastest + native code exec
-            'gemini-3-1-pro',             // Highest quality 3.x
-            'gemini-2-5-flash',           // Stable fast fallback
-            'gemini-2-5-pro'              // Reliable legacy
+            'gemini-3.5-flash',           // May 2026 I/O release — fastest + native code exec
+            'gemini-3.1-pro-preview',             // Highest quality 3.x
+            'gemini-2.5-flash',           // Stable fast fallback
+            'gemini-2.5-pro'              // Reliable legacy
         ],
         workingModel: null,
         currentMode: 'build' // 'build' or 'editor'

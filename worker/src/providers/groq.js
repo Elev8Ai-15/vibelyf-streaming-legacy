@@ -1,8 +1,8 @@
 /**
  * Groq provider — OpenAI-compatible chat completions endpoint.
  *
- * Primary: llama-4-maverick (17B active / 400B total MoE, day-zero on GroqCloud, May 2026)
- * In-Groq fallback: llama-4-scout (lighter Llama 4)
+ * Primary: meta-llama/llama-4-scout-17b-16e-instruct (Llama 4 Scout, 17B active / 16E MoE, day-zero on GroqCloud, May 2026)
+ * In-Groq fallback: llama-3.3-70b-versatile (legacy fallback — Groq doesn't expose Maverick yet)
  *
  * Cross-provider failover to Cerebras lives in routes/slang.js — when a Groq
  * call returns 429 or 5xx the route retries on Cerebras (also OpenAI-compatible).
@@ -11,8 +11,8 @@
 const ENDPOINT = 'https://api.groq.com/openai/v1/chat/completions';
 
 export const GROQ_MODELS = {
-    primary: 'llama-4-maverick',
-    fallback: 'llama-4-scout'
+    primary: 'meta-llama/llama-4-scout-17b-16e-instruct',
+    fallback: 'llama-3.3-70b-versatile'
 };
 
 export async function chat({

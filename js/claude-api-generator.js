@@ -414,7 +414,7 @@ RESPOND WITH ONLY VALID JSON (no markdown):
             throw new Error('No Gemini API key available');
         }
         
-        const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-5-flash:generateContent?key=${apiKey}`;
+        const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=${apiKey}`;
         
         const response = await fetch(endpoint, {
             method: 'POST',

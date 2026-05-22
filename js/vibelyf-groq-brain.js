@@ -7,7 +7,7 @@
  *   - Clarification generation (<500ms)
  *   - Intent classification (<200ms)
  *
- * Primary:  Groq      — Llama 4 Maverick (17B active / 400B total MoE, day-zero on GroqCloud)
+ * Primary:  Groq      — Llama 4 Scout (17B/16E) (17B active / 400B total MoE, day-zero on GroqCloud)
  * Failover: Cerebras  — Llama 4 Scout (free tier: 1M tokens/day, 2,600 tok/s, no card)
  *
  * Deep-brain tasks (code generation) still go to Gemini 3.5 Flash via vibelyf-code-generator.js.
@@ -15,7 +15,7 @@
  * Groq free tier: 6,000 requests/day
  * Cerebras free: 1,000,000 tokens/day (more than enough headroom for slang detection)
  *
- * UPGRADED: May 2026 — Llama 4 Maverick + Scout (replaces Llama 3.3 70B)
+ * UPGRADED: May 2026 — Llama 4 Scout (17B/16E) (replaces Llama 3.3 70B)
  *                       Cerebras failover wiring TODO in Phase 1.H Workers proxy.
  */
 
@@ -28,8 +28,8 @@ window.VibeLyfGroqBrain = {
     config: {
         // Primary provider: Groq
         endpoint: 'https://api.groq.com/openai/v1/chat/completions',
-        model: 'llama-4-maverick',           // Day-zero on Groq, May 2026
-        fallbackModel: 'llama-4-scout',      // Lighter Llama 4 in-Groq backup
+        model: 'meta-llama/llama-4-scout-17b-16e-instruct',           // Day-zero on Groq, May 2026
+        fallbackModel: 'llama-3.3-70b-versatile',      // Lighter Llama 4 in-Groq backup
         apiKey: '',                          // User provides via setup or localStorage
         maxTokens: 500,
         temperature: 0.1,
@@ -46,7 +46,7 @@ window.VibeLyfGroqBrain = {
     // config; the failover logic itself is TODO in the proxy refactor.
     cerebras: {
         endpoint: 'https://api.cerebras.ai/v1/chat/completions',
-        model: 'llama-4-scout',
+        model: 'llama-3.3-70b-versatile',
         apiKey: '',                          // User provides via setup or localStorage
         maxTokens: 500,
         temperature: 0.1,

@@ -1,7 +1,7 @@
 /**
  * Google Gemini provider — May 2026 stack.
  *
- * Primary: gemini-3-5-flash (Google I/O May 20, 2026 — outperforms 3.1 Pro,
+ * Primary: gemini-3.5-flash (Google I/O May 20, 2026 — outperforms 3.1 Pro,
  *          4× faster output, 1M context, native code execution)
  * Fallbacks: 3.1 Pro → 2.5 Flash → 2.5 Pro
  *
@@ -17,8 +17,8 @@
 const ENDPOINT_BASE = 'https://generativelanguage.googleapis.com/v1beta/models';
 
 export const GEMINI_MODELS = {
-    primary: 'gemini-3-5-flash',
-    fallbacks: ['gemini-3-1-pro', 'gemini-2-5-flash', 'gemini-2-5-pro']
+    primary: 'gemini-3.5-flash',
+    fallbacks: ['gemini-3.1-pro-preview', 'gemini-2.5-flash', 'gemini-2.5-pro']
 };
 
 function buildEndpoint(model, apiKey) {

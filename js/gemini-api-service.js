@@ -10,10 +10,10 @@
  * - Style preference adaptation (urban, minimal, professional, colorful)
  * 
  * Model Fallback Chain (tries in order):
- * 1. gemini-3-5-flash (May 2026 I/O release — outperforms 3.1 Pro, 4× faster output)
- * 2. gemini-3-1-pro   (Highest quality 3.x)
- * 3. gemini-2-5-flash (Stable fast fallback)
- * 4. gemini-2-5-pro   (Reliable legacy)
+ * 1. gemini-3.5-flash (May 2026 I/O release — outperforms 3.1 Pro, 4× faster output)
+ * 2. gemini-3.1-pro-preview   (Highest quality 3.x)
+ * 3. gemini-2.5-flash (Stable fast fallback)
+ * 4. gemini-2.5-pro   (Reliable legacy)
  * 
  * Features:
  * - Automatic model fallback (if one fails, tries next)
@@ -38,10 +38,10 @@ class GeminiAPIService {
         
         // Try latest models with fallback chain (May 2026)
         this.models = [
-            'gemini-3-5-flash',          // May 2026 I/O release — outperforms 3.1 Pro, 4× faster
-            'gemini-3-1-pro',            // Highest quality 3.x
-            'gemini-2-5-flash',          // Stable fast fallback
-            'gemini-2-5-pro'             // Reliable legacy
+            'gemini-3.5-flash',          // May 2026 I/O release — outperforms 3.1 Pro, 4× faster
+            'gemini-3.1-pro-preview',            // Highest quality 3.x
+            'gemini-2.5-flash',          // Stable fast fallback
+            'gemini-2.5-pro'             // Reliable legacy
         ];
         this.currentModel = this.models[0];
         this.apiEndpoint = `https://generativelanguage.googleapis.com/v1beta/models/${this.currentModel}:generateContent`;
@@ -253,10 +253,10 @@ Generate the complete HTML file now:`;
      * Call Gemini API with automatic model fallback
      * 
      * Tries models in sequence until one succeeds:
-     * 1. gemini-3-5-flash (May 2026 newest)
-     * 2. gemini-3-1-pro
-     * 3. gemini-2-5-flash
-     * 4. gemini-2-5-pro
+     * 1. gemini-3.5-flash (May 2026 newest)
+     * 2. gemini-3.1-pro-preview
+     * 3. gemini-2.5-flash
+     * 4. gemini-2.5-pro
      * 
      * Features:
      * - Automatic model detection and caching

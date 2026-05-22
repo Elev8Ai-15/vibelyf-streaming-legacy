@@ -16,10 +16,10 @@ const VibeLyfCodeGenerator = {
     // Gemini API Configuration
     config: {
         apiKey: 'AIzaSyB9jQaRGkfj4Tyq5y5j45RiYAeb_H2e-2g',
-        model: 'gemini-3-5-flash',
-        endpoint: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3-5-flash:generateContent',
+        model: 'gemini-3.5-flash',
+        endpoint: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent',
         // Fallback chain: try latest first, fall back gracefully
-        fallbackModels: ['gemini-3-5-flash', 'gemini-3-1-pro', 'gemini-2-5-flash', 'gemini-2-5-pro'],
+        fallbackModels: ['gemini-3.5-flash', 'gemini-3.1-pro-preview', 'gemini-2.5-flash', 'gemini-2.5-pro'],
         fallbackIndex: 0
     },
 
