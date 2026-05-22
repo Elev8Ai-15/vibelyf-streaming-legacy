@@ -95,6 +95,15 @@ studio-BACKUP-*.html
 .firebase/
 .cloudflare/
 
+# === Cloudflare Workers (worker/ subproject) ===
+worker/.dev.vars
+worker/.dev.vars.*
+!worker/.dev.vars.example
+worker/.wrangler/
+worker/.mf/
+worker/wrangler-output.txt
+worker/node_modules/
+
 # === Supabase ===
 .supabase/
 supabase/.branches

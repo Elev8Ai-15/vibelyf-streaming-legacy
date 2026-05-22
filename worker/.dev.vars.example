@@ -1,0 +1,23 @@
+# Copy this file to `.dev.vars` (which is gitignored) and fill in real dev keys.
+# `wrangler dev` reads .dev.vars automatically. In production these are set
+# via `wrangler secret put <NAME>` and live in Cloudflare's encrypted store.
+
+# Google AI Studio key for Gemini 3.5 Flash codegen
+# Get one at: https://aistudio.google.com/apikey
+GEMINI_API_KEY=
+
+# Anthropic API key for Claude Sonnet 4.6 API generation
+# Get one at: https://console.anthropic.com/settings/keys
+ANTHROPIC_API_KEY=
+
+# Groq API key for Llama 4 Maverick (primary fast brain — slang detection)
+# Get one at: https://console.groq.com/keys
+GROQ_API_KEY=
+
+# Cerebras API key for Llama 4 Scout (failover when Groq rate-limits)
+# Get one at: https://cloud.cerebras.ai (free tier: 1M tokens/day, no card)
+CEREBRAS_API_KEY=
+
+# Supabase keys — wired in Phase 1.H part 2 once project is created
+# SUPABASE_URL=
+# SUPABASE_SERVICE_KEY=

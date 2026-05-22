@@ -1,0 +1,19 @@
+# Cloudflare Workers — secrets must NEVER be committed
+.dev.vars
+.dev.vars.*
+!.dev.vars.example
+
+# Wrangler state
+.wrangler/
+.mf/
+wrangler-output.txt
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+.npm
+
+# OS
+.DS_Store
+Thumbs.db
