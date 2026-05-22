@@ -1,9 +1,17 @@
 -- ═══════════════════════════════════════════════════════════════
--- VIBELYF SUPABASE SETUP SQL
+-- VIBELYF SUPABASE SETUP SQL  (v1.1 — Phase 1.D + 1.H + 1.I compliance)
 -- Run this in your Supabase SQL Editor (Dashboard → SQL Editor → New Query)
--- 
--- Creates: profiles, user_data, community_terms tables
+--
+-- Creates: profiles, user_data, community_terms, rate_limits tables
 -- Free tier: 500MB database, 50K monthly active users
+--
+-- Changes from v1.0:
+--   + profiles.communication_score_public  (per-user opt-in score visibility — Phase 1.I)
+--   + profiles.age_band                    (13+ age gate compliance — CA AI Transparency Act,
+--                                           EU AI Act Article 50, COPPA)
+--   + profiles.consent_ai_disclosure_at    (timestamp of AI disclosure acceptance)
+--   + profiles.consent_age_gate_at         (timestamp of age gate passage)
+--   + rate_limits table                    (per-user request budgets for the Worker proxy)
 -- ═══════════════════════════════════════════════════════════════
 
 -- 1. PROFILES TABLE — User identity + stats
@@ -15,8 +23,12 @@ CREATE TABLE IF NOT EXISTS profiles (
     bio TEXT DEFAULT '',
     vibe_theme TEXT DEFAULT 'cyber',
     communication_score INTEGER DEFAULT 0,
+    communication_score_public BOOLEAN DEFAULT FALSE,
     vocab_contributions INTEGER DEFAULT 0,
     apps_generated INTEGER DEFAULT 0,
+    age_band TEXT CHECK (age_band IN ('13-17', '18-24', '25-34', '35-44', '45-54', '55+')),
+    consent_ai_disclosure_at TIMESTAMPTZ,
+    consent_age_gate_at TIMESTAMPTZ,
     joined_at TIMESTAMPTZ DEFAULT NOW(),
     updated_at TIMESTAMPTZ DEFAULT NOW()
 );
@@ -86,7 +98,32 @@ CREATE POLICY "Users can update own pending terms" ON community_terms
     FOR UPDATE USING (auth.uid() = submitted_by AND status = 'pending');
 
 
--- 4. UPVOTE FUNCTION (prevents double-voting in a simple way)
+-- 4. RATE_LIMITS TABLE — Per-user budgets for the Worker API proxy (Phase 1.H part 2)
+CREATE TABLE IF NOT EXISTS rate_limits (
+    id BIGSERIAL PRIMARY KEY,
+    -- user_id is NULL for guest/anonymous traffic; bucket_key falls back to IP
+    user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE,
+    bucket_key TEXT NOT NULL,                          -- e.g. 'user:<uuid>' or 'ip:<addr>'
+    route TEXT NOT NULL,                               -- e.g. '/api/llm/codegen'
+    window_start TIMESTAMPTZ NOT NULL,                 -- truncated to minute / hour / day
+    window_granularity TEXT NOT NULL CHECK (window_granularity IN ('minute', 'hour', 'day')),
+    count INTEGER NOT NULL DEFAULT 0,
+    last_hit TIMESTAMPTZ DEFAULT NOW(),
+    UNIQUE(bucket_key, route, window_start, window_granularity)
+);
+
+CREATE INDEX IF NOT EXISTS rate_limits_bucket_route_idx
+    ON rate_limits (bucket_key, route, window_start);
+
+-- Service role writes from the Worker; users never touch this table directly
+ALTER TABLE rate_limits ENABLE ROW LEVEL SECURITY;
+
+-- Users can read their own rate-limit state (so the SPA can show "you have 23 requests left today")
+CREATE POLICY "Users read own rate limits" ON rate_limits
+    FOR SELECT USING (auth.uid() = user_id);
+
+
+-- 5. UPVOTE FUNCTION (prevents double-voting in a simple way)
 CREATE OR REPLACE FUNCTION increment_upvote(term_id BIGINT)
 RETURNS void AS $$
 BEGIN
@@ -97,7 +134,7 @@ END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;
 
 
--- 5. AUTO-UPDATE TIMESTAMPS
+-- 6. AUTO-UPDATE TIMESTAMPS
 CREATE OR REPLACE FUNCTION update_updated_at()
 RETURNS TRIGGER AS $$
 BEGIN
@@ -115,12 +152,41 @@ CREATE TRIGGER user_data_updated_at
     FOR EACH ROW EXECUTE FUNCTION update_updated_at();
 
 
+-- 7. PROFILE AUTO-CREATE ON SIGNUP
+-- When a new auth.users row is created (any provider), automatically create
+-- the matching profiles row. Saves the SPA from doing a separate insert.
+CREATE OR REPLACE FUNCTION handle_new_user()
+RETURNS TRIGGER AS $$
+BEGIN
+    INSERT INTO profiles (id, email, display_name, avatar_url)
+    VALUES (
+        NEW.id,
+        NEW.email,
+        COALESCE(NEW.raw_user_meta_data->>'name', NEW.raw_user_meta_data->>'full_name', ''),
+        COALESCE(NEW.raw_user_meta_data->>'avatar_url', '')
+    )
+    ON CONFLICT (id) DO NOTHING;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
+DROP TRIGGER IF EXISTS on_auth_user_created ON auth.users;
+CREATE TRIGGER on_auth_user_created
+    AFTER INSERT ON auth.users
+    FOR EACH ROW EXECUTE FUNCTION handle_new_user();
+
+
 -- ═══════════════════════════════════════════════════════════════
 -- DONE! Your Supabase tables are ready.
--- 
--- Next steps:
--- 1. Go to Authentication → Settings → enable Email provider
--- 2. Optionally enable Google, GitHub, Discord OAuth
--- 3. Copy your project URL and anon key from Settings → API
--- 4. In VIBELYF: VibeLyfCloud.init('YOUR_URL', 'YOUR_ANON_KEY')
+--
+-- Next steps (walked through in Phase 1.D):
+-- 1. Authentication → Providers → enable Email
+-- 2. Authentication → Providers → enable Google (paste OAuth client ID + secret)
+-- 3. Authentication → Providers → enable GitHub (paste OAuth app credentials)
+-- 4. Project Settings → API → copy:
+--      Project URL          → SUPABASE_URL
+--      anon / public key    → SUPABASE_ANON_KEY (safe in browser)
+--      service_role key     → SUPABASE_SERVICE_KEY (Worker-only, NEVER in browser)
+-- 5. In VibeLyf SPA: VibeLyfCloud.init('YOUR_URL', 'YOUR_ANON_KEY')
+-- 6. In worker/.dev.vars: SUPABASE_URL + SUPABASE_SERVICE_KEY
 -- ═══════════════════════════════════════════════════════════════
