@@ -26,6 +26,7 @@ import { health } from './routes/health.js';
 import { codegen } from './routes/codegen.js';
 import { apiGen } from './routes/api-gen.js';
 import { slang } from './routes/slang.js';
+import { embed } from './routes/embed.js';
 
 async function route(request, env, ctx) {
     const url = new URL(request.url);
@@ -48,7 +49,8 @@ async function route(request, env, ctx) {
                         'GET  /api/health',
                         'POST /api/llm/codegen',
                         'POST /api/llm/api-gen',
-                        'POST /api/llm/slang'
+                        'POST /api/llm/slang',
+                        'POST /api/embed'
                     ]
                 }, null, 2),
                 { headers: { 'Content-Type': 'application/json; charset=utf-8' } }
@@ -65,6 +67,9 @@ async function route(request, env, ctx) {
 
         case '/api/llm/slang':
             return slang(request, env, ctx);
+
+        case '/api/embed':
+            return embed(request, env, ctx);
 
         default:
             return errors.notFound(`No route for ${request.method} ${path}`);
