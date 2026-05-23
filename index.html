@@ -3918,9 +3918,135 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
             },
             
             // ========================================
+            // 🌐 EMBED URL ROUTER — Detect platform from pasted URL
+            //    Hits POST /api/embed on the VibeLyf Worker which returns
+            //    oEmbed HTML or iframe src for 8+ platforms. Phase 2.A.
+            // ========================================
+
+            WORKER_API: 'https://vibelyf-api.bradgpowell1123.workers.dev',
+
+            // Map regex → platform identifier the Worker accepts
+            EMBED_URL_PATTERNS: [
+                { re: /^https:\/\/(www\.|mobile\.)?(twitter|x)\.com\//i,           platform: 'x' },
+                { re: /^https:\/\/(www\.|m\.|vm\.)?tiktok\.com\//i,                platform: 'tiktok' },
+                { re: /^https:\/\/(www\.|old\.|new\.)?(reddit\.com|redd\.it)\//i,  platform: 'reddit' },
+                { re: /^https:\/\/(www\.|m\.|music\.)?(youtube\.com|youtu\.be)\//i, platform: 'youtube' },
+                { re: /^https:\/\/(www\.|m\.|on\.)?soundcloud\.com\//i,            platform: 'soundcloud' },
+                { re: /^https:\/\/(www\.|player\.)?vimeo\.com\//i,                 platform: 'vimeo' },
+                { re: /^https:\/\/(open\.|play\.)?spotify\.com\//i,                platform: 'spotify' },
+                { re: /^https:\/\/(www\.)?music\.apple\.com\//i,                   platform: 'apple-music' },
+                { re: /^https:\/\/(www\.|.+\.)?pinterest\.([a-z]{2,4})\//i,        platform: 'pinterest' },
+                // Meta endpoints — accepted but Worker will return 502 until META_APP_TOKEN is set
+                { re: /^https:\/\/(www\.|m\.|web\.)?(facebook|fb)\.com\//i,        platform: 'facebook' },
+                { re: /^https:\/\/(www\.)?instagram\.com\//i,                      platform: 'instagram' },
+                { re: /^https:\/\/(www\.)?threads\.(net|com)\//i,                  platform: 'threads' }
+            ],
+
+            // Detect which platform a URL belongs to. Returns null if no match.
+            detectEmbedPlatform(text) {
+                const url = (text || '').trim();
+                if (!url.startsWith('https://')) return null;
+                const match = this.EMBED_URL_PATTERNS.find(p => p.re.test(url));
+                return match ? { platform: match.platform, url } : null;
+            },
+
+            // Fetch oEmbed/embed HTML from the Worker and render in main-content.
+            async loadEmbedFromUrl(platform, url) {
+                const mainContent = document.getElementById('main-content');
+                const platformName = this.getPlatformName(platform) || platform;
+                const platformIcon = this.getPlatformIcon(platform) || '🔗';
+
+                // Loading state
+                mainContent.style.padding = '0';
+                mainContent.style.display = 'flex';
+                mainContent.style.flexDirection = 'column';
+                mainContent.style.background = 'var(--vl-bg, #F2F2F2)';
+                mainContent.innerHTML = `
+                    <div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--vl-text-muted,#5E6164);font-family:Inter,sans-serif;">
+                        <div style="font-size:48px;margin-bottom:16px;">${platformIcon}</div>
+                        <div style="font-weight:600;font-size:16px;">Fetching ${platformName} embed…</div>
+                        <div style="font-size:12px;margin-top:4px;opacity:0.6;">${url}</div>
+                    </div>
+                `;
+
+                let result;
+                try {
+                    const resp = await fetch(`${this.WORKER_API}/api/embed`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ platform, url })
+                    });
+                    result = await resp.json();
+                    if (!resp.ok || !result.success) {
+                        throw new Error(result?.error?.message || `HTTP ${resp.status}`);
+                    }
+                } catch (err) {
+                    console.warn(`[embed] ${platform} failed:`, err.message);
+                    // Graceful fallback — show launcher screen + open new tab
+                    this.showNewTabLauncher(platform, url, platformName, platformIcon);
+                    return;
+                }
+
+                const data = result.data || {};
+                const meta = result.meta || {};
+
+                // Render the embed
+                const headerHtml = `
+                    <div style="
+                        padding:10px 16px;
+                        background:var(--vl-bg-elevated,#ECE0CB);
+                        border-bottom:2px solid var(--vl-surface-border,#DBC082);
+                        display:flex;align-items:center;justify-content:space-between;flex-shrink:0;
+                        font-family:Inter,sans-serif;
+                    ">
+                        <div style="display:flex;align-items:center;gap:10px;">
+                            <span style="font-size:20px;">${platformIcon}</span>
+                            <span style="color:var(--vl-charcoal-deep,#232629);font-size:15px;font-weight:700;">${platformName}</span>
+                            <span style="color:var(--vl-teal-deep,#27996B);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;">embedded</span>
+                        </div>
+                        <div style="display:flex;gap:8px;">
+                            <button onclick="window.open('${url.replace(/'/g, "\\'")}','_blank')" class="vl-btn vl-btn-secondary vl-btn-sm" style="padding:6px 14px;font-size:12px;">↗ Open Full Site</button>
+                            <button onclick="VibeLyfApp.returnToHome()" class="vl-btn vl-btn-ghost vl-btn-sm" style="padding:6px 14px;font-size:12px;">✕ Close</button>
+                        </div>
+                    </div>
+                `;
+
+                let contentHtml;
+                if (data.type === 'iframe' && data.src) {
+                    // Direct iframe path (Apple Music, etc.)
+                    contentHtml = `<iframe src="${data.src}" style="width:100%;flex:1;border:none;background:#fff;min-height:450px;" ${data.attributes || 'allow="autoplay; encrypted-media; fullscreen" allowfullscreen'}></iframe>`;
+                } else if (data.html) {
+                    // oEmbed HTML path (X, TikTok, Reddit, etc.)
+                    // The Worker returns the provider's HTML; we wrap it in a scrollable container.
+                    contentHtml = `
+                        <div style="flex:1;overflow:auto;padding:24px;background:#fff;display:flex;align-items:flex-start;justify-content:center;">
+                            <div style="max-width:600px;width:100%;">${data.html}</div>
+                        </div>
+                    `;
+                } else {
+                    contentHtml = `<div style="flex:1;display:flex;align-items:center;justify-content:center;color:var(--vl-danger,#E54141);">Embed returned no renderable content.</div>`;
+                }
+
+                mainContent.innerHTML = `<div style="width:100%;height:100%;display:flex;flex-direction:column;">${headerHtml}${contentHtml}</div>`;
+
+                // Many oEmbed responses include <script> tags (Twitter widgets.js, Pinterest pinit.js, etc).
+                // innerHTML doesn't execute those by default — extract + re-inject so scripts run.
+                mainContent.querySelectorAll('script').forEach(oldScript => {
+                    const newScript = document.createElement('script');
+                    if (oldScript.src) newScript.src = oldScript.src;
+                    if (oldScript.async) newScript.async = true;
+                    if (oldScript.defer) newScript.defer = true;
+                    if (oldScript.textContent) newScript.textContent = oldScript.textContent;
+                    oldScript.parentNode.replaceChild(newScript, oldScript);
+                });
+
+                console.log(`[embed] ✓ ${platform} via ${meta.source} (${meta.elapsed_ms || 0}ms)`);
+            },
+
+            // ========================================
             // 🎯 SMART FEED LOADER — Embed or New Tab
             // ========================================
-            
+
             loadFeedSmart(appName, url, canEmbed = false) {
                 const mainContent = document.getElementById('main-content');
                 const platformName = this.getPlatformName(appName);
@@ -4711,14 +4837,23 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
             async sendMessage() {
                 const input = document.getElementById('chatInput');
                 const message = input.value.trim();
-                
+
                 if (!message) return;
-                
+
                 console.log('💬 User message:', message);
                 console.log('🪿 Learning Loop Active:', window.VibeLyfLearningLoop ? 'YES' : 'NO');
-                
+
                 // Clear input immediately
                 input.value = '';
+
+                // 🌐 URL ROUTER (Phase 2.A) — if message is a recognised social/media URL,
+                //    route to the embed Worker and render the content inline.
+                const embedTarget = this.detectEmbedPlatform(message);
+                if (embedTarget) {
+                    console.log(`[embed] detected ${embedTarget.platform} URL → loading embed`);
+                    this.loadEmbedFromUrl(embedTarget.platform, embedTarget.url);
+                    return;
+                }
                 
                 // 🎯 CHAT COMMANDS: Check for special commands
                 if (message.toLowerCase() === '/score' || message.toLowerCase() === 'score' || message.toLowerCase() === 'my score') {
