@@ -1319,6 +1319,34 @@ hr {
  *     so nothing breaks visually while the JS modules get rewritten.
  * ------------------------------------------------------------------------- */
 
+/* ---- Legacy token rebinding ---------------------------------------------
+ * The original Genspark code defines --primary-glow / --secondary-glow
+ * as RGB triplets and uses them in dozens of inline rgba() calls across
+ * loadFeedSmart, showNewTabLauncher, showAllFeeds, showBuilders, etc.
+ *
+ * Rather than rewrite every call, we OVERRIDE the triplets here so all
+ * existing rgba(var(--primary-glow), N) calls pick up the new VibeLyf
+ * teal/cream palette automatically. Zero JS changes required.
+ *
+ * Old values:
+ *   --primary-glow:        0, 229, 255    (cyan)
+ *   --primary-glow-alt:    0, 200, 255    (cyan-alt)
+ *   --secondary-glow:      199, 112, 255  (purple)
+ *   --secondary-glow-deep: 147, 51, 234   (purple-deep)
+ *
+ * New values map to the brand palette:
+ *   --primary-glow        → vl-teal       (#40BF99 = 64,191,153)
+ *   --primary-glow-alt    → vl-teal-deep  (#27996B = 39,153,107)
+ *   --secondary-glow      → vl-cream      (#EAD9B0 = 234,217,176)
+ *   --secondary-glow-deep → vl-cream-edge (#DBC082 = 219,192,130)
+ * --------------------------------------------------------------------- */
+:root {
+    --primary-glow:        64, 191, 153 !important;
+    --primary-glow-alt:    39, 153, 107 !important;
+    --secondary-glow:      234, 217, 176 !important;
+    --secondary-glow-deep: 219, 192, 130 !important;
+}
+
 /* Old .glass-card → new vl-card-glass treatment */
 .glass-card,
 .glassmorphism,
