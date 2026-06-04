@@ -265,10 +265,14 @@ Generate the code now:`;
             if (!generatedText) {
                 throw new Error('No code generated from Worker codegen route');
             }
-            
+
+            // Real provider/model the Worker actually served with (codegen now routes
+            // to Claude — read the label from the response instead of a stale local string).
+            const servedModel = data.meta?.model || this.config.model;
+
             // Extract HTML code (remove markdown if present)
             let code = generatedText;
-            
+
             // Remove markdown code blocks if present
             if (code.includes('```html')) {
                 code = code.split('```html')[1].split('```')[0].trim();
@@ -280,7 +284,7 @@ Generate the code now:`;
                 success: true,
                 code: code,
                 metadata: {
-                    model: this.config.model,
+                    model: servedModel,
                     timestamp: Date.now(),
                     promptLength: prompt.length,
                     codeLength: code.length
