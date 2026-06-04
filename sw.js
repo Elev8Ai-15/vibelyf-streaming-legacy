@@ -10,7 +10,11 @@
  * CREATED: March 2026
  */
 
-const CACHE_NAME = 'vibelyf-v2026.03';
+// Bump this on every deploy that changes cached assets. The activate handler
+// deletes any cache whose name != CACHE_NAME, so a new version forces fresh
+// core assets and purges the stale cache. (2026-06-04: bumped for the Worker-
+// proxy LLM cutover — old cache was serving pre-cutover JS to returning visitors.)
+const CACHE_NAME = 'vibelyf-v2026.06.04';
 const CORE_ASSETS = [
     '/',
     '/index.html',
