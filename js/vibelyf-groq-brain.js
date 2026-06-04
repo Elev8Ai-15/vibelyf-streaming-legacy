@@ -26,15 +26,17 @@ window.VibeLyfGroqBrain = {
     // ═══════════════════════════════════════════════════════════════
 
     config: {
-        // Primary provider: Groq
-        endpoint: 'https://api.groq.com/openai/v1/chat/completions',
+        // Phase 1.H Part 2: all calls route through the VibeLyf Worker (/api/llm/slang),
+        // which owns the Groq + Cerebras failover chain server-side. No browser key needed.
+        workerBase: (typeof window !== 'undefined' && window.VIBELYF_WORKER_API) || 'https://vibelyf-api.bradgpowell1123.workers.dev',
+        endpoint: 'https://api.groq.com/openai/v1/chat/completions',  // legacy ref (no longer called direct)
         model: 'meta-llama/llama-4-scout-17b-16e-instruct',           // Day-zero on Groq, May 2026
         fallbackModel: 'llama-3.3-70b-versatile',      // Lighter Llama 4 in-Groq backup
-        apiKey: '',                          // User provides via setup or localStorage
+        apiKey: '',                          // empty by design — Worker holds the key
         maxTokens: 500,
         temperature: 0.1,
         timeout: 8000,
-        enabled: false,
+        enabled: true,                       // Worker-backed: ready without a local key
         requestCount: 0,
         dailyLimit: 6000,
         lastResetDate: null
@@ -112,7 +114,8 @@ window.VibeLyfGroqBrain = {
      * Check if Groq is ready to use
      */
     isReady() {
-        return this.config.enabled && this.config.apiKey && this.config.requestCount < this.config.dailyLimit;
+        // Worker proxy holds the key, so readiness no longer depends on a local apiKey.
+        return this.config.enabled && this.config.requestCount < this.config.dailyLimit;
     },
 
     /**
@@ -160,54 +163,44 @@ window.VibeLyfGroqBrain = {
         }
 
         const startTime = performance.now();
-        const model = options.model || this.config.model;
 
         try {
             const controller = new AbortController();
             const timeoutId = setTimeout(() => controller.abort(), this.config.timeout);
 
-            const response = await fetch(this.config.endpoint, {
+            // Phase 1.H Part 2: route through the Worker (/api/llm/slang). The Worker
+            // runs the Groq → Groq-fallback → Cerebras failover chain server-side, so
+            // the browser makes a single call and trusts the proxy to pick a provider.
+            const response = await fetch(`${this.config.workerBase}/api/llm/slang`, {
                 method: 'POST',
                 headers: {
-                    'Authorization': `Bearer ${this.config.apiKey}`,
                     'Content-Type': 'application/json'
                 },
                 signal: controller.signal,
                 body: JSON.stringify({
-                    model: model,
-                    messages: [
-                        { role: 'system', content: systemPrompt },
-                        { role: 'user', content: userMessage }
-                    ],
+                    systemPrompt: systemPrompt,
+                    userMessage: userMessage,
                     temperature: options.temperature ?? this.config.temperature,
                     max_tokens: options.maxTokens ?? this.config.maxTokens,
-                    response_format: options.jsonMode ? { type: 'json_object' } : undefined
+                    jsonMode: !!options.jsonMode
                 })
             });
 
             clearTimeout(timeoutId);
             this.incrementCounter();
 
-            if (!response.ok) {
-                const errorBody = await response.text();
-                console.error(`⚡ Groq API error ${response.status}:`, errorBody);
-                
-                // Try fallback model if primary fails
-                if (model === this.config.model && this.config.fallbackModel) {
-                    console.log(`⚡ Trying fallback model: ${this.config.fallbackModel}`);
-                    return this.query(systemPrompt, userMessage, { 
-                        ...options, 
-                        model: this.config.fallbackModel 
-                    });
-                }
+            const data = await response.json();
+
+            if (!response.ok || !data.success) {
+                console.error(`⚡ Worker slang error ${response.status}:`, data?.error?.message || 'unknown');
                 return null;
             }
 
-            const data = await response.json();
             const elapsed = Math.round(performance.now() - startTime);
-            const content = data.choices?.[0]?.message?.content || '';
+            const content = data.data?.text || '';
+            const servedBy = data.meta?.provider ? `${data.meta.provider}/${data.meta.model}` : 'worker';
 
-            console.log(`⚡ Groq responded in ${elapsed}ms (${model})`);
+            console.log(`⚡ Slang responded in ${elapsed}ms (${servedBy})`);
 
             // Try to parse as JSON if requested
             if (options.jsonMode) {
@@ -219,27 +212,18 @@ window.VibeLyfGroqBrain = {
                     if (jsonMatch) {
                         return JSON.parse(jsonMatch[0]);
                     }
-                    console.warn('⚡ Groq response not valid JSON:', content);
+                    console.warn('⚡ Slang response not valid JSON:', content);
                     return { raw: content };
                 }
             }
 
-            return { text: content, elapsed, model };
+            return { text: content, elapsed, model: data.meta?.model || this.config.model };
 
         } catch (error) {
             if (error.name === 'AbortError') {
-                console.warn(`⚡ Groq request timed out after ${this.config.timeout}ms`);
+                console.warn(`⚡ Slang request timed out after ${this.config.timeout}ms`);
             } else {
-                console.error('⚡ Groq request failed:', error.message);
-            }
-
-            // Try fallback model on timeout
-            if (model === this.config.model && this.config.fallbackModel) {
-                console.log(`⚡ Trying fallback model: ${this.config.fallbackModel}`);
-                return this.query(systemPrompt, userMessage, { 
-                    ...options, 
-                    model: this.config.fallbackModel 
-                });
+                console.error('⚡ Slang request failed:', error.message);
             }
             return null;
         }

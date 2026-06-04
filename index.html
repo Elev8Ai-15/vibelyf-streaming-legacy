@@ -53,7 +53,11 @@
     
     <!-- CRITICAL: Load Cultural Vocabulary Database FIRST (before any chatbot code) -->
     <script src="js/cultural-vocabulary-master.js"></script>
-    
+
+    <!-- 🛰️ Worker proxy base URL — single override point for all LLM modules (Phase 1.H Part 2).
+         Must run BEFORE the provider modules below, which read it at definition time. -->
+    <script>window.VIBELYF_WORKER_API = 'https://vibelyf-api.bradgpowell1123.workers.dev';</script>
+
     <!-- 🎨 Linguistics Engine V32: Universal Vibe Compiler -->
     <script src="js/linguistics-engine-v32.js"></script>
     

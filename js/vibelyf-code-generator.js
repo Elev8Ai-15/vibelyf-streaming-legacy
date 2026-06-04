@@ -15,8 +15,12 @@
 const VibeLyfCodeGenerator = {
     // Gemini API Configuration
     config: {
-        apiKey: '' /* TODO Phase 1.H — Worker proxy supplies this; never hardcode again */,
+        // Phase 1.H Part 2: all calls now route through the VibeLyf Worker proxy,
+        // which holds the provider keys server-side. apiKey stays empty in the browser.
+        apiKey: '',
         model: 'gemini-3.5-flash',
+        // Worker proxy base (override globally via window.VIBELYF_WORKER_API).
+        workerBase: (typeof window !== 'undefined' && window.VIBELYF_WORKER_API) || 'https://vibelyf-api.bradgpowell1123.workers.dev',
         endpoint: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent',
         // Fallback chain: try latest first, fall back gracefully
         fallbackModels: ['gemini-3.5-flash', 'gemini-3.1-pro-preview', 'gemini-2.5-flash', 'gemini-2.5-pro'],
@@ -227,7 +231,9 @@ Generate the code now:`;
      */
     async callGeminiAPI(prompt) {
         try {
-            const response = await fetch(`${this.config.endpoint}?key=${this.config.apiKey}`, {
+            // Phase 1.H Part 2: route through the Worker proxy (/api/llm/codegen)
+            // instead of calling Gemini directly. Worker holds the key + fallback chain.
+            const response = await fetch(`${this.config.workerBase}/api/llm/codegen`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -247,18 +253,18 @@ Generate the code now:`;
                 })
             });
 
-            if (!response.ok) {
-                const errorText = await response.text();
-                throw new Error(`Gemini API error: ${response.status} - ${errorText}`);
-            }
-
             const data = await response.json();
-            
-            if (!data.candidates || data.candidates.length === 0) {
-                throw new Error('No code generated from Gemini API');
+
+            if (!response.ok || !data.success) {
+                const msg = data?.error?.message || `Worker codegen error: ${response.status}`;
+                throw new Error(msg);
             }
 
-            const generatedText = data.candidates[0].content.parts[0].text;
+            const generatedText = data.data?.text;
+
+            if (!generatedText) {
+                throw new Error('No code generated from Worker codegen route');
+            }
             
             // Extract HTML code (remove markdown if present)
             let code = generatedText;

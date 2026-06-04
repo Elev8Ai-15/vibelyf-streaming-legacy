@@ -15,9 +15,10 @@ const ClaudeAPIGenerator = {
         claudeEndpoint: 'https://api.anthropic.com/v1/messages',
         // UPGRADED May 2026: Sonnet 4.6 is current latest. 1M context beta available.
         claudeModel: 'claude-sonnet-4-6',
-        // NOTE: This key was hardcoded in the Genspark export. Phase 1.H moves it
-        //       to the Cloudflare Workers proxy. Rotate this key before Phase 1.F (GitHub push).
-        claudeApiKey: '' /* TODO Phase 1.H — Worker proxy supplies this; never hardcode again */,
+        // Phase 1.H Part 2: Claude + Gemini calls now route through the VibeLyf Worker
+        // proxy (which holds the keys + enables Anthropic prompt caching). Browser key stays empty.
+        claudeApiKey: '',
+        workerBase: (typeof window !== 'undefined' && window.VIBELYF_WORKER_API) || 'https://vibelyf-api.bradgpowell1123.workers.dev',
         maxTokens: 4096,
         debug: true
     },
@@ -403,20 +404,11 @@ RESPOND WITH ONLY VALID JSON (no markdown):
     },
 
     /**
-     * Call Gemini API for schema extraction (browser-safe, CORS enabled)
+     * Call Gemini for schema extraction via the Worker proxy (/api/llm/codegen).
+     * Phase 1.H Part 2 — no browser key needed; Worker holds it.
      */
     async callGeminiForSchema(prompt) {
-        // Get Gemini API key from Code Generator or localStorage
-        const apiKey = window.VibeLyfCodeGenerator?.config?.apiKey || 
-                       localStorage.getItem('gemini_api_key');
-        
-        if (!apiKey) {
-            throw new Error('No Gemini API key available');
-        }
-        
-        const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=${apiKey}`;
-        
-        const response = await fetch(endpoint, {
+        const response = await fetch(`${this.config.workerBase}/api/llm/codegen`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -427,46 +419,40 @@ RESPOND WITH ONLY VALID JSON (no markdown):
                 }
             })
         });
-        
-        if (!response.ok) {
-            throw new Error(`Gemini API error: ${response.status}`);
-        }
-        
+
         const data = await response.json();
-        const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
-        
-        if (!text) throw new Error('Empty Gemini response');
+        if (!response.ok || !data.success) {
+            throw new Error(data?.error?.message || `Worker codegen error: ${response.status}`);
+        }
+
+        const text = data.data?.text;
+        if (!text) throw new Error('Empty Worker codegen response');
         return text;
     },
 
     /**
-     * Call Claude API (may fail in browser due to CORS)
+     * Call Claude via the Worker proxy (/api/llm/api-gen). Phase 1.H Part 2 —
+     * routes through the Worker, which adds the 535-term cached vocab system prompt.
+     * This also fixes the old browser-CORS failure against api.anthropic.com.
      */
     async callClaude(prompt) {
-        if (!this.config.claudeApiKey) {
-            throw new Error('Claude API key not set');
-        }
-
-        const response = await fetch(this.config.claudeEndpoint, {
+        const response = await fetch(`${this.config.workerBase}/api/llm/api-gen`, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'x-api-key': this.config.claudeApiKey,
-                'anthropic-version': '2023-06-01'
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                model: this.config.claudeModel,
-                max_tokens: this.config.maxTokens,
-                messages: [{ role: 'user', content: prompt }]
+                prompt: prompt,
+                max_tokens: this.config.maxTokens
             })
         });
 
-        if (!response.ok) {
-            throw new Error(`Claude API error: ${response.status}`);
+        const data = await response.json();
+        if (!response.ok || !data.success) {
+            throw new Error(data?.error?.message || `Worker api-gen error: ${response.status}`);
         }
 
-        const data = await response.json();
-        return data.content[0].text;
+        const text = data.data?.text;
+        if (!text) throw new Error('Empty Worker api-gen response');
+        return text;
     },
 
     /**
