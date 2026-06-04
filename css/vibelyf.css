@@ -984,6 +984,8 @@ hr {
     justify-content: center;
     padding: var(--vl-space-4);
 }
+/* The class sets display:flex, which would beat the UA [hidden] rule — restore it. */
+.vl-overlay[hidden] { display: none; }
 
 .vl-modal {
     background: var(--vl-bg);
@@ -1197,6 +1199,28 @@ hr {
     font-size: var(--vl-text-2xl);
     margin-bottom: var(--vl-space-2);
 }
+
+/* Persistent compliance links — CCPA/CPRA requires the Do-Not-Sell control to be
+   available at all times, not only inside the dismissible cookie banner. */
+.vl-compliance-links {
+    position: fixed;
+    left: var(--vl-space-3);
+    bottom: var(--vl-space-3);
+    z-index: var(--vl-z-banner);
+    display: flex;
+    gap: var(--vl-space-2);
+    flex-wrap: wrap;
+    opacity: 0.55;
+    transition: opacity var(--vl-duration-fast) var(--vl-ease-out);
+}
+.vl-compliance-links:hover { opacity: 1; }
+.vl-compliance-links[hidden] { display: none; }
+.vl-compliance-links .vl-dnsl-link {
+    background: var(--vl-bg-elevated);
+    font-size: var(--vl-text-2xs);
+    padding: 0.2rem 0.6rem;
+}
+@media print { .vl-compliance-links { display: none !important; } }
 
 
 /* ---------------------------------------------------------------------------

@@ -8893,5 +8893,180 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </style>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         PHASE 1.I — COMPLIANCE LAYER
+         Age gate + cookie consent (privacy-first) + AI disclosure + DSAR / Do-Not-Sell.
+         Required for Aug 2 2026: CA AI Transparency Act + EU AI Act Art. 50 + CCPA/CPRA.
+         CSS lives in css/vibelyf.css §19. State persists in localStorage.
+    ════════════════════════════════════════════════════════════════════════ -->
+
+    <!-- Age gate (shown first visit, blocks interaction until answered) -->
+    <div class="vl-overlay" id="vlAgeGate" hidden role="dialog" aria-modal="true" aria-labelledby="vlAgeGateHeading">
+        <div class="vl-modal vl-age-gate">
+            <h2 class="vl-age-gate__heading" id="vlAgeGateHeading">Before you vibe…</h2>
+            <p class="vl-text-muted" style="margin-bottom: 1.25rem;">
+                VibeLyf uses AI and is intended for users <strong>13 and older</strong>. Please confirm your age.
+            </p>
+            <div style="display: flex; flex-direction: column; gap: 0.75rem; max-width: 320px; margin: 0 auto;">
+                <button class="vl-btn vl-btn-primary" data-vl-age="adult">I'm 18 or older</button>
+                <button class="vl-btn vl-btn-secondary" data-vl-age="teen">I'm 13–17</button>
+                <button class="vl-btn vl-btn-ghost" data-vl-age="under13">I'm under 13</button>
+            </div>
+            <p id="vlAgeGateNotice" class="vl-text-muted" hidden style="margin-top: 1rem; color: var(--vl-danger);">
+                Sorry — VibeLyf isn't available to users under 13. Please come back when you're older.
+            </p>
+        </div>
+    </div>
+
+    <!-- Cookie consent banner (privacy-first: non-essential off until accepted) -->
+    <div class="vl-cookie-banner" id="vlCookieBanner" hidden role="region" aria-label="Cookie consent">
+        <div class="vl-cookie-banner__text">
+            We use essential cookies to run VibeLyf. With your OK we also use analytics to improve it.
+            See our <a href="#" data-vl-open="privacy">Privacy &amp; Data choices</a>.
+        </div>
+        <div class="vl-cookie-banner__actions">
+            <button class="vl-btn vl-btn-ghost vl-btn-sm" id="vlCookieReject">Reject non-essential</button>
+            <button class="vl-btn vl-btn-primary vl-btn-sm" id="vlCookieAccept">Accept all</button>
+        </div>
+    </div>
+
+    <!-- Privacy / DSAR / Do-Not-Sell modal -->
+    <div class="vl-overlay" id="vlPrivacyModal" hidden role="dialog" aria-modal="true" aria-labelledby="vlPrivacyTitle">
+        <div class="vl-modal">
+            <div class="vl-modal-header">
+                <h2 class="vl-modal-title" id="vlPrivacyTitle">Privacy &amp; Data choices</h2>
+                <button class="vl-modal-close" data-vl-close aria-label="Close">✕</button>
+            </div>
+
+            <p style="margin-bottom: 1rem;">
+                <span class="vl-ai-badge">AI Disclosure</span><br><br>
+                VibeLyf uses artificial intelligence to interpret your input and generate apps, code,
+                and responses. AI-generated artifacts are labeled. AI can make mistakes — review output before relying on it.
+            </p>
+
+            <h3 style="font-size: var(--vl-text-lg); margin: 1rem 0 0.5rem;">Your data rights</h3>
+            <p class="vl-text-muted" style="margin-bottom: 0.75rem;">
+                You can request access to, correction of, or deletion of your personal data (DSAR),
+                and opt out of the sale or sharing of your information. Email
+                <a href="mailto:support@elev8ai.org">support@elev8ai.org</a> and we'll respond within 45 days.
+            </p>
+
+            <label style="display: flex; align-items: center; gap: 0.625rem; margin: 1rem 0; cursor: pointer;">
+                <input type="checkbox" id="vlDoNotSell">
+                <span><strong>Do Not Sell or Share My Personal Information</strong> (CCPA/CPRA)</span>
+            </label>
+
+            <label style="display: flex; align-items: center; gap: 0.625rem; margin: 1rem 0; cursor: pointer;">
+                <input type="checkbox" id="vlAnalyticsOptIn">
+                <span>Allow analytics cookies to help improve VibeLyf</span>
+            </label>
+
+            <div class="vl-modal-footer" style="display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1rem;">
+                <button class="vl-btn vl-btn-ghost" data-vl-close>Close</button>
+                <button class="vl-btn vl-btn-primary" id="vlPrivacySave">Save preferences</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Persistent compliance links (always available per CCPA/CPRA) -->
+    <div class="vl-compliance-links" id="vlComplianceLinks">
+        <a href="#" class="vl-dnsl-link" data-vl-open="privacy">Privacy</a>
+        <a href="#" class="vl-dnsl-link" data-vl-open="privacy">Do Not Sell or Share</a>
+    </div>
+
+    <script>
+    /* VibeLyf compliance controller — Phase 1.I. No external deps. */
+    (function () {
+        const KEYS = {
+            age: 'vibelyf_age_band',          // 'adult' | 'teen'
+            cookie: 'vibelyf_cookie_consent',  // 'all' | 'essential'
+            dns: 'vibelyf_do_not_sell',        // '1' | '0'
+            analytics: 'vibelyf_analytics_optin' // '1' | '0'
+        };
+        const $ = (id) => document.getElementById(id);
+        const get = (k) => { try { return localStorage.getItem(k); } catch { return null; } };
+        const set = (k, v) => { try { localStorage.setItem(k, v); } catch {} };
+
+        const ageGate = $('vlAgeGate');
+        const banner = $('vlCookieBanner');
+        const privacy = $('vlPrivacyModal');
+
+        function show(el) { if (el) el.hidden = false; }
+        function hide(el) { if (el) el.hidden = true; }
+
+        // ── Analytics gate (PostHog is not wired yet; this is the single opt-in hook) ──
+        function applyAnalyticsConsent() {
+            const optedIn = get(KEYS.analytics) === '1' && get(KEYS.dns) !== '1' && get(KEYS.cookie) === 'all';
+            window.VIBELYF_ANALYTICS_ENABLED = optedIn;
+            if (!optedIn && window.posthog && typeof window.posthog.opt_out_capturing === 'function') {
+                window.posthog.opt_out_capturing();
+            } else if (optedIn && window.posthog && typeof window.posthog.opt_in_capturing === 'function') {
+                window.posthog.opt_in_capturing();
+            }
+        }
+
+        // ── Age gate ──
+        function maybeShowAgeGate() {
+            if (!get(KEYS.age)) show(ageGate);
+            else maybeShowCookieBanner();
+        }
+        document.querySelectorAll('[data-vl-age]').forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const band = btn.getAttribute('data-vl-age');
+                if (band === 'under13') { $('vlAgeGateNotice').hidden = false; return; }
+                set(KEYS.age, band);
+                hide(ageGate);
+                maybeShowCookieBanner();
+            });
+        });
+
+        // ── Cookie banner ──
+        function maybeShowCookieBanner() {
+            if (!get(KEYS.cookie)) show(banner);
+        }
+        $('vlCookieAccept').addEventListener('click', () => {
+            set(KEYS.cookie, 'all'); set(KEYS.analytics, '1'); set(KEYS.dns, '0');
+            hide(banner); applyAnalyticsConsent();
+        });
+        $('vlCookieReject').addEventListener('click', () => {
+            set(KEYS.cookie, 'essential'); set(KEYS.analytics, '0'); set(KEYS.dns, '1');
+            hide(banner); applyAnalyticsConsent();
+        });
+
+        // ── Privacy modal ──
+        function openPrivacy() {
+            $('vlDoNotSell').checked = get(KEYS.dns) === '1';
+            $('vlAnalyticsOptIn').checked = get(KEYS.analytics) === '1';
+            show(privacy);
+        }
+        function closePrivacy() { hide(privacy); }
+        document.querySelectorAll('[data-vl-open="privacy"]').forEach((a) => {
+            a.addEventListener('click', (e) => { e.preventDefault(); openPrivacy(); });
+        });
+        document.querySelectorAll('[data-vl-close]').forEach((b) => {
+            b.addEventListener('click', closePrivacy);
+        });
+        privacy.addEventListener('click', (e) => { if (e.target === privacy) closePrivacy(); });
+        $('vlPrivacySave').addEventListener('click', () => {
+            set(KEYS.dns, $('vlDoNotSell').checked ? '1' : '0');
+            set(KEYS.analytics, $('vlAnalyticsOptIn').checked ? '1' : '0');
+            // Saving prefs counts as a cookie decision so the banner doesn't reappear.
+            if (!get(KEYS.cookie)) set(KEYS.cookie, $('vlAnalyticsOptIn').checked ? 'all' : 'essential');
+            hide(banner); closePrivacy(); applyAnalyticsConsent();
+        });
+
+        // Public API (also handy for testing: VibeLyfCompliance.reset())
+        window.VibeLyfCompliance = {
+            openPrivacy,
+            reset() { Object.values(KEYS).forEach((k) => { try { localStorage.removeItem(k); } catch {} }); location.reload(); },
+            state() { return Object.fromEntries(Object.entries(KEYS).map(([n, k]) => [n, get(k)])); }
+        };
+
+        function init() { maybeShowAgeGate(); applyAnalyticsConsent(); }
+        if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+        else init();
+    })();
+    </script>
 </body>
 </html>
