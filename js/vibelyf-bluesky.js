@@ -18,8 +18,15 @@
 window.BlueskyIntegration = {
     APPVIEW: 'https://public.api.bsky.app/xrpc',
     STORAGE_KEY: 'vibelyf_bluesky_handles',
-    // Curated default seed — edit to your real indie-creator / vibecoder picks.
-    DEFAULT_SEEDS: ['bsky.app', 'jay.bsky.team', 'pfrazee.com', 'why.bsky.team'],
+    // Curated indie-hacker / vibecoder / AI-builder seed — all verified real + active
+    // on Bluesky as of 2026-06-04 (follower counts + recent posts checked). Edit freely.
+    DEFAULT_SEEDS: [
+        'petecodes.bsky.social',  // Pete Codes — No CS Degree, indie community
+        'tsanlis.bsky.social',    // Thomas Sanlis — indie hacker (uneed.best)
+        'jimraptis.com',          // Jim Raptis — micro-SaaS (MagicPattern)
+        'nordcraft.com',          // Nordcraft — AI app builder
+        'jasonleow.bsky.social'   // Jason Leow — indie hacker / solopreneur
+    ],
     POSTS_PER_ACTOR: 8,
 
     state: { loading: false },
