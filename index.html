@@ -95,6 +95,9 @@
 
     <!-- 🦋 Bluesky: native AT Protocol feed (no login). Phase 2.B / Task #27 -->
     <script src="js/vibelyf-bluesky.js"></script>
+
+    <!-- 🐘 Mastodon: native fediverse feed (no login). Phase 2.B -->
+    <script src="js/vibelyf-mastodon.js"></script>
     
     <!-- 🎤 Voice Input: Speak to code in your own dialect (March 2026) -->
     <script src="js/vibelyf-voice-input.js"></script>
@@ -483,6 +486,7 @@
         .pinterest:hover { background: rgba(230, 0, 35, 0.15); box-shadow: 0 8px 24px rgba(230, 0, 35, 0.5); }
         .discord:hover { background: rgba(88, 101, 242, 0.15); box-shadow: 0 8px 24px rgba(88, 101, 242, 0.5); }
         .bluesky:hover { background: rgba(0, 133, 255, 0.15); box-shadow: 0 8px 24px rgba(0, 133, 255, 0.5); }
+        .mastodon:hover { background: rgba(99, 100, 255, 0.15); box-shadow: 0 8px 24px rgba(99, 100, 255, 0.5); }
         
         /* Music Platform Colors - VIBE! */
         .spotify:hover { background: rgba(30, 215, 96, 0.15); box-shadow: 0 8px 24px rgba(30, 215, 96, 0.6); }
@@ -1664,6 +1668,14 @@
                      title="Bluesky - Native VibeLyf feed | No login required">
                     <span class="widget-icon">🦋</span>
                     <span class="rank-badge" style="background: #0085FF;">★</span>
+                </div>
+
+                <!-- Mastodon - NATIVE feed (fediverse, no login). Phase 2.B -->
+                <div class="social-widget mastodon"
+                     onclick="MastodonIntegration.open()"
+                     title="Mastodon - Native VibeLyf feed | Open fediverse | No login required">
+                    <span class="widget-icon">🐘</span>
+                    <span class="rank-badge" style="background: #6364FF;">★</span>
                 </div>
 
                 <div class="add-widget-btn" onclick="VibeLyfApp.showAddWidgetGuide('social')" title="Add Social Platform">
@@ -4623,7 +4635,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                     tiktok: '🎵', soundcloud: '☁️', facebook: '📘', snapchat: '👻',
                     linkedin: '💼', reddit: '🤖', pinterest: '📌', discord: '💬',
                     'apple-music': '🍎', pandora: '📻', 'youtube-music': '🎶',
-                    bluesky: '🦋',
+                    bluesky: '🦋', mastodon: '🐘',
                     genspark: '✨', claude: '🤖', chatgpt: '🧠', editor: '💻',
                     'video-studio': '🎬', 'image-forge': '🎨'
                 };
@@ -4637,7 +4649,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                     facebook: 'Facebook', snapchat: 'Snapchat', linkedin: 'LinkedIn',
                     reddit: 'Reddit', pinterest: 'Pinterest', discord: 'Discord',
                     'apple-music': 'Apple Music', pandora: 'Pandora', 'youtube-music': 'YouTube Music',
-                    bluesky: 'Bluesky',
+                    bluesky: 'Bluesky', mastodon: 'Mastodon',
                     genspark: 'Genspark AI', claude: 'Claude AI', chatgpt: 'ChatGPT',
                     editor: 'VS Code', 'video-studio': 'Video Studio', 'image-forge': 'Image Forge'
                 };
