@@ -98,6 +98,9 @@
 
     <!-- 🐘 Mastodon: native fediverse feed (no login). Phase 2.B -->
     <script src="js/vibelyf-mastodon.js"></script>
+
+    <!-- 🐭 Lemmy: native open-communities feed (no login). Phase 2.B -->
+    <script src="js/vibelyf-lemmy.js"></script>
     
     <!-- 🎤 Voice Input: Speak to code in your own dialect (March 2026) -->
     <script src="js/vibelyf-voice-input.js"></script>
@@ -487,6 +490,7 @@
         .discord:hover { background: rgba(88, 101, 242, 0.15); box-shadow: 0 8px 24px rgba(88, 101, 242, 0.5); }
         .bluesky:hover { background: rgba(0, 133, 255, 0.15); box-shadow: 0 8px 24px rgba(0, 133, 255, 0.5); }
         .mastodon:hover { background: rgba(99, 100, 255, 0.15); box-shadow: 0 8px 24px rgba(99, 100, 255, 0.5); }
+        .lemmy:hover { background: rgba(20, 133, 79, 0.15); box-shadow: 0 8px 24px rgba(20, 133, 79, 0.5); }
         
         /* Music Platform Colors - VIBE! */
         .spotify:hover { background: rgba(30, 215, 96, 0.15); box-shadow: 0 8px 24px rgba(30, 215, 96, 0.6); }
@@ -1676,6 +1680,14 @@
                      title="Mastodon - Native VibeLyf feed | Open fediverse | No login required">
                     <span class="widget-icon">🐘</span>
                     <span class="rank-badge" style="background: #6364FF;">★</span>
+                </div>
+
+                <!-- Lemmy - NATIVE feed (open communities / fediverse Reddit). Phase 2.B -->
+                <div class="social-widget lemmy"
+                     onclick="LemmyIntegration.open()"
+                     title="Lemmy - Native VibeLyf feed | Open communities | No login required">
+                    <span class="widget-icon">🐭</span>
+                    <span class="rank-badge" style="background: #14854F;">★</span>
                 </div>
 
                 <div class="add-widget-btn" onclick="VibeLyfApp.showAddWidgetGuide('social')" title="Add Social Platform">
@@ -4635,7 +4647,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                     tiktok: '🎵', soundcloud: '☁️', facebook: '📘', snapchat: '👻',
                     linkedin: '💼', reddit: '🤖', pinterest: '📌', discord: '💬',
                     'apple-music': '🍎', pandora: '📻', 'youtube-music': '🎶',
-                    bluesky: '🦋', mastodon: '🐘',
+                    bluesky: '🦋', mastodon: '🐘', lemmy: '🐭',
                     genspark: '✨', claude: '🤖', chatgpt: '🧠', editor: '💻',
                     'video-studio': '🎬', 'image-forge': '🎨'
                 };
@@ -4649,7 +4661,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                     facebook: 'Facebook', snapchat: 'Snapchat', linkedin: 'LinkedIn',
                     reddit: 'Reddit', pinterest: 'Pinterest', discord: 'Discord',
                     'apple-music': 'Apple Music', pandora: 'Pandora', 'youtube-music': 'YouTube Music',
-                    bluesky: 'Bluesky', mastodon: 'Mastodon',
+                    bluesky: 'Bluesky', mastodon: 'Mastodon', lemmy: 'Lemmy',
                     genspark: 'Genspark AI', claude: 'Claude AI', chatgpt: 'ChatGPT',
                     editor: 'VS Code', 'video-studio': 'Video Studio', 'image-forge': 'Image Forge'
                 };
@@ -8976,6 +8988,9 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                 You can request access to, correction of, or deletion of your personal data (DSAR),
                 and opt out of the sale or sharing of your information. Email
                 <a href="mailto:support@elev8ai.org">support@elev8ai.org</a> and we'll respond within 45 days.
+            </p>
+            <p style="margin-bottom: 0.75rem;">
+                <a href="/privacy" target="_blank" rel="noopener">Read the full Privacy &amp; Data Policy →</a>
             </p>
 
             <label style="display: flex; align-items: center; gap: 0.625rem; margin: 1rem 0; cursor: pointer;">
