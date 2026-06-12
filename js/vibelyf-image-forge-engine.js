@@ -11,13 +11,11 @@ window.VibeLyfImageForge = {
 
     // Configuration
     config: {
+        // Phase 1.H Part 2 follow-up: Image Forge now routes through the VibeLyf
+        // Worker proxy (/api/llm/codegen), which holds the provider key server-side
+        // and translates inline_data image parts for the model. apiKey stays empty.
         apiKey: '',
-        modelChain: [
-            'gemini-3.5-flash',           // May 2026 I/O release — fastest + native code exec
-            'gemini-3.1-pro-preview',             // Highest quality 3.x
-            'gemini-2.5-flash',           // Stable fast fallback
-            'gemini-2.5-pro'              // Reliable legacy
-        ],
+        workerBase: (typeof window !== 'undefined' && window.VIBELYF_WORKER_API) || 'https://vibelyf-api.bradgpowell1123.workers.dev',
         workingModel: null,
         currentMode: 'build' // 'build' or 'editor'
     },
@@ -31,41 +29,26 @@ window.VibeLyfImageForge = {
      * Initialize the Image Forge engine
      */
     init(apiKey) {
-        if (apiKey) {
-            this.config.apiKey = apiKey;
-        } else {
-            // Try localStorage first, then fall back to hardcoded Code Generator key
-            this.config.apiKey = localStorage.getItem('gemini_api_key') || '';
-            
-            // Fallback: use the Code Generator's hardcoded key if available
-            if (!this.config.apiKey && window.VibeLyfCodeGenerator && window.VibeLyfCodeGenerator.config) {
-                this.config.apiKey = window.VibeLyfCodeGenerator.config.apiKey || '';
-                if (this.config.apiKey) {
-                    console.log('🎨 Image Forge: Using Code Generator API key as fallback');
-                }
-            }
-        }
-        
-        console.log('🎨 Image Forge Engine initialized');
-        console.log(`📊 Model Chain: ${this.config.modelChain.length} models`);
-        
-        return this.config.apiKey ? true : false;
+        // Worker-backed: no browser key needed. Accept (and ignore) a key for
+        // backward compatibility with old callers.
+        if (apiKey) this.config.apiKey = apiKey;
+        console.log('🎨 Image Forge Engine initialized (Worker proxy)');
+        return true;
     },
-    
+
     /**
-     * Set API key
+     * Set API key (legacy no-op — Worker holds the key server-side)
      */
     setApiKey(apiKey) {
-        this.config.apiKey = apiKey;
-        localStorage.setItem('gemini_api_key', apiKey);
-        console.log('✅ Gemini API key saved');
+        this.config.apiKey = apiKey || '';
+        console.log('🎨 Image Forge: keys live on the Worker now; local key ignored');
     },
-    
+
     /**
-     * Check if initialized
+     * Check if initialized — always ready, the Worker holds the credentials.
      */
     isReady() {
-        return !!this.config.apiKey;
+        return true;
     },
     
     /**
@@ -87,53 +70,30 @@ window.VibeLyfImageForge = {
      * Generate app with retry logic across model chain
      */
     async generateWithRetry(prompt, files = []) {
-        if (!this.config.apiKey) {
-            throw new Error('Gemini API key not set. Please configure your API key first.');
-        }
-        
         const results = {
             attempts: [],
             successModel: null,
             code: null,
             error: null
         };
-        
-        // If we have a working model, prioritize it
-        if (this.config.workingModel) {
-            const idx = this.config.modelChain.indexOf(this.config.workingModel);
-            if (idx > 0) {
-                this.config.modelChain.splice(idx, 1);
-                this.config.modelChain.unshift(this.config.workingModel);
-            }
+
+        // Single call — the Worker owns provider selection/failover server-side.
+        results.attempts.push({ model: 'worker:codegen', status: 'attempting' });
+        try {
+            const { code, model } = await this.callGemini('worker', prompt, files);
+            this.config.workingModel = model;
+            results.successModel = model;
+            results.code = code;
+            results.attempts[results.attempts.length - 1].status = 'success';
+            console.log(`✅ Image Forge success via Worker (${model})`);
+            return results;
+        } catch (e) {
+            console.log(`❌ Image Forge Worker call failed: ${e.message}`);
+            results.attempts[results.attempts.length - 1].status = 'failed';
+            results.attempts[results.attempts.length - 1].error = e.message;
         }
-        
-        // Try each model in the chain
-        for (const model of this.config.modelChain) {
-            console.log(`🔄 Trying model: ${model}`);
-            results.attempts.push({ model, status: 'attempting' });
-            
-            try {
-                const code = await this.callGemini(model, prompt, files);
-                
-                // Success!
-                this.config.workingModel = model;
-                results.successModel = model;
-                results.code = code;
-                
-                console.log(`✅ Success with ${model}`);
-                results.attempts[results.attempts.length - 1].status = 'success';
-                
-                return results;
-                
-            } catch (e) {
-                console.log(`❌ Failed with ${model}: ${e.message}`);
-                results.attempts[results.attempts.length - 1].status = 'failed';
-                results.attempts[results.attempts.length - 1].error = e.message;
-            }
-        }
-        
-        // All models failed
-        results.error = 'All models in the chain failed to generate code.';
+
+        results.error = 'Code generation failed.';
         throw new Error(results.error);
     },
     
@@ -192,10 +152,10 @@ OUTPUT FORMAT: Only output raw HTML code. No markdown, no backticks, no explanat
             }
         }
         
-        // Make API call
-        const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${this.config.apiKey}`;
-        
-        const response = await fetch(endpoint, {
+        // Route through the Worker proxy. It accepts the Gemini-native shape
+        // (including inline_data image parts, which it translates for the model)
+        // and holds the provider key server-side.
+        const response = await fetch(`${this.config.workerBase}/api/llm/codegen`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -210,25 +170,19 @@ OUTPUT FORMAT: Only output raw HTML code. No markdown, no backticks, no explanat
                 }
             })
         });
-        
-        if (!response.ok) {
-            const errorData = await response.json().catch(() => ({}));
-            throw new Error(errorData.error?.message || `HTTP ${response.status}`);
+
+        const data = await response.json().catch(() => ({}));
+
+        if (!response.ok || !data.success) {
+            throw new Error(data?.error?.message || `Worker codegen error: ${response.status}`);
         }
-        
-        const data = await response.json();
-        
-        // Check for errors
-        if (data.error) {
-            throw new Error(data.error.message);
-        }
-        
-        // Extract code
-        if (!data.candidates?.[0]?.content?.parts?.[0]?.text) {
+
+        if (!data.data?.text) {
             throw new Error('Empty response from model');
         }
-        
-        let code = data.candidates[0].content.parts[0].text;
+
+        const servedModel = data.meta?.model || 'worker';
+        let code = data.data.text;
         
         // Clean up markdown formatting
         code = code.replace(/```html\n?/gi, '');
@@ -240,8 +194,8 @@ OUTPUT FORMAT: Only output raw HTML code. No markdown, no backticks, no explanat
         if (htmlMatch) {
             code = htmlMatch[0];
         }
-        
-        return code;
+
+        return { code, model: servedModel };
     },
     
     /**

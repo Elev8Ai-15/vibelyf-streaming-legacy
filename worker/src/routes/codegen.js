@@ -23,16 +23,33 @@ import { jsonOk, errors, readJson } from '../lib/response.js';
 const DEFAULT_MAX_TOKENS = 8192; // HTML app generation can be long
 const MAX_TOKENS_CEILING = 16384;
 
-// Pull a flat prompt string out of either the simple or Gemini-native shape.
-function extractPrompt(body) {
-    if (typeof body.prompt === 'string') return body.prompt;
-    if (Array.isArray(body.contents)) {
-        return body.contents
-            .map((c) => (Array.isArray(c.parts) ? c.parts.map((p) => p.text || '').join('\n') : ''))
-            .filter(Boolean)
-            .join('\n\n');
+// Build Claude content blocks from either the simple shape or the Gemini-native
+// shape. Gemini `inline_data` image parts (used by Image Forge for uploaded
+// images) are translated to Claude base64 image blocks so multimodal requests work.
+function extractContent(body) {
+    if (typeof body.prompt === 'string') {
+        return body.prompt.trim() ? [{ type: 'text', text: body.prompt }] : [];
     }
-    return '';
+    if (!Array.isArray(body.contents)) return [];
+    const blocks = [];
+    for (const c of body.contents) {
+        if (!Array.isArray(c.parts)) continue;
+        for (const p of c.parts) {
+            if (typeof p.text === 'string' && p.text.trim()) {
+                blocks.push({ type: 'text', text: p.text });
+            } else if (p.inline_data && p.inline_data.data) {
+                blocks.push({
+                    type: 'image',
+                    source: {
+                        type: 'base64',
+                        media_type: p.inline_data.mime_type || 'image/png',
+                        data: p.inline_data.data
+                    }
+                });
+            }
+        }
+    }
+    return blocks;
 }
 
 // systemInstruction may be a string or a Gemini { parts: [{ text }] } object.
@@ -52,8 +69,8 @@ export async function codegen(request, env, ctx) {
     const body = await readJson(request);
     if (!body) return errors.badRequest('Request body must be valid JSON');
 
-    const prompt = extractPrompt(body).trim();
-    if (!prompt) {
+    const content = extractContent(body);
+    if (!content.some((b) => b.type === 'text')) {
         return errors.badRequest('Provide either { prompt: string } or { contents: [{ parts: [{ text }] }] }');
     }
 
@@ -74,7 +91,7 @@ export async function codegen(request, env, ctx) {
     const result = await claudeMessages({
         apiKey: env.ANTHROPIC_API_KEY,
         system,
-        messages: [{ role: 'user', content: prompt }],
+        messages: [{ role: 'user', content }],
         model: ANTHROPIC_MODELS.primary,
         max_tokens,
         // Anthropic temperature range is 0..1; clamp in case a Gemini caller sent >1.
