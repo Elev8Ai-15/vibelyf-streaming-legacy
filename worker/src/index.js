@@ -131,6 +131,36 @@ async function route(request, env, ctx) {
 }
 
 export default {
+    /**
+     * Daily cron (see wrangler.toml [triggers]): Supabase keep-alive + hygiene.
+     * A real authenticated query counts as project activity, preventing the
+     * free-tier inactivity pause that silently killed auth in June 2026.
+     * Also prunes rate_limits rows older than 2 days so the table stays tiny.
+     */
+    async scheduled(event, env, ctx) {
+        if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_KEY) return;
+        const headers = {
+            'apikey': env.SUPABASE_SERVICE_KEY,
+            'Authorization': `Bearer ${env.SUPABASE_SERVICE_KEY}`
+        };
+        const cutoff = new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString();
+        ctx.waitUntil((async () => {
+            try {
+                const ping = await fetch(
+                    `${env.SUPABASE_URL}/rest/v1/rate_limits?select=id&limit=1`,
+                    { headers }
+                );
+                const prune = await fetch(
+                    `${env.SUPABASE_URL}/rest/v1/rate_limits?last_hit=lt.${encodeURIComponent(cutoff)}`,
+                    { method: 'DELETE', headers }
+                );
+                console.log('keepalive', ping.status, 'prune', prune.status);
+            } catch (e) {
+                console.error('keepalive failed:', e.message);
+            }
+        })());
+    },
+
     async fetch(request, env, ctx) {
         try {
             const response = await route(request, env, ctx);

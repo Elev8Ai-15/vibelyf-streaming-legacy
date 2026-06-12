@@ -26,6 +26,13 @@ main = "src/index.js"
 compatibility_date = "2026-05-22"
 compatibility_flags = ["nodejs_compat"]
 
+# Daily Supabase keep-alive (13:00 UTC). The free-tier project pauses after ~7
+# days without activity — it went down exactly that way in June 2026 and took
+# SPA auth with it. The scheduled handler runs a real authenticated query
+# (counts as activity) and prunes stale rate_limits rows.
+[triggers]
+crons = ["0 13 * * *"]
+
 # Default observability — log to wrangler tail / dashboard
 [observability]
 enabled = true
