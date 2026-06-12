@@ -101,6 +101,9 @@
 
     <!-- 🐭 Lemmy: native open-communities feed (no login). Phase 2.B -->
     <script src="js/vibelyf-lemmy.js"></script>
+
+    <!-- 🌐 Unified feed: ALL open networks merged into one stream (loads after the three above) -->
+    <script src="js/vibelyf-unifeed.js"></script>
     
     <!-- 🎤 Voice Input: Speak to code in your own dialect (March 2026) -->
     <script src="js/vibelyf-voice-input.js"></script>
@@ -4222,12 +4225,17 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                 console.log('🏠 Returned to home feed');
             },
             
-            // Show All Feeds - aggregated feed view
+            // Show All Feeds — unified native stream (Bluesky+Mastodon+Lemmy)
+            // with the walled-garden launcher grid below it. Falls back to the
+            // legacy launcher grid if the unifeed module failed to load.
             showAllFeeds() {
+                if (window.VibeLyfUniFeed) {
+                    return VibeLyfUniFeed.open();
+                }
                 const mainContent = document.getElementById('main-content');
                 const video = document.getElementById('vibelyf-brand-video');
                 if (video) video.style.display = 'none';
-                
+
                 // Highlight nav
                 document.querySelectorAll('#left-nav .nav-item').forEach(n => n.classList.remove('active'));
                 document.querySelector('.nav-feeds')?.classList.add('active');
