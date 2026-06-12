@@ -79,16 +79,19 @@ npx serve .
 
 Open **http://localhost:8000** → you're live.
 
-### Configure API Keys (optional, for AI features)
-Type these in the chat bar (keys are stored in browser localStorage):
+### AI features — no keys needed in the browser
+All LLM calls route through the **VibeLyf API Worker** (`worker/`, Cloudflare Workers).
+Provider keys live in the Worker's encrypted secret store — **never put API keys in
+the browser or localStorage.** The SPA points at the Worker via
+`window.VIBELYF_WORKER_API` (set in `index.html`).
+
+To run your own Worker: `cd worker && cp .dev.vars.example .dev.vars` (fill in keys)
+then `npm run dev` for local or `npx wrangler deploy` for production.
 
 | Command | Purpose |
 |---|---|
-| `/groq gsk_YOUR_KEY` | Set Groq API key (free tier: 6000 req/day) |
-| `/cloud YOUR_URL YOUR_ANON_KEY` | Configure Supabase |
-| `/status` | Show full system diagnostic |
-
-For **Gemini** and **Claude** keys, see in-app prompts when you first try a build command.
+| `/status` or `/diag` | Show full system diagnostic |
+| `/cloud YOUR_URL YOUR_ANON_KEY` | Configure Supabase (anon key is browser-safe) |
 
 ---
 
@@ -117,16 +120,22 @@ vibelyf/
 ├── SUPABASE_SETUP.sql      Database schema
 ├── css/                    Design system + component styles
 │   └── red-glassmorphism.css   Blue Glassmorphism v2.1 (legacy filename)
-├── js/                     18 JavaScript modules
+├── worker/                 Cloudflare Workers API proxy (keys, CORS, rate limits)
+├── privacy.html            Privacy & Data Policy (served at /privacy)
+├── deploy-pages.sh         THE way to deploy the SPA (atomic staging rebuild)
+├── js/                     JavaScript modules
 │   ├── cultural-vocabulary-master.js   453-term database
 │   ├── linguistics-engine-v32.js       16 vibe archetypes
-│   ├── vibelyf-code-generator.js    Gemini code gen
-│   ├── claude-api-generator.js         API gen
-│   ├── vibelyf-groq-brain.js        Fast slang detection
+│   ├── vibelyf-code-generator.js    Code gen (via Worker → Claude)
+│   ├── claude-api-generator.js         API gen (via Worker → Claude)
+│   ├── vibelyf-groq-brain.js        Fast slang detection (via Worker → Groq)
+│   ├── vibelyf-bluesky.js           🦋 Native Bluesky feed (AT Protocol)
+│   ├── vibelyf-mastodon.js          🐘 Native Mastodon feed (fediverse)
+│   ├── vibelyf-lemmy.js             🐭 Native Lemmy feed (open communities)
 │   ├── vibelyf-cloud.js             Supabase auth/DB
 │   ├── vibelyf-profile.js           User profile system
 │   ├── vibelyf-tabs.js              Hover-reveal tab system
-│   └── (10 more)
+│   └── (more)
 ├── images/                 Icons + brand assets
 │   └── icons/              SVG brand logos (Simple Icons, MIT)
 ├── videos/                 Welcome brand video
@@ -153,18 +162,19 @@ vibelyf/
 
 | Layer | Technology |
 |---|---|
-| **Frontend** | HTML5, CSS3, ES6+ JavaScript (no transpilation) |
-| **AI Code Gen** | Google Gemini 2.5 Flash |
-| **AI API Gen** | Gemini (primary) + Claude Sonnet 4 (fallback) |
-| **AI Fast-Brain** | Groq Llama 3.3 70B |
-| **Image AI** | Gemini 5-model chain (Nano Banana Pro upcoming) |
+| **Frontend** | HTML5, CSS3, ES6+ JavaScript (no transpilation, no build step) |
+| **API proxy** | Cloudflare Workers (`worker/`) — holds all provider keys, CORS allow-list, per-IP rate limiting |
+| **AI Code Gen / API Gen / Image Forge** | Claude Sonnet 4.6 via Worker (`/api/llm/codegen`, `/api/llm/api-gen`) — prompt caching on the cultural vocabulary; multimodal image input supported |
+| **AI Fast-Brain (slang)** | Groq Llama 4 Scout → Groq Llama 3.3 70B → Cerebras failover via Worker (`/api/llm/slang`) |
+| **Social embeds** | Worker `/api/embed` oEmbed proxy (X, TikTok, Reddit, YouTube, more) |
+| **Native social feeds** | Bluesky (AT Protocol), Mastodon, Lemmy — public APIs, no keys, rendered as native VibeLyf cards |
 | **Voice** | Web Speech API |
-| **Analytics** | PostHog |
-| **Auth/DB** | Supabase (ready to connect) |
-| **Storage** | localStorage (17 keys) + cloud sync |
-| **PWA** | manifest.json + service worker |
-| **Styling** | CSS custom properties + Tailwind via CDN |
-| **Fonts** | Google Fonts (Inter) |
+| **Analytics** | PostHog (opt-in via the consent banner; off by default) |
+| **Auth/DB** | Supabase (email auth live; OAuth pending) |
+| **Hosting** | Cloudflare Pages (SPA) + Cloudflare Workers (API) |
+| **PWA** | manifest.json + service worker (same-origin cache only) |
+| **Compliance** | Age gate, cookie consent, AI-disclosure labeling, `/privacy` policy, Do-Not-Sell controls |
+| **Styling** | CSS custom properties (`css/vibelyf.css` graffiti design system) + Tailwind via CDN in generated apps |
 
 ---
 
