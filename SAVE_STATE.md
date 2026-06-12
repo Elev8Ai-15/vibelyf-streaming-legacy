@@ -20,7 +20,7 @@
 |---|---|
 | SPA (Cloudflare Pages) | https://vibelyf.pages.dev |
 | Worker API | https://vibelyf-api.bradgpowell1123.workers.dev |
-| Supabase | https://zcnvqgtjljqzzkhhvwhg.supabase.co |
+| Supabase | https://zcnvqgtjljqzzkhhvwhg.supabase.co — **⚠️ PAUSED (NXDOMAIN as of 2026-06-12)**. Free-tier inactivity pause. Brad must Restore in the Supabase dashboard; until then SPA auth + the durable rate-limit layer are inactive. |
 | GitHub | https://github.com/Elev8Ai-15/vibelyf-streaming-legacy (rename to `vibelyf` pending, task #23) |
 | vibelyf.com | NOT bound yet (task #24 — Brad must add the zone to Cloudflare + switch registrar nameservers; then bind via API) |
 
@@ -52,6 +52,12 @@
   that changes JS/CSS** or returning visitors get stale assets. Current: `vibelyf-v2026.06.05b`.
 - **Image Forge** (`js/vibelyf-image-forge-engine.js`) — Worker-backed, `isReady()` always true,
   single call (failover is server-side). Multimodal image uploads work.
+- **Rate limiting (live, verified)** — layered per-IP limits on paid routes: 10/min on
+  codegen+api-gen, 60/min on slang/embed. Working layer = Cache-API per-colo counter;
+  Supabase `rate_limits` counter takes over on heavy routes automatically once the project
+  is restored; native CF `[[ratelimits]]` bindings are wired but verified NON-enforcing on
+  this plan; in-memory window is the last resort. `/api/health` exposes `rate_limiter` state.
+  429s carry `Retry-After`.
 
 ## ⚠️ Operating rules learned the hard way
 
@@ -68,6 +74,7 @@
 
 | # | Task | Blocked on |
 |---|---|---|
+| — | **Restore the paused Supabase project** (zcnvqgtjljqzzkhhvwhg) | **Brad**: supabase.com dashboard → Restore. Re-enables SPA auth + durable rate limits. Consider a weekly keep-alive ping to prevent re-pausing. |
 | 24 | Bind vibelyf.com to Pages + Worker | **Brad**: add zone to CF, switch nameservers at registrar |
 | 23 | Rename repo → `vibelyf` | **Brad**: fine-grained PAT w/ admin scope |
 | 15 | Google + GitHub OAuth in Supabase | ~15 min console work each |
