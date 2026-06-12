@@ -37,8 +37,27 @@ enabled = true
 ALLOWED_ORIGINS = "https://vibelyf.com,https://www.vibelyf.com,https://vibelyf.pages.dev,http://localhost:8000,http://127.0.0.1:8000,http://localhost:5500,http://127.0.0.1:5500"
 # Worker version, exposed via /api/health
 WORKER_VERSION = "0.1.0"
-# Default soft rate limit per IP per minute (real per-user limiting added in Phase 1.H part 2)
+# Per-IP rate limits. Primary enforcement = the native Cloudflare ratelimit
+# bindings below (per-colo). These vars feed the in-memory FALLBACK limiter in
+# src/lib/ratelimit.js (per-isolate), used only if the bindings are absent.
+# "fast" routes (slang, embed) get RATE_LIMIT_PER_MINUTE; Claude-backed routes
+# (codegen, api-gen) get the tighter RATE_LIMIT_HEAVY_PER_MINUTE — they cost real money.
 RATE_LIMIT_PER_MINUTE = "60"
+RATE_LIMIT_HEAVY_PER_MINUTE = "10"
+
+# Native Workers rate-limiting bindings (per-colo enforcement, free).
+# HEAVY = Claude-backed routes; FAST = slang/embed.
+# NOTE: deploy with wrangler 4+ — the legacy [[unsafe.bindings]] form deployed
+# without error on wrangler 3 but did NOT enforce (verified via live tail).
+[[ratelimits]]
+name = "HEAVY_LIMITER"
+namespace_id = "1001"
+simple = { limit = 10, period = 60 }
+
+[[ratelimits]]
+name = "FAST_LIMITER"
+namespace_id = "1002"
+simple = { limit = 60, period = 60 }
 
 # -----------------------------------------------------------------------------
 # Secrets (set via `wrangler secret put <NAME>` — NEVER commit)

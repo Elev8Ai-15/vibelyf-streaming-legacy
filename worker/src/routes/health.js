@@ -32,6 +32,12 @@ export async function health(request, env, ctx) {
         vocab: {
             bytes: VOCAB_PROMPT_BYTES,
             cached: true
+        },
+        rate_limiter: {
+            heavy_binding: Boolean(env.HEAVY_LIMITER && typeof env.HEAVY_LIMITER.limit === 'function'),
+            fast_binding: Boolean(env.FAST_LIMITER && typeof env.FAST_LIMITER.limit === 'function'),
+            fallback_heavy_per_min: env.RATE_LIMIT_HEAVY_PER_MINUTE || null,
+            fallback_fast_per_min: env.RATE_LIMIT_PER_MINUTE || null
         }
     });
 }

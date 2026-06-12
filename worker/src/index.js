@@ -22,11 +22,31 @@
 
 import { handlePreflight, withCors } from './lib/cors.js';
 import { errors } from './lib/response.js';
+import { checkRateLimit, cacheRateLimit, rateLimitedResponse, intEnv } from './lib/ratelimit.js';
+import { supaRateLimit } from './lib/supalimit.js';
 import { health } from './routes/health.js';
 import { codegen } from './routes/codegen.js';
 import { apiGen } from './routes/api-gen.js';
 import { slang } from './routes/slang.js';
 import { embed } from './routes/embed.js';
+
+// Per-IP limits by route class. "heavy" routes call Claude (real money per
+// request) — a human user can't legitimately exceed ~10 generations/min.
+function limitFor(path, env) {
+    const fast = intEnv(env.RATE_LIMIT_PER_MINUTE, 60);
+    const heavy = intEnv(env.RATE_LIMIT_HEAVY_PER_MINUTE, 10);
+    switch (path) {
+        case '/api/llm/codegen':
+        case '/api/llm/api-gen':
+            return { routeClass: 'llm-heavy', limit: heavy };
+        case '/api/llm/slang':
+            return { routeClass: 'llm-fast', limit: fast };
+        case '/api/embed':
+            return { routeClass: 'embed', limit: fast };
+        default:
+            return null;
+    }
+}
 
 async function route(request, env, ctx) {
     const url = new URL(request.url);
@@ -35,6 +55,40 @@ async function route(request, env, ctx) {
     // CORS preflight — answer before any route logic
     if (request.method === 'OPTIONS') {
         return handlePreflight(request, env);
+    }
+
+    // Rate limiting — before any provider call so abuse never reaches a paid API.
+    // Layers (cheapest first):
+    //   1. Native CF ratelimit binding — kept wired, but verified NON-enforcing on
+    //      this plan (always success:true); treated as best-effort only.
+    //   2. Heavy (Claude) routes: Supabase rate_limits table — GLOBAL + durable.
+    //   3. Fallback: in-memory per-isolate sliding window (also used when
+    //      Supabase is unreachable — fail open on the store, never on the user).
+    const lim = limitFor(path, env);
+    if (lim) {
+        const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
+
+        const binding = lim.routeClass === 'llm-heavy' ? env.HEAVY_LIMITER : env.FAST_LIMITER;
+        if (binding && typeof binding.limit === 'function') {
+            const verdict = await binding.limit({ key: `${lim.routeClass}:${ip}` });
+            if (verdict && verdict.success === false) return rateLimitedResponse(60);
+        }
+
+        // Heavy routes get the durable Supabase counter when available
+        // (project currently PAUSED — supaRateLimit fails open until restored).
+        let verdict = null;
+        if (lim.routeClass === 'llm-heavy') {
+            verdict = await supaRateLimit(env, {
+                bucketKey: `ip:${ip}`,
+                route: path,
+                limit: lim.limit
+            });
+        }
+        // Shared per-colo Cache API counter — the workhorse layer today.
+        if (!verdict) verdict = await cacheRateLimit(lim.routeClass, ip, lim.limit);
+        // Last resort: per-isolate in-memory window.
+        if (!verdict) verdict = checkRateLimit(request, lim.routeClass, lim.limit);
+        if (!verdict.allowed) return rateLimitedResponse(verdict.retryAfter || 60);
     }
 
     switch (path) {
