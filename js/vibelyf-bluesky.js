@@ -113,6 +113,14 @@ window.BlueskyIntegration = {
         if (!handle) return;
         // Bare username → assume .bsky.social
         if (!handle.includes('.')) handle = `${handle}.bsky.social`;
+        // AT handles are domain-like. Strict charset also guarantees the stored
+        // value can never break out of the inline onclick strings in the chips.
+        if (!/^[a-z0-9.-]+$/i.test(handle)) {
+            input.style.borderColor = 'var(--vl-danger, #d9534f)';
+            input.value = ''; input.placeholder = 'Handles can only contain letters, numbers, dots, and hyphens';
+            setTimeout(() => { input.style.borderColor = ''; }, 2200);
+            return;
+        }
 
         const handles = this.getHandles();
         if (handles.includes(handle)) { input.value = ''; return; }

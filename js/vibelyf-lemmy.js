@@ -91,6 +91,10 @@ window.LemmyIntegration = {
         const name = c.slice(0, at);
         const instance = c.slice(at + 1).toLowerCase();
         if (!name || !instance.includes('.')) return null;
+        // Strict charsets (Lemmy community names are [a-z0-9_], instances are
+        // domains). Also guarantees stored values can't break out of the inline
+        // onclick strings in the chips.
+        if (!/^[a-z0-9_]+$/i.test(name) || !/^[a-z0-9.-]+$/.test(instance)) return null;
         return { name, instance, full: `${name}@${instance}` };
     },
 
