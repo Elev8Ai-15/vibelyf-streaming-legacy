@@ -14,7 +14,7 @@
 // deletes any cache whose name != CACHE_NAME, so a new version forces fresh
 // core assets and purges the stale cache. (2026-06-04: bumped for the Worker-
 // proxy LLM cutover — old cache was serving pre-cutover JS to returning visitors.)
-const CACHE_NAME = 'vibelyf-v2026.06.05a';
+const CACHE_NAME = 'vibelyf-v2026.06.05b';
 const CORE_ASSETS = [
     '/',
     '/index.html',
@@ -36,7 +36,10 @@ const CORE_ASSETS = [
     '/js/vibelyf-integration.js',
     '/js/vibelyf-integration-exports.js',
     '/js/vibelyf-diagnostic.js',
+    '/css/vibelyf.css',
+    '/css/red-glassmorphism.css',
     '/css/api-generator.css',
+    '/privacy.html',
     '/manifest.json'
 ];
 
@@ -81,14 +84,10 @@ self.addEventListener('fetch', (event) => {
     // Skip non-GET requests
     if (event.request.method !== 'GET') return;
 
-    // Skip API calls (Gemini, Groq, Claude, PostHog, etc.)
-    if (url.hostname.includes('googleapis.com') ||
-        url.hostname.includes('groq.com') ||
-        url.hostname.includes('anthropic.com') ||
-        url.hostname.includes('posthog.com') ||
-        url.hostname.includes('i.posthog.com')) {
-        return;
-    }
+    // Only handle SAME-ORIGIN requests. Cross-origin GETs (Worker API, Bluesky /
+    // Mastodon / Lemmy feed APIs, CDNs, analytics) go straight to the network —
+    // caching them here served STALE feed data and grew the cache without bound.
+    if (url.origin !== self.location.origin) return;
 
     // Network-first strategy for HTML files (always fresh)
     if (event.request.destination === 'document' || url.pathname.endsWith('.html')) {
