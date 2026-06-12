@@ -43,6 +43,11 @@
   - All three: VibeLyf-styled `.vl-card` rendering into `#main-content`, user add/remove
     (validated + strict charset), localStorage persistence, curated default seeds.
   - Walled gardens (FB/IG/X/...) = single-post embeds via Worker `/api/embed` + new-tab launchers.
+  - 🌐 **Unified feed** (`js/vibelyf-unifeed.js`) — the left-nav "All Feeds" merges all three
+    networks into ONE time-sorted stream with per-network corner badges + persisted toggle
+    pills; walled-garden launcher grid below it. Reuses each module's fetch/renderCard.
+  - Embed route SSRF-audited: Worker only fetches fixed oEmbed endpoints (user URL is an
+    encoded param, never fetched directly) + per-platform URL validators. Clean.
 - **Compliance (Phase 1.I, for Aug 2 2026 deadline)** — age gate, privacy-first cookie banner,
   AI-disclosure badge on generated artifacts (`js/vibelyf-app-renderer.js` header),
   persistent Do-Not-Sell links, DSAR modal, full policy at `/privacy` (`privacy.html`).
