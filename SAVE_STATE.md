@@ -20,7 +20,7 @@
 |---|---|
 | SPA (Cloudflare Pages) | https://vibelyf.pages.dev |
 | Worker API | https://vibelyf-api.bradgpowell1123.workers.dev |
-| Supabase | https://zcnvqgtjljqzzkhhvwhg.supabase.co — **⚠️ PAUSED (NXDOMAIN as of 2026-06-12)**. Free-tier inactivity pause. Brad must Restore in the Supabase dashboard; until then SPA auth + the durable rate-limit layer are inactive. |
+| Supabase | https://zcnvqgtjljqzzkhhvwhg.supabase.co — **RESTORED 2026-06-12** after a free-tier inactivity pause (org "VibeLyf", separate from the Vercel-linked Supabase the MCP sees). A daily Worker cron (13:00 UTC) now keeps it active + prunes old rate_limits rows, so it should never pause again. |
 | GitHub | https://github.com/Elev8Ai-15/vibelyf-streaming-legacy (rename to `vibelyf` pending, task #23) |
 | vibelyf.com | NOT bound yet (task #24 — Brad must add the zone to Cloudflare + switch registrar nameservers; then bind via API) |
 
@@ -79,7 +79,6 @@
 
 | # | Task | Blocked on |
 |---|---|---|
-| — | **Restore the paused Supabase project** (zcnvqgtjljqzzkhhvwhg) | **Brad**: supabase.com dashboard → Restore. Re-enables SPA auth + durable rate limits. Consider a weekly keep-alive ping to prevent re-pausing. |
 | 24 | Bind vibelyf.com to Pages + Worker | **Brad**: add zone to CF, switch nameservers at registrar |
 | 23 | Rename repo → `vibelyf` | **Brad**: fine-grained PAT w/ admin scope |
 | 15 | Google + GitHub OAuth in Supabase | ~15 min console work each |
