@@ -166,7 +166,8 @@ OUTPUT FORMAT: Only output raw HTML code. No markdown, no backticks, no explanat
                 }],
                 generationConfig: {
                     temperature: 0.7,
-                    maxOutputTokens: 8192
+                    // Full pages truncated at 8192; Worker ceiling allows 16384.
+                    maxOutputTokens: 16384
                 }
             })
         });

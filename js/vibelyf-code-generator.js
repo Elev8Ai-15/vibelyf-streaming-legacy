@@ -248,7 +248,9 @@ Generate the code now:`;
                         temperature: 0.9,
                         topK: 40,
                         topP: 0.95,
-                        maxOutputTokens: 8192,
+                        // Full apps regularly exceed 8192 tokens and truncated mid-HTML.
+                        // Worker ceiling allows 16384; only actual output is billed.
+                        maxOutputTokens: 16384,
                     }
                 })
             });
@@ -269,6 +271,11 @@ Generate the code now:`;
             // Real provider/model the Worker actually served with (codegen now routes
             // to Claude — read the label from the response instead of a stale local string).
             const servedModel = data.meta?.model || this.config.model;
+
+            // Surface truncation — a max_tokens stop means the HTML is cut mid-file.
+            if (data.data?.raw?.stop_reason === 'max_tokens') {
+                console.warn('⚠️ Codegen output hit the token ceiling — generated app may be truncated.');
+            }
 
             // Extract HTML code (remove markdown if present)
             let code = generatedText;
