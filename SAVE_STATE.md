@@ -1,236 +1,84 @@
-# 💾 VibeLyf — SESSION SAVE STATE
-> **Created:** May 14, 2026  
-> **Purpose:** Continue development in a new chat session  
-> **Project Status:** ✅ STABLE — 0 JS errors, all 9 modules operational  
-> **Last Verified:** PlaywrightConsoleCapture — 87 console messages, 0 errors  
+# 💾 VibeLyf — SESSION SAVE STATE (canonical)
+
+> **Last updated:** June 12, 2026
+> **This file is the canonical project-state doc.** It lives in the repo on purpose —
+> earlier external handoff notes (in `my-assistant/`) were lost to a folder
+> reorganization. Keep state HERE, with the code.
 
 ---
 
-## 🚀 QUICK START FOR NEW SESSION
+## 🚀 Quick start for a new session
 
-**Paste this into your new chat to resume:**
+> Read `SAVE_STATE.md`, `README.md`, and `worker/README.md`. The SPA is `index.html`
+> (~9,000 lines, vanilla, no build step) + `js/` modules. The Worker API proxy is
+> `worker/` (Cloudflare Workers). Deploy SPA ONLY via `./deploy-pages.sh`;
+> deploy Worker via `cd worker && npx wrangler deploy`. `CLOUDFLARE_API_TOKEN` is in `.env`.
 
-> I'm continuing work on VibeLyf. Please read `SAVE_STATE.md` and `README.md` to understand the current project state. The main app is `index.html` (~421KB single-page app). The design system is `css/red-glassmorphism.css` (Blue Glassmorphism v2.1 — file is named "red" from legacy, but all colors are deep navy blue). The hover-reveal tab system is `js/vibelyf-tabs.js`.
+## 🌍 Live surfaces
 
----
+| Surface | URL |
+|---|---|
+| SPA (Cloudflare Pages) | https://vibelyf.pages.dev |
+| Worker API | https://vibelyf-api.bradgpowell1123.workers.dev |
+| Supabase | https://zcnvqgtjljqzzkhhvwhg.supabase.co |
+| GitHub | https://github.com/Elev8Ai-15/vibelyf-streaming-legacy (rename to `vibelyf` pending, task #23) |
+| vibelyf.com | NOT bound yet (task #24 — Brad must add the zone to Cloudflare + switch registrar nameservers; then bind via API) |
 
-## 📋 WHAT WAS DONE IN THE LAST SESSION
+## 🏗️ Architecture (June 2026)
 
-### 1. ✅ Blue Glassmorphism v2.1 — 25% Deeper Navy (Verified)
-All blue RGB values in `css/red-glassmorphism.css` were multiplied by ×0.75 in a prior session. This session **verified** the work is complete:
-- `--primary-glow: 15, 45, 90` (was `20, 60, 120`)
-- `--primary-glow-alt: 11, 60, 105` (was `15, 80, 140`)
-- `--secondary-glow: 30, 22, 82` (was `40, 30, 110`)
-- `--secondary-glow-deep: 8, 19, 52` (was `10, 25, 70`)
-- Zero remnants of old red values (`rgba(108,`, `rgba(99,`, `rgba(102,`) — all clean.
+- **All LLM calls go through the Worker** (`/api/llm/codegen|api-gen|slang`). Keys live in CF
+  secrets only — nothing in the browser. Single override point: `window.VIBELYF_WORKER_API`
+  (set in index.html before module scripts).
+- **codegen = Claude Sonnet 4.6** (`worker/src/routes/codegen.js`). It accepts the Gemini-native
+  `{contents:[{parts}]}` shape AND translates `inline_data` images → Claude image blocks
+  (Image Forge multimodal works through it). Gemini was dropped: Google DENIED the GCP project
+  (403 PERMISSION_DENIED, May–June 2026). `api-gen` = Claude + 30KB cached vocab prompt.
+  `slang` = Groq Llama-4-Scout → Groq 3.3-70B → Cerebras failover. `embed` = 9-platform oEmbed proxy.
+- **CORS**: strict allow-list in `worker/wrangler.toml` `ALLOWED_ORIGINS` — includes
+  `vibelyf.pages.dev`. When vibelyf.com binds, it's already listed.
+- **Native open-social feeds (Phase 2.B)** — no auth, no keys, all verified live:
+  - 🦋 `js/vibelyf-bluesky.js` — AT Protocol public AppView (`public.api.bsky.app`)
+  - 🐘 `js/vibelyf-mastodon.js` — Mastodon REST per-instance (`user@instance` handles)
+  - 🐭 `js/vibelyf-lemmy.js` — Lemmy (`community@instance`). Reddit's free API is DEAD (403) — Lemmy replaced it.
+  - All three: VibeLyf-styled `.vl-card` rendering into `#main-content`, user add/remove
+    (validated + strict charset), localStorage persistence, curated default seeds.
+  - Walled gardens (FB/IG/X/...) = single-post embeds via Worker `/api/embed` + new-tab launchers.
+- **Compliance (Phase 1.I, for Aug 2 2026 deadline)** — age gate, privacy-first cookie banner,
+  AI-disclosure badge on generated artifacts (`js/vibelyf-app-renderer.js` header),
+  persistent Do-Not-Sell links, DSAR modal, full policy at `/privacy` (`privacy.html`).
+  Controller: `window.VibeLyfCompliance` (inline script at the end of index.html).
+- **Service worker (`sw.js`)** — intercepts SAME-ORIGIN GETs only (cross-origin feed APIs go
+  straight to network; this was a stale-feed bug, fixed). **Bump `CACHE_NAME` on EVERY deploy
+  that changes JS/CSS** or returning visitors get stale assets. Current: `vibelyf-v2026.06.05b`.
+- **Image Forge** (`js/vibelyf-image-forge-engine.js`) — Worker-backed, `isReady()` always true,
+  single call (failover is server-side). Multimodal image uploads work.
 
-### 2. ✅ 7 Broken Nav/Tab Items Fixed
-| Item | Was Broken Because | Fix Applied |
-|------|-------------------|-------------|
-| Home nav (line ~1760) | No `onclick` | `onclick="VibeLyfApp.returnToHome()"` |
-| All Feeds nav (line ~1764) | No `onclick`, no function | `onclick="VibeLyfApp.showAllFeeds()"` + new function |
-| Builders nav (line ~1772) | No `onclick`, no function | `onclick="VibeLyfApp.showBuilders()"` + new function |
-| Themes nav (line ~1780) | No `onclick` | `onclick="CustomizationSystem.toggle()"` |
-| Share Vibe btn (line ~1991) | Called undefined `ThemeBuilder.shareVibe()` | → `CustomizationSystem.shareVibe()` |
-| Import Vibe btn (line ~1996) | Called undefined `ThemeBuilder.importVibe()` | → `CustomizationSystem.importVibe()` |
-| Reset Theme btn (line ~2001) | Called undefined `ThemeBuilder.resetToDefault()` | → `CustomizationSystem.resetToDefault()` |
+## ⚠️ Operating rules learned the hard way
 
-### 3. ✅ Smart Feed System — Replaced Fake Feeds
-**Removed ~400 lines** of fake demo content generators and replaced with honest embed-or-new-tab architecture:
+1. **Deploy Pages ONLY via `./deploy-pages.sh`** — an incrementally-patched temp staging dir got
+   purged by Windows mid-session and a deploy shipped WITHOUT index.html (live 404, ~10 min outage,
+   June 12). The script rebuilds staging fresh and sanity-gates on index.html.
+2. **Bump `sw.js` CACHE_NAME with every asset deploy** — stale-while-revalidate means returning
+   visitors are otherwise one version behind.
+3. **Old git history (commits `b2082aa`–`465aa4c`) contains DEAD hardcoded API keys** — both
+   verified revoked; GitHub flagged them; acceptable, or clean with `git filter-repo`.
+4. **Live-verify provider model IDs** — `gemini-3.5-flash` (dots), Groq has Scout not Maverick.
 
-| Category | Platforms | Behavior |
-|----------|-----------|----------|
-| **Embedded (iframe)** | YouTube, Spotify, SoundCloud, YouTube Music, VS Code | Loads in main-content with header bar |
-| **New Tab** | Instagram, Facebook, Twitter/X, TikTok, Snapchat, LinkedIn, Reddit, Pinterest, Discord, Apple Music, Pandora | Shows launcher screen → auto-opens new tab after 600ms |
-| **Shopping (new tab)** | Amazon, eBay, AliExpress, Walmart, Etsy, Shopify, Target, Best Buy, Temu, Shein | Affiliate URL in new tab with click tracking |
-| **Builder Tools** | Claude AI, ChatGPT, Genspark AI | Opens in new tab (auth-required) |
+## 📋 Open tasks
 
-**New functions added to `VibeLyfApp` (inline in index.html):**
-- `openApp(appName)` — complete rewrite with platform URL map + canEmbed flags (~line 3810)
-- `loadFeedSmart(appName, url, canEmbed)` — single entry point for all feed loading (~line 3887)
-- `showNewTabLauncher(appName, url, name, icon)` — clean launcher for non-embeddable platforms (~line 3950)
-- `showAllFeeds()` — renders 12-platform feed grid in main-content
-- `showBuilders()` — renders 6-tool AI builder grid
-- `returnToHome()` — restores brand video + highlights Home nav
-- `openShop(shopName)` — updated to use `showNewTabLauncher()` pattern (~line 4503)
-- `getPlatformIcon(platform)` — expanded to 21+ platforms
-- `getPlatformName(platform)` — expanded to 21+ platforms
+| # | Task | Blocked on |
+|---|---|---|
+| 24 | Bind vibelyf.com to Pages + Worker | **Brad**: add zone to CF, switch nameservers at registrar |
+| 23 | Rename repo → `vibelyf` | **Brad**: fine-grained PAT w/ admin scope |
+| 15 | Google + GitHub OAuth in Supabase | ~15 min console work each |
+| 26 | Meta App Review (FB/IG/Threads embeds) | Brad: create Meta app, weeks-long review |
+| 28 | Discord WidgetBot | Needs a VibeLyf Discord server first |
+| 29 | Cursor SDK + v0 API in Build tab | ~6–8 hr build |
+| — | ElevenLabs TTS + fal.ai image routes; per-user rate limiting + JWT verify (`worker/src/lib/auth.js` is a stub) | keys / Supabase wiring |
+| — | Bluesky seeds: swap in Brad's own handle when he makes an account | Brad |
+| — | Cosmetic: index.html diagnostic string still says "Image Forge (Gemini Multi)" | trivial |
 
-**Removed functions:**
-- `loadEmbeddedFeed()`, `renderEmbeddedFeed()`, `renderInstagramFeed()`, `renderYouTubeFeed()`, `renderSpotifyFeed()`, `renderTwitterFeed()`, `renderTikTokFeed()`, `renderSoundCloudFeed()`
-- `generateDemoInstagramPosts()`, `generateDemoYouTubeVideos()`, `generateDemoSpotifyPlaylists()`, `generateDemoTwitterPosts()`, `generateDemoSoundCloudTracks()`
-- Old `loadAppIntoFeed()`
+## 🤖 Verified model stack
 
----
-
-## 🏗️ PROJECT ARCHITECTURE
-
-### Entry Point
-- **`index.html`** (~421KB, ~9000+ lines) — The entire application is a single-page app
-  - HTML structure: header, left nav, banner (social/music/shop tabs), main content area, right builder panel, chat bar, customization panel
-  - Inline CSS overrides (~hundreds of lines)
-  - Inline JavaScript: `VibeLyfApp`, `CustomizationSystem`, `FacebookIntegration`, `WelcomeChat`, and more
-
-### Critical Files
-| File | Size | Purpose |
-|------|------|---------|
-| `index.html` | 421KB | Main SPA — all HTML + inline JS |
-| `css/red-glassmorphism.css` | 47KB | Blue Glassmorphism v2.1 design system (legacy filename) |
-| `js/vibelyf-tabs.js` | 29KB | Hover-reveal tab system v2.0 |
-| `js/cultural-vocabulary-master.js` | 185KB | 453-term cultural vocabulary database |
-| `js/claude-api-generator.js` | 41KB | API generation (Gemini primary + Claude fallback) |
-| `js/vibelyf-code-generator.js` | 17KB | Gemini 2.5 Flash code generation |
-| `js/vibelyf-cloud.js` | 20KB | Supabase auth/DB integration |
-| `js/vibelyf-profile.js` | 23KB | User profile system |
-| `js/vibelyf-groq-brain.js` | 16KB | Groq fast slang detection |
-| `videos/vibelyf-intro.mp4` | 2.1MB | Welcome brand video |
-
-### Key JavaScript Objects (defined inline in index.html)
-| Object | ~Line | Purpose |
-|--------|-------|---------|
-| `VibeLyfApp` | ~3650 | Main app controller — openApp, openShop, returnToHome, showAllFeeds, showBuilders, loadFeedSmart, showNewTabLauncher, loadVideoStudio |
-| `CustomizationSystem` | ~2593 | 6-tab panel (Themes/Effects/Typography/Layout/Widgets/AI) — toggle, shareVibe, importVibe, resetToDefault |
-| `FacebookIntegration` | varies | Facebook widget handler |
-| `WelcomeChat` | varies | Onboarding chat flow |
-
-### CSS Custom Properties (current v2.1 values)
-```css
-:root {
-    --primary-glow: 15, 45, 90;          /* deep navy-royal blue */
-    --primary-glow-alt: 11, 60, 105;     /* 25% deeper ocean */
-    --secondary-glow: 30, 22, 82;        /* indigo-violet */
-    --secondary-glow-deep: 8, 19, 52;    /* 25% deeper midnight */
-    --bg-dark-1: #f0f3f7;
-    --bg-dark-2: #f5f7fa;
-    --bg-dark-3: #f8faff;
-    --glass-white: rgba(255, 255, 255, 0.55);
-    --glass-highlight: rgba(90, 112, 150, 0.25);
-    --text-primary: #0a0f1a;
-    --text-secondary: #1a2540;
-    --text-muted: #3a4f70;
-}
-```
-
-### 18 External JS Modules (loaded in order in index.html)
-1. `js/cultural-vocabulary-master.js` → `culturalVocabularyMaster`
-2. `js/linguistics-engine-v32.js` → `Linguistics`
-3. `js/vibelyf-learning-loop.js` → `VibeLyfLearningLoop`
-4. `js/vibelyf-code-generator.js` → `VibeLyfCodeGenerator`
-5. `js/vibelyf-app-renderer.js` → `VibeLyfAppRenderer`
-6. `js/claude-api-generator.js` → `ClaudeAPIGenerator`
-7. `js/vibelyf-integration.js` → (functions)
-8. `js/vibelyf-integration-exports.js` → (window exports)
-9. `js/vibelyf-enhanced-communication.js` → `VibeLyfCommunicationScore`
-10. `js/vibelyf-diagnostic.js` → `VibeLyfDiagnostic`
-11. `js/vibelyf-image-forge-engine.js` → `VibeLyfImageForge`
-12. `js/vibelyf-image-editor.js` → `VibeLyfImageEditor`
-13. `js/vibelyf-orchestrator.js` → `VibeLyfOrchestrator`
-14. `js/vibelyf-groq-brain.js` → `VibeLyfGroqBrain`
-15. `js/vibelyf-voice-input.js` → `VibeLyfVoice`
-16. `js/vibelyf-cloud.js` → `VibeLyfCloud`
-17. `js/vibelyf-profile.js` → `VibeLyfProfile`
-18. `js/vibelyf-tabs.js` → `VibeLyfTabs`
-
----
-
-## ⚠️ KNOWN ISSUES & CLEANUP OPPORTUNITIES
-
-### Low-Priority Cleanup (not bugs — cosmetic/tech debt)
-1. **CSS filename mismatch** — `css/red-glassmorphism.css` contains blue v2.1 colors. Could be renamed to `css/blue-glassmorphism.css` or `css/glassmorphism.css` (requires updating the `<link>` in index.html)
-2. **200+ markdown docs in root** — Many are session notes, status reports, and guides from past sessions. Could be moved to a `docs/` folder or deleted
-3. **Unused overlay elements** — `appView`/`appFrame`/`appTitle` elements (~line 2449-2457 in index.html) are leftovers from the old immersive-mode feed system. Now unused and can be removed
-4. **Backup HTML files** — `index-BACKUP-*.html`, `index-SAFESAVE-*.html`, `index-TEST-*.html`, `index-broken.html` — taking up disk space
-5. **AI-generated icon descriptions still reference "red/crimson"** — The README and CSS comments describe category icons and nav icons as "crimson glass" but the design is now blue. The actual images are still red-themed PNG files
-
-### Build Completion: ~65%
-**What's working:** AI code generation, vocabulary database, communication training, feed aggregation, customization, profile system, PWA
-**What's missing:** Social graph, native content posting, community features, discovery feed, notification system
-
----
-
-## 🔧 CRITICAL EDITING NOTES
-
-### index.html is HUGE (~421KB, ~9000+ lines)
-- **Always use `Grep` first** to find the exact line numbers before editing
-- **Use `Read` with `offset` and `limit`** to view specific sections
-- **The `Edit` tool matches the smallest unique string** — when removing large blocks, include enough context to be unique
-- **VibeLyfApp object** starts around line ~3650 — this is where `openApp`, `loadFeedSmart`, `showNewTabLauncher`, etc. live
-- **CustomizationSystem** starts around line ~2593
-- **Nav items** are around lines ~1760-1810
-- **Builder widgets** (Share/Import/Reset) are around lines ~1991-2001
-
-### Design System: `css/red-glassmorphism.css`
-- 32 CSS sections, each clearly labeled with comment headers
-- All color values use the CSS custom properties format: `rgba(var(--primary-glow), 0.5)`
-- Some older sections still have hardcoded `rgba(15,45,90,...)` values alongside the variable usage
-
-### Tab System: `js/vibelyf-tabs.js`
-- v2.0 — hover-reveal with keyboard accessibility
-- Injects category icons and nav widget shortcuts dynamically
-- Has `destroy()` method for cleanup
-- Does NOT manage the nav item onclick handlers — those are in the HTML
-
----
-
-## 📊 SYSTEM HEALTH (Last Verified)
-
-```
-✅ Cultural Database: LOADED (453 terms)
-✅ Learning Loop: LOADED
-✅ Code Generator: LOADED (Gemini 2.5 Flash)
-✅ App Renderer: LOADED
-✅ API Generator: LOADED (Gemini + Claude)
-✅ Communication Score: LOADED
-✅ Vague Detector: LOADED
-☁️ Supabase Cloud: READY (needs user setup)
-👤 User Profile: LOADED
-🗂️ Hover-Reveal Tabs: 3 sections enhanced
-⚡ Groq Fast-Brain: STANDBY (needs API key)
-🎤 Voice Input: INITIALIZED
-📱 PWA: REGISTERED
-📊 PostHog: READY (needs API key)
-✅ ALL SYSTEMS OPERATIONAL — 0 JS errors
-```
-
----
-
-## 📁 DIRECTORY STRUCTURE SUMMARY
-
-```
-/                           Root (~471 files total)
-├── index.html              Main SPA (421KB) ← THE APP
-├── README.md               Full documentation (27KB)
-├── SAVE_STATE.md           THIS FILE — session continuity
-├── manifest.json           PWA manifest
-├── sw.js                   Service worker
-├── css/
-│   ├── red-glassmorphism.css   Blue Glassmorphism v2.1 (47KB) ← MAIN DESIGN SYSTEM
-│   ├── design-system.css       Component design system
-│   ├── components.css          UI components
-│   ├── api-generator.css       API generator styles
-│   └── (6 more CSS files)
-├── js/
-│   ├── vibelyf-tabs.js          Hover-reveal tab system (29KB)
-│   ├── cultural-vocabulary-master.js   453-term vocab DB (185KB)
-│   ├── claude-api-generator.js     API generation (41KB)
-│   ├── vibelyf-code-generator.js    Code gen (17KB)
-│   ├── vibelyf-cloud.js         Supabase integration (20KB)
-│   ├── vibelyf-profile.js       User profile (23KB)
-│   └── (55 more JS files)
-├── images/
-│   ├── vibelyf-logo.jpg         Brand logo
-│   ├── cyberpunk-city-background.jpg   Background image
-│   ├── vibelyf-icon-512.png     PWA icon
-│   └── icons/                      SVG brand icons
-├── videos/
-│   └── vibelyf-intro.mp4        Welcome video (2.1MB)
-├── data/                           Linguistic datasets (17 files)
-├── build-engine/                   Node.js build engine (not used in static site)
-├── components/                     Profile selector component
-├── VIBEUP-DATABASE/                Database resources
-└── (200+ .md/.html/.txt files)     Session notes & documentation
-```
-
----
-
-*This save state was verified against the live project on May 14, 2026. All code paths confirmed with Grep pattern matching. Zero broken references found.*
+codegen/api-gen: `claude-sonnet-4-6` (Anthropic, prompt caching on the 535-term vocab).
+slang: `meta-llama/llama-4-scout-17b-16e-instruct` (Groq) → `llama-3.3-70b-versatile` (Groq) → `llama-4-scout` (Cerebras).
