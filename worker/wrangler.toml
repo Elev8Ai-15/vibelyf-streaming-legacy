@@ -33,6 +33,12 @@ compatibility_flags = ["nodejs_compat"]
 [triggers]
 crons = ["0 13 * * *"]
 
+# Cloudflare Workers AI — free-tier inference on CF's edge. This is the DEFAULT
+# codegen engine so the AI features cost ~$0/user (within the free Neuron
+# allocation); Claude is the paid fallback for image input + quality retries.
+[ai]
+binding = "AI"
+
 # Default observability — log to wrangler tail / dashboard
 [observability]
 enabled = true
