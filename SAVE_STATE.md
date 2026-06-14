@@ -29,10 +29,12 @@
 - **All LLM calls go through the Worker** (`/api/llm/codegen|api-gen|slang`). Keys live in CF
   secrets only — nothing in the browser. Single override point: `window.VIBELYF_WORKER_API`
   (set in index.html before module scripts).
-- **codegen = Claude Sonnet 4.6** (`worker/src/routes/codegen.js`). It accepts the Gemini-native
-  `{contents:[{parts}]}` shape AND translates `inline_data` images → Claude image blocks
-  (Image Forge multimodal works through it). Gemini was dropped: Google DENIED the GCP project
-  (403 PERMISSION_DENIED, May–June 2026). `api-gen` = Claude + 30KB cached vocab prompt.
+- **codegen = FREE-first** (`worker/src/routes/codegen.js`). Text-only, normal-quality requests
+  run on **Cloudflare Workers AI** (`env.AI` binding, `@cf/qwen/qwen2.5-coder-32b-instruct` →
+  llama fallbacks) — ~$0/call, the key to keeping AI free at scale. **Claude Sonnet 4.6** handles
+  image-input (Workers AI coders are text-only — `inline_data` → Claude image blocks),
+  `{quality:"high"}`, and the fallback if Workers AI fails. Gemini was dropped: Google DENIED the
+  GCP project (403, May–June 2026). `api-gen` = Claude + 30KB cached vocab prompt.
   `slang` = Groq Llama-4-Scout → Groq 3.3-70B → Cerebras failover. `embed` = 9-platform oEmbed proxy.
 - **CORS**: strict allow-list in `worker/wrangler.toml` `ALLOWED_ORIGINS` — includes
   `vibelyf.pages.dev`. When vibelyf.com binds, it's already listed.
@@ -88,6 +90,18 @@
 | — | ElevenLabs TTS + fal.ai image routes; per-user rate limiting + JWT verify (`worker/src/lib/auth.js` is a stub) | keys / Supabase wiring |
 | — | Bluesky seeds: swap in Brad's own handle when he makes an account | Brad |
 | — | Cosmetic: index.html diagnostic string still says "Image Forge (Gemini Multi)" | trivial |
+
+## 💸 Free-for-users economics (the product promise)
+
+VibeLyf is **free for users with no signup/key/payment**, funded the way social platforms are
+(affiliate commerce in the Shopping widgets; ads later). Per-user marginal cost is near-zero:
+- AI codegen → **Workers AI free tier** (Claude only for image/high-quality/fallback)
+- slang → **Groq free tier** → Cerebras free failover
+- feeds (Bluesky/Mastodon/Lemmy) + embeds → free public APIs
+- hosting → Cloudflare Pages/Workers free tiers; Supabase free tier (kept alive by the cron)
+There are **no paywalls or feature gates** in the app. Optional future: "VibeLyf Nation" vanity
+badge as a *support* tier, never a gate. Watch the Anthropic bill only if image/high-quality
+codegen traffic spikes; everything else is structurally free.
 
 ## 🤖 Verified model stack
 
