@@ -4920,29 +4920,19 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                     return;
                 }
                 
-                // ⚡ /groq command — setup Groq Fast-Brain API key
+                // ⚡ /groq command — Fast-Brain status (no key needed; runs on our Worker)
                 if (message.toLowerCase().startsWith('/groq')) {
-                    const key = message.replace(/^\/groq\s*/i, '').trim();
-                    if (key && key.startsWith('gsk_')) {
-                        window.VibeLyfGroqBrain?.setApiKey(key);
-                        setTimeout(() => {
-                            this.addChatMessage('⚡ Groq API key saved! Fast-Brain is now ACTIVE.\n\nSlang detection will now be instant (<500ms) instead of slow.\n\nGet your free key at: https://console.groq.com', 'bot');
-                        }, 300);
-                    } else {
-                        const stats = window.VibeLyfGroqBrain?.getStats() || {};
-                        setTimeout(() => {
-                            this.addChatMessage(
-                                `⚡ **Groq Fast-Brain Status**\n\n` +
-                                `• Enabled: ${stats.enabled ? '✅ YES' : '❌ NO'}\n` +
-                                `• Model: ${stats.model || 'llama-3.3-70b'}\n` +
-                                `• Requests today: ${stats.requestsToday || 0} / ${stats.dailyLimit || 6000}\n` +
-                                `• Remaining: ${stats.remainingRequests || 6000}\n\n` +
-                                `To activate: Type \`/groq gsk_YOUR_API_KEY\`\n` +
-                                `Get a free key at: https://console.groq.com`,
-                                'bot'
-                            );
-                        }, 300);
-                    }
+                    const stats = window.VibeLyfGroqBrain?.getStats() || {};
+                    setTimeout(() => {
+                        this.addChatMessage(
+                            `⚡ **Fast-Brain Status**\n\n` +
+                            `• Powered by: VibeLyf Worker (server-side, free)\n` +
+                            `• Ready: ${window.VibeLyfGroqBrain?.isReady() ? '✅ YES' : '❌ NO'}\n` +
+                            `• Model: ${stats.model || 'llama-4-scout'}\n\n` +
+                            `Nothing to configure — slang detection just works. 🎉`,
+                            'bot'
+                        );
+                    }, 300);
                     return;
                 }
                 
@@ -5264,22 +5254,8 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                         this.addChatMessage('🔌 API Generator activated! Let me build that API for you...', 'bot');
                     }, 500);
                     
-                    // Get API keys — Claude optional (CORS issue), Gemini preferred
-                    const claudeKey = localStorage.getItem('claude_api_key') || window.ClaudeAPIGenerator.config.claudeApiKey;
-                    const geminiKey = window.VibeLyfCodeGenerator?.config?.apiKey || localStorage.getItem('gemini_api_key');
-                    
-                    if (!claudeKey && !geminiKey) {
-                        setTimeout(() => {
-                            this.addChatMessage('⚠️ I need at least a Gemini API key to generate APIs. The system will use Gemini 2.5 Flash for schema extraction (browser-safe).', 'bot');
-                            this.addChatMessage('💡 A Claude key is optional but enhances quality. Set keys via localStorage or the setup page.', 'bot');
-                        }, 1000);
-                        return;
-                    }
-                    
-                    // Initialize and generate (Gemini is primary, Claude fallback)
+                    // No keys needed — the Worker proxy holds them server-side. Just build.
                     try {
-                        if (claudeKey) window.ClaudeAPIGenerator.init(claudeKey);
-                        
                         // Show loading indicator
                         setTimeout(() => {
                             this.addChatMessage('⏳ Generating API structure...', 'bot');
@@ -5317,7 +5293,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                         console.error('API Generator error:', error);
                         setTimeout(() => {
                             this.addChatMessage(`❌ Error: ${error.message || 'Failed to generate API'}`, 'bot');
-                            this.addChatMessage('💡 Tip: Make sure your Claude API key is valid and has credits available.', 'bot');
+                            this.addChatMessage("💡 That one's on us, not you — give it another try in a moment.", 'bot');
                         }, 1500);
                     }
                     
@@ -6446,25 +6422,20 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                 alert(message);
             },
             
-            // Set up Claude API Key
+            // Settings / About — VibeLyf is free and needs zero setup. The AI runs
+            // server-side on the VibeLyf Worker, so there are no keys to enter, ever.
             setupClaudeAPI() {
-                const currentKey = CLAUDE_CONFIG.apiKey;
-                const message = currentKey 
-                    ? `Current API key: ${currentKey.substring(0, 10)}...\n\nEnter new key (or leave empty to keep current):`
-                    : `🔑 Set up Claude API Key\n\nGet your API key from:\nhttps://console.anthropic.com/\n\nPaste it below:`;
-                
-                const apiKey = prompt(message);
-                
-                if (apiKey && apiKey.trim()) {
-                    localStorage.setItem('vibelyf_claude_api_key', apiKey.trim());
-                    CLAUDE_CONFIG.apiKey = apiKey.trim();
-                    alert('✅ Claude API Key saved!\n\nYour chatbot is now powered by Claude AI.');
-                } else if (apiKey === '') {
-                    // User cleared the field
-                    localStorage.removeItem('vibelyf_claude_api_key');
-                    CLAUDE_CONFIG.apiKey = null;
-                    alert('🗑️ API Key removed');
-                }
+                this.returnToHome();
+                this.addChatMessage(
+                    `⚙️ **VibeLyf is free — nothing to set up.**\n\n` +
+                    `Every AI feature (build apps, generate APIs, slang detection) runs on our servers. ` +
+                    `You never need an account, an API key, or a credit card to use VibeLyf.\n\n` +
+                    `• 🆓 Free forever — no paywalls, no per-feature limits for normal use\n` +
+                    `• 🔒 Your data choices: tap **Privacy** or **Do Not Sell or Share** (bottom-left)\n` +
+                    `• 🩺 System status: type \`/status\`\n\n` +
+                    `An optional free account just lets you save your hub across devices.`,
+                    'bot'
+                );
             },
             
             // Show affiliate revenue stats
