@@ -41,10 +41,10 @@
     <!-- 📊 PostHog Analytics (March 2026) — Track everything, prove impact -->
     <script>
         !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-        // NOTE: Replace 'YOUR_POSTHOG_KEY' with your actual PostHog project API key
-        // Get one free at https://posthog.com (1M events/month free)
+        // Analytics is OFF by default and only initializes after the user opts in
+        // via the cookie banner. To enable, set the project key here and call
+        // posthog.init(...) inside VibeLyfCompliance.applyAnalyticsConsent().
         // posthog.init('YOUR_POSTHOG_KEY', { api_host: 'https://us.i.posthog.com', person_profiles: 'always' });
-        console.log('📊 PostHog analytics ready — set your API key in index.html to activate');
     </script>
     
     <!-- Firebase SDK -->
@@ -81,7 +81,7 @@
     <!-- 🔧 Diagnostic Tool: Test All Systems -->
     <script src="js/vibelyf-diagnostic.js"></script>
     
-    <!-- 🎨 Image Forge: Multi-Model Gemini Builder with Image Support -->
+    <!-- 🎨 Image Forge: Worker-backed app builder with image-upload support -->
     <script src="js/vibelyf-image-forge-engine.js"></script>
     
     <!-- 🖼️ Image Editor: Real-time CSS Filter Editor -->
@@ -2583,13 +2583,6 @@
             console.warn('Firebase not configured (demo mode)');
         }
 
-        const CLAUDE_CONFIG = {
-            apiKey: '' /* TODO Phase 1.H — Worker proxy supplies this; never hardcode again */,
-            endpoint: 'https://api.anthropic.com/v1/messages',
-            model: 'claude-sonnet-4-6',
-            version: '2023-06-01'
-        };
-        
         // DEBUG FUNCTION: Test database manually
         window.testDatabase = function() {
             console.log('🧪 === CULTURAL DATABASE TEST ===');
@@ -4966,7 +4959,7 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                             `**Build Engines:**\n` +
                             `• Code Generator (Gemini 2.5 Flash): ${window.VibeLyfCodeGenerator ? '✅' : '❌'}\n` +
                             `• API Generator (Gemini + Claude): ${window.ClaudeAPIGenerator ? '✅ CORS-safe' : '❌'}\n` +
-                            `• Image Forge (Gemini Multi): ${window.VibeLyfImageForge ? '✅' : '❌'}\n` +
+                            `• Image Forge (Worker AI): ${window.VibeLyfImageForge ? '✅' : '❌'}\n` +
                             `• Orchestrator: ${window.VibeLyfOrchestrator ? '✅' : '❌'}\n\n` +
                             `**Intelligence Layer:**\n` +
                             `• Vocabulary DB: ${window.culturalVocabularyMaster ? `✅ ${vocabCount} terms` : '❌'}\n` +
@@ -5610,62 +5603,8 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                     interpretation: interpretation,
                     confidence: confidence
                 };
-                
-                // NOTE: To use real Claude API, you need:
-                // 1. A backend proxy (Netlify Functions, Cloudflare Workers, etc.)
-                // 2. OR use Groq API (free, browser-compatible)
-                // See CHATBOT-FIX-IMMEDIATE.md for solutions
-                
-                // CORS-blocked code commented out:
-                /*
-                const response = await fetch(
-                    CLAUDE_CONFIG.endpoint,
-                    {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'x-api-key': CLAUDE_CONFIG.apiKey,
-                            'anthropic-version': CLAUDE_CONFIG.version
-                        },
-                        body: JSON.stringify({
-                            model: CLAUDE_CONFIG.model,
-                            max_tokens: 500,
-                            temperature: 0.7,
-                            system: systemContext,
-                            messages: [{
-                                role: 'user',
-                                content: userMessage
-                            }]
-                        })
-                    }
-                );
-                
-                if (!response.ok) {
-                    const errorText = await response.text();
-                    console.error('❌ API Error Response:', errorText);
-                    let errorJson;
-                    try {
-                        errorJson = JSON.parse(errorText);
-                    } catch (e) {
-                        throw new Error(`API Error (${response.status}): ${errorText.substring(0, 200)}`);
-                    }
-                    throw new Error(errorJson.error?.message || `API Error (${response.status}): ${errorText.substring(0, 200)}`);
-                }
-                
-                const data = await response.json();
-                console.log('✅ Claude API Response:', data);
-                
-                if (!data.content || !data.content[0]) {
-                    throw new Error('No response from Claude API');
-                }
-                
-                const aiResponse = data.content[0].text;
-                
-                return {
-                    text: aiResponse,
-                    powered: 'claude-3.5-sonnet'
-                };
-                */
+                // (Removed: a dead, commented-out direct api.anthropic.com fetch. All
+                //  LLM calls now go through the Worker proxy; no keys live in the browser.)
             },
             
             // Detect slang terms in user message
@@ -8903,11 +8842,6 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
         
         .mobile-bottom-nav .create-btn:active span:first-child {
             transform: scale(0.9);
-        }
-        
-        /* Scroll to top helper */
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </style>
 
