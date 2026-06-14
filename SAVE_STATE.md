@@ -56,7 +56,19 @@
   Controller: `window.VibeLyfCompliance` (inline script at the end of index.html).
 - **Service worker (`sw.js`)** — intercepts SAME-ORIGIN GETs only (cross-origin feed APIs go
   straight to network; this was a stale-feed bug, fixed). **Bump `CACHE_NAME` on EVERY deploy
-  that changes JS/CSS** or returning visitors get stale assets. Current: `vibelyf-v2026.06.05b`.
+  that changes JS/CSS** or returning visitors get stale assets. Current: `vibelyf-v2026.06.14a`.
+
+## 🔎 Triage audit (2026-06-14)
+
+Parallel 4-surface audit + fixes (commits `c625795` `8c961f5` `4913fa8` `59e5905`). Real bugs fixed:
+worker limiter could 500 on a binding throw (now fails open); codegen rejected image-only
+requests; Mastodon dedup keyed the reblog wrapper (boosts double-rendered); Lemmy timestamps
+sorted as local time (mis-ordered the merged feed off-UTC); orchestrator `getStatus` always
+reported `ready:false`; `getModelStatus` crashed on a removed field. Hardening: `safeUrl()`
+http(s) scheme allowlist on all API-derived href/src in the 3 feeds. Cleanup: deleted dead
+`worker/src/providers/gemini.js`, `CLAUDE_CONFIG` + a commented direct-anthropic fetch, and a
+`scrollToTop` defined inside `<style>`; reconciled stale Gemini/Maverick labels; privacy.html
+processor list corrected. All verified live.
 - **Image Forge** (`js/vibelyf-image-forge-engine.js`) — Worker-backed, `isReady()` always true,
   single call (failover is server-side). Multimodal image uploads work.
 - **Rate limiting (live, verified)** — layered per-IP limits on paid routes: 10/min on
