@@ -78,6 +78,22 @@ processor list corrected. All verified live.
   this plan; in-memory window is the last resort. `/api/health` exposes `rate_limiter` state.
   429s carry `Retry-After`.
 
+## 💾 Save-your-hub (accounts, 2026-06-14)
+
+Optional free accounts persist the hub (feeds/handles/communities/layout) across devices.
+- Supabase creds are **baked into index.html** (`window.VIBELYF_SUPABASE_*`, anon key is browser-safe);
+  `VibeLyfCloud` auto-inits — accounts work with zero setup. Guests still work fully from localStorage.
+- `js/vibelyf-account.js` = the account modal (create / sign in), wired to Sign Up/Login nav + Settings.
+- `VibeLyfCloud.HUB_KEYS` (the 4 feed-config keys) sync up on login/change (`pushHub()` debounced) and
+  restore + re-render on sign-in elsewhere. Feed modules call `pushHub()` on add/remove.
+- **DB fix** (`supabase/migrations/2026-06-14_fix_handle_new_user.sql`, applied via SQL editor): signup
+  was failing `Database error saving new user`; the new-user trigger is now defensive (search_path +
+  error-swallow). The MCP Supabase tools are bound to a DIFFERENT (Vercel) org — they CANNOT see the
+  VibeLyf project `zcnvqgtjljqzzkhhvwhg`; apply DB changes via the dashboard SQL editor (logged in).
+- **Not yet live-verified:** the full signup→confirm→login→cross-device-restore round-trip (didn't want
+  to create production users). Real-email signup now passes the DB; Brad should do the first real signup.
+  Email confirmation may be ON (modal handles both cases). OAuth (Google) needs Supabase config (#15).
+
 ## ⚠️ Operating rules learned the hard way
 
 1. **Deploy Pages ONLY via `./deploy-pages.sh`** — an incrementally-patched temp staging dir got
