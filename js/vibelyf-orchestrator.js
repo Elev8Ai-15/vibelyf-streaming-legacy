@@ -160,18 +160,10 @@ window.VibeLyfOrchestrator = {
         }
         
         console.log('🎨 Using Image Forge Engine');
-        
-        // Initialize if needed
-        const geminiKey = localStorage.getItem('gemini_api_key') || '';
-        if (geminiKey && !window.VibeLyfImageForge.isReady()) {
-            window.VibeLyfImageForge.init(geminiKey);
-        }
-        
-        // Check if ready
-        if (!window.VibeLyfImageForge.isReady()) {
-            throw new Error('Image Forge not initialized. Please set your Gemini API key.');
-        }
-        
+
+        // Worker-backed — no key needed, always ready. init() is a harmless no-op.
+        window.VibeLyfImageForge.init();
+
         // Translate message using linguistics if available
         let translatedMessage = message;
         if (window.culturalVocabularyMaster && window.culturalVocabularyMaster.translate) {
@@ -230,10 +222,11 @@ window.VibeLyfOrchestrator = {
      * Get status of all engines
      */
     getStatus() {
+        // All engines are Worker-backed — "ready" means loaded (no browser key gating).
         return {
             'claude-api': {
                 loaded: !!window.ClaudeAPIGenerator,
-                ready: window.ClaudeAPIGenerator ? window.ClaudeAPIGenerator.isInitialized?.() : false
+                ready: !!window.ClaudeAPIGenerator
             },
             'image-forge': {
                 loaded: !!window.VibeLyfImageForge,
@@ -241,7 +234,7 @@ window.VibeLyfOrchestrator = {
             },
             'code-generator': {
                 loaded: !!window.VibeLyfCodeGenerator,
-                ready: window.VibeLyfCodeGenerator ? !!window.VibeLyfCodeGenerator.apiKey : false
+                ready: !!window.VibeLyfCodeGenerator
             }
         };
     }

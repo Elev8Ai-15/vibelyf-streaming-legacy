@@ -2,29 +2,24 @@
  * 🚀 VIBELYF CODE GENERATOR
  *
  * Takes clarified, interpreted user messages and generates actual working code.
- * Uses Google Gemini 3.5 Flash API to turn natural language into HTML/CSS/JS applications.
+ * Turns natural language into HTML/CSS/JS applications.
  *
  * THE REWARD FOR CLEAR COMMUNICATION.
  *
- * UPGRADED: May 2026 — Gemini 3.5 Flash (Google I/O 2026 release, outperforms 3.1 Pro,
- *                       4× faster output, 1M context, native code execution)
- * NOTE:    API key is sourced from window.VIBELYF_API_KEYS or localStorage at runtime
- *          once Phase 1.H Workers proxy lands. Hardcoded keys are dev-only placeholders.
+ * All generation routes through the VibeLyf Worker proxy (/api/llm/codegen), which
+ * picks the model server-side: free Cloudflare Workers AI by default, Claude for
+ * image input / high-quality / fallback. NO API key lives in the browser.
  */
 
 const VibeLyfCodeGenerator = {
-    // Gemini API Configuration
     config: {
-        // Phase 1.H Part 2: all calls now route through the VibeLyf Worker proxy,
-        // which holds the provider keys server-side. apiKey stays empty in the browser.
+        // Phase 1.H Part 2: all calls route through the VibeLyf Worker proxy, which
+        // holds the keys + picks the model server-side (free Workers AI → Claude).
+        // The browser holds NO key and NO provider endpoint. apiKey stays empty.
         apiKey: '',
-        model: 'gemini-3.5-flash',
+        model: 'worker', // display fallback only; real model comes from response meta
         // Worker proxy base (override globally via window.VIBELYF_WORKER_API).
-        workerBase: (typeof window !== 'undefined' && window.VIBELYF_WORKER_API) || 'https://vibelyf-api.bradgpowell1123.workers.dev',
-        endpoint: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent',
-        // Fallback chain: try latest first, fall back gracefully
-        fallbackModels: ['gemini-3.5-flash', 'gemini-3.1-pro-preview', 'gemini-2.5-flash', 'gemini-2.5-pro'],
-        fallbackIndex: 0
+        workerBase: (typeof window !== 'undefined' && window.VIBELYF_WORKER_API) || 'https://vibelyf-api.bradgpowell1123.workers.dev'
     },
 
     // State
