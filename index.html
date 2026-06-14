@@ -58,6 +58,14 @@
          Must run BEFORE the provider modules below, which read it at definition time. -->
     <script>window.VIBELYF_WORKER_API = 'https://vibelyf-api.bradgpowell1123.workers.dev';</script>
 
+    <!-- ☁️ Supabase config — baked in so free accounts + cross-device hub sync work
+         with ZERO setup. The publishable/anon key is browser-safe by design (Row Level
+         Security protects all data); it ships in every Supabase client app. -->
+    <script>
+        window.VIBELYF_SUPABASE_URL = 'https://zcnvqgtjljqzzkhhvwhg.supabase.co';
+        window.VIBELYF_SUPABASE_ANON_KEY = 'sb_publishable_cQY1ENMHgkiCgYrX-RU8ow_jQ1sgel9';
+    </script>
+
     <!-- 🎨 Linguistics Engine V32: Universal Vibe Compiler -->
     <script src="js/linguistics-engine-v32.js"></script>
     
@@ -110,6 +118,9 @@
     
     <!-- ☁️ Supabase Cloud: Auth + DB persistence (March 2026) -->
     <script src="js/vibelyf-cloud.js"></script>
+
+    <!-- 👤 Account: optional free account to save your hub across devices -->
+    <script src="js/vibelyf-account.js"></script>
     
     <!-- 👤 User Profile: Stats, vibe themes, cloud sync (March 2026) -->
     <script src="js/vibelyf-profile.js"></script>
@@ -3787,21 +3798,13 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
             },
 
             showAuth(mode) {
-                this.state.authMode = mode;
-                const modal = document.getElementById('authModal');
-                const title = document.getElementById('authTitle');
-                const btn = document.getElementById('authBtn');
-                
-                if (mode === 'signup') {
-                    title.textContent = 'Sign Up';
-                    btn.textContent = 'Create Account';
-                } else {
-                    title.textContent = 'Login';
-                    btn.textContent = 'Login';
+                // Delegates to the VibeLyfAccount modal (save-your-hub accounts).
+                if (window.VibeLyfAccount) {
+                    window.VibeLyfAccount._mode = (mode === 'login') ? 'signin' : 'signup';
+                    window.VibeLyfAccount.open();
+                    return;
                 }
-                
-                modal.classList.add('active');
-                document.getElementById('authEmail').focus();
+                console.warn('Account module not loaded yet');
             },
 
             async handleAuth() {
@@ -6372,9 +6375,10 @@ Matrix → primary: neon green (#00FF41), secondary: lime (#39FF14)`;
                     `• 🆓 Free forever — no paywalls, no per-feature limits for normal use\n` +
                     `• 🔒 Your data choices: tap **Privacy** or **Do Not Sell or Share** (bottom-left)\n` +
                     `• 🩺 System status: type \`/status\`\n\n` +
-                    `An optional free account just lets you save your hub across devices.`,
+                    `Want your feeds to follow you across devices? Create a free account — tap **Sign Up** in the sidebar.`,
                     'bot'
                 );
+                if (window.VibeLyfAccount) setTimeout(() => window.VibeLyfAccount.open(), 400);
             },
             
             // Show affiliate revenue stats

@@ -31,6 +31,7 @@ window.VibeLyfUniFeed = {
         const e = this.getEnabled();
         e[id] = on;
         try { localStorage.setItem(this.STORAGE_KEY, JSON.stringify(e)); } catch (err) {}
+        if (window.VibeLyfCloud) window.VibeLyfCloud.pushHub(); // sync to account if signed in
     },
     toggle(id) {
         const e = this.getEnabled();

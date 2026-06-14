@@ -14,7 +14,7 @@
 // deletes any cache whose name != CACHE_NAME, so a new version forces fresh
 // core assets and purges the stale cache. (2026-06-04: bumped for the Worker-
 // proxy LLM cutover — old cache was serving pre-cutover JS to returning visitors.)
-const CACHE_NAME = 'vibelyf-v2026.06.14a';
+const CACHE_NAME = 'vibelyf-v2026.06.14b';
 const CORE_ASSETS = [
     '/',
     '/index.html',
@@ -31,6 +31,7 @@ const CORE_ASSETS = [
     '/js/vibelyf-lemmy.js',
     '/js/vibelyf-unifeed.js',
     '/js/vibelyf-cloud.js',
+    '/js/vibelyf-account.js',
     '/js/vibelyf-profile.js',
     '/js/vibelyf-tabs.js',
     '/js/vibelyf-voice-input.js',

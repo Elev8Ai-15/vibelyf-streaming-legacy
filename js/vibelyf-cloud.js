@@ -30,6 +30,15 @@ window.VibeLyfCloud = {
     // Current user
     currentUser: null,
 
+    // localStorage keys that make up "the hub" — synced across devices on login.
+    HUB_KEYS: [
+        'vibelyf_bluesky_handles',
+        'vibelyf_mastodon_handles',
+        'vibelyf_lemmy_communities',
+        'vibelyf_unifeed_platforms'
+    ],
+    _hubPushTimer: null,
+
     // ═══════════════════════════════════════════════════════════════
     // INITIALIZATION
     // ═══════════════════════════════════════════════════════════════
@@ -40,13 +49,16 @@ window.VibeLyfCloud = {
      * @param {string} key - Supabase anon key (optional, reads from localStorage)
      */
     async init(url, key) {
-        // Get credentials
-        this.config.supabaseUrl = url || localStorage.getItem('vibelyf_supabase_url') || '';
-        this.config.supabaseKey = key || localStorage.getItem('vibelyf_supabase_key') || '';
+        // Credentials priority: explicit args → baked-in globals (zero-setup default)
+        // → localStorage (legacy /cloud command). The anon/publishable key is
+        // browser-safe; RLS protects all data.
+        const gUrl = (typeof window !== 'undefined' && window.VIBELYF_SUPABASE_URL) || '';
+        const gKey = (typeof window !== 'undefined' && window.VIBELYF_SUPABASE_ANON_KEY) || '';
+        this.config.supabaseUrl = url || gUrl || localStorage.getItem('vibelyf_supabase_url') || '';
+        this.config.supabaseKey = key || gKey || localStorage.getItem('vibelyf_supabase_key') || '';
 
         if (!this.config.supabaseUrl || !this.config.supabaseKey) {
-            console.log('☁️ Supabase: No credentials set — using localStorage only');
-            console.log('💡 To enable cloud sync: VibeLyfCloud.init("YOUR_URL", "YOUR_KEY")');
+            console.log('☁️ Supabase: No credentials available — using localStorage only');
             this.config.initialized = false;
             return false;
         }
@@ -370,6 +382,19 @@ window.VibeLyfCloud = {
                 }, { onConflict: 'user_id,data_key' });
             }
 
+            // Sync THE HUB — the user's configured feeds (the heart of "save your hub").
+            // Stored as raw localStorage strings so restore is a faithful round-trip.
+            const hub = {};
+            this.HUB_KEYS.forEach((k) => { const v = localStorage.getItem(k); if (v != null) hub[k] = v; });
+            if (Object.keys(hub).length > 0) {
+                await this.client.from('user_data').upsert({
+                    user_id: userId,
+                    data_key: 'hub',
+                    data_value: hub,
+                    updated_at: new Date().toISOString()
+                }, { onConflict: 'user_id,data_key' });
+            }
+
             // Update profile stats
             await this.updateProfile({
                 communication_score: parseInt(commStats.clear || 0) + parseInt(commStats.vague || 0) > 0
@@ -412,22 +437,69 @@ window.VibeLyfCloud = {
                 'custom_vibes': 'vibe_custom_specs'
             };
 
+            let hubRestored = false;
             data.forEach(row => {
+                if (row.data_key === 'hub' && row.data_value && typeof row.data_value === 'object') {
+                    // The hub stores raw localStorage strings — restore them verbatim.
+                    Object.entries(row.data_value).forEach(([k, v]) => {
+                        if (this.HUB_KEYS.includes(k) && typeof v === 'string') {
+                            localStorage.setItem(k, v);
+                        }
+                    });
+                    hubRestored = true;
+                    return;
+                }
                 const localKey = keyMap[row.data_key];
                 if (localKey) {
-                    const cloudTimestamp = new Date(row.updated_at).getTime();
-                    
-                    // Simple conflict resolution: cloud wins if newer
-                    // (In a more sophisticated system, you'd merge)
+                    // Simple conflict resolution: cloud wins (last-write).
                     localStorage.setItem(localKey, JSON.stringify(row.data_value));
                 }
             });
 
             console.log('☁️ Cloud sync complete (cloud → local)');
+            if (hubRestored) this._reRenderOpenFeed();
 
         } catch (error) {
             console.error('☁️ Sync from cloud error:', error);
         }
+    },
+
+    /**
+     * Push just the hub (feeds) to the cloud, debounced — called by the feed
+     * modules whenever the user adds/removes a handle or community. No-op when
+     * signed out, so anonymous users still work purely from localStorage.
+     */
+    pushHub() {
+        if (!this.config.initialized || !this.currentUser) return;
+        clearTimeout(this._hubPushTimer);
+        this._hubPushTimer = setTimeout(async () => {
+            try {
+                const hub = {};
+                this.HUB_KEYS.forEach((k) => { const v = localStorage.getItem(k); if (v != null) hub[k] = v; });
+                await this.client.from('user_data').upsert({
+                    user_id: this.currentUser.id,
+                    data_key: 'hub',
+                    data_value: hub,
+                    updated_at: new Date().toISOString()
+                }, { onConflict: 'user_id,data_key' });
+                console.log('☁️ Hub saved to your account');
+            } catch (e) {
+                console.warn('☁️ Hub push failed:', e.message);
+            }
+        }, 1500);
+    },
+
+    /**
+     * If a feed view is currently open, reload it so restored handles show
+     * immediately after a cross-device sync.
+     */
+    _reRenderOpenFeed() {
+        try {
+            if (document.getElementById('vlUniFeed') && window.VibeLyfUniFeed) return window.VibeLyfUniFeed.loadFeed();
+            if (document.getElementById('vlBskyFeed') && window.BlueskyIntegration) return window.BlueskyIntegration.open();
+            if (document.getElementById('vlMastoFeed') && window.MastodonIntegration) return window.MastodonIntegration.open();
+            if (document.getElementById('vlLemmyFeed') && window.LemmyIntegration) return window.LemmyIntegration.open();
+        } catch (e) { /* feed not open / module missing — fine */ }
     },
 
     /**

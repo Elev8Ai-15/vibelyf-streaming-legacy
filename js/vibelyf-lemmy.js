@@ -32,7 +32,7 @@ window.LemmyIntegration = {
         } catch (e) {}
         return this.DEFAULT_SEEDS.slice();
     },
-    saveCommunities(arr) { try { localStorage.setItem(this.STORAGE_KEY, JSON.stringify(arr)); } catch (e) {} },
+    saveCommunities(arr) { try { localStorage.setItem(this.STORAGE_KEY, JSON.stringify(arr)); } catch (e) {} if (window.VibeLyfCloud) window.VibeLyfCloud.pushHub(); },
     resetCommunities() { try { localStorage.removeItem(this.STORAGE_KEY); } catch (e) {} this.open(); },
 
     // ── entry point (🐭 right-rail widget) ────────────────────────────────

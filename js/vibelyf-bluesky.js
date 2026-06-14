@@ -41,6 +41,7 @@ window.BlueskyIntegration = {
     },
     saveHandles(arr) {
         try { localStorage.setItem(this.STORAGE_KEY, JSON.stringify(arr)); } catch (e) {}
+        if (window.VibeLyfCloud) window.VibeLyfCloud.pushHub(); // sync to account if signed in
     },
     resetHandles() {
         try { localStorage.removeItem(this.STORAGE_KEY); } catch (e) {}

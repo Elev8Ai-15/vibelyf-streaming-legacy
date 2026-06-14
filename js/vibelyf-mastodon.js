@@ -34,7 +34,7 @@ window.MastodonIntegration = {
         } catch (e) {}
         return this.DEFAULT_SEEDS.slice();
     },
-    saveHandles(arr) { try { localStorage.setItem(this.STORAGE_KEY, JSON.stringify(arr)); } catch (e) {} },
+    saveHandles(arr) { try { localStorage.setItem(this.STORAGE_KEY, JSON.stringify(arr)); } catch (e) {} if (window.VibeLyfCloud) window.VibeLyfCloud.pushHub(); },
     resetHandles() { try { localStorage.removeItem(this.STORAGE_KEY); } catch (e) {} this.open(); },
 
     // ── entry point (🐘 right-rail widget) ────────────────────────────────
