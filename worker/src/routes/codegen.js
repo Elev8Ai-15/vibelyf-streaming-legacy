@@ -73,8 +73,10 @@ export async function codegen(request, env, ctx) {
     if (!body) return errors.badRequest('Request body must be valid JSON');
 
     const content = extractContent(body);
-    if (!content.some((b) => b.type === 'text')) {
-        return errors.badRequest('Provide either { prompt: string } or { contents: [{ parts: [{ text }] }] }');
+    if (content.length === 0) {
+        // Accept any non-empty content (text and/or image). Image-only requests
+        // are valid — Image Forge can send an uploaded image with minimal text.
+        return errors.badRequest('Provide { prompt: string } or { contents: [{ parts: [{ text | inline_data }] }] }');
     }
 
     const system = extractSystem(body);

@@ -14,8 +14,8 @@
 #
 # Production deploy:
 #   1) wrangler login
-#   2) npm run secret:set:gemini   (paste key when prompted)
-#      ... repeat for anthropic, groq, cerebras
+#   2) wrangler secret put ANTHROPIC_API_KEY   (paste when prompted)
+#      ... repeat for GROQ_API_KEY, CEREBRAS_API_KEY (codegen default is the free [ai] binding)
 #   3) npm run deploy
 #   4) In Cloudflare dashboard → Workers → vibelyf-api → Triggers,
 #      add a route: vibelyf.com/api/*  → this worker
@@ -74,10 +74,10 @@ simple = { limit = 60, period = 60 }
 
 # -----------------------------------------------------------------------------
 # Secrets (set via `wrangler secret put <NAME>` — NEVER commit)
-#   GEMINI_API_KEY       — Google AI Studio key for Gemini 3.5 Flash
-#   ANTHROPIC_API_KEY    — Anthropic key for Claude Sonnet 4.6
-#   GROQ_API_KEY         — Groq key for Llama 4 Maverick (primary fast brain)
-#   CEREBRAS_API_KEY     — Cerebras key for Llama 4 Scout (failover)
+#   ANTHROPIC_API_KEY    — Claude Sonnet 4.6 (codegen image/high-quality/fallback, api-gen)
+#   GROQ_API_KEY         — Groq Llama 4 Scout (primary fast brain / slang)
+#   CEREBRAS_API_KEY     — Cerebras Llama 4 Scout (slang cross-provider failover)
+#   (codegen's default engine is the free Cloudflare Workers AI [ai] binding — no key)
 #   SUPABASE_URL         — set in Phase 1.H part 2 once Supabase is up
 #   SUPABASE_SERVICE_KEY — service role key for rate-limit + auth verify
 # -----------------------------------------------------------------------------

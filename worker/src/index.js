@@ -8,11 +8,12 @@
  * Routing is a simple URL-pathname switch — keep it that way. If we end up
  * with >15 routes consider Hono, but for the current set vanilla is clearer.
  *
- * Phase 1.H part 1 routes (live):
+ * Routes (live):
  *   GET   /api/health
- *   POST  /api/llm/codegen        Gemini 3.5 Flash (with fallback chain)
+ *   POST  /api/llm/codegen        Workers AI (free) → Claude fallback; Claude for images/high-quality
  *   POST  /api/llm/api-gen        Claude Sonnet 4.6 + cached vocab system prompt
- *   POST  /api/llm/slang          Groq Llama 4 Maverick → Scout → Cerebras failover
+ *   POST  /api/llm/slang          Groq Llama 4 Scout → Groq 3.3-70B → Cerebras failover
+ *   POST  /api/embed              oEmbed proxy (9+ platforms)
  *
  * Phase 1.H part 2 routes (TODO):
  *   POST  /api/voice/tts          ElevenLabs Conversational v2
@@ -70,8 +71,14 @@ async function route(request, env, ctx) {
 
         const binding = lim.routeClass === 'llm-heavy' ? env.HEAVY_LIMITER : env.FAST_LIMITER;
         if (binding && typeof binding.limit === 'function') {
-            const verdict = await binding.limit({ key: `${lim.routeClass}:${ip}` });
-            if (verdict && verdict.success === false) return rateLimitedResponse(60);
+            try {
+                const verdict = await binding.limit({ key: `${lim.routeClass}:${ip}` });
+                if (verdict && verdict.success === false) return rateLimitedResponse(60);
+            } catch (e) {
+                // Fail open on a binding error — consistent with the other layers,
+                // so a transient platform hiccup never 500s a legitimate request.
+                console.warn('native ratelimit binding threw, failing open:', e.message);
+            }
         }
 
         // Heavy routes get the durable Supabase counter when available

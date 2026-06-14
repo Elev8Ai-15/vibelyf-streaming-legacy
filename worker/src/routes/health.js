@@ -20,7 +20,7 @@ export async function health(request, env, ctx) {
         version: env.WORKER_VERSION || '0.0.0',
         time: new Date().toISOString(),
         providers: {
-            gemini: Boolean(env.GEMINI_API_KEY),
+            workers_ai: Boolean(env.AI),        // free-tier codegen default
             anthropic: Boolean(env.ANTHROPIC_API_KEY),
             groq: Boolean(env.GROQ_API_KEY),
             cerebras: Boolean(env.CEREBRAS_API_KEY),

@@ -3,10 +3,10 @@
  *
  * Fast-brain slang detection / clarification / intent classification.
  *
- * Provider chain:
- *   1. Groq Llama 4 Maverick  (primary — ~300 tok/s, sub-second)
- *   2. Groq Llama 4 Scout     (in-Groq fallback if Maverick rate-limits / errors)
- *   3. Cerebras Llama 4 Scout (cross-provider failover — free tier 1M tok/day)
+ * Provider chain (Groq doesn't expose Maverick; Scout is primary):
+ *   1. Groq Llama 4 Scout         (primary — ~300 tok/s, sub-second)
+ *   2. Groq Llama 3.3 70B Versatile (in-Groq fallback on rate-limit / error)
+ *   3. Cerebras Llama 4 Scout     (cross-provider failover — free tier 1M tok/day)
  *
  * Request body:
  *   { messages?: [{ role, content }],   // OpenAI-style chat history
