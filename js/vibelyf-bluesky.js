@@ -229,15 +229,15 @@ window.BlueskyIntegration = {
         const repost = p.repostedBy
             ? `<div style="font-size:12px; color: var(--vl-text-muted,#5E6164); margin-bottom:6px;">🔁 Reposted by ${this.escapeHtml(p.repostedBy)}</div>`
             : '';
-        const avatar = p.avatar
-            ? `<img src="${this.escapeAttr(p.avatar)}" alt="" width="40" height="40" loading="lazy" style="width:40px; height:40px; border-radius:50%; object-fit:cover; flex-shrink:0;">`
+        const avatar = this.safeUrl(p.avatar, '')
+            ? `<img src="${this.escapeAttr(this.safeUrl(p.avatar, ''))}" alt="" width="40" height="40" loading="lazy" style="width:40px; height:40px; border-radius:50%; object-fit:cover; flex-shrink:0;">`
             : `<div style="width:40px; height:40px; border-radius:50%; background: var(--vl-accent,#0085FF); flex-shrink:0;"></div>`;
 
         let images = '';
         if (p.images.length) {
             const cols = p.images.length === 1 ? '1fr' : '1fr 1fr';
             images = `<div style="display:grid; grid-template-columns:${cols}; gap:6px; margin-top:10px; border-radius: var(--vl-radius-md,10px); overflow:hidden;">` +
-                p.images.map((src) => `<img src="${this.escapeAttr(src)}" alt="" loading="lazy" style="width:100%; height:100%; max-height:280px; object-fit:cover; display:block;">`).join('') +
+                p.images.map((src) => `<img src="${this.escapeAttr(this.safeUrl(src, ''))}" alt="" loading="lazy" style="width:100%; height:100%; max-height:280px; object-fit:cover; display:block;">`).join('') +
                 `</div>`;
         }
 
@@ -262,7 +262,7 @@ window.BlueskyIntegration = {
                             <span title="Replies">💬 ${this.fmt(p.replies)}</span>
                             <span title="Reposts">🔁 ${this.fmt(p.reposts)}</span>
                             <span title="Likes">♥ ${this.fmt(p.likes)}</span>
-                            <a href="${this.escapeAttr(p.url)}" target="_blank" rel="noopener noreferrer" style="margin-left:auto; color: var(--vl-accent-deep, #0085FF); text-decoration:none; font-weight:600;">Open ↗</a>
+                            <a href="${this.escapeAttr(this.safeUrl(p.url))}" target="_blank" rel="noopener noreferrer" style="margin-left:auto; color: var(--vl-accent-deep, #0085FF); text-decoration:none; font-weight:600;">Open ↗</a>
                         </div>
                     </div>
                 </div>
@@ -293,5 +293,7 @@ window.BlueskyIntegration = {
             .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
             .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
     },
-    escapeAttr(s) { return this.escapeHtml(s); }
+    escapeAttr(s) { return this.escapeHtml(s); },
+    // Only allow http(s) URLs into href/src (blocks javascript:/data: schemes).
+    safeUrl(u, fb = '#') { u = String(u || ''); return /^https?:\/\//i.test(u) ? u : fb; }
 };

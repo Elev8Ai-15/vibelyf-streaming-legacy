@@ -88,13 +88,13 @@ window.LemmyIntegration = {
         const c = (raw || '').trim().replace(/^[!@]/, '');
         const at = c.indexOf('@');
         if (at < 1) return null;
-        const name = c.slice(0, at);
+        const name = c.slice(0, at).toLowerCase(); // Lemmy community names are lowercase-only
         const instance = c.slice(at + 1).toLowerCase();
         if (!name || !instance.includes('.')) return null;
         // Strict charsets (Lemmy community names are [a-z0-9_], instances are
         // domains). Also guarantees stored values can't break out of the inline
         // onclick strings in the chips.
-        if (!/^[a-z0-9_]+$/i.test(name) || !/^[a-z0-9.-]+$/.test(instance)) return null;
+        if (!/^[a-z0-9_]+$/.test(name) || !/^[a-z0-9.-]+$/.test(instance)) return null;
         return { name, instance, full: `${name}@${instance}` };
     },
 
@@ -192,7 +192,10 @@ window.LemmyIntegration = {
             communityTitle: community.title || community.name || parsed.name,
             communityIcon: community.icon || '',
             author: creator.display_name || creator.name || 'unknown',
-            ts: p.published || '',
+            // Lemmy returns published WITHOUT a Z/offset; mark it UTC so it sorts
+            // correctly against Bluesky/Mastodon (which are already UTC) in the
+            // merged unified feed and parses consistently in relTime.
+            ts: this.toUtc(p.published),
             score: counts.score || 0,
             comments: counts.comments || 0,
             postUrl: `https://${parsed.instance}/post/${p.id}`
@@ -200,11 +203,11 @@ window.LemmyIntegration = {
     },
 
     renderCard(p) {
-        const cIcon = p.communityIcon
-            ? `<img src="${this.escapeAttr(p.communityIcon)}" alt="" width="20" height="20" loading="lazy" style="width:20px;height:20px;border-radius:5px;object-fit:cover;">`
+        const cIcon = this.safeUrl(p.communityIcon, '')
+            ? `<img src="${this.escapeAttr(this.safeUrl(p.communityIcon, ''))}" alt="" width="20" height="20" loading="lazy" style="width:20px;height:20px;border-radius:5px;object-fit:cover;">`
             : `<span style="width:20px;height:20px;border-radius:5px;background:#14854F;display:inline-block;"></span>`;
-        const thumb = p.image
-            ? `<img src="${this.escapeAttr(p.image)}" alt="" loading="lazy" style="width:100%;max-height:300px;object-fit:cover;border-radius:var(--vl-radius-md,10px);margin-top:10px;display:block;">`
+        const thumb = this.safeUrl(p.image, '')
+            ? `<img src="${this.escapeAttr(this.safeUrl(p.image, ''))}" alt="" loading="lazy" style="width:100%;max-height:300px;object-fit:cover;border-radius:var(--vl-radius-md,10px);margin-top:10px;display:block;">`
             : '';
         const bodySnippet = p.body
             ? `<div style="margin-top:6px; color: var(--vl-text-muted,#5E6164); font-size:14px; line-height:1.5; white-space:pre-wrap; word-wrap:break-word; max-height:6.5em; overflow:hidden;">${this.escapeHtml(p.body.slice(0, 320))}${p.body.length > 320 ? '…' : ''}</div>`
@@ -220,19 +223,24 @@ window.LemmyIntegration = {
                     <span>· ${this.relTime(p.ts)}</span>
                     <span>· by ${this.escapeHtml(p.author)}</span>
                 </div>
-                <a href="${this.escapeAttr(p.postUrl)}" target="_blank" rel="noopener noreferrer" style="font-weight: var(--vl-weight-bold,700); font-size:16px; color: var(--vl-text,#16181a); text-decoration:none; line-height:1.35; display:block;">${this.escapeHtml(p.title)}</a>
+                <a href="${this.escapeAttr(this.safeUrl(p.postUrl))}" target="_blank" rel="noopener noreferrer" style="font-weight: var(--vl-weight-bold,700); font-size:16px; color: var(--vl-text,#16181a); text-decoration:none; line-height:1.35; display:block;">${this.escapeHtml(p.title)}</a>
                 ${extLink}
                 ${bodySnippet}
                 ${thumb}
                 <div style="display:flex; gap:18px; margin-top:12px; font-size:13px; color: var(--vl-text-muted,#5E6164);">
                     <span title="Score">▲ ${this.fmt(p.score)}</span>
                     <span title="Comments">💬 ${this.fmt(p.comments)}</span>
-                    <a href="${this.escapeAttr(p.postUrl)}" target="_blank" rel="noopener noreferrer" style="margin-left:auto; color: #14854F; text-decoration:none; font-weight:600;">Open ↗</a>
+                    <a href="${this.escapeAttr(this.safeUrl(p.postUrl))}" target="_blank" rel="noopener noreferrer" style="margin-left:auto; color: #14854F; text-decoration:none; font-weight:600;">Open ↗</a>
                 </div>
             </article>`;
     },
 
     // ── helpers ───────────────────────────────────────────────────────────
+    // Append 'Z' to a bare ISO datetime (no Z, no ±hh:mm offset) so it's parsed as UTC.
+    toUtc(ts) {
+        if (!ts) return '';
+        return /[zZ]$|[+-]\d\d:?\d\d$/.test(ts) ? ts : ts + 'Z';
+    },
     hostOf(url) { try { return new URL(url).hostname.replace(/^www\./, ''); } catch (e) { return url.slice(0, 40); } },
     relTime(ts) {
         if (!ts) return '';
@@ -257,5 +265,7 @@ window.LemmyIntegration = {
             .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
             .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
     },
-    escapeAttr(s) { return this.escapeHtml(s); }
+    escapeAttr(s) { return this.escapeHtml(s); },
+    // Only allow http(s) URLs into href/src (blocks javascript:/data: schemes).
+    safeUrl(u, fb = '#') { u = String(u || ''); return /^https?:\/\//i.test(u) ? u : fb; }
 };

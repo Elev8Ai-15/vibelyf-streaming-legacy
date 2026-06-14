@@ -187,7 +187,9 @@ window.MastodonIntegration = {
         const s = status.reblog || status;                        // the real post
         const a = s.account || {};
         return {
-            id: status.id,
+            // Key on the inner post's canonical URI so the same toot boosted by
+            // multiple followed accounts (or an original + its boost) de-dupes.
+            id: s.uri || s.id || status.id,
             handle: a.acct || '',
             name: a.display_name || a.acct || 'unknown',
             avatar: a.avatar || '',
@@ -206,14 +208,14 @@ window.MastodonIntegration = {
         const boost = p.boostedBy
             ? `<div style="font-size:12px; color: var(--vl-text-muted,#5E6164); margin-bottom:6px;">🔁 Boosted by ${this.escapeHtml(p.boostedBy)}</div>`
             : '';
-        const avatar = p.avatar
-            ? `<img src="${this.escapeAttr(p.avatar)}" alt="" width="40" height="40" loading="lazy" style="width:40px; height:40px; border-radius:50%; object-fit:cover; flex-shrink:0;">`
+        const avatar = this.safeUrl(p.avatar, '')
+            ? `<img src="${this.escapeAttr(this.safeUrl(p.avatar, ''))}" alt="" width="40" height="40" loading="lazy" style="width:40px; height:40px; border-radius:50%; object-fit:cover; flex-shrink:0;">`
             : `<div style="width:40px; height:40px; border-radius:50%; background: #6364FF; flex-shrink:0;"></div>`;
         let images = '';
         if (p.images.length) {
             const cols = p.images.length === 1 ? '1fr' : '1fr 1fr';
             images = `<div style="display:grid; grid-template-columns:${cols}; gap:6px; margin-top:10px; border-radius: var(--vl-radius-md,10px); overflow:hidden;">` +
-                p.images.map((src) => `<img src="${this.escapeAttr(src)}" alt="" loading="lazy" style="width:100%; height:100%; max-height:280px; object-fit:cover; display:block;">`).join('') + `</div>`;
+                p.images.map((src) => `<img src="${this.escapeAttr(this.safeUrl(src, ''))}" alt="" loading="lazy" style="width:100%; height:100%; max-height:280px; object-fit:cover; display:block;">`).join('') + `</div>`;
         }
         const text = p.text
             ? `<div style="margin-top:8px; white-space:pre-wrap; word-wrap:break-word; line-height: var(--vl-line-snug,1.45); color: var(--vl-text,#16181a);">${this.escapeHtml(p.text)}</div>`
@@ -235,7 +237,7 @@ window.MastodonIntegration = {
                             <span title="Replies">💬 ${this.fmt(p.replies)}</span>
                             <span title="Boosts">🔁 ${this.fmt(p.reblogs)}</span>
                             <span title="Favourites">★ ${this.fmt(p.favs)}</span>
-                            <a href="${this.escapeAttr(p.url)}" target="_blank" rel="noopener noreferrer" style="margin-left:auto; color: #6364FF; text-decoration:none; font-weight:600;">Open ↗</a>
+                            <a href="${this.escapeAttr(this.safeUrl(p.url))}" target="_blank" rel="noopener noreferrer" style="margin-left:auto; color: #6364FF; text-decoration:none; font-weight:600;">Open ↗</a>
                         </div>
                     </div>
                 </div>
@@ -276,5 +278,8 @@ window.MastodonIntegration = {
             .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
             .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
     },
-    escapeAttr(s) { return this.escapeHtml(s); }
+    escapeAttr(s) { return this.escapeHtml(s); },
+    // Only allow http(s) URLs (these come from remote instances). Blocks
+    // javascript:/data:/vbscript: in href/src. fb is what to use otherwise.
+    safeUrl(u, fb = '#') { u = String(u || ''); return /^https?:\/\//i.test(u) ? u : fb; }
 };

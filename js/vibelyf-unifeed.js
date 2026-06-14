@@ -77,7 +77,7 @@ window.VibeLyfUniFeed = {
                     ${['instagram','youtube','spotify','twitter','tiktok','soundcloud','facebook','snapchat','linkedin','reddit','pinterest','discord'].map((p) => `
                         <div onclick="VibeLyfApp.openApp('${p}')" class="vl-card vl-card-interactive" style="padding:14px 8px; text-align:center; cursor:pointer;">
                             <div style="font-size:26px; margin-bottom:6px;">${(window.VibeLyfApp && VibeLyfApp.getPlatformIcon) ? VibeLyfApp.getPlatformIcon(p) : '📱'}</div>
-                            <div style="font-size:11px; font-weight:600; text-transform:capitalize; color: var(--vl-text,#16181a);">${p.replace('-', ' ')}</div>
+                            <div style="font-size:11px; font-weight:600; text-transform:capitalize; color: var(--vl-text,#16181a);">${p.replace(/-/g, ' ')}</div>
                         </div>`).join('')}
                 </div>
             </div>`;
@@ -108,40 +108,36 @@ window.VibeLyfUniFeed = {
         feedEl.innerHTML = `<div style="text-align:center; padding:48px; color: var(--vl-text-muted,#5E6164);">🌐 Pulling all networks…</div>`;
 
         const enabled = this.getEnabled();
-        const counts = {};
         const tasks = [];
+
+        // Each source fans out over its handles/communities with allSettled, so one
+        // bad actor never sinks the platform, and returns lightweight tagged items
+        // (platform + dedup key + ts + the raw post). Rendering happens AFTER
+        // dedup/sort/cap, so we never build cards we'll throw away.
+        const fanOut = async (promises) => {
+            const settled = await Promise.allSettled(promises);
+            return settled.flatMap((s) => (s.status === 'fulfilled' && Array.isArray(s.value) ? s.value : []));
+        };
 
         if (enabled.bluesky && window.BlueskyIntegration) {
             tasks.push(
-                Promise.all(BlueskyIntegration.getHandles().map((h) => BlueskyIntegration.fetchAuthorFeed(h)))
-                    .then((r) => r.flat().map((p) => ({
-                        ts: p.ts, key: 'b:' + p.uri,
-                        html: this.badge('bluesky', BlueskyIntegration.renderCard(p))
-                    })))
-                    .then((items) => { counts.bluesky = items.length; return items; })
-                    .catch(() => { counts.bluesky = 0; return []; })
+                fanOut(BlueskyIntegration.getHandles().map((h) => BlueskyIntegration.fetchAuthorFeed(h)))
+                    .then((posts) => posts.map((p) => ({ platform: 'bluesky', key: 'b:' + p.uri, ts: p.ts, post: p })))
+                    .catch(() => [])
             );
         }
         if (enabled.mastodon && window.MastodonIntegration) {
             tasks.push(
-                Promise.all(MastodonIntegration.getHandles().map((h) => MastodonIntegration.fetchAccountFeed(h)))
-                    .then((r) => r.flat().map((p) => ({
-                        ts: p.ts, key: 'm:' + p.id,
-                        html: this.badge('mastodon', MastodonIntegration.renderCard(p))
-                    })))
-                    .then((items) => { counts.mastodon = items.length; return items; })
-                    .catch(() => { counts.mastodon = 0; return []; })
+                fanOut(MastodonIntegration.getHandles().map((h) => MastodonIntegration.fetchAccountFeed(h)))
+                    .then((posts) => posts.map((p) => ({ platform: 'mastodon', key: 'm:' + p.id, ts: p.ts, post: p })))
+                    .catch(() => [])
             );
         }
         if (enabled.lemmy && window.LemmyIntegration) {
             tasks.push(
-                Promise.all(LemmyIntegration.getCommunities().map((c) => LemmyIntegration.fetchCommunity(c)))
-                    .then((r) => r.flat().map((p) => ({
-                        ts: p.ts, key: 'l:' + p.uid,
-                        html: this.badge('lemmy', LemmyIntegration.renderCard(p))
-                    })))
-                    .then((items) => { counts.lemmy = items.length; return items; })
-                    .catch(() => { counts.lemmy = 0; return []; })
+                fanOut(LemmyIntegration.getCommunities().map((c) => LemmyIntegration.fetchCommunity(c)))
+                    .then((posts) => posts.map((p) => ({ platform: 'lemmy', key: 'l:' + p.uid, ts: p.ts, post: p })))
+                    .catch(() => [])
             );
         }
 
@@ -155,10 +151,19 @@ window.VibeLyfUniFeed = {
             .sort((a, b) => new Date(b.ts) - new Date(a.ts))
             .slice(0, this.MAX_ITEMS);
 
+        // Count AFTER dedup/cap so the status line reflects what's actually shown.
+        const renderers = {
+            bluesky: (p) => BlueskyIntegration.renderCard(p),
+            mastodon: (p) => MastodonIntegration.renderCard(p),
+            lemmy: (p) => LemmyIntegration.renderCard(p)
+        };
+        const counts = {};
+        items.forEach((i) => { counts[i.platform] = (counts[i.platform] || 0) + 1; });
+
         if (statusEl) {
             const parts = this.PLATFORMS
-                .filter((p) => enabled[p.id])
-                .map((p) => `${p.icon} ${counts[p.id] ?? 0}`);
+                .filter((p) => enabled[p.id] && counts[p.id])
+                .map((p) => `${p.icon} ${counts[p.id]}`);
             statusEl.textContent = items.length
                 ? `${items.length} posts · ${parts.join(' · ')}`
                 : '';
@@ -168,7 +173,7 @@ window.VibeLyfUniFeed = {
             feedEl.innerHTML = `<div style="text-align:center; padding:48px; color: var(--vl-text-muted,#5E6164);">No posts loaded. Toggle a network on, or add handles in the 🦋 🐘 🐭 feeds.</div>`;
             return;
         }
-        feedEl.innerHTML = items.map((i) => i.html).join('');
+        feedEl.innerHTML = items.map((i) => this.badge(i.platform, renderers[i.platform](i.post))).join('');
     },
 
     /** Wrap a platform card with a top-right network badge. */
